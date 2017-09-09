@@ -1,0 +1,92 @@
+#bodyimage {
+	background-image: url("images/backgroundwaterslide.jpg");
+	/*height: 92.8vh !important;*/
+}
+h2 {
+	color:#ffbb00 !important;
+	text-shadow: 3px 3px 5px black !important;
+}
+#bodyimage {
+	position: relative;
+	/*height: 50em;*/
+}
+#content_waterslides {
+	position: relative;
+
+}
+#slides {
+	position: relative;
+	display: inline-block;
+	margin-bottom: 4.3em;
+}
+#serv {
+	width: 58em;
+}
+#serv img {
+	float:left;	
+	clear: left;
+	border: 3px solid transparent;
+	border-color: #d4f442;
+	margin-bottom: 1em;
+	margin-right: 1em;
+}
+#serv #descr {
+	position: relative;
+	float:left;
+	display: inline-block;
+	width: 30em;
+	height: 18em;
+}
+#serv #descr h3 {
+	color:#d4f442;
+	float:left;
+	clear:left;
+	text-shadow: 2px 2px 1px black;
+}
+#serv #descr p {
+	float:left;
+	clear:left;
+	color: white;
+	text-align: justify;
+	text-shadow: 2px 2px 1px black;
+}
+@media screen and (max-width: 1400px) {
+	#serv {
+		width: 600px;
+		position: relative;
+		display: inline-block;
+	}
+	#serv img {
+		position: relative;
+	}
+    #descr {
+    	position: relative;
+    	clear:left;
+    	width: 600px !important;
+    	margin-bottom: 5em;
+    }
+}
+
+
+@media only print {
+	h1,h2,h3,p {
+		clear:left;
+		color:black !important;
+		text-shadow: none !important;
+		margin:0 !important;
+		padding:0 !important;
+		border:0 !important;
+	}
+	h2 {
+		padding-bottom: 1em !important;
+	}
+
+	img {
+		padding: 0 !important;
+		margin: 0 !important;
+		border: 0 !important;
+		height: 400px !important; 
+    	width: 450px !important;
+    	padding-right: 20px !important;
+	}
+}

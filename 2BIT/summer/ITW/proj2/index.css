@@ -1,0 +1,221 @@
+/*##########################################################################################################################
+GLOBAL SETTINGS
+##########################################################################################################################*/
+
+* {
+	margin:  0;
+	padding: 0;
+	font-family: "Times New Roman";
+}
+
+body {
+	font-size: 25px;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+}
+body a {
+	text-decoration: none;
+}
+
+#page {
+	position: absolute;
+	width: 100%;
+}
+
+/*##########################################################################################################################
+HEADER
+##########################################################################################################################*/
+
+header {
+	border: 1px;
+	border-style: solid;
+	border-color: #c4c2b8;
+	background-color:#232323;
+	background: linear-gradient(to bottom, black, #444444);
+	color:#c4c2b8;
+	/*height: 4em;*/
+}
+header a {
+	color:inherit;
+	text-shadow: 3px 3px #000000;
+}
+#head {
+	position: relative;
+}
+#headmenu {
+	display: inline-block;
+}
+#headmenu ul {
+	list-style-type: none;
+}
+#menulink {
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+#logo {
+	color:red;
+}
+header li {
+	float:left;
+	margin-top: 1.3em;
+	margin-right: 1em;
+	margin-left: 1em;
+	border: 1px;
+	padding-top: 3px;
+	padding-bottom: 4px;
+	border-style: solid;
+	border-color: #c4c2b8;
+	width:10em;
+	margin-bottom: 1em;
+}
+header li:first-child {
+	background-image: url("images/home.ico");
+	background-size: 32px 32px;
+	background-position: 2.2em;
+	background-repeat: no-repeat;
+	background-color: indigo;
+	width: 10em;
+}
+header li:last-child {
+	background-image: url("images/info.ico");
+	background-size: 30px 30px;
+	background-position: 2.2em;
+	background-repeat: no-repeat;
+	width: 10em;
+	/*margin-right: 0;*/
+}
+header li:first-child:hover {
+	font-weight: 900;
+	border-color:#ff7b00;	
+	color:#ff7b00;
+	background-color: slateblue;
+	transform: scale(1.1);
+}
+header li:hover {
+	font-weight: 900;
+	border-color:#ff7b00;	
+	color:#ff7b00;
+	background-color: #404040;
+	transform: scale(1.1);
+}
+
+/*##########################################################################################################################
+BODY
+##########################################################################################################################*/
+
+#body {
+	position: relative;
+}
+
+#bodyimage {
+	background-image: url("images/background.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	/*height: 92vh;*/
+	/*max-width: 100%;*/
+}
+
+#content h1{
+	padding-top: 32vh;
+	padding-bottom: 3.5vh;
+	font-family: "Times New Roman";
+	font-size: 5em;
+	color:#ff7b00;
+	text-shadow: -2px 0 slateblue, 0 2px slateblue, 2px 0 slateblue, 0 -2px slateblue;
+	/*transform:skew(0deg, -4deg);
+	background: -webkit-linear-gradient(top, #878787, #000);
+	background: linear-gradient(to right, slateblue,slateblue, slateblue, #ff7b00, #ff7b00);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;*/
+}
+#day h2 {
+	color: slateblue;
+	text-shadow: -2px 0 #ff7b00, 0 2px #ff7b00, 2px 0 #ff7b00, 0 -2px #ff7b00;
+	padding-bottom: 10em;
+}
+#day h2:hover {
+	color: red;
+	text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+}
+#day img {
+	float:left;
+	margin-top: -15em;
+}
+#day {
+	position: relative;
+	display: inline-block;
+}
+/*
+#content h1:hover {
+	color:#ff7b00;
+}*/
+
+/*##########################################################################################################################
+FOOTER
+##########################################################################################################################*/
+
+footer {
+	border: 1px;
+	border-style: solid;
+	border-color: slateblue;
+	background: linear-gradient(to top, black, #21212D);
+	color:slateblue;
+	height: 5em;
+}
+footer a {
+	color:slateblue;
+}
+
+#foot {
+	position: relative;
+}
+
+#footmenu {
+	display: inline-block;
+}
+#footmenu ul {
+	list-style-type: none;
+}
+#footmenu li {
+	float:left;
+	width: 7em;
+	margin-top: 1.9em;
+	margin-right: 3em;
+}
+#footmenu li:hover {
+	font-weight: 900;
+	transform: scale(1.2);
+}
+
+/*##########################################################################################################################
+PRINTING
+##########################################################################################################################*/
+@media only print {
+	header {
+		display:none !important;
+	}
+	h1 {
+		color:black !important;
+		margin: 0 !important;
+		padding: 0 !important;
+		font-size: 1em;
+		transform:skew(0deg, 0deg);
+		background: none !important;
+	}
+	footer {
+		display:none !important;
+	}
+	#day {
+		display:none !important;	
+	}
+	#content h1 {
+		padding:0;
+		margin:0;
+		font-family: "Times New Roman";
+		font-size: 1em;
+		color:black;
+		text-shadow: 0 0 black, 0 0 black, 0 0 black, 0 0 black;
+	}
+}

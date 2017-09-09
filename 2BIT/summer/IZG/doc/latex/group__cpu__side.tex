@@ -1,0 +1,77 @@
+\hypertarget{group__cpu__side}{}\section{Úkoly v cpu části}
+\label{group__cpu__side}\index{Úkoly v cpu části@{Úkoly v cpu části}}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{group__cpu__side_gac2adb2ba4e748239b9db4d037584d3cc}{phong\+\_\+on\+Init} (int32\+\_\+t width, int32\+\_\+t height)
+\begin{DoxyCompactList}\small\item\em This function is called at start of application. It should contain initialization of C\+PU side. \end{DoxyCompactList}\item 
+void \hyperlink{group__cpu__side_gafea3b0614db94d611ae817685375c39c}{phong\+\_\+on\+Draw} (S\+D\+L\+\_\+\+Surface $\ast$surface)
+\begin{DoxyCompactList}\small\item\em This function is called every frame and is responsible for drawing. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+\subsection{Function Documentation}
+\index{Úkoly v cpu části@{Úkoly v cpu části}!phong\+\_\+on\+Draw@{phong\+\_\+on\+Draw}}
+\index{phong\+\_\+on\+Draw@{phong\+\_\+on\+Draw}!Úkoly v cpu části@{Úkoly v cpu části}}
+\subsubsection[{\texorpdfstring{phong\+\_\+on\+Draw(\+S\+D\+L\+\_\+\+Surface $\ast$surface)}{phong_onDraw(SDL_Surface *surface)}}]{\setlength{\rightskip}{0pt plus 5cm}void phong\+\_\+on\+Draw (
+\begin{DoxyParamCaption}
+\item[{S\+D\+L\+\_\+\+Surface $\ast$}]{surface}
+\end{DoxyParamCaption}
+)}\hypertarget{group__cpu__side_gafea3b0614db94d611ae817685375c39c}{}\label{group__cpu__side_gafea3b0614db94d611ae817685375c39c}
+
+
+This function is called every frame and is responsible for drawing. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em surface} & S\+DL surface \\
+\hline
+\end{DoxyParams}
+\begin{DoxyRefDesc}{Todo}
+\item[\hyperlink{todo__todo000002}{Todo}]Doprogramujte kreslící funkci. Zde byste měli aktivovat shader program, aktivovat vertex puller, nahrát data do uniformních proměnných a vykreslit trojúhelníky pomocí funkce cpu\+\_\+draw\+Triangles. Data pro uniformní proměnné naleznete v externích globálních proměnnénych view\+Matrix, projection\+Matrix, camera\+Position a globální proměnné phong.\+light\+Position.~\newline
+ {\bfseries Seznam funkcí, které jistě využijete\+:}
+\begin{DoxyItemize}
+\item \hyperlink{program_8h_a497d97730640942bffcc3cd9f266f146}{cpu\+\_\+use\+Program()}
+\item \hyperlink{vertexPuller_8h_a27eee6237125ddc21c7d9b996f5af84e}{cpu\+\_\+bind\+Vertex\+Puller()}
+\item \hyperlink{uniforms_8h_a44cfae8c541efcc181e3947511df7f7a}{cpu\+\_\+uniform\+Matrix4fv()}
+\item \hyperlink{uniforms_8h_abe070ee9f74f785a07118788fcf4219e}{cpu\+\_\+uniform3f()}
+\item \hyperlink{student__pipeline_8c_aa47deaa10ce52221ab24e864a11426af}{cpu\+\_\+draw\+Triangles()}
+\item \hyperlink{uniforms_8h_a6ea94982618b1c339a97a528b0670a53}{get\+Uniform\+Location()} 
+\end{DoxyItemize}\end{DoxyRefDesc}
+\index{Úkoly v cpu části@{Úkoly v cpu části}!phong\+\_\+on\+Init@{phong\+\_\+on\+Init}}
+\index{phong\+\_\+on\+Init@{phong\+\_\+on\+Init}!Úkoly v cpu části@{Úkoly v cpu části}}
+\subsubsection[{\texorpdfstring{phong\+\_\+on\+Init(int32\+\_\+t width, int32\+\_\+t height)}{phong_onInit(int32_t width, int32_t height)}}]{\setlength{\rightskip}{0pt plus 5cm}void phong\+\_\+on\+Init (
+\begin{DoxyParamCaption}
+\item[{int32\+\_\+t}]{width, }
+\item[{int32\+\_\+t}]{height}
+\end{DoxyParamCaption}
+)}\hypertarget{group__cpu__side_gac2adb2ba4e748239b9db4d037584d3cc}{}\label{group__cpu__side_gac2adb2ba4e748239b9db4d037584d3cc}
+
+
+This function is called at start of application. It should contain initialization of C\+PU side. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em width} & width of window in pixels \\
+\hline
+{\em height} & height of window in pixels \\
+\hline
+\end{DoxyParams}
+\begin{DoxyRefDesc}{Todo}
+\item[\hyperlink{todo__todo000001}{Todo}]Doprogramujte inicializační funkci. Zde byste měli vytvořit buffery na G\+PU, nahrát data do bufferů, vytvořit vertex puller a správně jej nakonfigurovat, vytvořit program, připojit k němu shadery a nastavit interpolace. Také byste zde měli zarezervovat unifromní proměnné pro matice, pozici kamery, světla a další vaše proměnné. Do bufferů nahrajte vrcholy králička (pozice, normály) a indexy na vrcholy ze souboru \hyperlink{bunny_8h}{bunny.\+h}. Shader program by měl odkazovat na funkce/shadery v souboru \hyperlink{student__shader_8h}{student\+\_\+shader.\+h}. V konfiguraci vertex pulleru nastavte dvě čtecí hlavy. Jednu pro pozice vrcholů a druhou pro normály vrcholů. Nultý vertex/fragment atribut by měl obsahovat pozici vertexu. První vertex/fragment atribut by měl obsahovat normálu vertexu. Budete využívat minimálně 4 uniformní proměnné Uniformní proměnná pro view matici by měla být pojmenována \char`\"{}view\+Matrix\char`\"{}. Uniformní proměnná pro projekční matici by měla být pojmenována \char`\"{}projection\+Matrix\char`\"{}. Uniformní proměnná pro pozici kamery by se měla jmenovat \char`\"{}camera\+Position\char`\"{}. Uniformní proměnná pro pozici světla by se měla jmenovat \char`\"{}light\+Position\char`\"{}. Je důležité udržet pozice atributů a názvy uniformních proměnných z důvodu akceptačních testů. Interpolace vertex atributů do fragment atributů je také potřeba nastavit. Oba vertex atributy nastavte na \hyperlink{program_8h_a8472f01c511d77bbfb981a46618ea1eaa33c7ccbb848d8fd75455dd9786a1153a}{S\+M\+O\+O\+TH} interpolaci -\/ perspektivně korektní interpolace.~\newline
+ {\bfseries Seznam funkcí, které jistě využijete\+:}
+\begin{DoxyItemize}
+\item \hyperlink{uniforms_8h_acd308bcb7720918cb48f75292a247dfb}{cpu\+\_\+reserve\+Uniform()}
+\item \hyperlink{program_8h_a4fca7a0e3dac7f93620a1bde6efcde16}{cpu\+\_\+create\+Program()}
+\item \hyperlink{program_8h_aaefc7833a6deea461cc06d00318f7975}{cpu\+\_\+attach\+Vertex\+Shader()}
+\item \hyperlink{program_8h_a402ad69a9f1b80b8de408b991e190ed6}{cpu\+\_\+attach\+Fragment\+Shader()}
+\item \hyperlink{program_8h_aca1c5019ec58c919160c4c12a5e5fa06}{cpu\+\_\+set\+Attribute\+Interpolation()}
+\item \hyperlink{buffer_8h_a6ba9c58dc4b7bc81e83d3dae3c6b292f}{cpu\+\_\+create\+Buffers()}
+\item \hyperlink{buffer_8h_aad292278b58c11db74df3cb3e3a52f22}{cpu\+\_\+buffer\+Data()}
+\item \hyperlink{vertexPuller_8h_a3b9678475f48f09c3ddbd4316fce3e08}{cpu\+\_\+create\+Vertex\+Pullers()}
+\item \hyperlink{vertexPuller_8h_a07be46ae38b8ec80ec85581a33b02786}{cpu\+\_\+set\+Vertex\+Puller\+Head()}
+\item \hyperlink{vertexPuller_8h_afc4c70416bc0e515e75ec90c8c8d1584}{cpu\+\_\+enable\+Vertex\+Puller\+Head()}
+\item \hyperlink{vertexPuller_8h_aa312eaf555d453ead6a430f8f058c9a6}{cpu\+\_\+set\+Indexing()} 
+\end{DoxyItemize}\end{DoxyRefDesc}

@@ -1,0 +1,185 @@
+\hypertarget{mouseCamera_8c}{}\section{student/mouse\+Camera.c File Reference}
+\label{mouseCamera_8c}\index{student/mouse\+Camera.\+c@{student/mouse\+Camera.\+c}}
+
+
+This file contains implementation of mouse handling and camera manipulation.  
+
+
+{\ttfamily \#include $<$S\+D\+L2/\+S\+D\+L.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}student/mouse\+Camera.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}student/fwd.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}student/linear\+Algebra.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}student/camera.\+h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{mouseCamera_8c_a838dccafe5d2e845d75eac2e1b2725b9}{on\+Mouse\+Motion} (int x, int y, int xrel, int yrel)
+\begin{DoxyCompactList}\small\item\em This function is called when the mouse is moving. \end{DoxyCompactList}\item 
+void \hyperlink{mouseCamera_8c_a171d61de431f193f85002d8529bdd3cb}{on\+Mouse\+Button\+Down} (uint8\+\_\+t button)
+\begin{DoxyCompactList}\small\item\em This function is called when a mouse button is pressed. \end{DoxyCompactList}\item 
+void \hyperlink{mouseCamera_8c_a3194794d5eb4582454b63c10ca232b62}{on\+Mouse\+Button\+Up} (uint8\+\_\+t button)
+\begin{DoxyCompactList}\small\item\em This function is called when a mouse button is released. \end{DoxyCompactList}\item 
+void \hyperlink{mouseCamera_8c_a7e7e918a9328502b7c35cfbbdb068b7b}{cpu\+\_\+init\+Matrices} (int32\+\_\+t width, int32\+\_\+t height)
+\begin{DoxyCompactList}\small\item\em This function initializes view\+Matrix and projection\+Matrix. This function should be called once in init stage. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{mouseCamera_8c_a502f2f96ed635993c6d0350428210255}{left\+Mouse\+Button\+Down} = 0\hypertarget{mouseCamera_8c_a502f2f96ed635993c6d0350428210255}{}\label{mouseCamera_8c_a502f2f96ed635993c6d0350428210255}
+
+\begin{DoxyCompactList}\small\item\em This variable contains 1 if left mouse button was pressed. \end{DoxyCompactList}\item 
+int \hyperlink{mouseCamera_8c_a5da935d81089e1d220f0ce1aabb2a167}{right\+Mouse\+Button\+Down} = 0\hypertarget{mouseCamera_8c_a5da935d81089e1d220f0ce1aabb2a167}{}\label{mouseCamera_8c_a5da935d81089e1d220f0ce1aabb2a167}
+
+\begin{DoxyCompactList}\small\item\em This variable contains 1 if right mouse button was pressed. \end{DoxyCompactList}\item 
+int \hyperlink{mouseCamera_8c_a74a0906e30ac35605ee9ccc531dc921a}{middle\+Mouse\+Button\+Down} = 0\hypertarget{mouseCamera_8c_a74a0906e30ac35605ee9ccc531dc921a}{}\label{mouseCamera_8c_a74a0906e30ac35605ee9ccc531dc921a}
+
+\begin{DoxyCompactList}\small\item\em This varible contains 1 if middle mouse button was pressed. \end{DoxyCompactList}\item 
+float \hyperlink{mouseCamera_8c_a07175deab1c8d4fe3e322425c5152e3b}{camera\+AngleX} = 0.f\hypertarget{mouseCamera_8c_a07175deab1c8d4fe3e322425c5152e3b}{}\label{mouseCamera_8c_a07175deab1c8d4fe3e322425c5152e3b}
+
+\begin{DoxyCompactList}\small\item\em This variable contains orbit camera angle X. \end{DoxyCompactList}\item 
+float \hyperlink{mouseCamera_8c_a7083b864216ba85846a35f357692b39f}{camera\+AngleY} = 0.f\hypertarget{mouseCamera_8c_a7083b864216ba85846a35f357692b39f}{}\label{mouseCamera_8c_a7083b864216ba85846a35f357692b39f}
+
+\begin{DoxyCompactList}\small\item\em This variable contains orbit camera angle Y. \end{DoxyCompactList}\item 
+float \hyperlink{mouseCamera_8c_a136b2fc24027dfa0965e9b01ab5790aa}{camera\+Distance} = 10.f\hypertarget{mouseCamera_8c_a136b2fc24027dfa0965e9b01ab5790aa}{}\label{mouseCamera_8c_a136b2fc24027dfa0965e9b01ab5790aa}
+
+\begin{DoxyCompactList}\small\item\em This variable contains orbit camera distance. \end{DoxyCompactList}\item 
+float const \hyperlink{mouseCamera_8c_a64978db94ae584bb869720f12f1c605e}{camera\+Sensitivity} = 0.\+01f\hypertarget{mouseCamera_8c_a64978db94ae584bb869720f12f1c605e}{}\label{mouseCamera_8c_a64978db94ae584bb869720f12f1c605e}
+
+\begin{DoxyCompactList}\small\item\em This variable contains sensitivity of mouse. \end{DoxyCompactList}\item 
+float const \hyperlink{mouseCamera_8c_a9ef2ba364254daa73ccc3b9c226d87d6}{camera\+Zoom\+Speed} = 0.\+04f\hypertarget{mouseCamera_8c_a9ef2ba364254daa73ccc3b9c226d87d6}{}\label{mouseCamera_8c_a9ef2ba364254daa73ccc3b9c226d87d6}
+
+\begin{DoxyCompactList}\small\item\em This variable contains zooming speed. \end{DoxyCompactList}\item 
+float const \hyperlink{mouseCamera_8c_a01c3865724803dbc7c167d0bafb2dfc1}{camera\+Min\+Distance} = 1.f\hypertarget{mouseCamera_8c_a01c3865724803dbc7c167d0bafb2dfc1}{}\label{mouseCamera_8c_a01c3865724803dbc7c167d0bafb2dfc1}
+
+\begin{DoxyCompactList}\small\item\em This variable contains minimal allowed distance of orbit camera. \end{DoxyCompactList}\item 
+float const \hyperlink{mouseCamera_8c_a019c3cd69d1d3abdb1085d7111103df2}{camera\+Max\+Distance} = 100.f\hypertarget{mouseCamera_8c_a019c3cd69d1d3abdb1085d7111103df2}{}\label{mouseCamera_8c_a019c3cd69d1d3abdb1085d7111103df2}
+
+\begin{DoxyCompactList}\small\item\em This variable contains maximal allowed distance of orbit camera. \end{DoxyCompactList}\item 
+float const \hyperlink{mouseCamera_8c_af67fe3c4ab506b27455d3e5e2a1c1dde}{camera\+Near} = 0.\+1f\hypertarget{mouseCamera_8c_af67fe3c4ab506b27455d3e5e2a1c1dde}{}\label{mouseCamera_8c_af67fe3c4ab506b27455d3e5e2a1c1dde}
+
+\begin{DoxyCompactList}\small\item\em This variable contains distance to near plane. \end{DoxyCompactList}\item 
+float const \hyperlink{mouseCamera_8c_a3a22d6e2b695df901da8208ac4d90ade}{camera\+Far} = 10000.f\hypertarget{mouseCamera_8c_a3a22d6e2b695df901da8208ac4d90ade}{}\label{mouseCamera_8c_a3a22d6e2b695df901da8208ac4d90ade}
+
+\begin{DoxyCompactList}\small\item\em This variable contains distance to far plane. \end{DoxyCompactList}\item 
+float const \hyperlink{mouseCamera_8c_af135d3eacbf5e0b637a6264026804882}{camera\+Fovy} = \hyperlink{fwd_8h_acdf314019539248efc2b4f247a1b97ac}{M\+Y\+\_\+\+PI}/2.f\hypertarget{mouseCamera_8c_af135d3eacbf5e0b637a6264026804882}{}\label{mouseCamera_8c_af135d3eacbf5e0b637a6264026804882}
+
+\begin{DoxyCompactList}\small\item\em This variable contains field of view in y axis. \end{DoxyCompactList}\item 
+\hyperlink{structMat4}{Mat4} \hyperlink{mouseCamera_8c_ae64ebe4c77936fc93d161b97bd8e96df}{view\+Matrix}
+\begin{DoxyCompactList}\small\item\em This variable contains view matrix of orbit camera. \end{DoxyCompactList}\item 
+\hyperlink{structMat4}{Mat4} \hyperlink{mouseCamera_8c_a1f344d924f733a22d7659db612a0efe8}{projection\+Matrix}
+\begin{DoxyCompactList}\small\item\em This variable contains projection matrix of orbit camera. \end{DoxyCompactList}\item 
+\hyperlink{structVec3}{Vec3} \hyperlink{mouseCamera_8c_a2ae2553412ead34e3a4e23019d4f052e}{camera\+Position}\hypertarget{mouseCamera_8c_a2ae2553412ead34e3a4e23019d4f052e}{}\label{mouseCamera_8c_a2ae2553412ead34e3a4e23019d4f052e}
+
+\begin{DoxyCompactList}\small\item\em This variable contains camera position in world-\/space. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This file contains implementation of mouse handling and camera manipulation. 
+
+\begin{DoxyAuthor}{Author}
+Tomáš Milet, \href{mailto:imilet@fit.vutbr.cz}{\tt imilet@fit.\+vutbr.\+cz} 
+\end{DoxyAuthor}
+
+
+\subsection{Function Documentation}
+\index{mouse\+Camera.\+c@{mouse\+Camera.\+c}!cpu\+\_\+init\+Matrices@{cpu\+\_\+init\+Matrices}}
+\index{cpu\+\_\+init\+Matrices@{cpu\+\_\+init\+Matrices}!mouse\+Camera.\+c@{mouse\+Camera.\+c}}
+\subsubsection[{\texorpdfstring{cpu\+\_\+init\+Matrices(int32\+\_\+t width, int32\+\_\+t height)}{cpu_initMatrices(int32_t width, int32_t height)}}]{\setlength{\rightskip}{0pt plus 5cm}void cpu\+\_\+init\+Matrices (
+\begin{DoxyParamCaption}
+\item[{int32\+\_\+t}]{width, }
+\item[{int32\+\_\+t}]{height}
+\end{DoxyParamCaption}
+)}\hypertarget{mouseCamera_8c_a7e7e918a9328502b7c35cfbbdb068b7b}{}\label{mouseCamera_8c_a7e7e918a9328502b7c35cfbbdb068b7b}
+
+
+This function initializes view\+Matrix and projection\+Matrix. This function should be called once in init stage. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em width} & width of screen in pixels \\
+\hline
+{\em height} & height of screen in pixels \\
+\hline
+\end{DoxyParams}
+\begin{Desc}
+\item[Examples\+: ]\par
+\hyperlink{TriangleExample-example}{Triangle\+Example}.\end{Desc}
+\index{mouse\+Camera.\+c@{mouse\+Camera.\+c}!on\+Mouse\+Button\+Down@{on\+Mouse\+Button\+Down}}
+\index{on\+Mouse\+Button\+Down@{on\+Mouse\+Button\+Down}!mouse\+Camera.\+c@{mouse\+Camera.\+c}}
+\subsubsection[{\texorpdfstring{on\+Mouse\+Button\+Down(uint8\+\_\+t button)}{onMouseButtonDown(uint8_t button)}}]{\setlength{\rightskip}{0pt plus 5cm}void on\+Mouse\+Button\+Down (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t}]{button}
+\end{DoxyParamCaption}
+)}\hypertarget{mouseCamera_8c_a171d61de431f193f85002d8529bdd3cb}{}\label{mouseCamera_8c_a171d61de431f193f85002d8529bdd3cb}
+
+
+This function is called when a mouse button is pressed. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em button} & id of pressed button, it can be S\+D\+L\+\_\+\+B\+U\+T\+T\+O\+N\+\_\+\+L\+E\+FT, S\+D\+L\+\_\+\+B\+U\+T\+T\+O\+N\+\_\+\+R\+I\+G\+HT or S\+D\+L\+\_\+\+B\+U\+T\+T\+O\+N\+\_\+\+M\+I\+D\+D\+LE. \\
+\hline
+\end{DoxyParams}
+\index{mouse\+Camera.\+c@{mouse\+Camera.\+c}!on\+Mouse\+Button\+Up@{on\+Mouse\+Button\+Up}}
+\index{on\+Mouse\+Button\+Up@{on\+Mouse\+Button\+Up}!mouse\+Camera.\+c@{mouse\+Camera.\+c}}
+\subsubsection[{\texorpdfstring{on\+Mouse\+Button\+Up(uint8\+\_\+t button)}{onMouseButtonUp(uint8_t button)}}]{\setlength{\rightskip}{0pt plus 5cm}void on\+Mouse\+Button\+Up (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t}]{button}
+\end{DoxyParamCaption}
+)}\hypertarget{mouseCamera_8c_a3194794d5eb4582454b63c10ca232b62}{}\label{mouseCamera_8c_a3194794d5eb4582454b63c10ca232b62}
+
+
+This function is called when a mouse button is released. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em button} & id of released button, it can be S\+D\+L\+\_\+\+B\+U\+T\+T\+O\+N\+\_\+\+L\+E\+FT, S\+D\+L\+\_\+\+B\+U\+T\+T\+O\+N\+\_\+\+R\+I\+G\+HT or S\+D\+L\+\_\+\+B\+U\+T\+T\+O\+N\+\_\+\+M\+I\+D\+D\+LE. \\
+\hline
+\end{DoxyParams}
+\index{mouse\+Camera.\+c@{mouse\+Camera.\+c}!on\+Mouse\+Motion@{on\+Mouse\+Motion}}
+\index{on\+Mouse\+Motion@{on\+Mouse\+Motion}!mouse\+Camera.\+c@{mouse\+Camera.\+c}}
+\subsubsection[{\texorpdfstring{on\+Mouse\+Motion(int x, int y, int xrel, int yrel)}{onMouseMotion(int x, int y, int xrel, int yrel)}}]{\setlength{\rightskip}{0pt plus 5cm}void on\+Mouse\+Motion (
+\begin{DoxyParamCaption}
+\item[{int}]{x, }
+\item[{int}]{y, }
+\item[{int}]{xrel, }
+\item[{int}]{yrel}
+\end{DoxyParamCaption}
+)}\hypertarget{mouseCamera_8c_a838dccafe5d2e845d75eac2e1b2725b9}{}\label{mouseCamera_8c_a838dccafe5d2e845d75eac2e1b2725b9}
+
+
+This function is called when the mouse is moving. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & x position of cursor \\
+\hline
+{\em y} & y position of cursor \\
+\hline
+{\em xrel} & relative x position to previous x position \\
+\hline
+{\em yrel} & relative y position to previous y position \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Variable Documentation}
+\index{mouse\+Camera.\+c@{mouse\+Camera.\+c}!projection\+Matrix@{projection\+Matrix}}
+\index{projection\+Matrix@{projection\+Matrix}!mouse\+Camera.\+c@{mouse\+Camera.\+c}}
+\subsubsection[{\texorpdfstring{projection\+Matrix}{projectionMatrix}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Mat4} projection\+Matrix}\hypertarget{mouseCamera_8c_a1f344d924f733a22d7659db612a0efe8}{}\label{mouseCamera_8c_a1f344d924f733a22d7659db612a0efe8}
+
+
+This variable contains projection matrix of orbit camera. 
+
+This variable contains projection matrix. \begin{Desc}
+\item[Examples\+: ]\par
+\hyperlink{TriangleExample-example}{Triangle\+Example}.\end{Desc}
+\index{mouse\+Camera.\+c@{mouse\+Camera.\+c}!view\+Matrix@{view\+Matrix}}
+\index{view\+Matrix@{view\+Matrix}!mouse\+Camera.\+c@{mouse\+Camera.\+c}}
+\subsubsection[{\texorpdfstring{view\+Matrix}{viewMatrix}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Mat4} view\+Matrix}\hypertarget{mouseCamera_8c_ae64ebe4c77936fc93d161b97bd8e96df}{}\label{mouseCamera_8c_ae64ebe4c77936fc93d161b97bd8e96df}
+
+
+This variable contains view matrix of orbit camera. 
+
+This variable contains view matrix. \begin{Desc}
+\item[Examples\+: ]\par
+\hyperlink{TriangleExample-example}{Triangle\+Example}.\end{Desc}

@@ -1,0 +1,88 @@
+\hypertarget{buffer_8h}{}\section{student/buffer.h File Reference}
+\label{buffer_8h}\index{student/buffer.\+h@{student/buffer.\+h}}
+
+
+This file contains function declarations that are needed for manipulation with buffers on G\+PU.  
+
+
+{\ttfamily \#include $<$stdlib.\+h$>$}\\*
+{\ttfamily \#include $<$stdint.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}gpu.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}fwd.\+h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{buffer_8h_a6ba9c58dc4b7bc81e83d3dae3c6b292f}{cpu\+\_\+create\+Buffers} (\hyperlink{fwd_8h_a06964ec111fe28721d8618b6d0d993bf}{G\+PU} const gpu, size\+\_\+t const n, \hyperlink{fwd_8h_a60a12bf4868ebe47cc571ce96a03f99c}{Buffer\+ID} $\ast$const buffers)
+\begin{DoxyCompactList}\small\item\em This function reserve buffer ids on G\+PU. \end{DoxyCompactList}\item 
+void \hyperlink{buffer_8h_aad292278b58c11db74df3cb3e3a52f22}{cpu\+\_\+buffer\+Data} (\hyperlink{fwd_8h_a06964ec111fe28721d8618b6d0d993bf}{G\+PU} const gpu, \hyperlink{fwd_8h_a60a12bf4868ebe47cc571ce96a03f99c}{Buffer\+ID} const buffer, size\+\_\+t const size, void const $\ast$const data)
+\begin{DoxyCompactList}\small\item\em This function allocates/reallocates and uploads data to specific buffer on G\+PU. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This file contains function declarations that are needed for manipulation with buffers on G\+PU. 
+
+A buffer is linear memory on G\+PU. It can be used for storing vertices and indices.
+
+\begin{DoxyAuthor}{Author}
+Tomáš Milet, \href{mailto:imilet@fit.vutbr.cz}{\tt imilet@fit.\+vutbr.\+cz} 
+\end{DoxyAuthor}
+
+
+\subsection{Function Documentation}
+\index{buffer.\+h@{buffer.\+h}!cpu\+\_\+buffer\+Data@{cpu\+\_\+buffer\+Data}}
+\index{cpu\+\_\+buffer\+Data@{cpu\+\_\+buffer\+Data}!buffer.\+h@{buffer.\+h}}
+\subsubsection[{\texorpdfstring{cpu\+\_\+buffer\+Data(\+G\+P\+U const gpu, Buffer\+I\+D const buffer, size\+\_\+t const size, void const $\ast$const data)}{cpu_bufferData(GPU const gpu, BufferID const buffer, size_t const size, void const *const data)}}]{\setlength{\rightskip}{0pt plus 5cm}void cpu\+\_\+buffer\+Data (
+\begin{DoxyParamCaption}
+\item[{{\bf G\+PU} const}]{gpu, }
+\item[{{\bf Buffer\+ID} const}]{buffer, }
+\item[{size\+\_\+t const}]{size, }
+\item[{void const $\ast$const}]{data}
+\end{DoxyParamCaption}
+)}\hypertarget{buffer_8h_aad292278b58c11db74df3cb3e3a52f22}{}\label{buffer_8h_aad292278b58c11db74df3cb3e3a52f22}
+
+
+This function allocates/reallocates and uploads data to specific buffer on G\+PU. 
+
+Its alternative function in Open\+GL is \href{https://www.opengl.org/sdk/docs/man4/html/glBufferData.xhtml}{\tt gl\+Named\+Buffer\+Data}
+
+
+\begin{DoxyParams}{Parameters}
+{\em gpu} & G\+PU handler \\
+\hline
+{\em buffer} & buffer id \\
+\hline
+{\em size} & size in bytes \\
+\hline
+{\em data} & optional data pointer, if data==0 then no data is copied to G\+PU \\
+\hline
+\end{DoxyParams}
+\begin{Desc}
+\item[Examples\+: ]\par
+\hyperlink{TriangleExample-example}{Triangle\+Example}.\end{Desc}
+\index{buffer.\+h@{buffer.\+h}!cpu\+\_\+create\+Buffers@{cpu\+\_\+create\+Buffers}}
+\index{cpu\+\_\+create\+Buffers@{cpu\+\_\+create\+Buffers}!buffer.\+h@{buffer.\+h}}
+\subsubsection[{\texorpdfstring{cpu\+\_\+create\+Buffers(\+G\+P\+U const gpu, size\+\_\+t const n, Buffer\+I\+D $\ast$const buffers)}{cpu_createBuffers(GPU const gpu, size_t const n, BufferID *const buffers)}}]{\setlength{\rightskip}{0pt plus 5cm}void cpu\+\_\+create\+Buffers (
+\begin{DoxyParamCaption}
+\item[{{\bf G\+PU} const}]{gpu, }
+\item[{size\+\_\+t const}]{n, }
+\item[{{\bf Buffer\+ID} $\ast$const}]{buffers}
+\end{DoxyParamCaption}
+)}\hypertarget{buffer_8h_a6ba9c58dc4b7bc81e83d3dae3c6b292f}{}\label{buffer_8h_a6ba9c58dc4b7bc81e83d3dae3c6b292f}
+
+
+This function reserve buffer ids on G\+PU. 
+
+Its alternative function in Open\+GL is \href{https://www.opengl.org/sdk/docs/man4/html/glCreateBuffers.xhtml}{\tt gl\+Create\+Buffers}
+
+
+\begin{DoxyParams}{Parameters}
+{\em gpu} & G\+PU handler \\
+\hline
+{\em n} & number of buffer ids that will be reserved \\
+\hline
+{\em buffers} & resulting buffers ids \\
+\hline
+\end{DoxyParams}
+\begin{Desc}
+\item[Examples\+: ]\par
+\hyperlink{TriangleExample-example}{Triangle\+Example}.\end{Desc}

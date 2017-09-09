@@ -1,0 +1,52 @@
+#bodyimage {
+	background-image: url("images/backgroundservices.jpg");
+	/*height: 92.8vh !important;*/
+}
+h2 {
+	color:#ffbb00 !important;
+	text-shadow: 3px 3px 5px black !important;
+	padding-bottom: 1em !important;
+}
+#bodyimage {
+	position: relative;
+}
+#content_services {
+	position: relative;
+	display: inline-block;
+}
+#serv {
+	float:left;
+	padding: 10px;
+}
+#serv img { 
+	border: 3px solid transparent;
+	border-color: slateblue;
+	margin-bottom: 4.3em;
+}
+#serv img:hover {
+	border-color: #ff7b00 !important;
+	transform: scale(1.02);
+}
+#serv h3 {
+	color:slateblue;
+	padding-bottom: 0.2em;
+	text-shadow: 1px 1px 1px black;
+}
+
+
+@media only print {
+	h1,h2,h3,p {
+		color:black !important;
+		text-shadow: none !important;
+		margin:0 !important;
+		padding:0 !important;
+		border:0 !important;
+	}
+	img {
+		padding: 0 !important;
+		margin: 0 !important;
+		border: 0 !important;
+		height: 300px !important; 
+    	width: 450px !important;
+	}
+}

@@ -1,0 +1,419 @@
+\hypertarget{uniforms_8h}{}\section{student/uniforms.h File Reference}
+\label{uniforms_8h}\index{student/uniforms.\+h@{student/uniforms.\+h}}
+
+
+This file contains structures and function declaration that are needed for manipulation with uniforms.  
+
+
+{\ttfamily \#include $<$stdint.\+h$>$}\\*
+{\ttfamily \#include $<$stdlib.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}fwd.\+h\char`\"{}}\\*
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef int32\+\_\+t \hyperlink{uniforms_8h_a0827d09b4e6a18f2718775e7e9289fbd}{Uniform\+Location}
+\begin{DoxyCompactList}\small\item\em This type is used for storing location of uniform variable. \end{DoxyCompactList}\item 
+typedef enum \hyperlink{uniforms_8h_a0d2757b6f370648e2dc98adc54edb97d}{Uniform\+Type} \hyperlink{uniforms_8h_abb502f5887e9d65bba6fdcade55a4a7e}{Uniform\+Type}\hypertarget{uniforms_8h_abb502f5887e9d65bba6fdcade55a4a7e}{}\label{uniforms_8h_abb502f5887e9d65bba6fdcade55a4a7e}
+
+\begin{DoxyCompactList}\small\item\em This enums represents type of uniform value. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{uniforms_8h_a0d2757b6f370648e2dc98adc54edb97d}{Uniform\+Type} \{ \\*
+\hyperlink{uniforms_8h_a0d2757b6f370648e2dc98adc54edb97dabb3cc450caea79980ccd7f85ae2e482c}{U\+N\+I\+F\+O\+R\+M\+\_\+\+F\+L\+O\+AT}, 
+\hyperlink{uniforms_8h_a0d2757b6f370648e2dc98adc54edb97da21db86f4d451261f8379f7a246756c64}{U\+N\+I\+F\+O\+R\+M\+\_\+\+V\+E\+C2}, 
+\hyperlink{uniforms_8h_a0d2757b6f370648e2dc98adc54edb97dae422c4b105ee47de5a917f388cd40590}{U\+N\+I\+F\+O\+R\+M\+\_\+\+V\+E\+C3}, 
+\hyperlink{uniforms_8h_a0d2757b6f370648e2dc98adc54edb97dab70abac24b581df66c1f5ac7d4268d1a}{U\+N\+I\+F\+O\+R\+M\+\_\+\+V\+E\+C4}, 
+\\*
+\hyperlink{uniforms_8h_a0d2757b6f370648e2dc98adc54edb97dad11014349ed7f1ef514b15af851502a5}{U\+N\+I\+F\+O\+R\+M\+\_\+\+U\+I\+NT}, 
+\hyperlink{uniforms_8h_a0d2757b6f370648e2dc98adc54edb97daa3eed90ee47c4ca58597e4115f3557d4}{U\+N\+I\+F\+O\+R\+M\+\_\+\+M\+A\+T4}
+ \}\begin{DoxyCompactList}\small\item\em This enums represents type of uniform value. \end{DoxyCompactList}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{uniforms_8h_acd308bcb7720918cb48f75292a247dfb}{cpu\+\_\+reserve\+Uniform} (\hyperlink{fwd_8h_a06964ec111fe28721d8618b6d0d993bf}{G\+PU} const gpu, char const $\ast$const name, \hyperlink{uniforms_8h_a0d2757b6f370648e2dc98adc54edb97d}{Uniform\+Type} const type)
+\begin{DoxyCompactList}\small\item\em This functions reserves memory in G\+PU for uniform variable. \end{DoxyCompactList}\item 
+\hyperlink{uniforms_8h_a0827d09b4e6a18f2718775e7e9289fbd}{Uniform\+Location} \hyperlink{uniforms_8h_a6ea94982618b1c339a97a528b0670a53}{get\+Uniform\+Location} (\hyperlink{fwd_8h_a06964ec111fe28721d8618b6d0d993bf}{G\+PU} const gpu, char const $\ast$const name)
+\begin{DoxyCompactList}\small\item\em This function returns location of reserved uniform variable. \end{DoxyCompactList}\item 
+void \hyperlink{uniforms_8h_a2dc47c73e2bb2d0080c3f19eb61a87f7}{cpu\+\_\+uniform1f} (\hyperlink{fwd_8h_a06964ec111fe28721d8618b6d0d993bf}{G\+PU} const gpu, \hyperlink{uniforms_8h_a0827d09b4e6a18f2718775e7e9289fbd}{Uniform\+Location} const location, float const v0)
+\begin{DoxyCompactList}\small\item\em This function uploads single float to uniform variable in G\+PU memory. \end{DoxyCompactList}\item 
+void \hyperlink{uniforms_8h_a49907628729ad4494c71ceac1f44b24f}{cpu\+\_\+uniform2f} (\hyperlink{fwd_8h_a06964ec111fe28721d8618b6d0d993bf}{G\+PU} const gpu, \hyperlink{uniforms_8h_a0827d09b4e6a18f2718775e7e9289fbd}{Uniform\+Location} const location, float const v0, float const v1)
+\begin{DoxyCompactList}\small\item\em This function uploads two floats to uniform variable in G\+PU memory. \end{DoxyCompactList}\item 
+void \hyperlink{uniforms_8h_abe070ee9f74f785a07118788fcf4219e}{cpu\+\_\+uniform3f} (\hyperlink{fwd_8h_a06964ec111fe28721d8618b6d0d993bf}{G\+PU} const gpu, \hyperlink{uniforms_8h_a0827d09b4e6a18f2718775e7e9289fbd}{Uniform\+Location} const location, float const v0, float const v1, float const v2)
+\begin{DoxyCompactList}\small\item\em This function uploads three floats to uniform variable in G\+PU memory. \end{DoxyCompactList}\item 
+void \hyperlink{uniforms_8h_adec6018cff30cb42360714eb4582c12e}{cpu\+\_\+uniform4f} (\hyperlink{fwd_8h_a06964ec111fe28721d8618b6d0d993bf}{G\+PU} const gpu, \hyperlink{uniforms_8h_a0827d09b4e6a18f2718775e7e9289fbd}{Uniform\+Location} const location, float const v0, float const v1, float const v2, float const v3)
+\begin{DoxyCompactList}\small\item\em This function uploads four floats to uniform variable in G\+PU memory. \end{DoxyCompactList}\item 
+void \hyperlink{uniforms_8h_a44cfae8c541efcc181e3947511df7f7a}{cpu\+\_\+uniform\+Matrix4fv} (\hyperlink{fwd_8h_a06964ec111fe28721d8618b6d0d993bf}{G\+PU} const gpu, \hyperlink{uniforms_8h_a0827d09b4e6a18f2718775e7e9289fbd}{Uniform\+Location} const location, float const $\ast$const data)
+\begin{DoxyCompactList}\small\item\em This function uploads 4x4 matrix to uniform variable in G\+PU memory. \end{DoxyCompactList}\item 
+float const $\ast$ \hyperlink{uniforms_8h_a660ccd52e7e5e1ada9d44ac9426ae909}{shader\+\_\+interpret\+Uniform\+As\+Float} (\hyperlink{fwd_8h_a4e6b8a8d832d478e8d761c0a52163a7c}{Uniforms} const uniforms, \hyperlink{uniforms_8h_a0827d09b4e6a18f2718775e7e9289fbd}{Uniform\+Location} const location)
+\begin{DoxyCompactList}\small\item\em This function interprets uniform value as float. \end{DoxyCompactList}\item 
+\hyperlink{structVec2}{Vec2} const $\ast$ \hyperlink{uniforms_8h_af77b07805ab7baa5fc0dcd812677b55f}{shader\+\_\+interpret\+Uniform\+As\+Vec2} (\hyperlink{fwd_8h_a4e6b8a8d832d478e8d761c0a52163a7c}{Uniforms} const uniforms, \hyperlink{uniforms_8h_a0827d09b4e6a18f2718775e7e9289fbd}{Uniform\+Location} const location)
+\begin{DoxyCompactList}\small\item\em This function interprets uniform value as vec2. \end{DoxyCompactList}\item 
+\hyperlink{structVec3}{Vec3} const $\ast$ \hyperlink{uniforms_8h_a0466fe65842b5a08561b87670f366f55}{shader\+\_\+interpret\+Uniform\+As\+Vec3} (\hyperlink{fwd_8h_a4e6b8a8d832d478e8d761c0a52163a7c}{Uniforms} const uniforms, \hyperlink{uniforms_8h_a0827d09b4e6a18f2718775e7e9289fbd}{Uniform\+Location} const location)
+\begin{DoxyCompactList}\small\item\em This function interprets uniform value as vec3. \end{DoxyCompactList}\item 
+\hyperlink{structVec4}{Vec4} const $\ast$ \hyperlink{uniforms_8h_a080b7c5fc03c08f4893f911c5205b50a}{shader\+\_\+interpret\+Uniform\+As\+Vec4} (\hyperlink{fwd_8h_a4e6b8a8d832d478e8d761c0a52163a7c}{Uniforms} const uniforms, \hyperlink{uniforms_8h_a0827d09b4e6a18f2718775e7e9289fbd}{Uniform\+Location} const location)
+\begin{DoxyCompactList}\small\item\em This function interprets uniform value as vec4. \end{DoxyCompactList}\item 
+\hyperlink{structMat4}{Mat4} const $\ast$ \hyperlink{uniforms_8h_a83cb2c94ffb0623e9bb8d9508885376a}{shader\+\_\+interpret\+Uniform\+As\+Mat4} (\hyperlink{fwd_8h_a4e6b8a8d832d478e8d761c0a52163a7c}{Uniforms} const uniforms, \hyperlink{uniforms_8h_a0827d09b4e6a18f2718775e7e9289fbd}{Uniform\+Location} const location)
+\begin{DoxyCompactList}\small\item\em This function interprets uniform value as \hyperlink{structMat4}{Mat4}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This file contains structures and function declaration that are needed for manipulation with uniforms. 
+
+\begin{DoxyAuthor}{Author}
+Tomáš Milet, \href{mailto:imilet@fit.vutbr.cz}{\tt imilet@fit.\+vutbr.\+cz}
+\end{DoxyAuthor}
+All uniform values are constants that can only be read on G\+PU (in shaders). A uniform value does not change during drawing. A uniform value can be changed from C\+PU side between draw calls. They are useful for storing matrices, samplers and other global constants. 
+
+\subsection{Typedef Documentation}
+\index{uniforms.\+h@{uniforms.\+h}!Uniform\+Location@{Uniform\+Location}}
+\index{Uniform\+Location@{Uniform\+Location}!uniforms.\+h@{uniforms.\+h}}
+\subsubsection[{\texorpdfstring{Uniform\+Location}{UniformLocation}}]{\setlength{\rightskip}{0pt plus 5cm}typedef int32\+\_\+t {\bf Uniform\+Location}}\hypertarget{uniforms_8h_a0827d09b4e6a18f2718775e7e9289fbd}{}\label{uniforms_8h_a0827d09b4e6a18f2718775e7e9289fbd}
+
+
+This type is used for storing location of uniform variable. 
+
+Uniform location can be negative. In that case, uniform does not exists. When uniform location is not negative, it is direct index into list of uniforms. \begin{DoxySeeAlso}{See also}
+\hyperlink{fwd_8h_a4e6b8a8d832d478e8d761c0a52163a7c}{Uniforms} 
+\end{DoxySeeAlso}
+
+
+\subsection{Enumeration Type Documentation}
+\index{uniforms.\+h@{uniforms.\+h}!Uniform\+Type@{Uniform\+Type}}
+\index{Uniform\+Type@{Uniform\+Type}!uniforms.\+h@{uniforms.\+h}}
+\subsubsection[{\texorpdfstring{Uniform\+Type}{UniformType}}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf Uniform\+Type}}\hypertarget{uniforms_8h_a0d2757b6f370648e2dc98adc54edb97d}{}\label{uniforms_8h_a0d2757b6f370648e2dc98adc54edb97d}
+
+
+This enums represents type of uniform value. 
+
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{U\+N\+I\+F\+O\+R\+M\+\_\+\+F\+L\+O\+AT@{U\+N\+I\+F\+O\+R\+M\+\_\+\+F\+L\+O\+AT}!uniforms.\+h@{uniforms.\+h}}\index{uniforms.\+h@{uniforms.\+h}!U\+N\+I\+F\+O\+R\+M\+\_\+\+F\+L\+O\+AT@{U\+N\+I\+F\+O\+R\+M\+\_\+\+F\+L\+O\+AT}}\item[{\em 
+U\+N\+I\+F\+O\+R\+M\+\_\+\+F\+L\+O\+AT\hypertarget{uniforms_8h_a0d2757b6f370648e2dc98adc54edb97dabb3cc450caea79980ccd7f85ae2e482c}{}\label{uniforms_8h_a0d2757b6f370648e2dc98adc54edb97dabb3cc450caea79980ccd7f85ae2e482c}
+}]single 32-\/bit float \index{U\+N\+I\+F\+O\+R\+M\+\_\+\+V\+E\+C2@{U\+N\+I\+F\+O\+R\+M\+\_\+\+V\+E\+C2}!uniforms.\+h@{uniforms.\+h}}\index{uniforms.\+h@{uniforms.\+h}!U\+N\+I\+F\+O\+R\+M\+\_\+\+V\+E\+C2@{U\+N\+I\+F\+O\+R\+M\+\_\+\+V\+E\+C2}}\item[{\em 
+U\+N\+I\+F\+O\+R\+M\+\_\+\+V\+E\+C2\hypertarget{uniforms_8h_a0d2757b6f370648e2dc98adc54edb97da21db86f4d451261f8379f7a246756c64}{}\label{uniforms_8h_a0d2757b6f370648e2dc98adc54edb97da21db86f4d451261f8379f7a246756c64}
+}]two 32-\/bit floats \index{U\+N\+I\+F\+O\+R\+M\+\_\+\+V\+E\+C3@{U\+N\+I\+F\+O\+R\+M\+\_\+\+V\+E\+C3}!uniforms.\+h@{uniforms.\+h}}\index{uniforms.\+h@{uniforms.\+h}!U\+N\+I\+F\+O\+R\+M\+\_\+\+V\+E\+C3@{U\+N\+I\+F\+O\+R\+M\+\_\+\+V\+E\+C3}}\item[{\em 
+U\+N\+I\+F\+O\+R\+M\+\_\+\+V\+E\+C3\hypertarget{uniforms_8h_a0d2757b6f370648e2dc98adc54edb97dae422c4b105ee47de5a917f388cd40590}{}\label{uniforms_8h_a0d2757b6f370648e2dc98adc54edb97dae422c4b105ee47de5a917f388cd40590}
+}]three 32-\/bit floats \index{U\+N\+I\+F\+O\+R\+M\+\_\+\+V\+E\+C4@{U\+N\+I\+F\+O\+R\+M\+\_\+\+V\+E\+C4}!uniforms.\+h@{uniforms.\+h}}\index{uniforms.\+h@{uniforms.\+h}!U\+N\+I\+F\+O\+R\+M\+\_\+\+V\+E\+C4@{U\+N\+I\+F\+O\+R\+M\+\_\+\+V\+E\+C4}}\item[{\em 
+U\+N\+I\+F\+O\+R\+M\+\_\+\+V\+E\+C4\hypertarget{uniforms_8h_a0d2757b6f370648e2dc98adc54edb97dab70abac24b581df66c1f5ac7d4268d1a}{}\label{uniforms_8h_a0d2757b6f370648e2dc98adc54edb97dab70abac24b581df66c1f5ac7d4268d1a}
+}]four 32-\/bit floats \index{U\+N\+I\+F\+O\+R\+M\+\_\+\+U\+I\+NT@{U\+N\+I\+F\+O\+R\+M\+\_\+\+U\+I\+NT}!uniforms.\+h@{uniforms.\+h}}\index{uniforms.\+h@{uniforms.\+h}!U\+N\+I\+F\+O\+R\+M\+\_\+\+U\+I\+NT@{U\+N\+I\+F\+O\+R\+M\+\_\+\+U\+I\+NT}}\item[{\em 
+U\+N\+I\+F\+O\+R\+M\+\_\+\+U\+I\+NT\hypertarget{uniforms_8h_a0d2757b6f370648e2dc98adc54edb97dad11014349ed7f1ef514b15af851502a5}{}\label{uniforms_8h_a0d2757b6f370648e2dc98adc54edb97dad11014349ed7f1ef514b15af851502a5}
+}]single int32\+\_\+t \index{U\+N\+I\+F\+O\+R\+M\+\_\+\+M\+A\+T4@{U\+N\+I\+F\+O\+R\+M\+\_\+\+M\+A\+T4}!uniforms.\+h@{uniforms.\+h}}\index{uniforms.\+h@{uniforms.\+h}!U\+N\+I\+F\+O\+R\+M\+\_\+\+M\+A\+T4@{U\+N\+I\+F\+O\+R\+M\+\_\+\+M\+A\+T4}}\item[{\em 
+U\+N\+I\+F\+O\+R\+M\+\_\+\+M\+A\+T4\hypertarget{uniforms_8h_a0d2757b6f370648e2dc98adc54edb97daa3eed90ee47c4ca58597e4115f3557d4}{}\label{uniforms_8h_a0d2757b6f370648e2dc98adc54edb97daa3eed90ee47c4ca58597e4115f3557d4}
+}]matrix 4x4, base type is 32-\/bit float \end{description}
+\end{Desc}
+
+
+\subsection{Function Documentation}
+\index{uniforms.\+h@{uniforms.\+h}!cpu\+\_\+reserve\+Uniform@{cpu\+\_\+reserve\+Uniform}}
+\index{cpu\+\_\+reserve\+Uniform@{cpu\+\_\+reserve\+Uniform}!uniforms.\+h@{uniforms.\+h}}
+\subsubsection[{\texorpdfstring{cpu\+\_\+reserve\+Uniform(\+G\+P\+U const gpu, char const $\ast$const name, Uniform\+Type const type)}{cpu_reserveUniform(GPU const gpu, char const *const name, UniformType const type)}}]{\setlength{\rightskip}{0pt plus 5cm}void cpu\+\_\+reserve\+Uniform (
+\begin{DoxyParamCaption}
+\item[{{\bf G\+PU} const}]{gpu, }
+\item[{char const $\ast$const}]{name, }
+\item[{{\bf Uniform\+Type} const}]{type}
+\end{DoxyParamCaption}
+)}\hypertarget{uniforms_8h_acd308bcb7720918cb48f75292a247dfb}{}\label{uniforms_8h_acd308bcb7720918cb48f75292a247dfb}
+
+
+This functions reserves memory in G\+PU for uniform variable. 
+
+This function usually does not exists in common graphics A\+PI (Open\+GL). \begin{DoxySeeAlso}{See also}
+uniform1f
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em gpu} & G\+PU handler \\
+\hline
+{\em name} & name of uniform value, it has to be unique among uniform values \\
+\hline
+{\em type} & type of uniform value \\
+\hline
+\end{DoxyParams}
+\begin{Desc}
+\item[Examples\+: ]\par
+\hyperlink{TriangleExample-example}{Triangle\+Example}.\end{Desc}
+\index{uniforms.\+h@{uniforms.\+h}!cpu\+\_\+uniform1f@{cpu\+\_\+uniform1f}}
+\index{cpu\+\_\+uniform1f@{cpu\+\_\+uniform1f}!uniforms.\+h@{uniforms.\+h}}
+\subsubsection[{\texorpdfstring{cpu\+\_\+uniform1f(\+G\+P\+U const gpu, Uniform\+Location const location, float const v0)}{cpu_uniform1f(GPU const gpu, UniformLocation const location, float const v0)}}]{\setlength{\rightskip}{0pt plus 5cm}void cpu\+\_\+uniform1f (
+\begin{DoxyParamCaption}
+\item[{{\bf G\+PU} const}]{gpu, }
+\item[{{\bf Uniform\+Location} const}]{location, }
+\item[{float const}]{v0}
+\end{DoxyParamCaption}
+)}\hypertarget{uniforms_8h_a2dc47c73e2bb2d0080c3f19eb61a87f7}{}\label{uniforms_8h_a2dc47c73e2bb2d0080c3f19eb61a87f7}
+
+
+This function uploads single float to uniform variable in G\+PU memory. 
+
+Its alternative function in Open\+GL is gl\+Uniform1f
+
+
+\begin{DoxyParams}{Parameters}
+{\em gpu} & G\+PU handler \\
+\hline
+{\em location} & location of uniform value \\
+\hline
+{\em v0} & value \\
+\hline
+\end{DoxyParams}
+\index{uniforms.\+h@{uniforms.\+h}!cpu\+\_\+uniform2f@{cpu\+\_\+uniform2f}}
+\index{cpu\+\_\+uniform2f@{cpu\+\_\+uniform2f}!uniforms.\+h@{uniforms.\+h}}
+\subsubsection[{\texorpdfstring{cpu\+\_\+uniform2f(\+G\+P\+U const gpu, Uniform\+Location const location, float const v0, float const v1)}{cpu_uniform2f(GPU const gpu, UniformLocation const location, float const v0, float const v1)}}]{\setlength{\rightskip}{0pt plus 5cm}void cpu\+\_\+uniform2f (
+\begin{DoxyParamCaption}
+\item[{{\bf G\+PU} const}]{gpu, }
+\item[{{\bf Uniform\+Location} const}]{location, }
+\item[{float const}]{v0, }
+\item[{float const}]{v1}
+\end{DoxyParamCaption}
+)}\hypertarget{uniforms_8h_a49907628729ad4494c71ceac1f44b24f}{}\label{uniforms_8h_a49907628729ad4494c71ceac1f44b24f}
+
+
+This function uploads two floats to uniform variable in G\+PU memory. 
+
+Its alternative function in Open\+GL is gl\+Uniform2f
+
+
+\begin{DoxyParams}{Parameters}
+{\em gpu} & G\+PU handler \\
+\hline
+{\em location} & location of uniform value \\
+\hline
+{\em v0} & first component \\
+\hline
+{\em v1} & second component \\
+\hline
+\end{DoxyParams}
+\index{uniforms.\+h@{uniforms.\+h}!cpu\+\_\+uniform3f@{cpu\+\_\+uniform3f}}
+\index{cpu\+\_\+uniform3f@{cpu\+\_\+uniform3f}!uniforms.\+h@{uniforms.\+h}}
+\subsubsection[{\texorpdfstring{cpu\+\_\+uniform3f(\+G\+P\+U const gpu, Uniform\+Location const location, float const v0, float const v1, float const v2)}{cpu_uniform3f(GPU const gpu, UniformLocation const location, float const v0, float const v1, float const v2)}}]{\setlength{\rightskip}{0pt plus 5cm}void cpu\+\_\+uniform3f (
+\begin{DoxyParamCaption}
+\item[{{\bf G\+PU} const}]{gpu, }
+\item[{{\bf Uniform\+Location} const}]{location, }
+\item[{float const}]{v0, }
+\item[{float const}]{v1, }
+\item[{float const}]{v2}
+\end{DoxyParamCaption}
+)}\hypertarget{uniforms_8h_abe070ee9f74f785a07118788fcf4219e}{}\label{uniforms_8h_abe070ee9f74f785a07118788fcf4219e}
+
+
+This function uploads three floats to uniform variable in G\+PU memory. 
+
+Its alternative function in Open\+GL is gl\+Uniform3f
+
+
+\begin{DoxyParams}{Parameters}
+{\em gpu} & G\+PU handler \\
+\hline
+{\em location} & location of uniform value \\
+\hline
+{\em v0} & first component \\
+\hline
+{\em v1} & second component \\
+\hline
+{\em v2} & third component \\
+\hline
+\end{DoxyParams}
+\index{uniforms.\+h@{uniforms.\+h}!cpu\+\_\+uniform4f@{cpu\+\_\+uniform4f}}
+\index{cpu\+\_\+uniform4f@{cpu\+\_\+uniform4f}!uniforms.\+h@{uniforms.\+h}}
+\subsubsection[{\texorpdfstring{cpu\+\_\+uniform4f(\+G\+P\+U const gpu, Uniform\+Location const location, float const v0, float const v1, float const v2, float const v3)}{cpu_uniform4f(GPU const gpu, UniformLocation const location, float const v0, float const v1, float const v2, float const v3)}}]{\setlength{\rightskip}{0pt plus 5cm}void cpu\+\_\+uniform4f (
+\begin{DoxyParamCaption}
+\item[{{\bf G\+PU} const}]{gpu, }
+\item[{{\bf Uniform\+Location} const}]{location, }
+\item[{float const}]{v0, }
+\item[{float const}]{v1, }
+\item[{float const}]{v2, }
+\item[{float const}]{v3}
+\end{DoxyParamCaption}
+)}\hypertarget{uniforms_8h_adec6018cff30cb42360714eb4582c12e}{}\label{uniforms_8h_adec6018cff30cb42360714eb4582c12e}
+
+
+This function uploads four floats to uniform variable in G\+PU memory. 
+
+Its alternative function in Open\+GL is gl\+Uniform4f
+
+
+\begin{DoxyParams}{Parameters}
+{\em gpu} & G\+PU handler \\
+\hline
+{\em location} & location of uniform value \\
+\hline
+{\em v0} & first component \\
+\hline
+{\em v1} & second component \\
+\hline
+{\em v2} & third component \\
+\hline
+{\em v3} & fourth component \\
+\hline
+\end{DoxyParams}
+\index{uniforms.\+h@{uniforms.\+h}!cpu\+\_\+uniform\+Matrix4fv@{cpu\+\_\+uniform\+Matrix4fv}}
+\index{cpu\+\_\+uniform\+Matrix4fv@{cpu\+\_\+uniform\+Matrix4fv}!uniforms.\+h@{uniforms.\+h}}
+\subsubsection[{\texorpdfstring{cpu\+\_\+uniform\+Matrix4fv(\+G\+P\+U const gpu, Uniform\+Location const location, float const $\ast$const data)}{cpu_uniformMatrix4fv(GPU const gpu, UniformLocation const location, float const *const data)}}]{\setlength{\rightskip}{0pt plus 5cm}void cpu\+\_\+uniform\+Matrix4fv (
+\begin{DoxyParamCaption}
+\item[{{\bf G\+PU} const}]{gpu, }
+\item[{{\bf Uniform\+Location} const}]{location, }
+\item[{float const $\ast$const}]{data}
+\end{DoxyParamCaption}
+)}\hypertarget{uniforms_8h_a44cfae8c541efcc181e3947511df7f7a}{}\label{uniforms_8h_a44cfae8c541efcc181e3947511df7f7a}
+
+
+This function uploads 4x4 matrix to uniform variable in G\+PU memory. 
+
+Its alternative function in Open\+GL is gl\+Uniform\+Matrix4fv
+
+
+\begin{DoxyParams}{Parameters}
+{\em gpu} & G\+PU handler \\
+\hline
+{\em location} & location of uniform value \\
+\hline
+{\em data} & matrix stored in linear order \\
+\hline
+\end{DoxyParams}
+\begin{Desc}
+\item[Examples\+: ]\par
+\hyperlink{TriangleExample-example}{Triangle\+Example}.\end{Desc}
+\index{uniforms.\+h@{uniforms.\+h}!get\+Uniform\+Location@{get\+Uniform\+Location}}
+\index{get\+Uniform\+Location@{get\+Uniform\+Location}!uniforms.\+h@{uniforms.\+h}}
+\subsubsection[{\texorpdfstring{get\+Uniform\+Location(\+G\+P\+U const gpu, char const $\ast$const name)}{getUniformLocation(GPU const gpu, char const *const name)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Uniform\+Location} get\+Uniform\+Location (
+\begin{DoxyParamCaption}
+\item[{{\bf G\+PU} const}]{gpu, }
+\item[{char const $\ast$const}]{name}
+\end{DoxyParamCaption}
+)}\hypertarget{uniforms_8h_a6ea94982618b1c339a97a528b0670a53}{}\label{uniforms_8h_a6ea94982618b1c339a97a528b0670a53}
+
+
+This function returns location of reserved uniform variable. 
+
+Returned value can be negative -\/ in that case, uniform does not exits. If returned value is not negative, it is direct index into uniform list. Its alternative function in Open\+GL is gl\+Get\+Uniform\+Location. \begin{DoxySeeAlso}{See also}
+\hyperlink{fwd_8h_a4e6b8a8d832d478e8d761c0a52163a7c}{Uniforms}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em gpu} & G\+PU handler \\
+\hline
+{\em name} & name of uniform value\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+uniform location of uniform value with name\+: name 
+\end{DoxyReturn}
+\begin{Desc}
+\item[Examples\+: ]\par
+\hyperlink{TriangleExample-example}{Triangle\+Example}.\end{Desc}
+\index{uniforms.\+h@{uniforms.\+h}!shader\+\_\+interpret\+Uniform\+As\+Float@{shader\+\_\+interpret\+Uniform\+As\+Float}}
+\index{shader\+\_\+interpret\+Uniform\+As\+Float@{shader\+\_\+interpret\+Uniform\+As\+Float}!uniforms.\+h@{uniforms.\+h}}
+\subsubsection[{\texorpdfstring{shader\+\_\+interpret\+Uniform\+As\+Float(\+Uniforms const uniforms, Uniform\+Location const location)}{shader_interpretUniformAsFloat(Uniforms const uniforms, UniformLocation const location)}}]{\setlength{\rightskip}{0pt plus 5cm}float const$\ast$ shader\+\_\+interpret\+Uniform\+As\+Float (
+\begin{DoxyParamCaption}
+\item[{{\bf Uniforms} const}]{uniforms, }
+\item[{{\bf Uniform\+Location} const}]{location}
+\end{DoxyParamCaption}
+)}\hypertarget{uniforms_8h_a660ccd52e7e5e1ada9d44ac9426ae909}{}\label{uniforms_8h_a660ccd52e7e5e1ada9d44ac9426ae909}
+
+
+This function interprets uniform value as float. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em uniforms} & all uniforms \\
+\hline
+{\em location} & location of uniform\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+float 
+\end{DoxyReturn}
+\index{uniforms.\+h@{uniforms.\+h}!shader\+\_\+interpret\+Uniform\+As\+Mat4@{shader\+\_\+interpret\+Uniform\+As\+Mat4}}
+\index{shader\+\_\+interpret\+Uniform\+As\+Mat4@{shader\+\_\+interpret\+Uniform\+As\+Mat4}!uniforms.\+h@{uniforms.\+h}}
+\subsubsection[{\texorpdfstring{shader\+\_\+interpret\+Uniform\+As\+Mat4(\+Uniforms const uniforms, Uniform\+Location const location)}{shader_interpretUniformAsMat4(Uniforms const uniforms, UniformLocation const location)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Mat4} const$\ast$ shader\+\_\+interpret\+Uniform\+As\+Mat4 (
+\begin{DoxyParamCaption}
+\item[{{\bf Uniforms} const}]{uniforms, }
+\item[{{\bf Uniform\+Location} const}]{location}
+\end{DoxyParamCaption}
+)}\hypertarget{uniforms_8h_a83cb2c94ffb0623e9bb8d9508885376a}{}\label{uniforms_8h_a83cb2c94ffb0623e9bb8d9508885376a}
+
+
+This function interprets uniform value as \hyperlink{structMat4}{Mat4}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em uniforms} & all uniforms \\
+\hline
+{\em location} & location of uniform\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\hyperlink{structMat4}{Mat4} 
+\end{DoxyReturn}
+\begin{Desc}
+\item[Examples\+: ]\par
+\hyperlink{TriangleExample-example}{Triangle\+Example}.\end{Desc}
+\index{uniforms.\+h@{uniforms.\+h}!shader\+\_\+interpret\+Uniform\+As\+Vec2@{shader\+\_\+interpret\+Uniform\+As\+Vec2}}
+\index{shader\+\_\+interpret\+Uniform\+As\+Vec2@{shader\+\_\+interpret\+Uniform\+As\+Vec2}!uniforms.\+h@{uniforms.\+h}}
+\subsubsection[{\texorpdfstring{shader\+\_\+interpret\+Uniform\+As\+Vec2(\+Uniforms const uniforms, Uniform\+Location const location)}{shader_interpretUniformAsVec2(Uniforms const uniforms, UniformLocation const location)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Vec2} const$\ast$ shader\+\_\+interpret\+Uniform\+As\+Vec2 (
+\begin{DoxyParamCaption}
+\item[{{\bf Uniforms} const}]{uniforms, }
+\item[{{\bf Uniform\+Location} const}]{location}
+\end{DoxyParamCaption}
+)}\hypertarget{uniforms_8h_af77b07805ab7baa5fc0dcd812677b55f}{}\label{uniforms_8h_af77b07805ab7baa5fc0dcd812677b55f}
+
+
+This function interprets uniform value as vec2. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em uniforms} & all uniforms \\
+\hline
+{\em location} & location of uniform\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+vec2 
+\end{DoxyReturn}
+\index{uniforms.\+h@{uniforms.\+h}!shader\+\_\+interpret\+Uniform\+As\+Vec3@{shader\+\_\+interpret\+Uniform\+As\+Vec3}}
+\index{shader\+\_\+interpret\+Uniform\+As\+Vec3@{shader\+\_\+interpret\+Uniform\+As\+Vec3}!uniforms.\+h@{uniforms.\+h}}
+\subsubsection[{\texorpdfstring{shader\+\_\+interpret\+Uniform\+As\+Vec3(\+Uniforms const uniforms, Uniform\+Location const location)}{shader_interpretUniformAsVec3(Uniforms const uniforms, UniformLocation const location)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Vec3} const$\ast$ shader\+\_\+interpret\+Uniform\+As\+Vec3 (
+\begin{DoxyParamCaption}
+\item[{{\bf Uniforms} const}]{uniforms, }
+\item[{{\bf Uniform\+Location} const}]{location}
+\end{DoxyParamCaption}
+)}\hypertarget{uniforms_8h_a0466fe65842b5a08561b87670f366f55}{}\label{uniforms_8h_a0466fe65842b5a08561b87670f366f55}
+
+
+This function interprets uniform value as vec3. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em uniforms} & all uniforms \\
+\hline
+{\em location} & location of uniform\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+vec3 
+\end{DoxyReturn}
+\index{uniforms.\+h@{uniforms.\+h}!shader\+\_\+interpret\+Uniform\+As\+Vec4@{shader\+\_\+interpret\+Uniform\+As\+Vec4}}
+\index{shader\+\_\+interpret\+Uniform\+As\+Vec4@{shader\+\_\+interpret\+Uniform\+As\+Vec4}!uniforms.\+h@{uniforms.\+h}}
+\subsubsection[{\texorpdfstring{shader\+\_\+interpret\+Uniform\+As\+Vec4(\+Uniforms const uniforms, Uniform\+Location const location)}{shader_interpretUniformAsVec4(Uniforms const uniforms, UniformLocation const location)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Vec4} const$\ast$ shader\+\_\+interpret\+Uniform\+As\+Vec4 (
+\begin{DoxyParamCaption}
+\item[{{\bf Uniforms} const}]{uniforms, }
+\item[{{\bf Uniform\+Location} const}]{location}
+\end{DoxyParamCaption}
+)}\hypertarget{uniforms_8h_a080b7c5fc03c08f4893f911c5205b50a}{}\label{uniforms_8h_a080b7c5fc03c08f4893f911c5205b50a}
+
+
+This function interprets uniform value as vec4. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em uniforms} & all uniform \\
+\hline
+{\em location} & location of uniform\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+vec4 
+\end{DoxyReturn}

@@ -1,0 +1,69 @@
+\hypertarget{swapBuffers_8c}{}\section{student/swap\+Buffers.c File Reference}
+\label{swapBuffers_8c}\index{student/swap\+Buffers.\+c@{student/swap\+Buffers.\+c}}
+
+
+This file contains implementation of swap\+Buffers function.  
+
+
+{\ttfamily \#include $<$assert.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}student/swap\+Buffers.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}student/gpu.\+h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \hyperlink{swapBuffers_8c_ac24c5e8f9b8ab5f6244ad1180b3bfee4}{float\+Color\+To\+Uint32} (float const value)
+\begin{DoxyCompactList}\small\item\em This functions converts one color channel in float to byte. \end{DoxyCompactList}\item 
+void \hyperlink{swapBuffers_8c_aa71ffc00c4f3d7e232828f8b7c47eb9b}{cpu\+\_\+swap\+Buffers} (S\+D\+L\+\_\+\+Surface $\ast$const surface, \hyperlink{fwd_8h_a06964ec111fe28721d8618b6d0d993bf}{G\+PU} const gpu)
+\begin{DoxyCompactList}\small\item\em This function swaps framebuffer to window surface. This function should be called at the end of frame. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This file contains implementation of swap\+Buffers function. 
+
+\begin{DoxyAuthor}{Author}
+Tomáš Milet, \href{mailto:imilet@fit.vutbr.cz}{\tt imilet@fit.\+vutbr.\+cz} 
+\end{DoxyAuthor}
+
+
+\subsection{Function Documentation}
+\index{swap\+Buffers.\+c@{swap\+Buffers.\+c}!cpu\+\_\+swap\+Buffers@{cpu\+\_\+swap\+Buffers}}
+\index{cpu\+\_\+swap\+Buffers@{cpu\+\_\+swap\+Buffers}!swap\+Buffers.\+c@{swap\+Buffers.\+c}}
+\subsubsection[{\texorpdfstring{cpu\+\_\+swap\+Buffers(\+S\+D\+L\+\_\+\+Surface $\ast$const surface, G\+P\+U const gpu)}{cpu_swapBuffers(SDL_Surface *const surface, GPU const gpu)}}]{\setlength{\rightskip}{0pt plus 5cm}void cpu\+\_\+swap\+Buffers (
+\begin{DoxyParamCaption}
+\item[{S\+D\+L\+\_\+\+Surface $\ast$const}]{surface, }
+\item[{{\bf G\+PU} const}]{gpu}
+\end{DoxyParamCaption}
+)}\hypertarget{swapBuffers_8c_aa71ffc00c4f3d7e232828f8b7c47eb9b}{}\label{swapBuffers_8c_aa71ffc00c4f3d7e232828f8b7c47eb9b}
+
+
+This function swaps framebuffer to window surface. This function should be called at the end of frame. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em surface} & S\+DL surface \\
+\hline
+{\em gpu} & G\+PU handle \\
+\hline
+\end{DoxyParams}
+\begin{Desc}
+\item[Examples\+: ]\par
+\hyperlink{TriangleExample-example}{Triangle\+Example}.\end{Desc}
+\index{swap\+Buffers.\+c@{swap\+Buffers.\+c}!float\+Color\+To\+Uint32@{float\+Color\+To\+Uint32}}
+\index{float\+Color\+To\+Uint32@{float\+Color\+To\+Uint32}!swap\+Buffers.\+c@{swap\+Buffers.\+c}}
+\subsubsection[{\texorpdfstring{float\+Color\+To\+Uint32(float const value)}{floatColorToUint32(float const value)}}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t float\+Color\+To\+Uint32 (
+\begin{DoxyParamCaption}
+\item[{float const}]{value}
+\end{DoxyParamCaption}
+)}\hypertarget{swapBuffers_8c_ac24c5e8f9b8ab5f6244ad1180b3bfee4}{}\label{swapBuffers_8c_ac24c5e8f9b8ab5f6244ad1180b3bfee4}
+
+
+This functions converts one color channel in float to byte. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & color channel\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+color in byte 
+\end{DoxyReturn}

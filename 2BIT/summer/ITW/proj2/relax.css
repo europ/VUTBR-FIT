@@ -1,0 +1,78 @@
+#bodyimage {
+	background-image: url("images/relaxpoolbackground.jpg");
+	/*height: 92.8vh !important;*/
+}
+h2 {
+	color:#ffbb00 !important;
+	text-shadow: 3px 3px 5px black !important;
+	padding-bottom: 1em !important;
+}
+a {
+	color:#ffbb00;
+}
+#bodyimage {
+	position: relative;
+}
+#content_services {
+	position: relative;
+	display: inline-block;
+}
+#serv {
+	float:left;
+	width: 450px;
+	padding-right: 25px;
+	padding-bottom: 3em;
+}
+#serv:last-child {
+	padding-right: 0;	
+}
+#serv img { 
+	border: 3px solid transparent;
+	border-color: orange;
+}
+#serv p {
+	text-align: justify;
+	color: white;
+	text-shadow: 1px 1px 1px #000, 3px 3px 5px black; 
+}
+h3 {
+	color:orange;
+	font-size: 1.5em;
+	padding-bottom: 0.2em;
+	text-shadow: 1px 1px 1px black;
+}
+
+@media only print {
+	h1,h2,h3,p,a {
+		clear:left;
+		color:black !important;
+		text-shadow: none !important;
+		margin:0 !important;
+		padding:0 !important;
+		border:0 !important;
+	}
+	a {
+		padding-bottom: 1em !important;
+		font-size:1em !important;
+	}
+	h2 {
+		padding-bottom: 1em !important;
+	}
+	p {
+		font-size: 13pt !important;
+		width: 100% !important;
+	}
+	img {
+		padding: 0 !important;
+		margin: 0 !important;
+		border: 0 !important;
+		height: 200px !important; 
+    	width: 350px !important;
+    
+	}
+	#serv {
+		clear:both !important;
+		height: 10em !important;
+		width: 100% !important;
+	}
+}

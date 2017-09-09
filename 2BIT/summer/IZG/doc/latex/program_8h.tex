@@ -1,0 +1,609 @@
+\hypertarget{program_8h}{}\section{student/program.h File Reference}
+\label{program_8h}\index{student/program.\+h@{student/program.\+h}}
+
+
+This file contains structures and function declarations important for shader program object.  
+
+
+{\ttfamily \#include $<$stdlib.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}fwd.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}linear\+Algebra.\+h\char`\"{}}\\*
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structGPUVertexShaderInput}{G\+P\+U\+Vertex\+Shader\+Input}
+\begin{DoxyCompactList}\small\item\em This struct represents input interface of vertex shader. \end{DoxyCompactList}\item 
+struct \hyperlink{structGPUFragmentAttributes}{G\+P\+U\+Fragment\+Attributes}
+\begin{DoxyCompactList}\small\item\em This struct represents fragment that is produced by rasterization. Each fragment contains fragment attributes. Each attribute is represented as array of bytes that has to be cast to requested type. \end{DoxyCompactList}\item 
+struct \hyperlink{structGPUFragmentShaderInput}{G\+P\+U\+Fragment\+Shader\+Input}
+\begin{DoxyCompactList}\small\item\em This struct represents input data to fragment shader. \end{DoxyCompactList}\item 
+struct \hyperlink{structGPUFragmentShaderOutput}{G\+P\+U\+Fragment\+Shader\+Output}
+\begin{DoxyCompactList}\small\item\em This struct represents output data of fragment shader. \end{DoxyCompactList}\item 
+struct \hyperlink{structGPUVertexShaderOutput}{G\+P\+U\+Vertex\+Shader\+Output}
+\begin{DoxyCompactList}\small\item\em This struct represents vertex that is output of vertex shader. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef enum \hyperlink{program_8h_a349a9cde14be8097df865ba0469c0ab2}{Attribute\+Type} \hyperlink{program_8h_a5236bd21daf81fc31b3d515a16e35048}{Attribute\+Type}\hypertarget{program_8h_a5236bd21daf81fc31b3d515a16e35048}{}\label{program_8h_a5236bd21daf81fc31b3d515a16e35048}
+
+\begin{DoxyCompactList}\small\item\em shortcut \end{DoxyCompactList}\item 
+typedef enum \hyperlink{program_8h_a8472f01c511d77bbfb981a46618ea1ea}{Interpolation\+Type} \hyperlink{program_8h_a6e4f9aa9ae0e2670efdc2414efadf128}{Interpolation\+Type}\hypertarget{program_8h_a6e4f9aa9ae0e2670efdc2414efadf128}{}\label{program_8h_a6e4f9aa9ae0e2670efdc2414efadf128}
+
+\begin{DoxyCompactList}\small\item\em shortcut \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{program_8h_a349a9cde14be8097df865ba0469c0ab2}{Attribute\+Type} \{ \\*
+\hyperlink{program_8h_a349a9cde14be8097df865ba0469c0ab2ada11bd8ffb0395e72ab4b05a8f02240e}{A\+T\+T\+R\+I\+B\+\_\+\+F\+L\+O\+AT} = 1u, 
+\hyperlink{program_8h_a349a9cde14be8097df865ba0469c0ab2a9e500f0bab9b683daaff41abdd7b88a5}{A\+T\+T\+R\+I\+B\+\_\+\+V\+E\+C2} = 2u, 
+\hyperlink{program_8h_a349a9cde14be8097df865ba0469c0ab2af145276fddc920ef58a00542e097c47a}{A\+T\+T\+R\+I\+B\+\_\+\+V\+E\+C3} = 3u, 
+\hyperlink{program_8h_a349a9cde14be8097df865ba0469c0ab2a70f6a617485f350ce4d479b0621e77ae}{A\+T\+T\+R\+I\+B\+\_\+\+V\+E\+C4} = 4u, 
+\\*
+\hyperlink{program_8h_a349a9cde14be8097df865ba0469c0ab2a9a0ec9bd97a03b2a0ba97058e60691bb}{A\+T\+T\+R\+I\+B\+\_\+\+E\+M\+P\+TY} = 5u
+ \}\begin{DoxyCompactList}\small\item\em This enum represents type of vertex/fragment attributes. \end{DoxyCompactList}
+\item 
+enum \hyperlink{program_8h_a8472f01c511d77bbfb981a46618ea1ea}{Interpolation\+Type} \{ \hyperlink{program_8h_a8472f01c511d77bbfb981a46618ea1eaa0338024d4d0d5bffed604c279f8f5550}{F\+L\+AT}, 
+\hyperlink{program_8h_a8472f01c511d77bbfb981a46618ea1eaacdc92eb62e3be278780c22beb101971c}{N\+O\+P\+E\+R\+S\+P\+E\+C\+T\+I\+VE}, 
+\hyperlink{program_8h_a8472f01c511d77bbfb981a46618ea1eaa33c7ccbb848d8fd75455dd9786a1153a}{S\+M\+O\+O\+TH}
+ \}\begin{DoxyCompactList}\small\item\em Type of interpolation that is done in rasterization. \end{DoxyCompactList}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+float const $\ast$ \hyperlink{program_8h_afaff140175e0f84975f6ecfe8703b87c}{vs\+\_\+interpret\+Input\+Vertex\+Attribute\+As\+Float} (\hyperlink{fwd_8h_a06964ec111fe28721d8618b6d0d993bf}{G\+PU} const gpu, \hyperlink{structGPUVertexShaderInput}{G\+P\+U\+Vertex\+Shader\+Input} const $\ast$const vertex, \hyperlink{fwd_8h_ae0177a4e09fa19c5f6218b91a706c292}{Attrib\+Index} const attribute\+Index)
+\begin{DoxyCompactList}\small\item\em This function interprets vertex attribute of input vertex of vertex shader as float. \end{DoxyCompactList}\item 
+\hyperlink{structVec2}{Vec2} const $\ast$ \hyperlink{program_8h_a6ebd43944357656c069b32be4de1a30f}{vs\+\_\+interpret\+Input\+Vertex\+Attribute\+As\+Vec2} (\hyperlink{fwd_8h_a06964ec111fe28721d8618b6d0d993bf}{G\+PU} const gpu, \hyperlink{structGPUVertexShaderInput}{G\+P\+U\+Vertex\+Shader\+Input} const $\ast$const vertex, \hyperlink{fwd_8h_ae0177a4e09fa19c5f6218b91a706c292}{Attrib\+Index} const attribute\+Index)
+\begin{DoxyCompactList}\small\item\em This function interprets vertex attribute of input vertex of vertex shader as vec2. \end{DoxyCompactList}\item 
+\hyperlink{structVec3}{Vec3} const $\ast$ \hyperlink{program_8h_a4bec56307c0d080bf314d20ff89773b2}{vs\+\_\+interpret\+Input\+Vertex\+Attribute\+As\+Vec3} (\hyperlink{fwd_8h_a06964ec111fe28721d8618b6d0d993bf}{G\+PU} const gpu, \hyperlink{structGPUVertexShaderInput}{G\+P\+U\+Vertex\+Shader\+Input} const $\ast$const vertex, \hyperlink{fwd_8h_ae0177a4e09fa19c5f6218b91a706c292}{Attrib\+Index} const attribute\+Index)
+\begin{DoxyCompactList}\small\item\em This function interprets vertex attribute of input vertex of vertex shader as vec3. \end{DoxyCompactList}\item 
+\hyperlink{structVec4}{Vec4} const $\ast$ \hyperlink{program_8h_ab088592aa70338f26442baeec1bb3c5c}{vs\+\_\+interpret\+Input\+Vertex\+Attribute\+As\+Vec4} (\hyperlink{fwd_8h_a06964ec111fe28721d8618b6d0d993bf}{G\+PU} const gpu, \hyperlink{structGPUVertexShaderInput}{G\+P\+U\+Vertex\+Shader\+Input} const $\ast$const vertex, \hyperlink{fwd_8h_ae0177a4e09fa19c5f6218b91a706c292}{Attrib\+Index} const attribute\+Index)
+\begin{DoxyCompactList}\small\item\em This function interprets vertex attribute of input vertex of vertex shader as vec4. \end{DoxyCompactList}\item 
+float $\ast$ \hyperlink{program_8h_a897cafc0a252c8fd64a6f4e76bcb932a}{vs\+\_\+interpret\+Output\+Vertex\+Attribute\+As\+Float} (\hyperlink{fwd_8h_a06964ec111fe28721d8618b6d0d993bf}{G\+PU} const gpu, \hyperlink{structGPUVertexShaderOutput}{G\+P\+U\+Vertex\+Shader\+Output} $\ast$const vertex, \hyperlink{fwd_8h_ae0177a4e09fa19c5f6218b91a706c292}{Attrib\+Index} const attribute\+Index)
+\begin{DoxyCompactList}\small\item\em This function interprets vertex attribute of output vertex of vertex shader as float. \end{DoxyCompactList}\item 
+\hyperlink{structVec2}{Vec2} $\ast$ \hyperlink{program_8h_ad08931025b2d6f95315697d4f83bbebe}{vs\+\_\+interpret\+Output\+Vertex\+Attribute\+As\+Vec2} (\hyperlink{fwd_8h_a06964ec111fe28721d8618b6d0d993bf}{G\+PU} const gpu, \hyperlink{structGPUVertexShaderOutput}{G\+P\+U\+Vertex\+Shader\+Output} $\ast$const vertex, \hyperlink{fwd_8h_ae0177a4e09fa19c5f6218b91a706c292}{Attrib\+Index} const attribute\+Index)
+\begin{DoxyCompactList}\small\item\em This function interprets vertex attribute of output vertex of vertex shader as vec2. \end{DoxyCompactList}\item 
+\hyperlink{structVec3}{Vec3} $\ast$ \hyperlink{program_8h_a60d0546dc8c052ee90f699ddca3b540b}{vs\+\_\+interpret\+Output\+Vertex\+Attribute\+As\+Vec3} (\hyperlink{fwd_8h_a06964ec111fe28721d8618b6d0d993bf}{G\+PU} const gpu, \hyperlink{structGPUVertexShaderOutput}{G\+P\+U\+Vertex\+Shader\+Output} $\ast$const vertex, \hyperlink{fwd_8h_ae0177a4e09fa19c5f6218b91a706c292}{Attrib\+Index} const attribute\+Index)
+\begin{DoxyCompactList}\small\item\em This function interprets vertex attribute of output vertex of vertex shader as vec3. \end{DoxyCompactList}\item 
+\hyperlink{structVec4}{Vec4} $\ast$ \hyperlink{program_8h_a5afca81921e1453100b1fa82dfd4b621}{vs\+\_\+interpret\+Output\+Vertex\+Attribute\+As\+Vec4} (\hyperlink{fwd_8h_a06964ec111fe28721d8618b6d0d993bf}{G\+PU} const gpu, \hyperlink{structGPUVertexShaderOutput}{G\+P\+U\+Vertex\+Shader\+Output} $\ast$const vertex, \hyperlink{fwd_8h_ae0177a4e09fa19c5f6218b91a706c292}{Attrib\+Index} const attribute\+Index)
+\begin{DoxyCompactList}\small\item\em This function interpres vertex attribute of output vertex of vertex shader as vec4. \end{DoxyCompactList}\item 
+float const $\ast$ \hyperlink{program_8h_a8d1f19c2970db410d151c5fa4dbd4b69}{fs\+\_\+interpret\+Input\+Attribute\+As\+Float} (\hyperlink{fwd_8h_a06964ec111fe28721d8618b6d0d993bf}{G\+PU} const gpu, \hyperlink{structGPUFragmentShaderInput}{G\+P\+U\+Fragment\+Shader\+Input} const $\ast$const fragment, \hyperlink{fwd_8h_ae0177a4e09fa19c5f6218b91a706c292}{Attrib\+Index} const attribute\+Index)
+\begin{DoxyCompactList}\small\item\em This function interprets fragment attribute of input fragment of fragment shader as float. \end{DoxyCompactList}\item 
+\hyperlink{structVec2}{Vec2} const $\ast$ \hyperlink{program_8h_a9cbc466cc34b80ddc72bc6b40f3be4eb}{fs\+\_\+interpret\+Input\+Attribute\+As\+Vec2} (\hyperlink{fwd_8h_a06964ec111fe28721d8618b6d0d993bf}{G\+PU} const gpu, \hyperlink{structGPUFragmentShaderInput}{G\+P\+U\+Fragment\+Shader\+Input} const $\ast$const fragment, \hyperlink{fwd_8h_ae0177a4e09fa19c5f6218b91a706c292}{Attrib\+Index} const attribute\+Index)
+\begin{DoxyCompactList}\small\item\em This function interprets fragment attribute of input fragment of fragment shader as vec2. \end{DoxyCompactList}\item 
+\hyperlink{structVec3}{Vec3} const $\ast$ \hyperlink{program_8h_a132afaeef0a64d93305bb2df3f35a524}{fs\+\_\+interpret\+Input\+Attribute\+As\+Vec3} (\hyperlink{fwd_8h_a06964ec111fe28721d8618b6d0d993bf}{G\+PU} const gpu, \hyperlink{structGPUFragmentShaderInput}{G\+P\+U\+Fragment\+Shader\+Input} const $\ast$const fragment, \hyperlink{fwd_8h_ae0177a4e09fa19c5f6218b91a706c292}{Attrib\+Index} const attribute\+Index)
+\begin{DoxyCompactList}\small\item\em This function interprets fragment attribute of input fragment of fragment shader as vec3. \end{DoxyCompactList}\item 
+\hyperlink{structVec4}{Vec4} const $\ast$ \hyperlink{program_8h_aed78fc105c05f97be15ad4b7a2e696ec}{fs\+\_\+interpret\+Input\+Attribute\+As\+Vec4} (\hyperlink{fwd_8h_a06964ec111fe28721d8618b6d0d993bf}{G\+PU} const gpu, \hyperlink{structGPUFragmentShaderInput}{G\+P\+U\+Fragment\+Shader\+Input} const $\ast$const fragment, \hyperlink{fwd_8h_ae0177a4e09fa19c5f6218b91a706c292}{Attrib\+Index} const attribute\+Index)
+\begin{DoxyCompactList}\small\item\em This function interprets fragment attribute of input fragment of fragment shader as vec4. \end{DoxyCompactList}\item 
+\hyperlink{fwd_8h_a15e62786033208aec9487a51e808f81d}{Program\+ID} \hyperlink{program_8h_a4fca7a0e3dac7f93620a1bde6efcde16}{cpu\+\_\+create\+Program} (\hyperlink{fwd_8h_a06964ec111fe28721d8618b6d0d993bf}{G\+PU} const gpu)
+\begin{DoxyCompactList}\small\item\em This function reserves id for new program. \end{DoxyCompactList}\item 
+void \hyperlink{program_8h_ae8e0db3804703c6e3b59557e095bf9c0}{cpu\+\_\+delete\+Program} (\hyperlink{fwd_8h_a06964ec111fe28721d8618b6d0d993bf}{G\+PU} const gpu, \hyperlink{fwd_8h_a15e62786033208aec9487a51e808f81d}{Program\+ID} const program)
+\begin{DoxyCompactList}\small\item\em This function deletes program. \end{DoxyCompactList}\item 
+void \hyperlink{program_8h_aaefc7833a6deea461cc06d00318f7975}{cpu\+\_\+attach\+Vertex\+Shader} (\hyperlink{fwd_8h_a06964ec111fe28721d8618b6d0d993bf}{G\+PU} const gpu, \hyperlink{fwd_8h_a15e62786033208aec9487a51e808f81d}{Program\+ID} const program, \hyperlink{fwd_8h_a06caf90c4f22dc1c99aafd8f4b417512}{Vertex\+Shader} const shader)
+\begin{DoxyCompactList}\small\item\em This function attachs vertex shader to program. \end{DoxyCompactList}\item 
+void \hyperlink{program_8h_a402ad69a9f1b80b8de408b991e190ed6}{cpu\+\_\+attach\+Fragment\+Shader} (\hyperlink{fwd_8h_a06964ec111fe28721d8618b6d0d993bf}{G\+PU} const gpu, \hyperlink{fwd_8h_a15e62786033208aec9487a51e808f81d}{Program\+ID} const program, \hyperlink{fwd_8h_adf991a00851a416ee033b6b335e8f76e}{Fragment\+Shader} const shader)
+\begin{DoxyCompactList}\small\item\em This function attachs fragment shader to program. \end{DoxyCompactList}\item 
+void \hyperlink{program_8h_a497d97730640942bffcc3cd9f266f146}{cpu\+\_\+use\+Program} (\hyperlink{fwd_8h_a06964ec111fe28721d8618b6d0d993bf}{G\+PU} const gpu, \hyperlink{fwd_8h_a15e62786033208aec9487a51e808f81d}{Program\+ID} const program)
+\begin{DoxyCompactList}\small\item\em This function activates selected program. \end{DoxyCompactList}\item 
+void \hyperlink{program_8h_aca1c5019ec58c919160c4c12a5e5fa06}{cpu\+\_\+set\+Attribute\+Interpolation} (\hyperlink{fwd_8h_a06964ec111fe28721d8618b6d0d993bf}{G\+PU} const gpu, \hyperlink{fwd_8h_a15e62786033208aec9487a51e808f81d}{Program\+ID} const program, \hyperlink{fwd_8h_ae0177a4e09fa19c5f6218b91a706c292}{Attrib\+Index} const attrib\+Index, \hyperlink{program_8h_a349a9cde14be8097df865ba0469c0ab2}{Attribute\+Type} const type, \hyperlink{program_8h_a8472f01c511d77bbfb981a46618ea1ea}{Interpolation\+Type} const interpolation)
+\begin{DoxyCompactList}\small\item\em This function sets interpolation of vertex attributes of output vertex. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This file contains structures and function declarations important for shader program object. 
+
+A shader program is collection of shaders (vertex shader, fragment shader). Shaders are represent by callbacks (function pointers). In common graphics A\+P\+Is, shaders are compiled a programs are linked. Each program has its unique ID -\/ Program\+ID. This id can be reserved/obtained by cpu\+\_\+create\+Program. A program can be delete by cpu\+\_\+delete\+Program. Shaders has to be attached to a program before it can be properly used on G\+PU. Function cpu\+\_\+use\+Program has to be called before any draw call can be executed.
+
+\begin{DoxyAuthor}{Author}
+Tomáš Milet, \href{mailto:imilet@fit.vutbr.cz}{\tt imilet@fit.\+vutbr.\+cz} 
+\end{DoxyAuthor}
+
+
+\subsection{Enumeration Type Documentation}
+\index{program.\+h@{program.\+h}!Attribute\+Type@{Attribute\+Type}}
+\index{Attribute\+Type@{Attribute\+Type}!program.\+h@{program.\+h}}
+\subsubsection[{\texorpdfstring{Attribute\+Type}{AttributeType}}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf Attribute\+Type}}\hypertarget{program_8h_a349a9cde14be8097df865ba0469c0ab2}{}\label{program_8h_a349a9cde14be8097df865ba0469c0ab2}
+
+
+This enum represents type of vertex/fragment attributes. 
+
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{A\+T\+T\+R\+I\+B\+\_\+\+F\+L\+O\+AT@{A\+T\+T\+R\+I\+B\+\_\+\+F\+L\+O\+AT}!program.\+h@{program.\+h}}\index{program.\+h@{program.\+h}!A\+T\+T\+R\+I\+B\+\_\+\+F\+L\+O\+AT@{A\+T\+T\+R\+I\+B\+\_\+\+F\+L\+O\+AT}}\item[{\em 
+A\+T\+T\+R\+I\+B\+\_\+\+F\+L\+O\+AT\hypertarget{program_8h_a349a9cde14be8097df865ba0469c0ab2ada11bd8ffb0395e72ab4b05a8f02240e}{}\label{program_8h_a349a9cde14be8097df865ba0469c0ab2ada11bd8ffb0395e72ab4b05a8f02240e}
+}]32-\/bit float \index{A\+T\+T\+R\+I\+B\+\_\+\+V\+E\+C2@{A\+T\+T\+R\+I\+B\+\_\+\+V\+E\+C2}!program.\+h@{program.\+h}}\index{program.\+h@{program.\+h}!A\+T\+T\+R\+I\+B\+\_\+\+V\+E\+C2@{A\+T\+T\+R\+I\+B\+\_\+\+V\+E\+C2}}\item[{\em 
+A\+T\+T\+R\+I\+B\+\_\+\+V\+E\+C2\hypertarget{program_8h_a349a9cde14be8097df865ba0469c0ab2a9e500f0bab9b683daaff41abdd7b88a5}{}\label{program_8h_a349a9cde14be8097df865ba0469c0ab2a9e500f0bab9b683daaff41abdd7b88a5}
+}]2d vector of 32-\/bit floats \index{A\+T\+T\+R\+I\+B\+\_\+\+V\+E\+C3@{A\+T\+T\+R\+I\+B\+\_\+\+V\+E\+C3}!program.\+h@{program.\+h}}\index{program.\+h@{program.\+h}!A\+T\+T\+R\+I\+B\+\_\+\+V\+E\+C3@{A\+T\+T\+R\+I\+B\+\_\+\+V\+E\+C3}}\item[{\em 
+A\+T\+T\+R\+I\+B\+\_\+\+V\+E\+C3\hypertarget{program_8h_a349a9cde14be8097df865ba0469c0ab2af145276fddc920ef58a00542e097c47a}{}\label{program_8h_a349a9cde14be8097df865ba0469c0ab2af145276fddc920ef58a00542e097c47a}
+}]3d vector of 32-\/bit floats \index{A\+T\+T\+R\+I\+B\+\_\+\+V\+E\+C4@{A\+T\+T\+R\+I\+B\+\_\+\+V\+E\+C4}!program.\+h@{program.\+h}}\index{program.\+h@{program.\+h}!A\+T\+T\+R\+I\+B\+\_\+\+V\+E\+C4@{A\+T\+T\+R\+I\+B\+\_\+\+V\+E\+C4}}\item[{\em 
+A\+T\+T\+R\+I\+B\+\_\+\+V\+E\+C4\hypertarget{program_8h_a349a9cde14be8097df865ba0469c0ab2a70f6a617485f350ce4d479b0621e77ae}{}\label{program_8h_a349a9cde14be8097df865ba0469c0ab2a70f6a617485f350ce4d479b0621e77ae}
+}]4f vector of 32-\/bit floats \index{A\+T\+T\+R\+I\+B\+\_\+\+E\+M\+P\+TY@{A\+T\+T\+R\+I\+B\+\_\+\+E\+M\+P\+TY}!program.\+h@{program.\+h}}\index{program.\+h@{program.\+h}!A\+T\+T\+R\+I\+B\+\_\+\+E\+M\+P\+TY@{A\+T\+T\+R\+I\+B\+\_\+\+E\+M\+P\+TY}}\item[{\em 
+A\+T\+T\+R\+I\+B\+\_\+\+E\+M\+P\+TY\hypertarget{program_8h_a349a9cde14be8097df865ba0469c0ab2a9a0ec9bd97a03b2a0ba97058e60691bb}{}\label{program_8h_a349a9cde14be8097df865ba0469c0ab2a9a0ec9bd97a03b2a0ba97058e60691bb}
+}]empty attribute \end{description}
+\end{Desc}
+\index{program.\+h@{program.\+h}!Interpolation\+Type@{Interpolation\+Type}}
+\index{Interpolation\+Type@{Interpolation\+Type}!program.\+h@{program.\+h}}
+\subsubsection[{\texorpdfstring{Interpolation\+Type}{InterpolationType}}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf Interpolation\+Type}}\hypertarget{program_8h_a8472f01c511d77bbfb981a46618ea1ea}{}\label{program_8h_a8472f01c511d77bbfb981a46618ea1ea}
+
+
+Type of interpolation that is done in rasterization. 
+
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{F\+L\+AT@{F\+L\+AT}!program.\+h@{program.\+h}}\index{program.\+h@{program.\+h}!F\+L\+AT@{F\+L\+AT}}\item[{\em 
+F\+L\+AT\hypertarget{program_8h_a8472f01c511d77bbfb981a46618ea1eaa0338024d4d0d5bffed604c279f8f5550}{}\label{program_8h_a8472f01c511d77bbfb981a46618ea1eaa0338024d4d0d5bffed604c279f8f5550}
+}]flat interpolation, fragment data are generated using only first vertex of primitive \index{N\+O\+P\+E\+R\+S\+P\+E\+C\+T\+I\+VE@{N\+O\+P\+E\+R\+S\+P\+E\+C\+T\+I\+VE}!program.\+h@{program.\+h}}\index{program.\+h@{program.\+h}!N\+O\+P\+E\+R\+S\+P\+E\+C\+T\+I\+VE@{N\+O\+P\+E\+R\+S\+P\+E\+C\+T\+I\+VE}}\item[{\em 
+N\+O\+P\+E\+R\+S\+P\+E\+C\+T\+I\+VE\hypertarget{program_8h_a8472f01c511d77bbfb981a46618ea1eaacdc92eb62e3be278780c22beb101971c}{}\label{program_8h_a8472f01c511d77bbfb981a46618ea1eaacdc92eb62e3be278780c22beb101971c}
+}]linear interpolation without perspective correction \index{S\+M\+O\+O\+TH@{S\+M\+O\+O\+TH}!program.\+h@{program.\+h}}\index{program.\+h@{program.\+h}!S\+M\+O\+O\+TH@{S\+M\+O\+O\+TH}}\item[{\em 
+S\+M\+O\+O\+TH\hypertarget{program_8h_a8472f01c511d77bbfb981a46618ea1eaa33c7ccbb848d8fd75455dd9786a1153a}{}\label{program_8h_a8472f01c511d77bbfb981a46618ea1eaa33c7ccbb848d8fd75455dd9786a1153a}
+}]linear interpolation with perspective correction \end{description}
+\end{Desc}
+
+
+\subsection{Function Documentation}
+\index{program.\+h@{program.\+h}!cpu\+\_\+attach\+Fragment\+Shader@{cpu\+\_\+attach\+Fragment\+Shader}}
+\index{cpu\+\_\+attach\+Fragment\+Shader@{cpu\+\_\+attach\+Fragment\+Shader}!program.\+h@{program.\+h}}
+\subsubsection[{\texorpdfstring{cpu\+\_\+attach\+Fragment\+Shader(\+G\+P\+U const gpu, Program\+I\+D const program, Fragment\+Shader const shader)}{cpu_attachFragmentShader(GPU const gpu, ProgramID const program, FragmentShader const shader)}}]{\setlength{\rightskip}{0pt plus 5cm}void cpu\+\_\+attach\+Fragment\+Shader (
+\begin{DoxyParamCaption}
+\item[{{\bf G\+PU} const}]{gpu, }
+\item[{{\bf Program\+ID} const}]{program, }
+\item[{{\bf Fragment\+Shader} const}]{shader}
+\end{DoxyParamCaption}
+)}\hypertarget{program_8h_a402ad69a9f1b80b8de408b991e190ed6}{}\label{program_8h_a402ad69a9f1b80b8de408b991e190ed6}
+
+
+This function attachs fragment shader to program. 
+
+Its alternative function in Open\+GL is \href{https://www.khronos.org/registry/OpenGL-Refpages/gl4/}{\tt gl\+Attach\+Shader}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em gpu} & G\+PU handler \\
+\hline
+{\em program} & id of program \\
+\hline
+{\em shader} & function pointer to fragment shader \\
+\hline
+\end{DoxyParams}
+\begin{Desc}
+\item[Examples\+: ]\par
+\hyperlink{TriangleExample-example}{Triangle\+Example}.\end{Desc}
+\index{program.\+h@{program.\+h}!cpu\+\_\+attach\+Vertex\+Shader@{cpu\+\_\+attach\+Vertex\+Shader}}
+\index{cpu\+\_\+attach\+Vertex\+Shader@{cpu\+\_\+attach\+Vertex\+Shader}!program.\+h@{program.\+h}}
+\subsubsection[{\texorpdfstring{cpu\+\_\+attach\+Vertex\+Shader(\+G\+P\+U const gpu, Program\+I\+D const program, Vertex\+Shader const shader)}{cpu_attachVertexShader(GPU const gpu, ProgramID const program, VertexShader const shader)}}]{\setlength{\rightskip}{0pt plus 5cm}void cpu\+\_\+attach\+Vertex\+Shader (
+\begin{DoxyParamCaption}
+\item[{{\bf G\+PU} const}]{gpu, }
+\item[{{\bf Program\+ID} const}]{program, }
+\item[{{\bf Vertex\+Shader} const}]{shader}
+\end{DoxyParamCaption}
+)}\hypertarget{program_8h_aaefc7833a6deea461cc06d00318f7975}{}\label{program_8h_aaefc7833a6deea461cc06d00318f7975}
+
+
+This function attachs vertex shader to program. 
+
+Its alternative function in Open\+GL is \href{https://www.khronos.org/registry/OpenGL-Refpages/gl4/}{\tt gl\+Attach\+Shader}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em gpu} & G\+PU handler \\
+\hline
+{\em program} & id of program \\
+\hline
+{\em shader} & function pointer to vertex shader \\
+\hline
+\end{DoxyParams}
+\begin{Desc}
+\item[Examples\+: ]\par
+\hyperlink{TriangleExample-example}{Triangle\+Example}.\end{Desc}
+\index{program.\+h@{program.\+h}!cpu\+\_\+create\+Program@{cpu\+\_\+create\+Program}}
+\index{cpu\+\_\+create\+Program@{cpu\+\_\+create\+Program}!program.\+h@{program.\+h}}
+\subsubsection[{\texorpdfstring{cpu\+\_\+create\+Program(\+G\+P\+U const gpu)}{cpu_createProgram(GPU const gpu)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Program\+ID} cpu\+\_\+create\+Program (
+\begin{DoxyParamCaption}
+\item[{{\bf G\+PU} const}]{gpu}
+\end{DoxyParamCaption}
+)}\hypertarget{program_8h_a4fca7a0e3dac7f93620a1bde6efcde16}{}\label{program_8h_a4fca7a0e3dac7f93620a1bde6efcde16}
+
+
+This function reserves id for new program. 
+
+Its alternative function in Open\+GL is \href{https://www.khronos.org/registry/OpenGL-Refpages/gl4/}{\tt gl\+Create\+Program}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em gpu} & G\+PU handler\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return id of program (0 i reserved for empty program) 
+\end{DoxyReturn}
+\begin{Desc}
+\item[Examples\+: ]\par
+\hyperlink{TriangleExample-example}{Triangle\+Example}.\end{Desc}
+\index{program.\+h@{program.\+h}!cpu\+\_\+delete\+Program@{cpu\+\_\+delete\+Program}}
+\index{cpu\+\_\+delete\+Program@{cpu\+\_\+delete\+Program}!program.\+h@{program.\+h}}
+\subsubsection[{\texorpdfstring{cpu\+\_\+delete\+Program(\+G\+P\+U const gpu, Program\+I\+D const program)}{cpu_deleteProgram(GPU const gpu, ProgramID const program)}}]{\setlength{\rightskip}{0pt plus 5cm}void cpu\+\_\+delete\+Program (
+\begin{DoxyParamCaption}
+\item[{{\bf G\+PU} const}]{gpu, }
+\item[{{\bf Program\+ID} const}]{program}
+\end{DoxyParamCaption}
+)}\hypertarget{program_8h_ae8e0db3804703c6e3b59557e095bf9c0}{}\label{program_8h_ae8e0db3804703c6e3b59557e095bf9c0}
+
+
+This function deletes program. 
+
+Its alternative function in Open\+GL is \href{https://www.khronos.org/registry/OpenGL-Refpages/gl4/}{\tt gl\+Delete\+Program}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em gpu} & G\+PU handler \\
+\hline
+{\em program} & id of program \\
+\hline
+\end{DoxyParams}
+\index{program.\+h@{program.\+h}!cpu\+\_\+set\+Attribute\+Interpolation@{cpu\+\_\+set\+Attribute\+Interpolation}}
+\index{cpu\+\_\+set\+Attribute\+Interpolation@{cpu\+\_\+set\+Attribute\+Interpolation}!program.\+h@{program.\+h}}
+\subsubsection[{\texorpdfstring{cpu\+\_\+set\+Attribute\+Interpolation(\+G\+P\+U const gpu, Program\+I\+D const program, Attrib\+Index const attrib\+Index, Attribute\+Type const type, Interpolation\+Type const interpolation)}{cpu_setAttributeInterpolation(GPU const gpu, ProgramID const program, AttribIndex const attribIndex, AttributeType const type, InterpolationType const interpolation)}}]{\setlength{\rightskip}{0pt plus 5cm}void cpu\+\_\+set\+Attribute\+Interpolation (
+\begin{DoxyParamCaption}
+\item[{{\bf G\+PU} const}]{gpu, }
+\item[{{\bf Program\+ID} const}]{program, }
+\item[{{\bf Attrib\+Index} const}]{attrib\+Index, }
+\item[{{\bf Attribute\+Type} const}]{type, }
+\item[{{\bf Interpolation\+Type} const}]{interpolation}
+\end{DoxyParamCaption}
+)}\hypertarget{program_8h_aca1c5019ec58c919160c4c12a5e5fa06}{}\label{program_8h_aca1c5019ec58c919160c4c12a5e5fa06}
+
+
+This function sets interpolation of vertex attributes of output vertex. 
+
+Vertex attributes are interpolated into fragment attributes during rasterization. This function does not exist in Open\+GL -\/ shader source analysis does its work automatically.
+
+
+\begin{DoxyParams}{Parameters}
+{\em gpu} & G\+PU handler \\
+\hline
+{\em program} & id of program \\
+\hline
+{\em attrib\+Index} & index of attribute \\
+\hline
+{\em type} & type of attribute \\
+\hline
+{\em interpolation} & type of interpolation in rasterization for this vertex attribute \\
+\hline
+\end{DoxyParams}
+\begin{Desc}
+\item[Examples\+: ]\par
+\hyperlink{TriangleExample-example}{Triangle\+Example}.\end{Desc}
+\index{program.\+h@{program.\+h}!cpu\+\_\+use\+Program@{cpu\+\_\+use\+Program}}
+\index{cpu\+\_\+use\+Program@{cpu\+\_\+use\+Program}!program.\+h@{program.\+h}}
+\subsubsection[{\texorpdfstring{cpu\+\_\+use\+Program(\+G\+P\+U const gpu, Program\+I\+D const program)}{cpu_useProgram(GPU const gpu, ProgramID const program)}}]{\setlength{\rightskip}{0pt plus 5cm}void cpu\+\_\+use\+Program (
+\begin{DoxyParamCaption}
+\item[{{\bf G\+PU} const}]{gpu, }
+\item[{{\bf Program\+ID} const}]{program}
+\end{DoxyParamCaption}
+)}\hypertarget{program_8h_a497d97730640942bffcc3cd9f266f146}{}\label{program_8h_a497d97730640942bffcc3cd9f266f146}
+
+
+This function activates selected program. 
+
+This function has to be called with valid program id before any draw call can be executed. Its alternative function in Open\+GL is \href{https://www.khronos.org/registry/OpenGL-Refpages/gl4/}{\tt gl\+Use\+Program}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em gpu} & G\+PU handler \\
+\hline
+{\em program} & id of program \\
+\hline
+\end{DoxyParams}
+\begin{Desc}
+\item[Examples\+: ]\par
+\hyperlink{TriangleExample-example}{Triangle\+Example}.\end{Desc}
+\index{program.\+h@{program.\+h}!fs\+\_\+interpret\+Input\+Attribute\+As\+Float@{fs\+\_\+interpret\+Input\+Attribute\+As\+Float}}
+\index{fs\+\_\+interpret\+Input\+Attribute\+As\+Float@{fs\+\_\+interpret\+Input\+Attribute\+As\+Float}!program.\+h@{program.\+h}}
+\subsubsection[{\texorpdfstring{fs\+\_\+interpret\+Input\+Attribute\+As\+Float(\+G\+P\+U const gpu, G\+P\+U\+Fragment\+Shader\+Input const $\ast$const fragment, Attrib\+Index const attribute\+Index)}{fs_interpretInputAttributeAsFloat(GPU const gpu, GPUFragmentShaderInput const *const fragment, AttribIndex const attributeIndex)}}]{\setlength{\rightskip}{0pt plus 5cm}float const$\ast$ fs\+\_\+interpret\+Input\+Attribute\+As\+Float (
+\begin{DoxyParamCaption}
+\item[{{\bf G\+PU} const}]{gpu, }
+\item[{{\bf G\+P\+U\+Fragment\+Shader\+Input} const $\ast$const}]{fragment, }
+\item[{{\bf Attrib\+Index} const}]{attribute\+Index}
+\end{DoxyParamCaption}
+)}\hypertarget{program_8h_a8d1f19c2970db410d151c5fa4dbd4b69}{}\label{program_8h_a8d1f19c2970db410d151c5fa4dbd4b69}
+
+
+This function interprets fragment attribute of input fragment of fragment shader as float. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em gpu} & G\+PU handle \\
+\hline
+{\em fragment} & fragment shader input -\/ output of rasterization \\
+\hline
+{\em attribute\+Index} & attribute index\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+pointer to const float 
+\end{DoxyReturn}
+\index{program.\+h@{program.\+h}!fs\+\_\+interpret\+Input\+Attribute\+As\+Vec2@{fs\+\_\+interpret\+Input\+Attribute\+As\+Vec2}}
+\index{fs\+\_\+interpret\+Input\+Attribute\+As\+Vec2@{fs\+\_\+interpret\+Input\+Attribute\+As\+Vec2}!program.\+h@{program.\+h}}
+\subsubsection[{\texorpdfstring{fs\+\_\+interpret\+Input\+Attribute\+As\+Vec2(\+G\+P\+U const gpu, G\+P\+U\+Fragment\+Shader\+Input const $\ast$const fragment, Attrib\+Index const attribute\+Index)}{fs_interpretInputAttributeAsVec2(GPU const gpu, GPUFragmentShaderInput const *const fragment, AttribIndex const attributeIndex)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Vec2} const$\ast$ fs\+\_\+interpret\+Input\+Attribute\+As\+Vec2 (
+\begin{DoxyParamCaption}
+\item[{{\bf G\+PU} const}]{gpu, }
+\item[{{\bf G\+P\+U\+Fragment\+Shader\+Input} const $\ast$const}]{fragment, }
+\item[{{\bf Attrib\+Index} const}]{attribute\+Index}
+\end{DoxyParamCaption}
+)}\hypertarget{program_8h_a9cbc466cc34b80ddc72bc6b40f3be4eb}{}\label{program_8h_a9cbc466cc34b80ddc72bc6b40f3be4eb}
+
+
+This function interprets fragment attribute of input fragment of fragment shader as vec2. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em gpu} & G\+PU handle \\
+\hline
+{\em fragment} & fragment shader input -\/ output of rasterization \\
+\hline
+{\em attribute\+Index} & attribute index\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+pointer to const vec2 
+\end{DoxyReturn}
+\index{program.\+h@{program.\+h}!fs\+\_\+interpret\+Input\+Attribute\+As\+Vec3@{fs\+\_\+interpret\+Input\+Attribute\+As\+Vec3}}
+\index{fs\+\_\+interpret\+Input\+Attribute\+As\+Vec3@{fs\+\_\+interpret\+Input\+Attribute\+As\+Vec3}!program.\+h@{program.\+h}}
+\subsubsection[{\texorpdfstring{fs\+\_\+interpret\+Input\+Attribute\+As\+Vec3(\+G\+P\+U const gpu, G\+P\+U\+Fragment\+Shader\+Input const $\ast$const fragment, Attrib\+Index const attribute\+Index)}{fs_interpretInputAttributeAsVec3(GPU const gpu, GPUFragmentShaderInput const *const fragment, AttribIndex const attributeIndex)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Vec3} const$\ast$ fs\+\_\+interpret\+Input\+Attribute\+As\+Vec3 (
+\begin{DoxyParamCaption}
+\item[{{\bf G\+PU} const}]{gpu, }
+\item[{{\bf G\+P\+U\+Fragment\+Shader\+Input} const $\ast$const}]{fragment, }
+\item[{{\bf Attrib\+Index} const}]{attribute\+Index}
+\end{DoxyParamCaption}
+)}\hypertarget{program_8h_a132afaeef0a64d93305bb2df3f35a524}{}\label{program_8h_a132afaeef0a64d93305bb2df3f35a524}
+
+
+This function interprets fragment attribute of input fragment of fragment shader as vec3. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em gpu} & G\+PU handle \\
+\hline
+{\em fragment} & fragment shader input -\/ output of raterization \\
+\hline
+{\em attribute\+Index} & attribute index\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+pointer to const vec3 
+\end{DoxyReturn}
+\begin{Desc}
+\item[Examples\+: ]\par
+\hyperlink{TriangleExample-example}{Triangle\+Example}.\end{Desc}
+\index{program.\+h@{program.\+h}!fs\+\_\+interpret\+Input\+Attribute\+As\+Vec4@{fs\+\_\+interpret\+Input\+Attribute\+As\+Vec4}}
+\index{fs\+\_\+interpret\+Input\+Attribute\+As\+Vec4@{fs\+\_\+interpret\+Input\+Attribute\+As\+Vec4}!program.\+h@{program.\+h}}
+\subsubsection[{\texorpdfstring{fs\+\_\+interpret\+Input\+Attribute\+As\+Vec4(\+G\+P\+U const gpu, G\+P\+U\+Fragment\+Shader\+Input const $\ast$const fragment, Attrib\+Index const attribute\+Index)}{fs_interpretInputAttributeAsVec4(GPU const gpu, GPUFragmentShaderInput const *const fragment, AttribIndex const attributeIndex)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Vec4} const$\ast$ fs\+\_\+interpret\+Input\+Attribute\+As\+Vec4 (
+\begin{DoxyParamCaption}
+\item[{{\bf G\+PU} const}]{gpu, }
+\item[{{\bf G\+P\+U\+Fragment\+Shader\+Input} const $\ast$const}]{fragment, }
+\item[{{\bf Attrib\+Index} const}]{attribute\+Index}
+\end{DoxyParamCaption}
+)}\hypertarget{program_8h_aed78fc105c05f97be15ad4b7a2e696ec}{}\label{program_8h_aed78fc105c05f97be15ad4b7a2e696ec}
+
+
+This function interprets fragment attribute of input fragment of fragment shader as vec4. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em gpu} & G\+PU handle \\
+\hline
+{\em fragment} & fragment shader input -\/ output of rasterization \\
+\hline
+{\em attribute\+Index} & attribute index\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+pointer to const vec4 
+\end{DoxyReturn}
+\index{program.\+h@{program.\+h}!vs\+\_\+interpret\+Input\+Vertex\+Attribute\+As\+Float@{vs\+\_\+interpret\+Input\+Vertex\+Attribute\+As\+Float}}
+\index{vs\+\_\+interpret\+Input\+Vertex\+Attribute\+As\+Float@{vs\+\_\+interpret\+Input\+Vertex\+Attribute\+As\+Float}!program.\+h@{program.\+h}}
+\subsubsection[{\texorpdfstring{vs\+\_\+interpret\+Input\+Vertex\+Attribute\+As\+Float(\+G\+P\+U const gpu, G\+P\+U\+Vertex\+Shader\+Input const $\ast$const vertex, Attrib\+Index const attribute\+Index)}{vs_interpretInputVertexAttributeAsFloat(GPU const gpu, GPUVertexShaderInput const *const vertex, AttribIndex const attributeIndex)}}]{\setlength{\rightskip}{0pt plus 5cm}float const$\ast$ vs\+\_\+interpret\+Input\+Vertex\+Attribute\+As\+Float (
+\begin{DoxyParamCaption}
+\item[{{\bf G\+PU} const}]{gpu, }
+\item[{{\bf G\+P\+U\+Vertex\+Shader\+Input} const $\ast$const}]{vertex, }
+\item[{{\bf Attrib\+Index} const}]{attribute\+Index}
+\end{DoxyParamCaption}
+)}\hypertarget{program_8h_afaff140175e0f84975f6ecfe8703b87c}{}\label{program_8h_afaff140175e0f84975f6ecfe8703b87c}
+
+
+This function interprets vertex attribute of input vertex of vertex shader as float. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em gpu} & G\+PU handle \\
+\hline
+{\em vertex} & vertex shader input -\/ output of vertex puller \\
+\hline
+{\em attribute\+Index} & attribute index\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+pointer to const float 
+\end{DoxyReturn}
+\index{program.\+h@{program.\+h}!vs\+\_\+interpret\+Input\+Vertex\+Attribute\+As\+Vec2@{vs\+\_\+interpret\+Input\+Vertex\+Attribute\+As\+Vec2}}
+\index{vs\+\_\+interpret\+Input\+Vertex\+Attribute\+As\+Vec2@{vs\+\_\+interpret\+Input\+Vertex\+Attribute\+As\+Vec2}!program.\+h@{program.\+h}}
+\subsubsection[{\texorpdfstring{vs\+\_\+interpret\+Input\+Vertex\+Attribute\+As\+Vec2(\+G\+P\+U const gpu, G\+P\+U\+Vertex\+Shader\+Input const $\ast$const vertex, Attrib\+Index const attribute\+Index)}{vs_interpretInputVertexAttributeAsVec2(GPU const gpu, GPUVertexShaderInput const *const vertex, AttribIndex const attributeIndex)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Vec2} const$\ast$ vs\+\_\+interpret\+Input\+Vertex\+Attribute\+As\+Vec2 (
+\begin{DoxyParamCaption}
+\item[{{\bf G\+PU} const}]{gpu, }
+\item[{{\bf G\+P\+U\+Vertex\+Shader\+Input} const $\ast$const}]{vertex, }
+\item[{{\bf Attrib\+Index} const}]{attribute\+Index}
+\end{DoxyParamCaption}
+)}\hypertarget{program_8h_a6ebd43944357656c069b32be4de1a30f}{}\label{program_8h_a6ebd43944357656c069b32be4de1a30f}
+
+
+This function interprets vertex attribute of input vertex of vertex shader as vec2. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em gpu} & G\+PU handle \\
+\hline
+{\em vertex} & vertex shader input -\/ output of vertex puller \\
+\hline
+{\em attribute\+Index} & attribute index\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+pointer to const vec2 
+\end{DoxyReturn}
+\index{program.\+h@{program.\+h}!vs\+\_\+interpret\+Input\+Vertex\+Attribute\+As\+Vec3@{vs\+\_\+interpret\+Input\+Vertex\+Attribute\+As\+Vec3}}
+\index{vs\+\_\+interpret\+Input\+Vertex\+Attribute\+As\+Vec3@{vs\+\_\+interpret\+Input\+Vertex\+Attribute\+As\+Vec3}!program.\+h@{program.\+h}}
+\subsubsection[{\texorpdfstring{vs\+\_\+interpret\+Input\+Vertex\+Attribute\+As\+Vec3(\+G\+P\+U const gpu, G\+P\+U\+Vertex\+Shader\+Input const $\ast$const vertex, Attrib\+Index const attribute\+Index)}{vs_interpretInputVertexAttributeAsVec3(GPU const gpu, GPUVertexShaderInput const *const vertex, AttribIndex const attributeIndex)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Vec3} const$\ast$ vs\+\_\+interpret\+Input\+Vertex\+Attribute\+As\+Vec3 (
+\begin{DoxyParamCaption}
+\item[{{\bf G\+PU} const}]{gpu, }
+\item[{{\bf G\+P\+U\+Vertex\+Shader\+Input} const $\ast$const}]{vertex, }
+\item[{{\bf Attrib\+Index} const}]{attribute\+Index}
+\end{DoxyParamCaption}
+)}\hypertarget{program_8h_a4bec56307c0d080bf314d20ff89773b2}{}\label{program_8h_a4bec56307c0d080bf314d20ff89773b2}
+
+
+This function interprets vertex attribute of input vertex of vertex shader as vec3. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em gpu} & G\+PU handle \\
+\hline
+{\em vertex} & vertex shader input -\/ output of vertex puller \\
+\hline
+{\em attribute\+Index} & attribute index\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+pointer to const vec3 
+\end{DoxyReturn}
+\begin{Desc}
+\item[Examples\+: ]\par
+\hyperlink{TriangleExample-example}{Triangle\+Example}.\end{Desc}
+\index{program.\+h@{program.\+h}!vs\+\_\+interpret\+Input\+Vertex\+Attribute\+As\+Vec4@{vs\+\_\+interpret\+Input\+Vertex\+Attribute\+As\+Vec4}}
+\index{vs\+\_\+interpret\+Input\+Vertex\+Attribute\+As\+Vec4@{vs\+\_\+interpret\+Input\+Vertex\+Attribute\+As\+Vec4}!program.\+h@{program.\+h}}
+\subsubsection[{\texorpdfstring{vs\+\_\+interpret\+Input\+Vertex\+Attribute\+As\+Vec4(\+G\+P\+U const gpu, G\+P\+U\+Vertex\+Shader\+Input const $\ast$const vertex, Attrib\+Index const attribute\+Index)}{vs_interpretInputVertexAttributeAsVec4(GPU const gpu, GPUVertexShaderInput const *const vertex, AttribIndex const attributeIndex)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Vec4} const$\ast$ vs\+\_\+interpret\+Input\+Vertex\+Attribute\+As\+Vec4 (
+\begin{DoxyParamCaption}
+\item[{{\bf G\+PU} const}]{gpu, }
+\item[{{\bf G\+P\+U\+Vertex\+Shader\+Input} const $\ast$const}]{vertex, }
+\item[{{\bf Attrib\+Index} const}]{attribute\+Index}
+\end{DoxyParamCaption}
+)}\hypertarget{program_8h_ab088592aa70338f26442baeec1bb3c5c}{}\label{program_8h_ab088592aa70338f26442baeec1bb3c5c}
+
+
+This function interprets vertex attribute of input vertex of vertex shader as vec4. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em gpu} & G\+PU handle \\
+\hline
+{\em vertex} & vertex shader input -\/ output of vertex puller output \\
+\hline
+{\em attribute\+Index} & attribute index\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+pointer to const vec4 
+\end{DoxyReturn}
+\index{program.\+h@{program.\+h}!vs\+\_\+interpret\+Output\+Vertex\+Attribute\+As\+Float@{vs\+\_\+interpret\+Output\+Vertex\+Attribute\+As\+Float}}
+\index{vs\+\_\+interpret\+Output\+Vertex\+Attribute\+As\+Float@{vs\+\_\+interpret\+Output\+Vertex\+Attribute\+As\+Float}!program.\+h@{program.\+h}}
+\subsubsection[{\texorpdfstring{vs\+\_\+interpret\+Output\+Vertex\+Attribute\+As\+Float(\+G\+P\+U const gpu, G\+P\+U\+Vertex\+Shader\+Output $\ast$const vertex, Attrib\+Index const attribute\+Index)}{vs_interpretOutputVertexAttributeAsFloat(GPU const gpu, GPUVertexShaderOutput *const vertex, AttribIndex const attributeIndex)}}]{\setlength{\rightskip}{0pt plus 5cm}float$\ast$ vs\+\_\+interpret\+Output\+Vertex\+Attribute\+As\+Float (
+\begin{DoxyParamCaption}
+\item[{{\bf G\+PU} const}]{gpu, }
+\item[{{\bf G\+P\+U\+Vertex\+Shader\+Output} $\ast$const}]{vertex, }
+\item[{{\bf Attrib\+Index} const}]{attribute\+Index}
+\end{DoxyParamCaption}
+)}\hypertarget{program_8h_a897cafc0a252c8fd64a6f4e76bcb932a}{}\label{program_8h_a897cafc0a252c8fd64a6f4e76bcb932a}
+
+
+This function interprets vertex attribute of output vertex of vertex shader as float. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em gpu} & G\+PU handle \\
+\hline
+{\em vertex} & output vertex of vertex shader \\
+\hline
+{\em attribute\+Index} & attribute index\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+pointer to float 
+\end{DoxyReturn}
+\index{program.\+h@{program.\+h}!vs\+\_\+interpret\+Output\+Vertex\+Attribute\+As\+Vec2@{vs\+\_\+interpret\+Output\+Vertex\+Attribute\+As\+Vec2}}
+\index{vs\+\_\+interpret\+Output\+Vertex\+Attribute\+As\+Vec2@{vs\+\_\+interpret\+Output\+Vertex\+Attribute\+As\+Vec2}!program.\+h@{program.\+h}}
+\subsubsection[{\texorpdfstring{vs\+\_\+interpret\+Output\+Vertex\+Attribute\+As\+Vec2(\+G\+P\+U const gpu, G\+P\+U\+Vertex\+Shader\+Output $\ast$const vertex, Attrib\+Index const attribute\+Index)}{vs_interpretOutputVertexAttributeAsVec2(GPU const gpu, GPUVertexShaderOutput *const vertex, AttribIndex const attributeIndex)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Vec2}$\ast$ vs\+\_\+interpret\+Output\+Vertex\+Attribute\+As\+Vec2 (
+\begin{DoxyParamCaption}
+\item[{{\bf G\+PU} const}]{gpu, }
+\item[{{\bf G\+P\+U\+Vertex\+Shader\+Output} $\ast$const}]{vertex, }
+\item[{{\bf Attrib\+Index} const}]{attribute\+Index}
+\end{DoxyParamCaption}
+)}\hypertarget{program_8h_ad08931025b2d6f95315697d4f83bbebe}{}\label{program_8h_ad08931025b2d6f95315697d4f83bbebe}
+
+
+This function interprets vertex attribute of output vertex of vertex shader as vec2. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em gpu} & G\+PU handle \\
+\hline
+{\em vertex} & output vertex of vertex shader \\
+\hline
+{\em attribute\+Index} & attribute index\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+pointer to vec2 
+\end{DoxyReturn}
+\index{program.\+h@{program.\+h}!vs\+\_\+interpret\+Output\+Vertex\+Attribute\+As\+Vec3@{vs\+\_\+interpret\+Output\+Vertex\+Attribute\+As\+Vec3}}
+\index{vs\+\_\+interpret\+Output\+Vertex\+Attribute\+As\+Vec3@{vs\+\_\+interpret\+Output\+Vertex\+Attribute\+As\+Vec3}!program.\+h@{program.\+h}}
+\subsubsection[{\texorpdfstring{vs\+\_\+interpret\+Output\+Vertex\+Attribute\+As\+Vec3(\+G\+P\+U const gpu, G\+P\+U\+Vertex\+Shader\+Output $\ast$const vertex, Attrib\+Index const attribute\+Index)}{vs_interpretOutputVertexAttributeAsVec3(GPU const gpu, GPUVertexShaderOutput *const vertex, AttribIndex const attributeIndex)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Vec3}$\ast$ vs\+\_\+interpret\+Output\+Vertex\+Attribute\+As\+Vec3 (
+\begin{DoxyParamCaption}
+\item[{{\bf G\+PU} const}]{gpu, }
+\item[{{\bf G\+P\+U\+Vertex\+Shader\+Output} $\ast$const}]{vertex, }
+\item[{{\bf Attrib\+Index} const}]{attribute\+Index}
+\end{DoxyParamCaption}
+)}\hypertarget{program_8h_a60d0546dc8c052ee90f699ddca3b540b}{}\label{program_8h_a60d0546dc8c052ee90f699ddca3b540b}
+
+
+This function interprets vertex attribute of output vertex of vertex shader as vec3. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em gpu} & G\+PU handle \\
+\hline
+{\em vertex} & output vertex of vertex shader \\
+\hline
+{\em attribute\+Index} & attribute index\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+pointer to vec3 
+\end{DoxyReturn}
+\begin{Desc}
+\item[Examples\+: ]\par
+\hyperlink{TriangleExample-example}{Triangle\+Example}.\end{Desc}
+\index{program.\+h@{program.\+h}!vs\+\_\+interpret\+Output\+Vertex\+Attribute\+As\+Vec4@{vs\+\_\+interpret\+Output\+Vertex\+Attribute\+As\+Vec4}}
+\index{vs\+\_\+interpret\+Output\+Vertex\+Attribute\+As\+Vec4@{vs\+\_\+interpret\+Output\+Vertex\+Attribute\+As\+Vec4}!program.\+h@{program.\+h}}
+\subsubsection[{\texorpdfstring{vs\+\_\+interpret\+Output\+Vertex\+Attribute\+As\+Vec4(\+G\+P\+U const gpu, G\+P\+U\+Vertex\+Shader\+Output $\ast$const vertex, Attrib\+Index const attribute\+Index)}{vs_interpretOutputVertexAttributeAsVec4(GPU const gpu, GPUVertexShaderOutput *const vertex, AttribIndex const attributeIndex)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Vec4}$\ast$ vs\+\_\+interpret\+Output\+Vertex\+Attribute\+As\+Vec4 (
+\begin{DoxyParamCaption}
+\item[{{\bf G\+PU} const}]{gpu, }
+\item[{{\bf G\+P\+U\+Vertex\+Shader\+Output} $\ast$const}]{vertex, }
+\item[{{\bf Attrib\+Index} const}]{attribute\+Index}
+\end{DoxyParamCaption}
+)}\hypertarget{program_8h_a5afca81921e1453100b1fa82dfd4b621}{}\label{program_8h_a5afca81921e1453100b1fa82dfd4b621}
+
+
+This function interpres vertex attribute of output vertex of vertex shader as vec4. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em gpu} & G\+PU handle \\
+\hline
+{\em vertex} & output vertex of vertex vertex\+Shader \\
+\hline
+{\em attribute\+Index} & attribute index\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+pointer to vec4 
+\end{DoxyReturn}

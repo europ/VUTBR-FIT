@@ -1,0 +1,26 @@
+#content {
+	padding: 0;
+	margin: 0;
+}
+#content h2 {
+	padding-top: 1em;
+	font-family: "Times New Roman";
+	font-size: 2em;
+	padding-bottom: 2em;
+	color:slateblue;
+}
+/*###########################
+ABOUT
+###########################*/
+#content_about {
+	padding-top: 5em;
+	font-size: 0.5em;
+	color:black;
+	padding-bottom: 13em;
+}
+@media only print {
+	h1,h2,h3,p,a {
+		color:black !important;
+		text-shadow: none !important;
+	}
+}

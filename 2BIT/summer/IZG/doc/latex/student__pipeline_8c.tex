@@ -1,0 +1,697 @@
+\hypertarget{student__pipeline_8c}{}\section{student/student\+\_\+pipeline.c File Reference}
+\label{student__pipeline_8c}\index{student/student\+\_\+pipeline.\+c@{student/student\+\_\+pipeline.\+c}}
+
+
+This file contains implementation of rendering pipeline.  
+
+
+{\ttfamily \#include $<$stdlib.\+h$>$}\\*
+{\ttfamily \#include $<$stdio.\+h$>$}\\*
+{\ttfamily \#include $<$stdint.\+h$>$}\\*
+{\ttfamily \#include $<$assert.\+h$>$}\\*
+{\ttfamily \#include $<$math.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}student/student\+\_\+pipeline.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}student/uniforms.\+h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{fwd_8h_a83b6b93a31d7fa3fc22f37a3a0798858}{Vertex\+Index} \hyperlink{group__gpu__side_ga3983ddd2c559c1a6d1e1f1f37be3eae0}{gpu\+\_\+compute\+G\+L\+Vertex\+ID} (\hyperlink{fwd_8h_a83b6b93a31d7fa3fc22f37a3a0798858}{Vertex\+Index} const $\ast$const indices, \hyperlink{fwd_8h_a3a23f024b4270ea7139910001f477346}{Vertex\+Shader\+Invocation} const vertex\+Shader\+Invocation)
+\begin{DoxyCompactList}\small\item\em This function computes gl\+\_\+\+Vertex\+ID from vertex shader invocation using indexing. \end{DoxyCompactList}\item 
+void const $\ast$ \hyperlink{group__gpu__side_ga4b894f26ed3c06346da10fc6c41f90eb}{gpu\+\_\+compute\+Vertex\+Attribute\+Data\+Pointer} (\hyperlink{structGPUVertexPullerHead}{G\+P\+U\+Vertex\+Puller\+Head} const $\ast$const head, \hyperlink{fwd_8h_a83b6b93a31d7fa3fc22f37a3a0798858}{Vertex\+Index} const gl\+\_\+\+Vertex\+ID)
+\begin{DoxyCompactList}\small\item\em This function computes data pointer for vertex attribute \char`\"{}attribute\char`\"{} for vertex with index \char`\"{}gl\+\_\+\+Vertex\+I\+D\char`\"{}. \end{DoxyCompactList}\item 
+void \hyperlink{group__gpu__side_ga0e0c36548db12eea1e6d512b9f855a1c}{gpu\+\_\+run\+Vertex\+Puller} (\hyperlink{structGPUVertexPullerOutput}{G\+P\+U\+Vertex\+Puller\+Output} $\ast$const output, \hyperlink{structGPUVertexPullerConfiguration}{G\+P\+U\+Vertex\+Puller\+Configuration} const $\ast$const puller, \hyperlink{fwd_8h_a3a23f024b4270ea7139910001f477346}{Vertex\+Shader\+Invocation} const vertex\+Shader\+Invocation)
+\begin{DoxyCompactList}\small\item\em this function represents vertex puller \end{DoxyCompactList}\item 
+void \hyperlink{group__gpu__side_ga5eb10381738a5e0426b2811820bc9483}{gpu\+\_\+run\+Primitive\+Assembly} (\hyperlink{fwd_8h_a06964ec111fe28721d8618b6d0d993bf}{G\+PU} const gpu, \hyperlink{structGPUPrimitive}{G\+P\+U\+Primitive} $\ast$const primitive, size\+\_\+t const nof\+Primitive\+Vertices, \hyperlink{structGPUVertexPullerConfiguration}{G\+P\+U\+Vertex\+Puller\+Configuration} const $\ast$const puller, \hyperlink{fwd_8h_a3a23f024b4270ea7139910001f477346}{Vertex\+Shader\+Invocation} const base\+Vertex\+Shader\+Invocation, \hyperlink{fwd_8h_a06caf90c4f22dc1c99aafd8f4b417512}{Vertex\+Shader} const vertex\+Shader)
+\begin{DoxyCompactList}\small\item\em This function performs primitive assembly. Primitive assembly unit constructs primitive using vertices. It executes vertex puller for each vertex of primitive. It also executes vertex shader on each vertex. \end{DoxyCompactList}\item 
+void \hyperlink{student__pipeline_8c_a572e111a864075338a19e39b99d87ad4}{gpu\+\_\+run\+Frustum\+Plane\+Clipping\+On\+Edge} (float $\ast$const minT, float $\ast$const maxT, \hyperlink{structVec4}{Vec4} const $\ast$const vertexA, \hyperlink{structVec4}{Vec4} const $\ast$const vertexB, size\+\_\+t const axis, size\+\_\+t const positive)
+\begin{DoxyCompactList}\small\item\em This function does clipping of an edge by frustum plane. \end{DoxyCompactList}\item 
+void \hyperlink{student__pipeline_8c_a27830a764c7d2c92e6306bfc9c382e4f}{gpu\+\_\+write\+Clipped\+Triangle\+\_\+\+One\+Vertex\+Visible} (\hyperlink{structGPUTriangle}{G\+P\+U\+Triangle} $\ast$const triangles, size\+\_\+t $\ast$const nof\+Triangles, size\+\_\+t const visible, float const t\+Min\mbox{[}3\mbox{]}, float const t\+Max\mbox{[}3\mbox{]}, \hyperlink{structGPUTriangle}{G\+P\+U\+Triangle} const $\ast$const triangle)
+\begin{DoxyCompactList}\small\item\em This function writes one triangle when only one vertex is visible. \end{DoxyCompactList}\item 
+void \hyperlink{student__pipeline_8c_a9127d58fe63034a598f171308b072a0c}{gpu\+\_\+write\+Clipped\+Triangle\+\_\+\+Two\+Vertices\+Visible\+\_\+\+First\+Triangle} (\hyperlink{structVec3}{Vec3} $\ast$const dst\+Coords, \hyperlink{structVec3}{Vec3} const $\ast$const src\+Coords, \hyperlink{structVec4}{Vec4} $\ast$const dst\+Positions, \hyperlink{structVec4}{Vec4} const $\ast$const src\+Positions, size\+\_\+t const vertex, size\+\_\+t const next\+Vertex, size\+\_\+t const prev\+Vertex, float const nextT, float const prevT)
+\begin{DoxyCompactList}\small\item\em This function writes first clipped triangle when two vertices are visible. \end{DoxyCompactList}\item 
+void \hyperlink{student__pipeline_8c_a6cc5a9c0c97132f00121fe1e207c9c79}{gpu\+\_\+write\+Clipped\+Triangle\+\_\+\+Two\+Vertices\+Visible\+\_\+\+Second\+Triangle} (\hyperlink{structVec3}{Vec3} $\ast$const dst\+Coords, \hyperlink{structVec3}{Vec3} const $\ast$const src\+Coords, \hyperlink{structVec4}{Vec4} $\ast$const dst\+Positions, \hyperlink{structVec4}{Vec4} const $\ast$const src\+Positions, size\+\_\+t const vertex, size\+\_\+t const next\+Vertex, size\+\_\+t const prev\+Vertex, float const prevT)
+\begin{DoxyCompactList}\small\item\em This function writes second clipped triangle when two vertices are visible. \end{DoxyCompactList}\item 
+void \hyperlink{student__pipeline_8c_a581656c59c0f8b8a589e9c1a120c2f02}{gpu\+\_\+write\+Clipped\+Triangle\+\_\+\+Two\+Vertices\+Visible} (\hyperlink{structGPUTriangle}{G\+P\+U\+Triangle} $\ast$const triangles, size\+\_\+t $\ast$const nof\+Triangles, size\+\_\+t const visible, float const t\+Min\mbox{[}3\mbox{]}, float const t\+Max\mbox{[}3\mbox{]}, \hyperlink{structGPUTriangle}{G\+P\+U\+Triangle} const $\ast$const triangle)
+\begin{DoxyCompactList}\small\item\em This function writes two clipped triangle when two vertices are visible. \end{DoxyCompactList}\item 
+void \hyperlink{student__pipeline_8c_a0ffe89fc389ef3cc4bfd9800c552c2eb}{gpu\+\_\+write\+Clipped\+Triangle\+\_\+\+Three\+Vertices\+Visible} (\hyperlink{structGPUTriangle}{G\+P\+U\+Triangle} triangles\mbox{[}\hyperlink{fwd_8h_a50521856e491931b63ecbaa2f90837ec}{M\+A\+X\+\_\+\+C\+L\+I\+P\+P\+E\+D\+\_\+\+T\+R\+I\+A\+N\+G\+L\+ES}\mbox{]}, size\+\_\+t $\ast$const nof\+Triangles, \hyperlink{structGPUTriangle}{G\+P\+U\+Triangle} const $\ast$const triangle)
+\begin{DoxyCompactList}\small\item\em This function copies input triangle into output triangle list. \end{DoxyCompactList}\item 
+void \hyperlink{student__pipeline_8c_adf9ecb9e72cfe2cfa99e83eb226cf44f}{gpu\+\_\+run\+Frustum\+Plane\+Clipping\+On\+Triangle} (\hyperlink{structGPUTriangle}{G\+P\+U\+Triangle} triangles\mbox{[}\hyperlink{fwd_8h_a50521856e491931b63ecbaa2f90837ec}{M\+A\+X\+\_\+\+C\+L\+I\+P\+P\+E\+D\+\_\+\+T\+R\+I\+A\+N\+G\+L\+ES}\mbox{]}, size\+\_\+t $\ast$const nof\+Triangles, \hyperlink{structGPUTriangle}{G\+P\+U\+Triangle} const $\ast$const triangle, \hyperlink{student__pipeline_8h_ae9e1c8a3d097c4fa8df79abc03911ec5}{Frustum\+Plane} const plane)
+\begin{DoxyCompactList}\small\item\em This function performs frustum plane clipping on a triangle. Triangles can be splitted into multiple triangle (0-\/2) if they intersect a frustum plane. \end{DoxyCompactList}\item 
+void \hyperlink{student__pipeline_8c_a19a854899e0f2a3cada7002c63bb5589}{gpu\+\_\+run\+Frustum\+Plane\+Clipping\+On\+Triangle\+List} (\hyperlink{structGPUTriangleList}{G\+P\+U\+Triangle\+List} $\ast$const output, \hyperlink{structGPUTriangleList}{G\+P\+U\+Triangle\+List} const $\ast$const input, \hyperlink{student__pipeline_8h_ae9e1c8a3d097c4fa8df79abc03911ec5}{Frustum\+Plane} const plane)
+\begin{DoxyCompactList}\small\item\em This function performs frustum plane clipping on triangle list. Triangles can be splitted into multiple triangles if they intersect a frustum plane. This function performs clipping using only one selected frustum plane. This function has to be called 6 times in order to do full frustum clipping. Every triangle in input triangle list is subject of clipping. \end{DoxyCompactList}\item 
+void \hyperlink{student__pipeline_8c_a9e3726eef1b8d43227ffd7ac8c49705d}{gpu\+\_\+run\+Triangle\+Clipping} (\hyperlink{structGPUTriangleList}{G\+P\+U\+Triangle\+List} $\ast$const output, \hyperlink{structGPUTriangle}{G\+P\+U\+Triangle} const $\ast$const input)
+\begin{DoxyCompactList}\small\item\em This function performs frustum clipping on a single triangle. \end{DoxyCompactList}\item 
+void \hyperlink{student__pipeline_8c_a787306905f671a471b048a564a937c39}{gpu\+\_\+run\+Perspective\+Division} (\hyperlink{structGPUPrimitive}{G\+P\+U\+Primitive} $\ast$const primitive)
+\begin{DoxyCompactList}\small\item\em This function performs perspective division on primitive. Perspective division divides x,y,z by homogeneous coord w. \end{DoxyCompactList}\item 
+void \hyperlink{student__pipeline_8c_a917cd6a678c53078eb7511ad02026c4d}{gpu\+\_\+run\+Viewport\+Transformation} (\hyperlink{structGPUPrimitive}{G\+P\+U\+Primitive} $\ast$const primitive, size\+\_\+t const width, size\+\_\+t const height)
+\begin{DoxyCompactList}\small\item\em This function performs viewport transformation. Viewport transformation scales primitive to resolution of screen. \end{DoxyCompactList}\item 
+size\+\_\+t \hyperlink{student__pipeline_8c_aad8429bb184ee8aa8ef9fa3e25e9a331}{gpu\+\_\+round\+Down\+Pixel\+Coord} (float const coord)
+\begin{DoxyCompactList}\small\item\em This function rounds down pixel coord to integer. This function takes into account position of pixel center. If fractional part of coord is $<$= pixel center -\/$>$ this function returns integer part of coord. If fractional part of coord is $>$ pixel center -\/$>$ this function return interger part of coord + 1. \end{DoxyCompactList}\item 
+size\+\_\+t \hyperlink{student__pipeline_8c_a775979833cc5018d2be474cf541461f9}{gpu\+\_\+round\+Up\+Pixel\+Coord} (float const coord)
+\begin{DoxyCompactList}\small\item\em This function rounds up pixel coord to integer. This function takes into account position of pixel center. If fractional part of coord is $<$ pixel center -\/$>$ this function returns integer part of coord. If fractional part of coord is $>$= pixel center -\/$>$ this function return integer part of coord +1. \end{DoxyCompactList}\item 
+void \hyperlink{student__pipeline_8c_ad944deddec89017c42769df8dfd5663c}{gpu\+\_\+restrict\+Line\+Borders} (float $\ast$const minX, float $\ast$const maxX, float const y, \hyperlink{structVec3}{Vec3} const $\ast$const edge\+Line)
+\begin{DoxyCompactList}\small\item\em This function restricts interval of possible values of x. \end{DoxyCompactList}\item 
+void \hyperlink{student__pipeline_8c_a0a7a91f2a9d71561a5531f31daddca0e}{gpu\+\_\+compute\+Line\+Borders} (float $\ast$const minX, float $\ast$const maxX, float const y, \hyperlink{structVec3}{Vec3} const triangle\+Lines\mbox{[}\hyperlink{fwd_8h_a9f5bff3a2ab411701ed6262d5eb96c39}{E\+D\+G\+E\+S\+\_\+\+P\+E\+R\+\_\+\+T\+R\+I\+A\+N\+G\+LE}\mbox{]})
+\begin{DoxyCompactList}\small\item\em This function computes screen line start and end during rasterization of triangle. \end{DoxyCompactList}\item 
+void \hyperlink{group__gpu__side_gad1769dca11910a684a6ddaad188f3e3d}{gpu\+\_\+compute\+Screen\+Space\+Barycentrics} (\hyperlink{structVec3}{Vec3} $\ast$const coords, \hyperlink{structVec2}{Vec2} const $\ast$const pixel\+Center, \hyperlink{structVec2}{Vec2} const vertices\mbox{[}\hyperlink{fwd_8h_a67df0e09b776eea53360bcc8f4a82ac9}{V\+E\+R\+T\+I\+C\+E\+S\+\_\+\+P\+E\+R\+\_\+\+T\+R\+I\+A\+N\+G\+LE}\mbox{]}, \hyperlink{structVec3}{Vec3} const lines\mbox{[}\hyperlink{fwd_8h_a9f5bff3a2ab411701ed6262d5eb96c39}{E\+D\+G\+E\+S\+\_\+\+P\+E\+R\+\_\+\+T\+R\+I\+A\+N\+G\+LE}\mbox{]})
+\begin{DoxyCompactList}\small\item\em This function computes screen-\/space barycentric coordinates of pixel. This function expects triangle transformed by viewport transformation. \end{DoxyCompactList}\item 
+void \hyperlink{student__pipeline_8c_a73d23c26c94ae68bd9ba4ac0140fb8de}{gpu\+\_\+compute\+Triangle\+Lines} (\hyperlink{structVec3}{Vec3} lines\mbox{[}\hyperlink{fwd_8h_a9f5bff3a2ab411701ed6262d5eb96c39}{E\+D\+G\+E\+S\+\_\+\+P\+E\+R\+\_\+\+T\+R\+I\+A\+N\+G\+LE}\mbox{]}, \hyperlink{structVec2}{Vec2} const vertices\mbox{[}\hyperlink{fwd_8h_a67df0e09b776eea53360bcc8f4a82ac9}{V\+E\+R\+T\+I\+C\+E\+S\+\_\+\+P\+E\+R\+\_\+\+T\+R\+I\+A\+N\+G\+LE}\mbox{]})
+\begin{DoxyCompactList}\small\item\em This function computes triangle lines from triangle vertices. \end{DoxyCompactList}\item 
+float \hyperlink{student__pipeline_8c_a60bb76bf57c3f900d0147509cfde3fac}{gpu\+\_\+noperspective\+Interpolate} (float const values\mbox{[}\hyperlink{fwd_8h_a6142f59143b2049a17b5318e8655ac86}{W\+E\+I\+G\+H\+T\+S\+\_\+\+P\+E\+R\+\_\+\+B\+A\+R\+Y\+C\+E\+N\+T\+R\+I\+CS}\mbox{]}, float const weights\mbox{[}\hyperlink{fwd_8h_a6142f59143b2049a17b5318e8655ac86}{W\+E\+I\+G\+H\+T\+S\+\_\+\+P\+E\+R\+\_\+\+B\+A\+R\+Y\+C\+E\+N\+T\+R\+I\+CS}\mbox{]})
+\begin{DoxyCompactList}\small\item\em This function interpolates values using barycentric coords without perspective correction. \end{DoxyCompactList}\item 
+float \hyperlink{student__pipeline_8c_aaf4bed017165b94c2a7f8c0f8776a47c}{gpu\+\_\+smooth\+Interpolate} (float const values\mbox{[}\hyperlink{fwd_8h_a6142f59143b2049a17b5318e8655ac86}{W\+E\+I\+G\+H\+T\+S\+\_\+\+P\+E\+R\+\_\+\+B\+A\+R\+Y\+C\+E\+N\+T\+R\+I\+CS}\mbox{]}, float const weights\mbox{[}\hyperlink{fwd_8h_a6142f59143b2049a17b5318e8655ac86}{W\+E\+I\+G\+H\+T\+S\+\_\+\+P\+E\+R\+\_\+\+B\+A\+R\+Y\+C\+E\+N\+T\+R\+I\+CS}\mbox{]}, float const homogeneous\+Coords\mbox{[}\hyperlink{fwd_8h_a6142f59143b2049a17b5318e8655ac86}{W\+E\+I\+G\+H\+T\+S\+\_\+\+P\+E\+R\+\_\+\+B\+A\+R\+Y\+C\+E\+N\+T\+R\+I\+CS}\mbox{]})
+\begin{DoxyCompactList}\small\item\em This function interpolates values using barycentric coords with perspective correction. \end{DoxyCompactList}\item 
+void \hyperlink{student__pipeline_8c_a697cc3cc908f3ad8bbcd2eeeaa9ab5e2}{gpu\+\_\+create\+Fragment} (\hyperlink{structGPUFragmentShaderInput}{G\+P\+U\+Fragment\+Shader\+Input} $\ast$const fragment, \hyperlink{structGPUPrimitive}{G\+P\+U\+Primitive} const $\ast$const primitive, \hyperlink{structVec3}{Vec3} const $\ast$const barycentrics, \hyperlink{structVec2}{Vec2} const $\ast$const pixel\+Coord)
+\begin{DoxyCompactList}\small\item\em This function creates fragment and interpolates vertex attributes into fragment attributes according to selected interpolation type. \end{DoxyCompactList}\item 
+void \hyperlink{student__pipeline_8c_a6f6f2e357705b3b17cdc622fedde7dc4}{gpu\+\_\+per\+Fragment\+Operations} (\hyperlink{fwd_8h_a06964ec111fe28721d8618b6d0d993bf}{G\+PU} const gpu, \hyperlink{structGPUFragmentShaderOutput}{G\+P\+U\+Fragment\+Shader\+Output} const $\ast$const fragment, size\+\_\+t const x, size\+\_\+t const y)
+\begin{DoxyCompactList}\small\item\em This function performs per-\/fragment operations. Depth test is only per-\/fragment operation in this project. \end{DoxyCompactList}\item 
+void \hyperlink{student__pipeline_8c_a2eef47439d2743354becc05481bddef0}{gpu\+\_\+rasterize\+Triangle} (\hyperlink{fwd_8h_a06964ec111fe28721d8618b6d0d993bf}{G\+PU} const gpu, \hyperlink{structGPUPrimitive}{G\+P\+U\+Primitive} const $\ast$const primitive, size\+\_\+t const width, size\+\_\+t const height)
+\begin{DoxyCompactList}\small\item\em This function rasterizes one triangle. \end{DoxyCompactList}\item 
+void \hyperlink{student__pipeline_8c_a7a65b572243a29c63a963772866c2b12}{gpu\+\_\+create\+Sub\+Primitive} (\hyperlink{structGPUPrimitive}{G\+P\+U\+Primitive} $\ast$const sub\+Primitive, \hyperlink{structGPUPrimitive}{G\+P\+U\+Primitive} const $\ast$const primitive, \hyperlink{structGPUTriangle}{G\+P\+U\+Triangle} const $\ast$const clipped\+Triangle)
+\begin{DoxyCompactList}\small\item\em This functions creates sub primitive using clipped triangle and original triangle. \end{DoxyCompactList}\item 
+void \hyperlink{student__pipeline_8c_acf5685e1dc9af5a8c189e775b9ad2957}{gpu\+\_\+init\+Primitive} (\hyperlink{structGPUPrimitive}{G\+P\+U\+Primitive} $\ast$const primitive, \hyperlink{fwd_8h_a06964ec111fe28721d8618b6d0d993bf}{G\+PU} const gpu)
+\begin{DoxyCompactList}\small\item\em This function inits primitive. \end{DoxyCompactList}\item 
+void \hyperlink{student__pipeline_8c_a03a3f14cdb76dc00a6f3cfd712b3ae7e}{gpu\+\_\+init\+Triangle} (\hyperlink{structGPUTriangle}{G\+P\+U\+Triangle} $\ast$const triangle, \hyperlink{structGPUPrimitive}{G\+P\+U\+Primitive} const $\ast$const primitive)
+\begin{DoxyCompactList}\small\item\em This function inits triangle using primitive. \end{DoxyCompactList}\item 
+void \hyperlink{student__pipeline_8c_aa47deaa10ce52221ab24e864a11426af}{cpu\+\_\+draw\+Triangles} (\hyperlink{fwd_8h_a06964ec111fe28721d8618b6d0d993bf}{G\+PU} const gpu, size\+\_\+t const nof\+Vertices)
+\begin{DoxyCompactList}\small\item\em This function draw array of triangles. This function invokes whole rendering pipeline. It is necessary to active selected vertex puller and to active selected shader program before this function is called. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This file contains implementation of rendering pipeline. 
+
+\begin{DoxyAuthor}{Author}
+Tomáš Milet, \href{mailto:imilet@fit.vutbr.cz}{\tt imilet@fit.\+vutbr.\+cz} 
+\end{DoxyAuthor}
+
+
+\subsection{Function Documentation}
+\index{student\+\_\+pipeline.\+c@{student\+\_\+pipeline.\+c}!cpu\+\_\+draw\+Triangles@{cpu\+\_\+draw\+Triangles}}
+\index{cpu\+\_\+draw\+Triangles@{cpu\+\_\+draw\+Triangles}!student\+\_\+pipeline.\+c@{student\+\_\+pipeline.\+c}}
+\subsubsection[{\texorpdfstring{cpu\+\_\+draw\+Triangles(\+G\+P\+U const gpu, size\+\_\+t const nof\+Vertices)}{cpu_drawTriangles(GPU const gpu, size_t const nofVertices)}}]{\setlength{\rightskip}{0pt plus 5cm}void cpu\+\_\+draw\+Triangles (
+\begin{DoxyParamCaption}
+\item[{{\bf G\+PU} const}]{gpu, }
+\item[{size\+\_\+t const}]{nof\+Vertices}
+\end{DoxyParamCaption}
+)}\hypertarget{student__pipeline_8c_aa47deaa10ce52221ab24e864a11426af}{}\label{student__pipeline_8c_aa47deaa10ce52221ab24e864a11426af}
+
+
+This function draw array of triangles. This function invokes whole rendering pipeline. It is necessary to active selected vertex puller and to active selected shader program before this function is called. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em gpu} & G\+PU handle \\
+\hline
+{\em nof\+Vertices} & number of vertices that will be drawn. \\
+\hline
+\end{DoxyParams}
+\begin{Desc}
+\item[Examples\+: ]\par
+\hyperlink{TriangleExample-example}{Triangle\+Example}.\end{Desc}
+\index{student\+\_\+pipeline.\+c@{student\+\_\+pipeline.\+c}!gpu\+\_\+compute\+Line\+Borders@{gpu\+\_\+compute\+Line\+Borders}}
+\index{gpu\+\_\+compute\+Line\+Borders@{gpu\+\_\+compute\+Line\+Borders}!student\+\_\+pipeline.\+c@{student\+\_\+pipeline.\+c}}
+\subsubsection[{\texorpdfstring{gpu\+\_\+compute\+Line\+Borders(float $\ast$const min\+X, float $\ast$const max\+X, float const y, Vec3 const triangle\+Lines[E\+D\+G\+E\+S\+\_\+\+P\+E\+R\+\_\+\+T\+R\+I\+A\+N\+G\+LE])}{gpu_computeLineBorders(float *const minX, float *const maxX, float const y, Vec3 const triangleLines[EDGES_PER_TRIANGLE])}}]{\setlength{\rightskip}{0pt plus 5cm}void gpu\+\_\+compute\+Line\+Borders (
+\begin{DoxyParamCaption}
+\item[{float $\ast$const}]{minX, }
+\item[{float $\ast$const}]{maxX, }
+\item[{float const}]{y, }
+\item[{{\bf Vec3} const}]{triangle\+Lines\mbox{[}\+E\+D\+G\+E\+S\+\_\+\+P\+E\+R\+\_\+\+T\+R\+I\+A\+N\+G\+L\+E\mbox{]}}
+\end{DoxyParamCaption}
+)}\hypertarget{student__pipeline_8c_a0a7a91f2a9d71561a5531f31daddca0e}{}\label{student__pipeline_8c_a0a7a91f2a9d71561a5531f31daddca0e}
+
+
+This function computes screen line start and end during rasterization of triangle. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em minX} & line start \\
+\hline
+{\em maxX} & line end \\
+\hline
+{\em y} & y coord of line \\
+\hline
+{\em triangle\+Lines} & edge lines of a triangle \\
+\hline
+\end{DoxyParams}
+\index{student\+\_\+pipeline.\+c@{student\+\_\+pipeline.\+c}!gpu\+\_\+compute\+Triangle\+Lines@{gpu\+\_\+compute\+Triangle\+Lines}}
+\index{gpu\+\_\+compute\+Triangle\+Lines@{gpu\+\_\+compute\+Triangle\+Lines}!student\+\_\+pipeline.\+c@{student\+\_\+pipeline.\+c}}
+\subsubsection[{\texorpdfstring{gpu\+\_\+compute\+Triangle\+Lines(\+Vec3 lines[E\+D\+G\+E\+S\+\_\+\+P\+E\+R\+\_\+\+T\+R\+I\+A\+N\+G\+LE], Vec2 const vertices[V\+E\+R\+T\+I\+C\+E\+S\+\_\+\+P\+E\+R\+\_\+\+T\+R\+I\+A\+N\+G\+LE])}{gpu_computeTriangleLines(Vec3 lines[EDGES_PER_TRIANGLE], Vec2 const vertices[VERTICES_PER_TRIANGLE])}}]{\setlength{\rightskip}{0pt plus 5cm}void gpu\+\_\+compute\+Triangle\+Lines (
+\begin{DoxyParamCaption}
+\item[{{\bf Vec3}}]{lines\mbox{[}\+E\+D\+G\+E\+S\+\_\+\+P\+E\+R\+\_\+\+T\+R\+I\+A\+N\+G\+L\+E\mbox{]}, }
+\item[{{\bf Vec2} const}]{vertices\mbox{[}\+V\+E\+R\+T\+I\+C\+E\+S\+\_\+\+P\+E\+R\+\_\+\+T\+R\+I\+A\+N\+G\+L\+E\mbox{]}}
+\end{DoxyParamCaption}
+)}\hypertarget{student__pipeline_8c_a73d23c26c94ae68bd9ba4ac0140fb8de}{}\label{student__pipeline_8c_a73d23c26c94ae68bd9ba4ac0140fb8de}
+
+
+This function computes triangle lines from triangle vertices. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em lines} & output lines \\
+\hline
+{\em vertices} & input triangle vertices \\
+\hline
+\end{DoxyParams}
+\index{student\+\_\+pipeline.\+c@{student\+\_\+pipeline.\+c}!gpu\+\_\+create\+Fragment@{gpu\+\_\+create\+Fragment}}
+\index{gpu\+\_\+create\+Fragment@{gpu\+\_\+create\+Fragment}!student\+\_\+pipeline.\+c@{student\+\_\+pipeline.\+c}}
+\subsubsection[{\texorpdfstring{gpu\+\_\+create\+Fragment(\+G\+P\+U\+Fragment\+Shader\+Input $\ast$const fragment, G\+P\+U\+Primitive const $\ast$const primitive, Vec3 const $\ast$const barycentrics, Vec2 const $\ast$const pixel\+Coord)}{gpu_createFragment(GPUFragmentShaderInput *const fragment, GPUPrimitive const *const primitive, Vec3 const *const barycentrics, Vec2 const *const pixelCoord)}}]{\setlength{\rightskip}{0pt plus 5cm}void gpu\+\_\+create\+Fragment (
+\begin{DoxyParamCaption}
+\item[{{\bf G\+P\+U\+Fragment\+Shader\+Input} $\ast$const}]{fragment, }
+\item[{{\bf G\+P\+U\+Primitive} const $\ast$const}]{primitive, }
+\item[{{\bf Vec3} const $\ast$const}]{barycentrics, }
+\item[{{\bf Vec2} const $\ast$const}]{pixel\+Coord}
+\end{DoxyParamCaption}
+)}\hypertarget{student__pipeline_8c_a697cc3cc908f3ad8bbcd2eeeaa9ab5e2}{}\label{student__pipeline_8c_a697cc3cc908f3ad8bbcd2eeeaa9ab5e2}
+
+
+This function creates fragment and interpolates vertex attributes into fragment attributes according to selected interpolation type. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em fragment} & output fragment \\
+\hline
+{\em primitive} & input primitive \\
+\hline
+{\em barycentrics} & barycentric coords/weight of primitive \\
+\hline
+{\em pixel\+Coord} & pixel coordinate of fragment \\
+\hline
+\end{DoxyParams}
+\index{student\+\_\+pipeline.\+c@{student\+\_\+pipeline.\+c}!gpu\+\_\+create\+Sub\+Primitive@{gpu\+\_\+create\+Sub\+Primitive}}
+\index{gpu\+\_\+create\+Sub\+Primitive@{gpu\+\_\+create\+Sub\+Primitive}!student\+\_\+pipeline.\+c@{student\+\_\+pipeline.\+c}}
+\subsubsection[{\texorpdfstring{gpu\+\_\+create\+Sub\+Primitive(\+G\+P\+U\+Primitive $\ast$const sub\+Primitive, G\+P\+U\+Primitive const $\ast$const primitive, G\+P\+U\+Triangle const $\ast$const clipped\+Triangle)}{gpu_createSubPrimitive(GPUPrimitive *const subPrimitive, GPUPrimitive const *const primitive, GPUTriangle const *const clippedTriangle)}}]{\setlength{\rightskip}{0pt plus 5cm}void gpu\+\_\+create\+Sub\+Primitive (
+\begin{DoxyParamCaption}
+\item[{{\bf G\+P\+U\+Primitive} $\ast$const}]{sub\+Primitive, }
+\item[{{\bf G\+P\+U\+Primitive} const $\ast$const}]{primitive, }
+\item[{{\bf G\+P\+U\+Triangle} const $\ast$const}]{clipped\+Triangle}
+\end{DoxyParamCaption}
+)}\hypertarget{student__pipeline_8c_a7a65b572243a29c63a963772866c2b12}{}\label{student__pipeline_8c_a7a65b572243a29c63a963772866c2b12}
+
+
+This functions creates sub primitive using clipped triangle and original triangle. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sub\+Primitive} & output sub primitive \\
+\hline
+{\em primitive} & original primitive \\
+\hline
+{\em clipped\+Triangle} & clipped triangle \\
+\hline
+\end{DoxyParams}
+\index{student\+\_\+pipeline.\+c@{student\+\_\+pipeline.\+c}!gpu\+\_\+init\+Primitive@{gpu\+\_\+init\+Primitive}}
+\index{gpu\+\_\+init\+Primitive@{gpu\+\_\+init\+Primitive}!student\+\_\+pipeline.\+c@{student\+\_\+pipeline.\+c}}
+\subsubsection[{\texorpdfstring{gpu\+\_\+init\+Primitive(\+G\+P\+U\+Primitive $\ast$const primitive, G\+P\+U const gpu)}{gpu_initPrimitive(GPUPrimitive *const primitive, GPU const gpu)}}]{\setlength{\rightskip}{0pt plus 5cm}void gpu\+\_\+init\+Primitive (
+\begin{DoxyParamCaption}
+\item[{{\bf G\+P\+U\+Primitive} $\ast$const}]{primitive, }
+\item[{{\bf G\+PU} const}]{gpu}
+\end{DoxyParamCaption}
+)}\hypertarget{student__pipeline_8c_acf5685e1dc9af5a8c189e775b9ad2957}{}\label{student__pipeline_8c_acf5685e1dc9af5a8c189e775b9ad2957}
+
+
+This function inits primitive. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em primitive} & A primitive that will be initialized. \\
+\hline
+{\em gpu} & G\+PU handle \\
+\hline
+\end{DoxyParams}
+\index{student\+\_\+pipeline.\+c@{student\+\_\+pipeline.\+c}!gpu\+\_\+init\+Triangle@{gpu\+\_\+init\+Triangle}}
+\index{gpu\+\_\+init\+Triangle@{gpu\+\_\+init\+Triangle}!student\+\_\+pipeline.\+c@{student\+\_\+pipeline.\+c}}
+\subsubsection[{\texorpdfstring{gpu\+\_\+init\+Triangle(\+G\+P\+U\+Triangle $\ast$const triangle, G\+P\+U\+Primitive const $\ast$const primitive)}{gpu_initTriangle(GPUTriangle *const triangle, GPUPrimitive const *const primitive)}}]{\setlength{\rightskip}{0pt plus 5cm}void gpu\+\_\+init\+Triangle (
+\begin{DoxyParamCaption}
+\item[{{\bf G\+P\+U\+Triangle} $\ast$const}]{triangle, }
+\item[{{\bf G\+P\+U\+Primitive} const $\ast$const}]{primitive}
+\end{DoxyParamCaption}
+)}\hypertarget{student__pipeline_8c_a03a3f14cdb76dc00a6f3cfd712b3ae7e}{}\label{student__pipeline_8c_a03a3f14cdb76dc00a6f3cfd712b3ae7e}
+
+
+This function inits triangle using primitive. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em triangle} & output triangle \\
+\hline
+{\em primitive} & input primitive \\
+\hline
+\end{DoxyParams}
+\index{student\+\_\+pipeline.\+c@{student\+\_\+pipeline.\+c}!gpu\+\_\+noperspective\+Interpolate@{gpu\+\_\+noperspective\+Interpolate}}
+\index{gpu\+\_\+noperspective\+Interpolate@{gpu\+\_\+noperspective\+Interpolate}!student\+\_\+pipeline.\+c@{student\+\_\+pipeline.\+c}}
+\subsubsection[{\texorpdfstring{gpu\+\_\+noperspective\+Interpolate(float const values[W\+E\+I\+G\+H\+T\+S\+\_\+\+P\+E\+R\+\_\+\+B\+A\+R\+Y\+C\+E\+N\+T\+R\+I\+CS], float const weights[W\+E\+I\+G\+H\+T\+S\+\_\+\+P\+E\+R\+\_\+\+B\+A\+R\+Y\+C\+E\+N\+T\+R\+I\+CS])}{gpu_noperspectiveInterpolate(float const values[WEIGHTS_PER_BARYCENTRICS], float const weights[WEIGHTS_PER_BARYCENTRICS])}}]{\setlength{\rightskip}{0pt plus 5cm}float gpu\+\_\+noperspective\+Interpolate (
+\begin{DoxyParamCaption}
+\item[{float const}]{values\mbox{[}\+W\+E\+I\+G\+H\+T\+S\+\_\+\+P\+E\+R\+\_\+\+B\+A\+R\+Y\+C\+E\+N\+T\+R\+I\+C\+S\mbox{]}, }
+\item[{float const}]{weights\mbox{[}\+W\+E\+I\+G\+H\+T\+S\+\_\+\+P\+E\+R\+\_\+\+B\+A\+R\+Y\+C\+E\+N\+T\+R\+I\+C\+S\mbox{]}}
+\end{DoxyParamCaption}
+)}\hypertarget{student__pipeline_8c_a60bb76bf57c3f900d0147509cfde3fac}{}\label{student__pipeline_8c_a60bb76bf57c3f900d0147509cfde3fac}
+
+
+This function interpolates values using barycentric coords without perspective correction. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em values} & values \\
+\hline
+{\em weights} & barycentric coords/weights\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\index{student\+\_\+pipeline.\+c@{student\+\_\+pipeline.\+c}!gpu\+\_\+per\+Fragment\+Operations@{gpu\+\_\+per\+Fragment\+Operations}}
+\index{gpu\+\_\+per\+Fragment\+Operations@{gpu\+\_\+per\+Fragment\+Operations}!student\+\_\+pipeline.\+c@{student\+\_\+pipeline.\+c}}
+\subsubsection[{\texorpdfstring{gpu\+\_\+per\+Fragment\+Operations(\+G\+P\+U const gpu, G\+P\+U\+Fragment\+Shader\+Output const $\ast$const fragment, size\+\_\+t const x, size\+\_\+t const y)}{gpu_perFragmentOperations(GPU const gpu, GPUFragmentShaderOutput const *const fragment, size_t const x, size_t const y)}}]{\setlength{\rightskip}{0pt plus 5cm}void gpu\+\_\+per\+Fragment\+Operations (
+\begin{DoxyParamCaption}
+\item[{{\bf G\+PU} const}]{gpu, }
+\item[{{\bf G\+P\+U\+Fragment\+Shader\+Output} const $\ast$const}]{fragment, }
+\item[{size\+\_\+t const}]{x, }
+\item[{size\+\_\+t const}]{y}
+\end{DoxyParamCaption}
+)}\hypertarget{student__pipeline_8c_a6f6f2e357705b3b17cdc622fedde7dc4}{}\label{student__pipeline_8c_a6f6f2e357705b3b17cdc622fedde7dc4}
+
+
+This function performs per-\/fragment operations. Depth test is only per-\/fragment operation in this project. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em gpu} & G\+PU handle \\
+\hline
+{\em fragment} & fragment \\
+\hline
+{\em x} & x coord of pixel \\
+\hline
+{\em y} & y coord of pixel \\
+\hline
+\end{DoxyParams}
+\index{student\+\_\+pipeline.\+c@{student\+\_\+pipeline.\+c}!gpu\+\_\+rasterize\+Triangle@{gpu\+\_\+rasterize\+Triangle}}
+\index{gpu\+\_\+rasterize\+Triangle@{gpu\+\_\+rasterize\+Triangle}!student\+\_\+pipeline.\+c@{student\+\_\+pipeline.\+c}}
+\subsubsection[{\texorpdfstring{gpu\+\_\+rasterize\+Triangle(\+G\+P\+U const gpu, G\+P\+U\+Primitive const $\ast$const primitive, size\+\_\+t const width, size\+\_\+t const height)}{gpu_rasterizeTriangle(GPU const gpu, GPUPrimitive const *const primitive, size_t const width, size_t const height)}}]{\setlength{\rightskip}{0pt plus 5cm}void gpu\+\_\+rasterize\+Triangle (
+\begin{DoxyParamCaption}
+\item[{{\bf G\+PU} const}]{gpu, }
+\item[{{\bf G\+P\+U\+Primitive} const $\ast$const}]{primitive, }
+\item[{size\+\_\+t const}]{width, }
+\item[{size\+\_\+t const}]{height}
+\end{DoxyParamCaption}
+)}\hypertarget{student__pipeline_8c_a2eef47439d2743354becc05481bddef0}{}\label{student__pipeline_8c_a2eef47439d2743354becc05481bddef0}
+
+
+This function rasterizes one triangle. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em gpu} & G\+PU handle \\
+\hline
+{\em primitive} & input primitive \\
+\hline
+{\em width} & screen width in pixels \\
+\hline
+{\em height} & screen height in pixels \\
+\hline
+\end{DoxyParams}
+\index{student\+\_\+pipeline.\+c@{student\+\_\+pipeline.\+c}!gpu\+\_\+restrict\+Line\+Borders@{gpu\+\_\+restrict\+Line\+Borders}}
+\index{gpu\+\_\+restrict\+Line\+Borders@{gpu\+\_\+restrict\+Line\+Borders}!student\+\_\+pipeline.\+c@{student\+\_\+pipeline.\+c}}
+\subsubsection[{\texorpdfstring{gpu\+\_\+restrict\+Line\+Borders(float $\ast$const min\+X, float $\ast$const max\+X, float const y, Vec3 const $\ast$const edge\+Line)}{gpu_restrictLineBorders(float *const minX, float *const maxX, float const y, Vec3 const *const edgeLine)}}]{\setlength{\rightskip}{0pt plus 5cm}void gpu\+\_\+restrict\+Line\+Borders (
+\begin{DoxyParamCaption}
+\item[{float $\ast$const}]{minX, }
+\item[{float $\ast$const}]{maxX, }
+\item[{float const}]{y, }
+\item[{{\bf Vec3} const $\ast$const}]{edge\+Line}
+\end{DoxyParamCaption}
+)}\hypertarget{student__pipeline_8c_ad944deddec89017c42769df8dfd5663c}{}\label{student__pipeline_8c_ad944deddec89017c42769df8dfd5663c}
+
+
+This function restricts interval of possible values of x. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em minX} & minimal value of interval \\
+\hline
+{\em maxX} & maximal value of interval \\
+\hline
+{\em y} & y coordinate of line \\
+\hline
+{\em edge\+Line} & line of triangle edge \\
+\hline
+\end{DoxyParams}
+\index{student\+\_\+pipeline.\+c@{student\+\_\+pipeline.\+c}!gpu\+\_\+round\+Down\+Pixel\+Coord@{gpu\+\_\+round\+Down\+Pixel\+Coord}}
+\index{gpu\+\_\+round\+Down\+Pixel\+Coord@{gpu\+\_\+round\+Down\+Pixel\+Coord}!student\+\_\+pipeline.\+c@{student\+\_\+pipeline.\+c}}
+\subsubsection[{\texorpdfstring{gpu\+\_\+round\+Down\+Pixel\+Coord(float const coord)}{gpu_roundDownPixelCoord(float const coord)}}]{\setlength{\rightskip}{0pt plus 5cm}size\+\_\+t gpu\+\_\+round\+Down\+Pixel\+Coord (
+\begin{DoxyParamCaption}
+\item[{float const}]{coord}
+\end{DoxyParamCaption}
+)}\hypertarget{student__pipeline_8c_aad8429bb184ee8aa8ef9fa3e25e9a331}{}\label{student__pipeline_8c_aad8429bb184ee8aa8ef9fa3e25e9a331}
+
+
+This function rounds down pixel coord to integer. This function takes into account position of pixel center. If fractional part of coord is $<$= pixel center -\/$>$ this function returns integer part of coord. If fractional part of coord is $>$ pixel center -\/$>$ this function return interger part of coord + 1. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em coord} & float coord of pixel\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+closest integer 
+\end{DoxyReturn}
+\index{student\+\_\+pipeline.\+c@{student\+\_\+pipeline.\+c}!gpu\+\_\+round\+Up\+Pixel\+Coord@{gpu\+\_\+round\+Up\+Pixel\+Coord}}
+\index{gpu\+\_\+round\+Up\+Pixel\+Coord@{gpu\+\_\+round\+Up\+Pixel\+Coord}!student\+\_\+pipeline.\+c@{student\+\_\+pipeline.\+c}}
+\subsubsection[{\texorpdfstring{gpu\+\_\+round\+Up\+Pixel\+Coord(float const coord)}{gpu_roundUpPixelCoord(float const coord)}}]{\setlength{\rightskip}{0pt plus 5cm}size\+\_\+t gpu\+\_\+round\+Up\+Pixel\+Coord (
+\begin{DoxyParamCaption}
+\item[{float const}]{coord}
+\end{DoxyParamCaption}
+)}\hypertarget{student__pipeline_8c_a775979833cc5018d2be474cf541461f9}{}\label{student__pipeline_8c_a775979833cc5018d2be474cf541461f9}
+
+
+This function rounds up pixel coord to integer. This function takes into account position of pixel center. If fractional part of coord is $<$ pixel center -\/$>$ this function returns integer part of coord. If fractional part of coord is $>$= pixel center -\/$>$ this function return integer part of coord +1. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em coord} & float coord of pixel\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+closest integer 
+\end{DoxyReturn}
+\index{student\+\_\+pipeline.\+c@{student\+\_\+pipeline.\+c}!gpu\+\_\+run\+Frustum\+Plane\+Clipping\+On\+Edge@{gpu\+\_\+run\+Frustum\+Plane\+Clipping\+On\+Edge}}
+\index{gpu\+\_\+run\+Frustum\+Plane\+Clipping\+On\+Edge@{gpu\+\_\+run\+Frustum\+Plane\+Clipping\+On\+Edge}!student\+\_\+pipeline.\+c@{student\+\_\+pipeline.\+c}}
+\subsubsection[{\texorpdfstring{gpu\+\_\+run\+Frustum\+Plane\+Clipping\+On\+Edge(float $\ast$const min\+T, float $\ast$const max\+T, Vec4 const $\ast$const vertex\+A, Vec4 const $\ast$const vertex\+B, size\+\_\+t const axis, size\+\_\+t const positive)}{gpu_runFrustumPlaneClippingOnEdge(float *const minT, float *const maxT, Vec4 const *const vertexA, Vec4 const *const vertexB, size_t const axis, size_t const positive)}}]{\setlength{\rightskip}{0pt plus 5cm}void gpu\+\_\+run\+Frustum\+Plane\+Clipping\+On\+Edge (
+\begin{DoxyParamCaption}
+\item[{float $\ast$const}]{minT, }
+\item[{float $\ast$const}]{maxT, }
+\item[{{\bf Vec4} const $\ast$const}]{vertexA, }
+\item[{{\bf Vec4} const $\ast$const}]{vertexB, }
+\item[{size\+\_\+t const}]{axis, }
+\item[{size\+\_\+t const}]{positive}
+\end{DoxyParamCaption}
+)}\hypertarget{student__pipeline_8c_a572e111a864075338a19e39b99d87ad4}{}\label{student__pipeline_8c_a572e111a864075338a19e39b99d87ad4}
+
+
+This function does clipping of an edge by frustum plane. 
+
+A point P(t) on the edge is\+: P(t) = vertexA + t$\ast$(vertexB -\/ vertexA), t in \mbox{[}0,1\mbox{]}. This function returns interval of possible values of parameter t for which P(t) is in front of frustum plane. The interval is returned in arguments\+: minT and maxT. If the edge lies in front of the frustum plane, this function return minT = 0.\+f and maxT = 1.\+f If the edge lies behind frustum plane, this function returns minT = 1.\+f and maxT = 0.\+f The axis selects frustum planes according to\+: x -\/ L\+E\+FT,R\+I\+G\+HT, y -\/ B\+O\+T\+T\+OM,T\+OP, z -\/ N\+E\+AR,F\+AR The positive flag selects frustum planes according to\+: positive = 1 -\/ L\+E\+FT,B\+O\+T\+T\+OM,N\+E\+AR, positive = 0 -\/ R\+I\+G\+HT,T\+OP,F\+AR.
+
+
+\begin{DoxyParams}{Parameters}
+{\em minT} & minimal allowed value of parameter t \\
+\hline
+{\em maxT} & maximal allowed value of parameter t \\
+\hline
+{\em vertexA} & vertex A of the edge \\
+\hline
+{\em vertexB} & vertex B of the edge \\
+\hline
+{\em axis} & axis of frustum plane \\
+\hline
+{\em positive} & positive flag of frustum plane \\
+\hline
+\end{DoxyParams}
+\index{student\+\_\+pipeline.\+c@{student\+\_\+pipeline.\+c}!gpu\+\_\+run\+Frustum\+Plane\+Clipping\+On\+Triangle@{gpu\+\_\+run\+Frustum\+Plane\+Clipping\+On\+Triangle}}
+\index{gpu\+\_\+run\+Frustum\+Plane\+Clipping\+On\+Triangle@{gpu\+\_\+run\+Frustum\+Plane\+Clipping\+On\+Triangle}!student\+\_\+pipeline.\+c@{student\+\_\+pipeline.\+c}}
+\subsubsection[{\texorpdfstring{gpu\+\_\+run\+Frustum\+Plane\+Clipping\+On\+Triangle(\+G\+P\+U\+Triangle triangles[M\+A\+X\+\_\+\+C\+L\+I\+P\+P\+E\+D\+\_\+\+T\+R\+I\+A\+N\+G\+L\+ES], size\+\_\+t $\ast$const nof\+Triangles, G\+P\+U\+Triangle const $\ast$const triangle, Frustum\+Plane const plane)}{gpu_runFrustumPlaneClippingOnTriangle(GPUTriangle triangles[MAX_CLIPPED_TRIANGLES], size_t *const nofTriangles, GPUTriangle const *const triangle, FrustumPlane const plane)}}]{\setlength{\rightskip}{0pt plus 5cm}void gpu\+\_\+run\+Frustum\+Plane\+Clipping\+On\+Triangle (
+\begin{DoxyParamCaption}
+\item[{{\bf G\+P\+U\+Triangle}}]{triangles\mbox{[}\+M\+A\+X\+\_\+\+C\+L\+I\+P\+P\+E\+D\+\_\+\+T\+R\+I\+A\+N\+G\+L\+E\+S\mbox{]}, }
+\item[{size\+\_\+t $\ast$const}]{nof\+Triangles, }
+\item[{{\bf G\+P\+U\+Triangle} const $\ast$const}]{triangle, }
+\item[{{\bf Frustum\+Plane} const}]{plane}
+\end{DoxyParamCaption}
+)}\hypertarget{student__pipeline_8c_adf9ecb9e72cfe2cfa99e83eb226cf44f}{}\label{student__pipeline_8c_adf9ecb9e72cfe2cfa99e83eb226cf44f}
+
+
+This function performs frustum plane clipping on a triangle. Triangles can be splitted into multiple triangle (0-\/2) if they intersect a frustum plane. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em triangles} & output array of triangles \\
+\hline
+{\em nof\+Triangles} & number of already clipped triangles in output array of triangles (this number will be increased by 0-\/2) \\
+\hline
+{\em triangle} & input triangle \\
+\hline
+{\em plane} & id of frustum plane \\
+\hline
+\end{DoxyParams}
+\index{student\+\_\+pipeline.\+c@{student\+\_\+pipeline.\+c}!gpu\+\_\+run\+Frustum\+Plane\+Clipping\+On\+Triangle\+List@{gpu\+\_\+run\+Frustum\+Plane\+Clipping\+On\+Triangle\+List}}
+\index{gpu\+\_\+run\+Frustum\+Plane\+Clipping\+On\+Triangle\+List@{gpu\+\_\+run\+Frustum\+Plane\+Clipping\+On\+Triangle\+List}!student\+\_\+pipeline.\+c@{student\+\_\+pipeline.\+c}}
+\subsubsection[{\texorpdfstring{gpu\+\_\+run\+Frustum\+Plane\+Clipping\+On\+Triangle\+List(\+G\+P\+U\+Triangle\+List $\ast$const output, G\+P\+U\+Triangle\+List const $\ast$const input, Frustum\+Plane const plane)}{gpu_runFrustumPlaneClippingOnTriangleList(GPUTriangleList *const output, GPUTriangleList const *const input, FrustumPlane const plane)}}]{\setlength{\rightskip}{0pt plus 5cm}void gpu\+\_\+run\+Frustum\+Plane\+Clipping\+On\+Triangle\+List (
+\begin{DoxyParamCaption}
+\item[{{\bf G\+P\+U\+Triangle\+List} $\ast$const}]{output, }
+\item[{{\bf G\+P\+U\+Triangle\+List} const $\ast$const}]{input, }
+\item[{{\bf Frustum\+Plane} const}]{plane}
+\end{DoxyParamCaption}
+)}\hypertarget{student__pipeline_8c_a19a854899e0f2a3cada7002c63bb5589}{}\label{student__pipeline_8c_a19a854899e0f2a3cada7002c63bb5589}
+
+
+This function performs frustum plane clipping on triangle list. Triangles can be splitted into multiple triangles if they intersect a frustum plane. This function performs clipping using only one selected frustum plane. This function has to be called 6 times in order to do full frustum clipping. Every triangle in input triangle list is subject of clipping. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em output} & output triangle list \\
+\hline
+{\em input} & input triangle list \\
+\hline
+{\em plane} & id of plane \\
+\hline
+\end{DoxyParams}
+\index{student\+\_\+pipeline.\+c@{student\+\_\+pipeline.\+c}!gpu\+\_\+run\+Perspective\+Division@{gpu\+\_\+run\+Perspective\+Division}}
+\index{gpu\+\_\+run\+Perspective\+Division@{gpu\+\_\+run\+Perspective\+Division}!student\+\_\+pipeline.\+c@{student\+\_\+pipeline.\+c}}
+\subsubsection[{\texorpdfstring{gpu\+\_\+run\+Perspective\+Division(\+G\+P\+U\+Primitive $\ast$const primitive)}{gpu_runPerspectiveDivision(GPUPrimitive *const primitive)}}]{\setlength{\rightskip}{0pt plus 5cm}void gpu\+\_\+run\+Perspective\+Division (
+\begin{DoxyParamCaption}
+\item[{{\bf G\+P\+U\+Primitive} $\ast$const}]{primitive}
+\end{DoxyParamCaption}
+)}\hypertarget{student__pipeline_8c_a787306905f671a471b048a564a937c39}{}\label{student__pipeline_8c_a787306905f671a471b048a564a937c39}
+
+
+This function performs perspective division on primitive. Perspective division divides x,y,z by homogeneous coord w. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em primitive} & input/output primitive \\
+\hline
+\end{DoxyParams}
+\index{student\+\_\+pipeline.\+c@{student\+\_\+pipeline.\+c}!gpu\+\_\+run\+Triangle\+Clipping@{gpu\+\_\+run\+Triangle\+Clipping}}
+\index{gpu\+\_\+run\+Triangle\+Clipping@{gpu\+\_\+run\+Triangle\+Clipping}!student\+\_\+pipeline.\+c@{student\+\_\+pipeline.\+c}}
+\subsubsection[{\texorpdfstring{gpu\+\_\+run\+Triangle\+Clipping(\+G\+P\+U\+Triangle\+List $\ast$const output, G\+P\+U\+Triangle const $\ast$const input)}{gpu_runTriangleClipping(GPUTriangleList *const output, GPUTriangle const *const input)}}]{\setlength{\rightskip}{0pt plus 5cm}void gpu\+\_\+run\+Triangle\+Clipping (
+\begin{DoxyParamCaption}
+\item[{{\bf G\+P\+U\+Triangle\+List} $\ast$const}]{output, }
+\item[{{\bf G\+P\+U\+Triangle} const $\ast$const}]{input}
+\end{DoxyParamCaption}
+)}\hypertarget{student__pipeline_8c_a9e3726eef1b8d43227ffd7ac8c49705d}{}\label{student__pipeline_8c_a9e3726eef1b8d43227ffd7ac8c49705d}
+
+
+This function performs frustum clipping on a single triangle. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em output} & triangle list \\
+\hline
+{\em input} & input triangle \\
+\hline
+\end{DoxyParams}
+\index{student\+\_\+pipeline.\+c@{student\+\_\+pipeline.\+c}!gpu\+\_\+run\+Viewport\+Transformation@{gpu\+\_\+run\+Viewport\+Transformation}}
+\index{gpu\+\_\+run\+Viewport\+Transformation@{gpu\+\_\+run\+Viewport\+Transformation}!student\+\_\+pipeline.\+c@{student\+\_\+pipeline.\+c}}
+\subsubsection[{\texorpdfstring{gpu\+\_\+run\+Viewport\+Transformation(\+G\+P\+U\+Primitive $\ast$const primitive, size\+\_\+t const width, size\+\_\+t const height)}{gpu_runViewportTransformation(GPUPrimitive *const primitive, size_t const width, size_t const height)}}]{\setlength{\rightskip}{0pt plus 5cm}void gpu\+\_\+run\+Viewport\+Transformation (
+\begin{DoxyParamCaption}
+\item[{{\bf G\+P\+U\+Primitive} $\ast$const}]{primitive, }
+\item[{size\+\_\+t const}]{width, }
+\item[{size\+\_\+t const}]{height}
+\end{DoxyParamCaption}
+)}\hypertarget{student__pipeline_8c_a917cd6a678c53078eb7511ad02026c4d}{}\label{student__pipeline_8c_a917cd6a678c53078eb7511ad02026c4d}
+
+
+This function performs viewport transformation. Viewport transformation scales primitive to resolution of screen. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em primitive} & input/output primitive \\
+\hline
+{\em width} & width of screen in pixels \\
+\hline
+{\em height} & height of screen in pixels \\
+\hline
+\end{DoxyParams}
+\index{student\+\_\+pipeline.\+c@{student\+\_\+pipeline.\+c}!gpu\+\_\+smooth\+Interpolate@{gpu\+\_\+smooth\+Interpolate}}
+\index{gpu\+\_\+smooth\+Interpolate@{gpu\+\_\+smooth\+Interpolate}!student\+\_\+pipeline.\+c@{student\+\_\+pipeline.\+c}}
+\subsubsection[{\texorpdfstring{gpu\+\_\+smooth\+Interpolate(float const values[W\+E\+I\+G\+H\+T\+S\+\_\+\+P\+E\+R\+\_\+\+B\+A\+R\+Y\+C\+E\+N\+T\+R\+I\+CS], float const weights[W\+E\+I\+G\+H\+T\+S\+\_\+\+P\+E\+R\+\_\+\+B\+A\+R\+Y\+C\+E\+N\+T\+R\+I\+CS], float const homogeneous\+Coords[W\+E\+I\+G\+H\+T\+S\+\_\+\+P\+E\+R\+\_\+\+B\+A\+R\+Y\+C\+E\+N\+T\+R\+I\+CS])}{gpu_smoothInterpolate(float const values[WEIGHTS_PER_BARYCENTRICS], float const weights[WEIGHTS_PER_BARYCENTRICS], float const homogeneousCoords[WEIGHTS_PER_BARYCENTRICS])}}]{\setlength{\rightskip}{0pt plus 5cm}float gpu\+\_\+smooth\+Interpolate (
+\begin{DoxyParamCaption}
+\item[{float const}]{values\mbox{[}\+W\+E\+I\+G\+H\+T\+S\+\_\+\+P\+E\+R\+\_\+\+B\+A\+R\+Y\+C\+E\+N\+T\+R\+I\+C\+S\mbox{]}, }
+\item[{float const}]{weights\mbox{[}\+W\+E\+I\+G\+H\+T\+S\+\_\+\+P\+E\+R\+\_\+\+B\+A\+R\+Y\+C\+E\+N\+T\+R\+I\+C\+S\mbox{]}, }
+\item[{float const}]{homogeneous\+Coords\mbox{[}\+W\+E\+I\+G\+H\+T\+S\+\_\+\+P\+E\+R\+\_\+\+B\+A\+R\+Y\+C\+E\+N\+T\+R\+I\+C\+S\mbox{]}}
+\end{DoxyParamCaption}
+)}\hypertarget{student__pipeline_8c_aaf4bed017165b94c2a7f8c0f8776a47c}{}\label{student__pipeline_8c_aaf4bed017165b94c2a7f8c0f8776a47c}
+
+
+This function interpolates values using barycentric coords with perspective correction. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em values} & values (one value per triangle vertex) \\
+\hline
+{\em weights} & barycentric coords/weights \\
+\hline
+{\em homogeneous\+Coords} & homogeneous coords of each triangle vertex\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\index{student\+\_\+pipeline.\+c@{student\+\_\+pipeline.\+c}!gpu\+\_\+write\+Clipped\+Triangle\+\_\+\+One\+Vertex\+Visible@{gpu\+\_\+write\+Clipped\+Triangle\+\_\+\+One\+Vertex\+Visible}}
+\index{gpu\+\_\+write\+Clipped\+Triangle\+\_\+\+One\+Vertex\+Visible@{gpu\+\_\+write\+Clipped\+Triangle\+\_\+\+One\+Vertex\+Visible}!student\+\_\+pipeline.\+c@{student\+\_\+pipeline.\+c}}
+\subsubsection[{\texorpdfstring{gpu\+\_\+write\+Clipped\+Triangle\+\_\+\+One\+Vertex\+Visible(\+G\+P\+U\+Triangle $\ast$const triangles, size\+\_\+t $\ast$const nof\+Triangles, size\+\_\+t const visible, float const t\+Min[3], float const t\+Max[3], G\+P\+U\+Triangle const $\ast$const triangle)}{gpu_writeClippedTriangle_OneVertexVisible(GPUTriangle *const triangles, size_t *const nofTriangles, size_t const visible, float const tMin[3], float const tMax[3], GPUTriangle const *const triangle)}}]{\setlength{\rightskip}{0pt plus 5cm}void gpu\+\_\+write\+Clipped\+Triangle\+\_\+\+One\+Vertex\+Visible (
+\begin{DoxyParamCaption}
+\item[{{\bf G\+P\+U\+Triangle} $\ast$const}]{triangles, }
+\item[{size\+\_\+t $\ast$const}]{nof\+Triangles, }
+\item[{size\+\_\+t const}]{visible, }
+\item[{float const}]{t\+Min\mbox{[}3\mbox{]}, }
+\item[{float const}]{t\+Max\mbox{[}3\mbox{]}, }
+\item[{{\bf G\+P\+U\+Triangle} const $\ast$const}]{triangle}
+\end{DoxyParamCaption}
+)}\hypertarget{student__pipeline_8c_a27830a764c7d2c92e6306bfc9c382e4f}{}\label{student__pipeline_8c_a27830a764c7d2c92e6306bfc9c382e4f}
+
+
+This function writes one triangle when only one vertex is visible. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em triangles} & output list of clipped triangles \\
+\hline
+{\em nof\+Triangles} & number of triangles \\
+\hline
+{\em visible} & visibility mask for triangle vertices \\
+\hline
+{\em t\+Min} & minimal t parameters \\
+\hline
+{\em t\+Max} & maximal t parameters \\
+\hline
+{\em triangle} & input triangle \\
+\hline
+\end{DoxyParams}
+\index{student\+\_\+pipeline.\+c@{student\+\_\+pipeline.\+c}!gpu\+\_\+write\+Clipped\+Triangle\+\_\+\+Three\+Vertices\+Visible@{gpu\+\_\+write\+Clipped\+Triangle\+\_\+\+Three\+Vertices\+Visible}}
+\index{gpu\+\_\+write\+Clipped\+Triangle\+\_\+\+Three\+Vertices\+Visible@{gpu\+\_\+write\+Clipped\+Triangle\+\_\+\+Three\+Vertices\+Visible}!student\+\_\+pipeline.\+c@{student\+\_\+pipeline.\+c}}
+\subsubsection[{\texorpdfstring{gpu\+\_\+write\+Clipped\+Triangle\+\_\+\+Three\+Vertices\+Visible(\+G\+P\+U\+Triangle triangles[M\+A\+X\+\_\+\+C\+L\+I\+P\+P\+E\+D\+\_\+\+T\+R\+I\+A\+N\+G\+L\+ES], size\+\_\+t $\ast$const nof\+Triangles, G\+P\+U\+Triangle const $\ast$const triangle)}{gpu_writeClippedTriangle_ThreeVerticesVisible(GPUTriangle triangles[MAX_CLIPPED_TRIANGLES], size_t *const nofTriangles, GPUTriangle const *const triangle)}}]{\setlength{\rightskip}{0pt plus 5cm}void gpu\+\_\+write\+Clipped\+Triangle\+\_\+\+Three\+Vertices\+Visible (
+\begin{DoxyParamCaption}
+\item[{{\bf G\+P\+U\+Triangle}}]{triangles\mbox{[}\+M\+A\+X\+\_\+\+C\+L\+I\+P\+P\+E\+D\+\_\+\+T\+R\+I\+A\+N\+G\+L\+E\+S\mbox{]}, }
+\item[{size\+\_\+t $\ast$const}]{nof\+Triangles, }
+\item[{{\bf G\+P\+U\+Triangle} const $\ast$const}]{triangle}
+\end{DoxyParamCaption}
+)}\hypertarget{student__pipeline_8c_a0ffe89fc389ef3cc4bfd9800c552c2eb}{}\label{student__pipeline_8c_a0ffe89fc389ef3cc4bfd9800c552c2eb}
+
+
+This function copies input triangle into output triangle list. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em triangles} & output triangle list \\
+\hline
+{\em nof\+Triangles} & number of triangles in output triangle list \\
+\hline
+{\em triangle} & input triangle \\
+\hline
+\end{DoxyParams}
+\index{student\+\_\+pipeline.\+c@{student\+\_\+pipeline.\+c}!gpu\+\_\+write\+Clipped\+Triangle\+\_\+\+Two\+Vertices\+Visible@{gpu\+\_\+write\+Clipped\+Triangle\+\_\+\+Two\+Vertices\+Visible}}
+\index{gpu\+\_\+write\+Clipped\+Triangle\+\_\+\+Two\+Vertices\+Visible@{gpu\+\_\+write\+Clipped\+Triangle\+\_\+\+Two\+Vertices\+Visible}!student\+\_\+pipeline.\+c@{student\+\_\+pipeline.\+c}}
+\subsubsection[{\texorpdfstring{gpu\+\_\+write\+Clipped\+Triangle\+\_\+\+Two\+Vertices\+Visible(\+G\+P\+U\+Triangle $\ast$const triangles, size\+\_\+t $\ast$const nof\+Triangles, size\+\_\+t const visible, float const t\+Min[3], float const t\+Max[3], G\+P\+U\+Triangle const $\ast$const triangle)}{gpu_writeClippedTriangle_TwoVerticesVisible(GPUTriangle *const triangles, size_t *const nofTriangles, size_t const visible, float const tMin[3], float const tMax[3], GPUTriangle const *const triangle)}}]{\setlength{\rightskip}{0pt plus 5cm}void gpu\+\_\+write\+Clipped\+Triangle\+\_\+\+Two\+Vertices\+Visible (
+\begin{DoxyParamCaption}
+\item[{{\bf G\+P\+U\+Triangle} $\ast$const}]{triangles, }
+\item[{size\+\_\+t $\ast$const}]{nof\+Triangles, }
+\item[{size\+\_\+t const}]{visible, }
+\item[{float const}]{t\+Min\mbox{[}3\mbox{]}, }
+\item[{float const}]{t\+Max\mbox{[}3\mbox{]}, }
+\item[{{\bf G\+P\+U\+Triangle} const $\ast$const}]{triangle}
+\end{DoxyParamCaption}
+)}\hypertarget{student__pipeline_8c_a581656c59c0f8b8a589e9c1a120c2f02}{}\label{student__pipeline_8c_a581656c59c0f8b8a589e9c1a120c2f02}
+
+
+This function writes two clipped triangle when two vertices are visible. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em triangles} & triangle list \\
+\hline
+{\em nof\+Triangles} & number of triangles \\
+\hline
+{\em visible} & visibility mask of triangle vertices \\
+\hline
+{\em t\+Min} & minimal t parameters \\
+\hline
+{\em t\+Max} & maximal t parameters \\
+\hline
+{\em triangle} & input triangle \\
+\hline
+\end{DoxyParams}
+\index{student\+\_\+pipeline.\+c@{student\+\_\+pipeline.\+c}!gpu\+\_\+write\+Clipped\+Triangle\+\_\+\+Two\+Vertices\+Visible\+\_\+\+First\+Triangle@{gpu\+\_\+write\+Clipped\+Triangle\+\_\+\+Two\+Vertices\+Visible\+\_\+\+First\+Triangle}}
+\index{gpu\+\_\+write\+Clipped\+Triangle\+\_\+\+Two\+Vertices\+Visible\+\_\+\+First\+Triangle@{gpu\+\_\+write\+Clipped\+Triangle\+\_\+\+Two\+Vertices\+Visible\+\_\+\+First\+Triangle}!student\+\_\+pipeline.\+c@{student\+\_\+pipeline.\+c}}
+\subsubsection[{\texorpdfstring{gpu\+\_\+write\+Clipped\+Triangle\+\_\+\+Two\+Vertices\+Visible\+\_\+\+First\+Triangle(\+Vec3 $\ast$const dst\+Coords, Vec3 const $\ast$const src\+Coords, Vec4 $\ast$const dst\+Positions, Vec4 const $\ast$const src\+Positions, size\+\_\+t const vertex, size\+\_\+t const next\+Vertex, size\+\_\+t const prev\+Vertex, float const next\+T, float const prev\+T)}{gpu_writeClippedTriangle_TwoVerticesVisible_FirstTriangle(Vec3 *const dstCoords, Vec3 const *const srcCoords, Vec4 *const dstPositions, Vec4 const *const srcPositions, size_t const vertex, size_t const nextVertex, size_t const prevVertex, float const nextT, float const prevT)}}]{\setlength{\rightskip}{0pt plus 5cm}void gpu\+\_\+write\+Clipped\+Triangle\+\_\+\+Two\+Vertices\+Visible\+\_\+\+First\+Triangle (
+\begin{DoxyParamCaption}
+\item[{{\bf Vec3} $\ast$const}]{dst\+Coords, }
+\item[{{\bf Vec3} const $\ast$const}]{src\+Coords, }
+\item[{{\bf Vec4} $\ast$const}]{dst\+Positions, }
+\item[{{\bf Vec4} const $\ast$const}]{src\+Positions, }
+\item[{size\+\_\+t const}]{vertex, }
+\item[{size\+\_\+t const}]{next\+Vertex, }
+\item[{size\+\_\+t const}]{prev\+Vertex, }
+\item[{float const}]{nextT, }
+\item[{float const}]{prevT}
+\end{DoxyParamCaption}
+)}\hypertarget{student__pipeline_8c_a9127d58fe63034a598f171308b072a0c}{}\label{student__pipeline_8c_a9127d58fe63034a598f171308b072a0c}
+
+
+This function writes first clipped triangle when two vertices are visible. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dst\+Coords} & pointer to destination barycentrics \\
+\hline
+{\em src\+Coords} & pointer to source barycentrics \\
+\hline
+{\em dst\+Positions} & pointer to destination positions \\
+\hline
+{\em src\+Positions} & pointer to source positions \\
+\hline
+{\em vertex} & id of not visible vertex \\
+\hline
+{\em next\+Vertex} & id of next visible vertex in respect to vertex \\
+\hline
+{\em prev\+Vertex} & id of previous visible vertex in respect to vertex \\
+\hline
+{\em nextT} & t parameter of next triangle edge \\
+\hline
+{\em prevT} & t parameter of previous triangle edge \\
+\hline
+\end{DoxyParams}
+\index{student\+\_\+pipeline.\+c@{student\+\_\+pipeline.\+c}!gpu\+\_\+write\+Clipped\+Triangle\+\_\+\+Two\+Vertices\+Visible\+\_\+\+Second\+Triangle@{gpu\+\_\+write\+Clipped\+Triangle\+\_\+\+Two\+Vertices\+Visible\+\_\+\+Second\+Triangle}}
+\index{gpu\+\_\+write\+Clipped\+Triangle\+\_\+\+Two\+Vertices\+Visible\+\_\+\+Second\+Triangle@{gpu\+\_\+write\+Clipped\+Triangle\+\_\+\+Two\+Vertices\+Visible\+\_\+\+Second\+Triangle}!student\+\_\+pipeline.\+c@{student\+\_\+pipeline.\+c}}
+\subsubsection[{\texorpdfstring{gpu\+\_\+write\+Clipped\+Triangle\+\_\+\+Two\+Vertices\+Visible\+\_\+\+Second\+Triangle(\+Vec3 $\ast$const dst\+Coords, Vec3 const $\ast$const src\+Coords, Vec4 $\ast$const dst\+Positions, Vec4 const $\ast$const src\+Positions, size\+\_\+t const vertex, size\+\_\+t const next\+Vertex, size\+\_\+t const prev\+Vertex, float const prev\+T)}{gpu_writeClippedTriangle_TwoVerticesVisible_SecondTriangle(Vec3 *const dstCoords, Vec3 const *const srcCoords, Vec4 *const dstPositions, Vec4 const *const srcPositions, size_t const vertex, size_t const nextVertex, size_t const prevVertex, float const prevT)}}]{\setlength{\rightskip}{0pt plus 5cm}void gpu\+\_\+write\+Clipped\+Triangle\+\_\+\+Two\+Vertices\+Visible\+\_\+\+Second\+Triangle (
+\begin{DoxyParamCaption}
+\item[{{\bf Vec3} $\ast$const}]{dst\+Coords, }
+\item[{{\bf Vec3} const $\ast$const}]{src\+Coords, }
+\item[{{\bf Vec4} $\ast$const}]{dst\+Positions, }
+\item[{{\bf Vec4} const $\ast$const}]{src\+Positions, }
+\item[{size\+\_\+t const}]{vertex, }
+\item[{size\+\_\+t const}]{next\+Vertex, }
+\item[{size\+\_\+t const}]{prev\+Vertex, }
+\item[{float const}]{prevT}
+\end{DoxyParamCaption}
+)}\hypertarget{student__pipeline_8c_a6cc5a9c0c97132f00121fe1e207c9c79}{}\label{student__pipeline_8c_a6cc5a9c0c97132f00121fe1e207c9c79}
+
+
+This function writes second clipped triangle when two vertices are visible. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dst\+Coords} & pointer to destination barycentrics \\
+\hline
+{\em src\+Coords} & pointer to source barycentrics \\
+\hline
+{\em dst\+Positions} & pointer to destination positions \\
+\hline
+{\em src\+Positions} & pointer to source positions \\
+\hline
+{\em vertex} & id of not visible vertex \\
+\hline
+{\em next\+Vertex} & id of next visible vertex in respect to vertex \\
+\hline
+{\em prev\+Vertex} & id of previous visible vertex in respect to vertex \\
+\hline
+{\em prevT} & t parameter of previous triangle edge \\
+\hline
+\end{DoxyParams}

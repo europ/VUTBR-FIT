@@ -1,0 +1,75 @@
+\hypertarget{student__cpu_8c}{}\section{student/student\+\_\+cpu.c File Reference}
+\label{student__cpu_8c}\index{student/student\+\_\+cpu.\+c@{student/student\+\_\+cpu.\+c}}
+
+
+This file contains implementation of cpu side for phong shading.  
+
+
+{\ttfamily \#include $<$assert.\+h$>$}\\*
+{\ttfamily \#include $<$math.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}student/student\+\_\+cpu.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}student/student\+\_\+pipeline.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}student/linear\+Algebra.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}student/uniforms.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}student/gpu.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}student/camera.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}student/vertex\+Puller.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}student/buffer.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}student/bunny.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}student/student\+\_\+shader.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}student/mouse\+Camera.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}student/swap\+Buffers.\+h\char`\"{}}\\*
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structPhongVariables}{Phong\+Variables}
+\begin{DoxyCompactList}\small\item\em This structure contains all global variables for this method. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{group__cpu__side_gac2adb2ba4e748239b9db4d037584d3cc}{phong\+\_\+on\+Init} (int32\+\_\+t width, int32\+\_\+t height)
+\begin{DoxyCompactList}\small\item\em This function is called at start of application. It should contain initialization of C\+PU side. \end{DoxyCompactList}\item 
+void \hyperlink{student__cpu_8c_a88d2d9ef0fe63ab523c367c2a6f40245}{phong\+\_\+on\+Exit} ()\hypertarget{student__cpu_8c_a88d2d9ef0fe63ab523c367c2a6f40245}{}\label{student__cpu_8c_a88d2d9ef0fe63ab523c367c2a6f40245}
+
+\begin{DoxyCompactList}\small\item\em This function is called at end of application. \end{DoxyCompactList}\item 
+void \hyperlink{group__cpu__side_gafea3b0614db94d611ae817685375c39c}{phong\+\_\+on\+Draw} (S\+D\+L\+\_\+\+Surface $\ast$surface)
+\begin{DoxyCompactList}\small\item\em This function is called every frame and is responsible for drawing. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structMat4}{Mat4} \hyperlink{student__cpu_8c_a1f344d924f733a22d7659db612a0efe8}{projection\+Matrix}
+\begin{DoxyCompactList}\small\item\em This variable contains projection matrix. \end{DoxyCompactList}\item 
+\hyperlink{structMat4}{Mat4} \hyperlink{student__cpu_8c_ae64ebe4c77936fc93d161b97bd8e96df}{view\+Matrix}
+\begin{DoxyCompactList}\small\item\em This variable contains view matrix. \end{DoxyCompactList}\item 
+\hyperlink{structVec3}{Vec3} \hyperlink{student__cpu_8c_a2ae2553412ead34e3a4e23019d4f052e}{camera\+Position}\hypertarget{student__cpu_8c_a2ae2553412ead34e3a4e23019d4f052e}{}\label{student__cpu_8c_a2ae2553412ead34e3a4e23019d4f052e}
+
+\begin{DoxyCompactList}\small\item\em This variable contains camera position in world-\/space. \end{DoxyCompactList}\item 
+struct \hyperlink{structPhongVariables}{Phong\+Variables} \hyperlink{student__cpu_8c_a7306931d2ba161215ffc45645c8bfa7d}{phong}\hypertarget{student__cpu_8c_a7306931d2ba161215ffc45645c8bfa7d}{}\label{student__cpu_8c_a7306931d2ba161215ffc45645c8bfa7d}
+
+\begin{DoxyCompactList}\small\item\em instance of all global variables for triangle example. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This file contains implementation of cpu side for phong shading. 
+
+\begin{DoxyAuthor}{Author}
+Tomáš Milet, \href{mailto:imilet@fit.vutbr.cz}{\tt imilet@fit.\+vutbr.\+cz} 
+\end{DoxyAuthor}
+
+
+\subsection{Variable Documentation}
+\index{student\+\_\+cpu.\+c@{student\+\_\+cpu.\+c}!projection\+Matrix@{projection\+Matrix}}
+\index{projection\+Matrix@{projection\+Matrix}!student\+\_\+cpu.\+c@{student\+\_\+cpu.\+c}}
+\subsubsection[{\texorpdfstring{projection\+Matrix}{projectionMatrix}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Mat4} projection\+Matrix}\hypertarget{student__cpu_8c_a1f344d924f733a22d7659db612a0efe8}{}\label{student__cpu_8c_a1f344d924f733a22d7659db612a0efe8}
+
+
+This variable contains projection matrix. 
+
+This variable contains projection matrix. \index{student\+\_\+cpu.\+c@{student\+\_\+cpu.\+c}!view\+Matrix@{view\+Matrix}}
+\index{view\+Matrix@{view\+Matrix}!student\+\_\+cpu.\+c@{student\+\_\+cpu.\+c}}
+\subsubsection[{\texorpdfstring{view\+Matrix}{viewMatrix}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Mat4} view\+Matrix}\hypertarget{student__cpu_8c_ae64ebe4c77936fc93d161b97bd8e96df}{}\label{student__cpu_8c_ae64ebe4c77936fc93d161b97bd8e96df}
+
+
+This variable contains view matrix. 
+
+This variable contains view matrix. 

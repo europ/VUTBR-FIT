@@ -1,0 +1,251 @@
+\hypertarget{TriangleExample-example}{}\section{Triangle\+Example}
+\hyperlink{triangleExample_8c}{triangle\+Example.\+c}  If rendering pipeline works, this example renders one colored triangle. ~\newline
+ \hypertarget{triangleExample.c_Initialization}{}\subsection{Initialization}\label{triangleExample.c_Initialization}
+All global variables are stored in one place -\/ in a structure. 
+\begin{DoxyCodeInclude}
+
+\textcolor{keyword}{struct }\hyperlink{structTriangleExampleVariables}{TriangleExampleVariables}\{
+  \hyperlink{fwd_8h_a06964ec111fe28721d8618b6d0d993bf}{GPU}            \hyperlink{structTriangleExampleVariables_a6c5c3f82065ae9aac07f9e6f11dd03b3}{gpu}     ;\textcolor{comment}{//gpu handle}
+\textcolor{comment}{}  \hyperlink{fwd_8h_a15e62786033208aec9487a51e808f81d}{ProgramID}      \hyperlink{structTriangleExampleVariables_aabf788228d2e91e2718facfbd911c8cc}{program} ;\textcolor{comment}{//program id}
+\textcolor{comment}{}  \hyperlink{fwd_8h_a23828e2281a794e193ebaf0df3e1f17c}{VertexPullerID} \hyperlink{structTriangleExampleVariables_a82e39dd0d18fc57422686229d801e39f}{puller}  ;\textcolor{comment}{//puller id}
+\textcolor{comment}{}  \hyperlink{fwd_8h_a60a12bf4868ebe47cc571ce96a03f99c}{BufferID}       \hyperlink{structTriangleExampleVariables_acb7968b625f2e01866994769209cf32e}{vertices};\textcolor{comment}{//buffer id}
+\}\hyperlink{triangleExample_8c_af82b723635ac0c90962571915a1b1163}{triangleExample};
+\end{DoxyCodeInclude}
+View and projection matrices are stored in extern variables\+: 
+\begin{DoxyCodeInclude}
+\textcolor{keyword}{extern} \hyperlink{structMat4}{Mat4} \hyperlink{mouseCamera_8c_a1f344d924f733a22d7659db612a0efe8}{projectionMatrix};\textcolor{comment}{//projection matrix}
+\textcolor{comment}{}\textcolor{keyword}{extern} \hyperlink{structMat4}{Mat4} \hyperlink{mouseCamera_8c_ae64ebe4c77936fc93d161b97bd8e96df}{viewMatrix}      ;\textcolor{comment}{//view matrix}
+\end{DoxyCodeInclude}
+When a mouse is moving, these matrices are recomputed.~\newline
+ When example is started, function \hyperlink{triangleExample_8c_a73184b4ab6bb513ad9a9a4c36e92646b}{triangle\+Example\+\_\+on\+Init()} is called. This function creates gpu, initializes viewport and initializes matrices\+: 
+\begin{DoxyCodeInclude}
+  \hyperlink{triangleExample_8c_af82b723635ac0c90962571915a1b1163}{triangleExample}.\hyperlink{structTriangleExampleVariables_a6c5c3f82065ae9aac07f9e6f11dd03b3}{gpu} = \hyperlink{gpu_8h_ace6f4308ad5d67c778e48e434f435e7d}{cpu\_createGPU}();
+
+  \hyperlink{gpu_8h_a35867aa85ba3dc4c33d03f6a2842f5af}{cpu\_setViewportSize}(
+      \hyperlink{triangleExample_8c_af82b723635ac0c90962571915a1b1163}{triangleExample}.\hyperlink{structTriangleExampleVariables_a6c5c3f82065ae9aac07f9e6f11dd03b3}{gpu}, \textcolor{comment}{//gpu}
+      (\textcolor{keywordtype}{size\_t})width      , \textcolor{comment}{//width of screen/framebuffer in pixels}
+      (\textcolor{keywordtype}{size\_t})height     );\textcolor{comment}{//height of screen/framebuffer in pixels}
+
+  \hyperlink{mouseCamera_8c_a7e7e918a9328502b7c35cfbbdb068b7b}{cpu\_initMatrices}(width,height);
+\end{DoxyCodeInclude}
+Then, the function reserves uniforms on gpu\+: 
+\begin{DoxyCodeInclude}
+  \hyperlink{uniforms_8h_acd308bcb7720918cb48f75292a247dfb}{cpu\_reserveUniform}(
+      \hyperlink{triangleExample_8c_af82b723635ac0c90962571915a1b1163}{triangleExample}.\hyperlink{structTriangleExampleVariables_a6c5c3f82065ae9aac07f9e6f11dd03b3}{gpu}, \textcolor{comment}{//gpu}
+      \textcolor{stringliteral}{"projectionMatrix"} , \textcolor{comment}{//uniform name}
+      \hyperlink{uniforms_8h_a0d2757b6f370648e2dc98adc54edb97daa3eed90ee47c4ca58597e4115f3557d4}{UNIFORM\_MAT4}       );\textcolor{comment}{//uniform type}
+
+  \hyperlink{uniforms_8h_acd308bcb7720918cb48f75292a247dfb}{cpu\_reserveUniform}(
+      \hyperlink{triangleExample_8c_af82b723635ac0c90962571915a1b1163}{triangleExample}.\hyperlink{structTriangleExampleVariables_a6c5c3f82065ae9aac07f9e6f11dd03b3}{gpu}, \textcolor{comment}{//gpu}
+      \textcolor{stringliteral}{"viewMatrix"}       , \textcolor{comment}{//uniform name}
+      \hyperlink{uniforms_8h_a0d2757b6f370648e2dc98adc54edb97daa3eed90ee47c4ca58597e4115f3557d4}{UNIFORM\_MAT4}       );\textcolor{comment}{//uniform type}
+\end{DoxyCodeInclude}
+Next, the function creates shader program 
+\begin{DoxyCodeInclude}
+  \hyperlink{triangleExample_8c_af82b723635ac0c90962571915a1b1163}{triangleExample}.\hyperlink{structTriangleExampleVariables_aabf788228d2e91e2718facfbd911c8cc}{program} = \hyperlink{program_8h_a4fca7a0e3dac7f93620a1bde6efcde16}{cpu\_createProgram}(
+      \hyperlink{triangleExample_8c_af82b723635ac0c90962571915a1b1163}{triangleExample}.\hyperlink{structTriangleExampleVariables_a6c5c3f82065ae9aac07f9e6f11dd03b3}{gpu});\textcolor{comment}{//gpu}
+\end{DoxyCodeInclude}
+Shaders has to be attach to program\+: 
+\begin{DoxyCodeInclude}
+  \hyperlink{program_8h_aaefc7833a6deea461cc06d00318f7975}{cpu\_attachVertexShader}  (
+      \hyperlink{triangleExample_8c_af82b723635ac0c90962571915a1b1163}{triangleExample}.\hyperlink{structTriangleExampleVariables_a6c5c3f82065ae9aac07f9e6f11dd03b3}{gpu}           , \textcolor{comment}{//gpu}
+      \hyperlink{triangleExample_8c_af82b723635ac0c90962571915a1b1163}{triangleExample}.\hyperlink{structTriangleExampleVariables_aabf788228d2e91e2718facfbd911c8cc}{program}       , \textcolor{comment}{//program id}
+      \hyperlink{triangleExample_8c_ae87aa91cb96803929e3d70f2ee66794c}{triangleExample\_vertexShader}  );\textcolor{comment}{//pointer to function that represents
+       vertex shader}
+
+  \hyperlink{program_8h_a402ad69a9f1b80b8de408b991e190ed6}{cpu\_attachFragmentShader}(
+      \hyperlink{triangleExample_8c_af82b723635ac0c90962571915a1b1163}{triangleExample}.\hyperlink{structTriangleExampleVariables_a6c5c3f82065ae9aac07f9e6f11dd03b3}{gpu}           , \textcolor{comment}{//gpu}
+      \hyperlink{triangleExample_8c_af82b723635ac0c90962571915a1b1163}{triangleExample}.\hyperlink{structTriangleExampleVariables_aabf788228d2e91e2718facfbd911c8cc}{program}       , \textcolor{comment}{//program id}
+      \hyperlink{triangleExample_8c_a098ba4902bcb365ea8faaa20be1994f4}{triangleExample\_fragmentShader});\textcolor{comment}{//pointer to function that represents
+       fragment shader}
+\end{DoxyCodeInclude}
+One vertex attribute (color) is interpolated during rasterization, we have to set its type, location and type of interpolation\+: 
+\begin{DoxyCodeInclude}
+  \hyperlink{program_8h_aca1c5019ec58c919160c4c12a5e5fa06}{cpu\_setAttributeInterpolation}(
+      \hyperlink{triangleExample_8c_af82b723635ac0c90962571915a1b1163}{triangleExample}.\hyperlink{structTriangleExampleVariables_a6c5c3f82065ae9aac07f9e6f11dd03b3}{gpu}    , \textcolor{comment}{//gpu}
+      \hyperlink{triangleExample_8c_af82b723635ac0c90962571915a1b1163}{triangleExample}.\hyperlink{structTriangleExampleVariables_aabf788228d2e91e2718facfbd911c8cc}{program}, \textcolor{comment}{//program id}
+      0                      , \textcolor{comment}{//vertex attribute index}
+      \hyperlink{program_8h_a349a9cde14be8097df865ba0469c0ab2af145276fddc920ef58a00542e097c47a}{ATTRIB\_VEC3},\hyperlink{program_8h_a8472f01c511d77bbfb981a46618ea1eaa33c7ccbb848d8fd75455dd9786a1153a}{SMOOTH}     );\textcolor{comment}{//interpolation type - with perspective correction}
+\end{DoxyCodeInclude}
+Next, we need to create buffer with 3 vertices. 
+\begin{DoxyCodeInclude}
+  \hyperlink{buffer_8h_a6ba9c58dc4b7bc81e83d3dae3c6b292f}{cpu\_createBuffers}(
+      \hyperlink{triangleExample_8c_af82b723635ac0c90962571915a1b1163}{triangleExample}.\hyperlink{structTriangleExampleVariables_a6c5c3f82065ae9aac07f9e6f11dd03b3}{gpu}      , \textcolor{comment}{//gpu}
+      1                        , \textcolor{comment}{//number of buffer ids that will be reserved}
+      &\hyperlink{triangleExample_8c_af82b723635ac0c90962571915a1b1163}{triangleExample}.\hyperlink{structTriangleExampleVariables_acb7968b625f2e01866994769209cf32e}{vertices});\textcolor{comment}{//pointer to buffer id variable}
+
+  \textcolor{keywordtype}{float} \textcolor{keyword}{const} positions[9] = \{\textcolor{comment}{//vertex positions}
+    -1.f,-1.f,+0.f,\textcolor{comment}{//triangle vertex A}
+    +1.f,-1.f,+0.f,\textcolor{comment}{//triangle vertex B}
+    -1.f,+1.f,+0.f,\textcolor{comment}{//triangle vertex C}
+  \};
+
+  \hyperlink{buffer_8h_aad292278b58c11db74df3cb3e3a52f22}{cpu\_bufferData}(
+      \hyperlink{triangleExample_8c_af82b723635ac0c90962571915a1b1163}{triangleExample}.\hyperlink{structTriangleExampleVariables_a6c5c3f82065ae9aac07f9e6f11dd03b3}{gpu}     , \textcolor{comment}{//gpu}
+      \hyperlink{triangleExample_8c_af82b723635ac0c90962571915a1b1163}{triangleExample}.\hyperlink{structTriangleExampleVariables_acb7968b625f2e01866994769209cf32e}{vertices}, \textcolor{comment}{//buffer id}
+      \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{float})*9         , \textcolor{comment}{//size of data that is going to be copied to buffer}
+      positions               );\textcolor{comment}{//pointer to data}
+\end{DoxyCodeInclude}
+Last thing that needs to be done in initialization is creation of vertex puller, 
+\begin{DoxyCodeInclude}
+  \hyperlink{vertexPuller_8h_a3b9678475f48f09c3ddbd4316fce3e08}{cpu\_createVertexPullers}(
+      \hyperlink{triangleExample_8c_af82b723635ac0c90962571915a1b1163}{triangleExample}.\hyperlink{structTriangleExampleVariables_a6c5c3f82065ae9aac07f9e6f11dd03b3}{gpu}    , \textcolor{comment}{//gpu}
+      1                      , \textcolor{comment}{//number of puller ids that will be reserved}
+      &\hyperlink{triangleExample_8c_af82b723635ac0c90962571915a1b1163}{triangleExample}.\hyperlink{structTriangleExampleVariables_a82e39dd0d18fc57422686229d801e39f}{puller});\textcolor{comment}{//pointer to puller id variable}
+\end{DoxyCodeInclude}
+and setting its zeroth head 
+\begin{DoxyCodeInclude}
+  \hyperlink{vertexPuller_8h_a07be46ae38b8ec80ec85581a33b02786}{cpu\_setVertexPullerHead}(
+      \hyperlink{triangleExample_8c_af82b723635ac0c90962571915a1b1163}{triangleExample}.\hyperlink{structTriangleExampleVariables_a6c5c3f82065ae9aac07f9e6f11dd03b3}{gpu}     , \textcolor{comment}{//gpu}
+      \hyperlink{triangleExample_8c_af82b723635ac0c90962571915a1b1163}{triangleExample}.\hyperlink{structTriangleExampleVariables_a82e39dd0d18fc57422686229d801e39f}{puller}  , \textcolor{comment}{//puller id}
+      0                       , \textcolor{comment}{//id of head/vertex attrib}
+      \hyperlink{triangleExample_8c_af82b723635ac0c90962571915a1b1163}{triangleExample}.\hyperlink{structTriangleExampleVariables_acb7968b625f2e01866994769209cf32e}{vertices}, \textcolor{comment}{//buffer id}
+      \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{float})*0         , \textcolor{comment}{//offset}
+      \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{float})*3         );\textcolor{comment}{//stride}
+
+  \hyperlink{vertexPuller_8h_afc4c70416bc0e515e75ec90c8c8d1584}{cpu\_enableVertexPullerHead}(
+      \hyperlink{triangleExample_8c_af82b723635ac0c90962571915a1b1163}{triangleExample}.\hyperlink{structTriangleExampleVariables_a6c5c3f82065ae9aac07f9e6f11dd03b3}{gpu}   , \textcolor{comment}{//gpu}
+      \hyperlink{triangleExample_8c_af82b723635ac0c90962571915a1b1163}{triangleExample}.\hyperlink{structTriangleExampleVariables_a82e39dd0d18fc57422686229d801e39f}{puller}, \textcolor{comment}{//puller id}
+      0                     );\textcolor{comment}{//id of head/vertex attrib}
+\end{DoxyCodeInclude}
+\hypertarget{triangleExample.c_Deinitialization}{}\subsection{Deinitialization}\label{triangleExample.c_Deinitialization}
+At the end of application, all allocated resource has to be released in function \hyperlink{triangleExample_8c_a35b10f59fe16423447777ba6bbba3b66}{triangle\+Example\+\_\+on\+Exit()}\+: 
+\begin{DoxyCodeInclude}
+  \hyperlink{gpu_8h_aefa64b1f8ea2c83b8c80c68089739dc1}{cpu\_destroyGPU}(\hyperlink{triangleExample_8c_af82b723635ac0c90962571915a1b1163}{triangleExample}.\hyperlink{structTriangleExampleVariables_a6c5c3f82065ae9aac07f9e6f11dd03b3}{gpu});
+\end{DoxyCodeInclude}
+\hypertarget{triangleExample.c_Drawing}{}\subsection{Drawing}\label{triangleExample.c_Drawing}
+Function \hyperlink{triangleExample_8c_adad04513776893b55b58aa0e8a84b8df}{triangle\+Example\+\_\+on\+Draw()} is called every frame. This function clears depth buffer and color buffer\+: 
+\begin{DoxyCodeInclude}
+  \textcolor{keywordtype}{float} \textcolor{keyword}{const} depth = (float)(+INFINITY);\textcolor{comment}{//infinity depth}
+  \hyperlink{gpu_8h_a988bd18047695141224acfbd2abbe246}{cpu\_clearDepth}(\hyperlink{triangleExample_8c_af82b723635ac0c90962571915a1b1163}{triangleExample}.\hyperlink{structTriangleExampleVariables_a6c5c3f82065ae9aac07f9e6f11dd03b3}{gpu},depth);
+
+  \hyperlink{structVec4}{Vec4} \textcolor{keyword}{const} color = \{\{.1f,.1f,.1f,.1f\}\};\textcolor{comment}{//dark gray color}
+  \hyperlink{gpu_8h_ac8b73f65bb746147b136819e862785ce}{cpu\_clearColor}(\hyperlink{triangleExample_8c_af82b723635ac0c90962571915a1b1163}{triangleExample}.\hyperlink{structTriangleExampleVariables_a6c5c3f82065ae9aac07f9e6f11dd03b3}{gpu},&color);
+\end{DoxyCodeInclude}
+Function then activates program\+: 
+\begin{DoxyCodeInclude}
+  \hyperlink{program_8h_a497d97730640942bffcc3cd9f266f146}{cpu\_useProgram}(
+      \hyperlink{triangleExample_8c_af82b723635ac0c90962571915a1b1163}{triangleExample}.\hyperlink{structTriangleExampleVariables_a6c5c3f82065ae9aac07f9e6f11dd03b3}{gpu}    , \textcolor{comment}{//gpu}
+      \hyperlink{triangleExample_8c_af82b723635ac0c90962571915a1b1163}{triangleExample}.\hyperlink{structTriangleExampleVariables_aabf788228d2e91e2718facfbd911c8cc}{program});\textcolor{comment}{//program id}
+\end{DoxyCodeInclude}
+Then, it activates vertex puller\+: 
+\begin{DoxyCodeInclude}
+  \hyperlink{vertexPuller_8h_a27eee6237125ddc21c7d9b996f5af84e}{cpu\_bindVertexPuller}(
+      \hyperlink{triangleExample_8c_af82b723635ac0c90962571915a1b1163}{triangleExample}.\hyperlink{structTriangleExampleVariables_a6c5c3f82065ae9aac07f9e6f11dd03b3}{gpu}   , \textcolor{comment}{//gpu}
+      \hyperlink{triangleExample_8c_af82b723635ac0c90962571915a1b1163}{triangleExample}.\hyperlink{structTriangleExampleVariables_a82e39dd0d18fc57422686229d801e39f}{puller});\textcolor{comment}{//program id}
+\end{DoxyCodeInclude}
+Next, it has to upload data to uniform values on gpu\+: 
+\begin{DoxyCodeInclude}
+  \hyperlink{uniforms_8h_a0827d09b4e6a18f2718775e7e9289fbd}{UniformLocation} \textcolor{keyword}{const} viewMatrixUniform = \hyperlink{uniforms_8h_a6ea94982618b1c339a97a528b0670a53}{getUniformLocation}(
+      \hyperlink{triangleExample_8c_af82b723635ac0c90962571915a1b1163}{triangleExample}.\hyperlink{structTriangleExampleVariables_a6c5c3f82065ae9aac07f9e6f11dd03b3}{gpu}, \textcolor{comment}{//gpu}
+      \textcolor{stringliteral}{"viewMatrix"}       );\textcolor{comment}{//name of uniform variable}
+
+  \hyperlink{uniforms_8h_a44cfae8c541efcc181e3947511df7f7a}{cpu\_uniformMatrix4fv}(
+      \hyperlink{triangleExample_8c_af82b723635ac0c90962571915a1b1163}{triangleExample}.\hyperlink{structTriangleExampleVariables_a6c5c3f82065ae9aac07f9e6f11dd03b3}{gpu}, \textcolor{comment}{//gpu}
+      viewMatrixUniform  , \textcolor{comment}{//location of uniform variable}
+      (\textcolor{keywordtype}{float}*)&viewMatrix);\textcolor{comment}{//pointer to data}
+
+  \hyperlink{uniforms_8h_a0827d09b4e6a18f2718775e7e9289fbd}{UniformLocation} \textcolor{keyword}{const} projectionMatrixUniform = 
+      \hyperlink{uniforms_8h_a6ea94982618b1c339a97a528b0670a53}{getUniformLocation}(
+      \hyperlink{triangleExample_8c_af82b723635ac0c90962571915a1b1163}{triangleExample}.\hyperlink{structTriangleExampleVariables_a6c5c3f82065ae9aac07f9e6f11dd03b3}{gpu}, \textcolor{comment}{//gpu}
+      \textcolor{stringliteral}{"projectionMatrix"} );\textcolor{comment}{//name of uniform variable}
+
+  \hyperlink{uniforms_8h_a44cfae8c541efcc181e3947511df7f7a}{cpu\_uniformMatrix4fv}(
+      \hyperlink{triangleExample_8c_af82b723635ac0c90962571915a1b1163}{triangleExample}.\hyperlink{structTriangleExampleVariables_a6c5c3f82065ae9aac07f9e6f11dd03b3}{gpu}      , \textcolor{comment}{//gpu}
+      projectionMatrixUniform  , \textcolor{comment}{//location of uniform variable}
+      (\textcolor{keywordtype}{float}*)&projectionMatrix);\textcolor{comment}{//pointer to data of}
+\end{DoxyCodeInclude}
+Now, it is possible to execute draw call (3 vertices are going to be drawn)\+: 
+\begin{DoxyCodeInclude}
+  \hyperlink{student__pipeline_8c_aa47deaa10ce52221ab24e864a11426af}{cpu\_drawTriangles}(
+      \hyperlink{triangleExample_8c_af82b723635ac0c90962571915a1b1163}{triangleExample}.\hyperlink{structTriangleExampleVariables_a6c5c3f82065ae9aac07f9e6f11dd03b3}{gpu}, \textcolor{comment}{//gpu}
+      3                  );\textcolor{comment}{//number of vertices}
+\end{DoxyCodeInclude}
+Lastly, the function has to swap framebuffer into window surface\+: 
+\begin{DoxyCodeInclude}
+  \hyperlink{swapBuffers_8c_aa71ffc00c4f3d7e232828f8b7c47eb9b}{cpu\_swapBuffers}(surface,\hyperlink{triangleExample_8c_af82b723635ac0c90962571915a1b1163}{triangleExample}.\hyperlink{structTriangleExampleVariables_a6c5c3f82065ae9aac07f9e6f11dd03b3}{gpu});
+\end{DoxyCodeInclude}
+\hypertarget{triangleExample.c_VertexShader}{}\subsection{Vertex Shader}\label{triangleExample.c_VertexShader}
+Vertex shader starts with creation of pointers to uniform matrices\+: 
+\begin{DoxyCodeInclude}
+  \textcolor{comment}{//get handle to all uniforms}
+  \hyperlink{fwd_8h_a4e6b8a8d832d478e8d761c0a52163a7c}{Uniforms} \textcolor{keyword}{const} uniformsHandle = \hyperlink{gpu_8h_a72dddc46dcba2d4e515fc23b61f0819a}{gpu\_getUniformsHandle}(
+      gpu);\textcolor{comment}{//gpu}
+
+  \textcolor{comment}{//get uniform location of view matrix}
+  \hyperlink{uniforms_8h_a0827d09b4e6a18f2718775e7e9289fbd}{UniformLocation} \textcolor{keyword}{const} viewMatrixLocation = \hyperlink{uniforms_8h_a6ea94982618b1c339a97a528b0670a53}{getUniformLocation}(
+      gpu         , \textcolor{comment}{//gpu handle}
+      \textcolor{stringliteral}{"viewMatrix"});\textcolor{comment}{//name of uniform variable}
+
+  \textcolor{comment}{//get pointer to view matrix}
+  \hyperlink{structMat4}{Mat4} \textcolor{keyword}{const}*\textcolor{keyword}{const} view = \hyperlink{uniforms_8h_a83cb2c94ffb0623e9bb8d9508885376a}{shader\_interpretUniformAsMat4}(
+      uniformsHandle    , \textcolor{comment}{//handle to all uniforms}
+      viewMatrixLocation);\textcolor{comment}{//location of view matrix}
+
+  \textcolor{comment}{//get uniform location of projection matrix}
+  \hyperlink{uniforms_8h_a0827d09b4e6a18f2718775e7e9289fbd}{UniformLocation} \textcolor{keyword}{const} projectionMatrixLocation = 
+      \hyperlink{uniforms_8h_a6ea94982618b1c339a97a528b0670a53}{getUniformLocation}(
+      gpu               , \textcolor{comment}{//gpu handle}
+      \textcolor{stringliteral}{"projectionMatrix"});\textcolor{comment}{//name of uniform variable}
+
+  \textcolor{comment}{//get pointer to projection matrix}
+  \hyperlink{structMat4}{Mat4} \textcolor{keyword}{const}*\textcolor{keyword}{const} proj = \hyperlink{uniforms_8h_a83cb2c94ffb0623e9bb8d9508885376a}{shader\_interpretUniformAsMat4}(
+      uniformsHandle          , \textcolor{comment}{//handle to all uniforms}
+      projectionMatrixLocation);\textcolor{comment}{//location of projection matrix}
+\end{DoxyCodeInclude}
+Next, pointer to position attribute is created\+: 
+\begin{DoxyCodeInclude}
+  \hyperlink{structVec3}{Vec3} \textcolor{keyword}{const}*\textcolor{keyword}{const} position = \hyperlink{program_8h_a4bec56307c0d080bf314d20ff89773b2}{vs\_interpretInputVertexAttributeAsVec3}
+      (
+      gpu  , \textcolor{comment}{//gpu}
+      input, \textcolor{comment}{//input vertex}
+      0    );\textcolor{comment}{//index of vertex attribute}
+\end{DoxyCodeInclude}
+Then, it projects vertex position into clip-\/space\+: 
+\begin{DoxyCodeInclude}
+  \hyperlink{structMat4}{Mat4} mvp;
+  \hyperlink{linearAlgebra_8c_ab490710375f17e4c453720b4f3a6de1f}{multiply\_Mat4\_Mat4}(&mvp,proj,view);
+
+  \hyperlink{structVec4}{Vec4} pos4;
+  \hyperlink{linearAlgebra_8c_aa6574ab0f21fd2161a67abef60544177}{copy\_Vec3Float\_To\_Vec4}(&pos4,position,1.f);
+
+  \hyperlink{linearAlgebra_8c_ac2909e84e7ff2328f4022195c670f098}{multiply\_Mat4\_Vec4}(
+      &output->gl\_Position, \textcolor{comment}{//output - position of output vertex in clip-space}
+      &mvp                , \textcolor{comment}{//projection view matrix}
+      &pos4               );\textcolor{comment}{//position of vertex in world-space}
+\end{DoxyCodeInclude}
+Then, it gets pointer handle to zeroth output vertex attribute\+: 
+\begin{DoxyCodeInclude}
+  \hyperlink{structVec3}{Vec3} *\textcolor{keyword}{const} colorAttribute = \hyperlink{program_8h_a60d0546dc8c052ee90f699ddca3b540b}{vs\_interpretOutputVertexAttributeAsVec3}
+      (
+      gpu   , \textcolor{comment}{//gpu}
+      output, \textcolor{comment}{//output vertex}
+      0     );\textcolor{comment}{//index of vertex attribute}
+\end{DoxyCodeInclude}
+Finaly, it writes generated color into this output vertex attribute\+: 
+\begin{DoxyCodeInclude}
+  \hyperlink{linearAlgebra_8c_a898abc01a7905b120121d45afaba6635}{init\_Vec3}(
+      colorAttribute                  , \textcolor{comment}{//pointer to vertex attribute}
+      (\textcolor{keywordtype}{float})(input->gl\_VertexID == 0), \textcolor{comment}{//zeroth vertex will be red}
+      (\textcolor{keywordtype}{float})(input->gl\_VertexID == 1), \textcolor{comment}{//first vertex will be green}
+      (\textcolor{keywordtype}{float})(input->gl\_VertexID == 2));\textcolor{comment}{//second vertex will be blue}
+\end{DoxyCodeInclude}
+\hypertarget{triangleExample.c_FragmentShader}{}\subsection{Fragment Shader}\label{triangleExample.c_FragmentShader}
+Fragment shader starts with creation of pointers to zeroth input fragment attribute\+: 
+\begin{DoxyCodeInclude}
+  \hyperlink{structVec3}{Vec3} \textcolor{keyword}{const}*colorAttribute = \hyperlink{program_8h_a132afaeef0a64d93305bb2df3f35a524}{fs\_interpretInputAttributeAsVec3}(
+      gpu  , \textcolor{comment}{//gpu}
+      input, \textcolor{comment}{//input fragment}
+      0    );\textcolor{comment}{//index of fragment attribute}
+\end{DoxyCodeInclude}
+This attribute contains interpolated color. At the end, fragment shader writes color to output fragment. 
+\begin{DoxyCodeInclude}
+  \hyperlink{linearAlgebra_8c_aa6574ab0f21fd2161a67abef60544177}{copy\_Vec3Float\_To\_Vec4}(
+      &output->color, \textcolor{comment}{//output fragment color}
+      colorAttribute, \textcolor{comment}{//computed color}
+      1.f           );\textcolor{comment}{//alpha}
+\end{DoxyCodeInclude}
+ 
+\begin{DoxyCodeInclude}
+\end{DoxyCodeInclude}
+ 

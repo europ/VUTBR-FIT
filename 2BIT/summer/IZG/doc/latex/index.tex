@@ -1,0 +1,154 @@
+\hypertarget{index_zadani}{}\section{Zadání projektu do předmětu I\+Z\+G 2016 -\/ 2017.}\label{index_zadani}
+
+
+Vašim úkolem je naimplementovat softwarový vykreslovací řetězec (pipeline). Pomocí vykreslovacího řetězce vizualizovat model králička s phongovým osvělovacím modelem a phongovým stínováním. V tomto projektu nebudeme pracovat s G\+PU, ale budeme se snažit simulovat její práci. Cílem je pochopit jak vykreslovací řetěc funguje, z čeho je složený a jaká data se v něm pohybují.
+
+Váš úkol je složen ze tří částí\+: napsat kódy pro C\+PU stranu, pro virtuální G\+PU stranu a napsat shadery. Musíte doplnit implementace několika funkcí a rozchodit kreslení modelu králička. Funkce mají pevně daný interface (Vstupy a výstupy). Seznam všech úkolů naleznete zde \hyperlink{todo}{todo.\+html}. Úkoly týkající se pouze C\+PU strany naleznete zde \hyperlink{group__cpu__side}{C\+PU}. Úkoly týkající se pouze G\+PU strany naleznete zde \hyperlink{group__gpu__side}{G\+PU}. Úkoly týkající se pouze shaderů naleznete zde \hyperlink{group__shader__side}{Shadery}.
+
+Každý úkol má přiřazen akceptační test, takže si můžete snadno ověřit funkčnosti vaší implementace.
+
+V projektu je přítomen i příklad vykreslení jednoho trojúhelníku\+: v \hyperlink{TriangleExample-example}{Triangle Example}. Tento příklad můžete využít pro inspiraci a návod jak napsat cpu stranu a shadery.
+
+Pro implementace třetí části -\/ gpu části využijte teorii na této stránce, doxygen dokumentaci a teorii probíranou na přednáškách.\hypertarget{index_rozdeleni}{}\section{Rozdělení}\label{index_rozdeleni}
+Projekt je rozdělen do několika podsložek\+:
+
+{\bfseries student/} Tato složka obsahuje soubory, které využijete při implementaci projektu. Složka obsahuje soubory, které budete odevzávat a podpůrné knihovny. Všechny soubory v této složce jsou napsány v jazyce C abyste se mohli podívat jak jednotlivé části fungují.
+
+{\bfseries tests/} Tato složka obsahuje akceptační a performanční testy projektu. Akceptační testy jsou napsány s využitím knihovny catch. Testy jsou rozděleny do testovacích případů (T\+E\+S\+T\+\_\+\+C\+A\+SE). Daný T\+E\+S\+T\+\_\+\+C\+A\+SE testuje jednu podčást projektu.
+
+{\bfseries examples/} Tato složka obsahuje kompletní příklad kreslení jednoho trojúhelníku pomocí virtuální gpu A\+PI.
+
+{\bfseries doc/} Tato složka obsahuje doxygen dokumentaci projektu. Můžete ji přegenerovat pomocí příkazu doxygen spuštěného v root adresáři projektu.
+
+{\bfseries 3rd\+Party/} Tato složka obsahuje hlavičkový soubor pro unit testy -\/ catch.\+hpp. Z pohledu projektu je nezajímavá. Catch je knihovna složená pouze z hlavičkového souboru napsaného v jazyce C++. Poskytuje několik užitečných maker pro svoji obsluhu. T\+E\+S\+T\+\_\+\+C\+A\+SE -\/ testovací případ (například pro testování jedné funkce). W\+H\+EN -\/ toto makro popisuje způsob použití (například volání funkce s parametery nastavenými na krajní hodnoty). R\+E\+Q\+U\+I\+RE -\/ toto makro vyhodnotí podmínku a případně vypíše chybu (například chcete ověřit, že vaše funkce vrátila správnou hodnotu).
+
+{\bfseries C\+Make\+Modules/} Tato složka obsahuje skripty pro C\+Make. Z pohledu projektu je nezajímavá.
+
+{\bfseries gpu/} Tato složka obsahuje implementace virtuální G\+PU (hlavně management paměti). Z pohledu projektu je nezajímavá. Virtuální G\+PU je napsáno v jazyce C++.
+
+{\bfseries images/} Tato složka obsahuje doprovodné obrázky pro dokumentaci v doxygenu. Z pohledu projektu je nezajímavá.
+
+Složka student/ obsahuje soubory, které se vás přímo týkají\+:
+
+{\bfseries \hyperlink{student__cpu_8c}{student\+\_\+cpu.\+c}} obsahuje cpu stranu vykreslování -\/ tento soubor budete editovat.
+
+{\bfseries \hyperlink{student__pipeline_8c}{student\+\_\+pipeline.\+c}} obsahuje zobrazovací řetězec -\/ tento soubor budete editovat.
+
+{\bfseries \hyperlink{student__shader_8c}{student\+\_\+shader.\+c}} obsahuje shadery -\/ tento soubor budete editovat.
+
+{\bfseries \hyperlink{buffer_8h}{buffer.\+h}} slouží pro práci s buffery.
+
+{\bfseries \hyperlink{program_8h}{program.\+h}} slouží pro práci s shader programy.
+
+{\bfseries \hyperlink{vertexPuller_8h}{vertex\+Puller.\+h}} slouží pro práci s vertex puller objekty.
+
+{\bfseries \hyperlink{uniforms_8h}{uniforms.\+h}} slouží pro práci s uniformními proměnnými.
+
+{\bfseries \hyperlink{linearAlgebra_8h}{linear\+Algebra.\+h}} slouží pro vektorové a maticové operace.
+
+{\bfseries \hyperlink{bunny_8h}{bunny.\+h}} obsahuje model králíčka.
+
+{\bfseries \hyperlink{gpu_8h}{gpu.\+h}} obsahuje interface pro virtuální G\+PU (gpu paměť).
+
+Soubory, které se týkají projektu, ale ne přímo studentské práce\+:
+
+{\bfseries \hyperlink{main_8c}{main.\+c}} obsahuje main funkci.
+
+{\bfseries \hyperlink{camera_8h}{camera.\+h}} obsahuje funkce pro výpočet orbit manipulátoru kamery.
+
+{\bfseries \hyperlink{mouseCamera_8h}{mouse\+Camera.\+h}} obsahuje manipulaci kamery pomoci myši.
+
+{\bfseries \hyperlink{swapBuffers_8h}{swap\+Buffers.\+h}} obsahuje funkci pro přepnutí vykreslovacích snímků.
+
+{\bfseries \hyperlink{fwd_8h}{fwd.\+h}} obsahuje forward deklarace.
+
+Funkce s předponou cpu\+\_\+ můžou být volány pouze na straně C\+PU, v souboru \hyperlink{student__cpu_8c}{student\+\_\+cpu.\+c}. Funkce s předponou gpu\+\_\+ můžou být volány pouze na straně G\+PU, v souboru \hyperlink{student__pipeline_8c}{student\+\_\+pipeline.\+c}. Funkce s předponou shader\+\_\+ můžou být volány pouze v rámci shaderů (vertex i fragment), v souboru \hyperlink{student__shader_8c}{student\+\_\+shader.\+c}. Funkce s předponou vs\+\_\+ můžou být volány pouze v rámci vertex shaderu, v souboru \hyperlink{student__shader_8c}{student\+\_\+shader.\+c}. Funkce s předponou fs\+\_\+ můžou být volány pouze v rámci fragment shaderu v souboru \hyperlink{student__shader_8c}{student\+\_\+shader.\+c}. Funkce bez předpony můžou být volány na C\+PU, G\+PU tak v rámci shaderu.
+
+Struktury, které se vyskytují pouze na G\+PU straně jsou uvozeny prefixem G\+PU. Struktury bez předpony lze využít jak na C\+PU tak G\+PU straně či v shaderu.
+
+Projekt je postaven nad filozofií Open\+GL. Spousta funkcí má podobné jméno.\hypertarget{index_teorie}{}\section{Teorie}\label{index_teorie}
+Typické grafické A\+PI (Open\+G\+L/\+Vulkan/\+DirectX) je složeno ze 2 částí\+: C\+PU a G\+PU strany.
+
+C\+PU strana se obvykle stará o tyto úkoly\+:
+\begin{DoxyItemize}
+\item Příprava dat pro kreslení (modely, textury, matice, ...)
+\item Upload dat na G\+PU a nastavení G\+PU
+\item Spuštění vykreslení
+\end{DoxyItemize}
+
+G\+PU strana je složena ze dvou částí\+: video paměti a zobrazovacího řetězce. Vykreslovací řetězec se skládá z několika částí\+:
+\begin{DoxyItemize}
+\item Vertex Puller
+\item Vertex Processor
+\item Primitive Assembly
+\item Clipping
+\item Rasterize
+\item Fragment Processor
+\item Per-\/\+Fragment Operations
+\end{DoxyItemize}\hypertarget{index_terminologie}{}\subsection{Terminologie}\label{index_terminologie}
+{\bfseries Vertex} je kolekce několika vertex atributů. Tyto atributy mají svůj typ a počet komponent. Každý vertex atribut má nějaký význam (pozice, hmotnost, texturovací koordináty), které mu přiřadí programátor/modelátor. Z několika vrcholů je složeno primitivum (trojúhelník, úsečka, ...)
+
+{\bfseries Vertex atribut} je jedna vlastnost vrcholu (pozice, normála, texturovací koordináty, hmotnost, ...). Atribut je složen z 1,2,3 nebo 4 komponent daného typu (F\+L\+O\+AT, I\+NT, ...). Sémantika atributu není pevně stanovena (atributy mají pouze pořadové číslo -\/ attrib\+Index) a je na každém programátorovi/modelátorovi, jakou sémantiku atributu přidělí. 
+
+{\bfseries Fragment} je kolekce několika atributů (podobně jako Vertex). Tyto atributy mají svůj typ a počet komponent. Fragmenty jsou produkovány resterizací, kde jsou atributy fragmetů vypočítány z vertex atributů pomocí interpolace. Fragment si lze představit jako útržek původního primitiva.
+
+{\bfseries Fragment atribut} je jedna vlastnost fragmentu (podobně jako vertex atribut).
+
+{\bfseries Interpolace} Při přechodu mezi vertex atributem a fragment atributem dochází k interpolaci atributů. Atributy jsou váhovány podle pozice fragmentu v trojúhelníku (barycentrické koordináty). 
+
+{\bfseries Vertex Processor} (často označován za Vertex Shader) je funkční blok, který je vykonáván nad každým vertexem. Jeho vstup i výstup je Vertex. Výstupní vertex má obvykle jiné vertex atributy než vstupní vertex. Výstupní vertex má vždy atribut -\/ gl\+\_\+\+Position (pozice vertexu v clip-\/space). Vertex Processor se obvykle stará o transformace vrcholů modelu (posuny, rotace, projekce). Jelikož Vertex Processor pracuje po vrcholech, je vhodný pro efekty jako vlnění na vodní hladině, displacement mapping apod. Vertex Processor má informace pouze o jednom vrcholu v daném čase (neví nic o sousednostech vrcholů). Vertex processor je programovatelný.
+
+{\bfseries Fragment Processor} (často označován za Fragment Shader/\+Pixel Shader) je funkční blok, který je vykonáván nad každým fragmentem. Jeho vstup i výstup je Fragment. Výstupní fragment má obykle jiné attributy. Fragment processor je programovatelný.
+
+{\bfseries Shader} je program/funkce, který běží na některé z programovatelných částí zobrazovacího řetezce. Shader má vstupy a výstupy, které se mění s každou jeho invokací. Shader má také vstupy, které zůstávají konstantní a nejsou závislé na číslu invokace shaderu. Shaderů je několik typů, v tomto projektu se používají pouze 2 -\/ vertex shader a fragment shader. V tomto projektu jsou shadery reprezentovány pomocí standardních Cčkovských funkcí.
+
+{\bfseries Vertex Shader} je program, který běží na vertex processoru. Jeho vstupní interface obsahuje\+: vertex, uniformní proměnné a další proměnné (číslo vrcholu gl\+\_\+\+Vertex\+ID, ...). Jeho výstupní inteface je vertex, který vždy obsahuje proměnnou gl\+\_\+\+Position -\/ pozici vertexu v clip-\/space.
+
+{\bfseries Fragment Shader} je program, který běží na fragment processoru. Jeho vstupní interface obsahuje\+: fragment, uniformní proměnné a proměnné (souřadnici fragmentu ve screen-\/space gl\+\_\+\+Frag\+Coord, ...). Jeho výstupní interface je fragment.
+
+{\bfseries Shader Program} je kolekce programů, které běží na programovatelných částech zobrazovacího řetězce. Obsahuje vždy maximálně jeden shader daného typu. V tompto projektu je program reprezentován pomocí dvou ukazatelů na funkce. 
+
+{\bfseries Buffer} je lineární pole dat ve video paměti na G\+PU. Do bufferů se ukládají vertex attributy vextexů modelů nebo indexy na vrcholy pro indexované vykreslování.
+
+{\bfseries Uniformní proměnná} je proměná uložená v konstantní paměti G\+PU. Všechny programovatelné bloky zobrazovacího řetězce z nich mohou pouze číst. Jejich hodnota zůstává stejná v průběhu kreslení (nemění se v závislosti na číslu vertexu nebo fragmentu). Jejich hodnodu lze změnit z C\+PU strany pomocí funkcí jako je uniform1f, uniform1i, uniform2f, uniform\+Matrix4fv apod. Uniformní proměnné jsou vhodné například pro uložení transformačních matic nebo uložení času.
+
+{\bfseries Vertex Puller} se stará o přípravů vrcholů. K tomuto účelu má tabulku s nastavením. Vertex puller si můžete představit jako sadu čtecích hlav. Každá čtecí hlava se stará o přípravu jednoho vertex atributu. Mezi nastavení čtecí hlavy patří\+: ukazatel na začátek bufferu, offset a krok. Vertex puller může obsahovat indexování.
+
+{\bfseries Zobrazovací řetězec} je obvykle kus hardware na grafické kartě, který se stará o vyreslování. Grafická karta je složena ze dvou částí\+: paměti a zobrazovacího řetězce. V paměti se nacházejí buffery, textury, uniformní proměnné, programy, nastavení vertex pulleru a framebuffery. Pokud se spustí kreslení N vrcholů, je vertex puller spuštěn N krát a sestaví N vrcholů. Nad každým vrcholem je puštěn vertex shader. Výstupem vertex shaderu je nový vrchol. Blok sestavení primitiv \char`\"{}si počká\char`\"{} na 3 vrcholy z vertex shaderu (pro trojúhelník) a vloží je do jedné struktury. Blok clipping ořeže trojúhelníky pohledovým jehlanem. Následuje perspektivní dělení, které vydělí pozice vertexů homogenní složkou. Poté následuje viewport transformace, která podělené vrcholy transformuje do rozlišení obrazovky. Rasterizace trojúhelníky nařeže na fragmenty a interpoluje vertex atributy. Nad každým fragmentem je spuštěn fragment shader. Než jsou fragmenty zapsány zpět do paměti G\+PU (framebufferu) jsou provedeny per-\/fragment operace (zjištění viditelnosti fragmentů podle hloubky uchované v depth bufferu). 
+
+{\bfseries Object\+ID} je číslo odkazující se na jeden konkrétní objekt na G\+PU. Každy buffer, program, vertex puller má přiřazeno/rezervováno takové číslo (Buffer\+ID, Program\+ID, Vertex\+Puller\+ID).
+
+{\bfseries Uniformní lokace} je číslo, které reprezentuje jednu uniformní proměnnou.
+
+{\bfseries Vertex\+Shader\+Invocation} je pořadové číslo vyvolání vertex shaderu.
+
+{\bfseries gl\+\_\+\+Vertex\+ID} je číslo vrcholu, které je vypočítáno pomocí indexování a pořadového čísla vyvolání vertex shaderu.
+
+{\bfseries Indexované kreslení} je způsob snížení redundance dat s využitím indexů na vrcholy. \hypertarget{index_sestaveni}{}\section{Sestavení}\label{index_sestaveni}
+Projekt byl testován na Ubuntu 14.\+04, Ubuntu 16.\+04, Visual Studio 2013, Visual Studio 2015. Projekt vyžaduje 64 bitové sestavení. Projekt využívá build systém \href{https://cmake.org/}{\tt C\+M\+A\+KE}. C\+Make je program, který na základně konfiguračních souborů \char`\"{}\+C\+Make\+Lists.\+txt\char`\"{} vytvoří \char`\"{}makefile\char`\"{} v daném vývojovém prostředí. Dokáže generovat makefile pro Linux, mingw, solution file pro Microsoft Visual Studio, a další. Postup\+:
+\begin{DoxyEnumerate}
+\item stáhnout projekt
+\item rozbalit projekt
+\item ve složce build spusťte \char`\"{}cmake-\/gui ..\char`\"{} případně \char`\"{}ccmake ..\char`\"{}
+\item vyberte si překladovou platformu (64 bit).
+\item configure
+\item generate
+\item make nebo otevřete vygenerovnou Microsoft Visual Studio Solution soubor.
+\end{DoxyEnumerate}
+
+Projekt vyžaduje pro sestavení knihovnu \href{https://www.libsdl.org/download-2.0.php}{\tt S\+D\+L2}. Ta je pro 64bit build ve Visual Studiu přibalena. Cesty na hlavičkové soubory a libs jsou nastaveny pomocí checkboxu U\+S\+E\+\_\+\+P\+R\+E\+B\+U\+I\+L\+D\+\_\+\+L\+I\+B\+\_\+\+P\+A\+C\+K\+A\+GE. Pod Linuxem (debiánovské distribuce) můžete knihovnu nainstalovat pomocí\+: \char`\"{}sudo apt-\/get install libsdl2-\/dev\char`\"{}\hypertarget{index_spousteni}{}\section{Spouštění}\label{index_spousteni}
+Projekt je možné po úspěšném přeložení pustit přes aplikaci {\bfseries izg\+Project2016}. Projekt akceptuje několik argumentů příkazové řádky\+:
+\begin{DoxyItemize}
+\item {\bfseries -\/c ../tests/output.bmp} spustí akceptační testy, soubor odkazuje na obrázek s očekávaným výstupem.
+\item {\bfseries -\/p} spustí performanční test.
+\end{DoxyItemize}\hypertarget{index_ovladani}{}\section{Ovládání}\label{index_ovladani}
+Program se ovládá pomocí myši a klávesnice\+:
+\begin{DoxyItemize}
+\item stisknuté levé tlačítko myši + pohyb myší -\/ rotace kamery
+\item stisknuté pravé tlačítko myši + pohyb myší -\/ přiblížení kamery
+\item \char`\"{}n\char`\"{} -\/ přepne na další scénu/metodu \char`\"{}p\char`\"{} -\/ přepne na předcházející scénu/metodu
+\end{DoxyItemize}\hypertarget{index_odevzdavani}{}\section{Odevzdávání}\label{index_odevzdavani}
+Odevzdávejte pouze soubory \hyperlink{student__pipeline_8c}{student\+\_\+pipeline.\+c}, \hyperlink{student__cpu_8c}{student\+\_\+cpu.\+c} a \hyperlink{student__shader_8c}{student\+\_\+shader.\+c}. Soubory zabalte do archivu proj.\+zip. Po rozbalení archivu se {\bfseries N\+E\+S\+MÍ} vytvořit žádná složka. Příkazy pro ověření na Linuxu\+: zip proj.\+zip \hyperlink{student__pipeline_8c}{student\+\_\+pipeline.\+c} \hyperlink{student__cpu_8c}{student\+\_\+cpu.\+c} \hyperlink{student__shader_8c}{student\+\_\+shader.\+c}, unzip proj.\+zip. Studenti pracují na řešení projektu samostatně a každý odevzdá své vlastní řešení. Poraďte si, ale řešení vypracujte samostatně!\hypertarget{index_hodnoceni}{}\section{Hodnocení}\label{index_hodnoceni}
+Množství bodů, které dostanete, je odvozeno od množství splněných akceptačních testů a podle toho, zda vám to kreslí správně (s jistou tolerancí kvůli nepřesnosti floatové aritmetiky). Automatické opravování má k dispozici větší množství akceptačních testů (kdyby někoho napadlo je obejít). Pokud vám aplikace spadne v rámci testů, dostanete 0 bodů. Pokud aplikace nepůjde přeložit, dostanete 0 bodů.\hypertarget{index_soutez}{}\section{Soutěž}\label{index_soutez}
+Pokud váš projekt obdrží plný počet bodů, bude zařazen do soutěže o nejrychlejší implementaci zobrazovacího řetězce. Můžete přeimplementovat cokoliv v odevzdávaných souborech pokud to projde akceptačními testy a kompilací.\hypertarget{index_zaver}{}\section{Závěrem}\label{index_zaver}
+Ať se dílo daří a ať vás grafika alespoň trochu baví! V případě potřeby se nebojte zeptat (na fóru nebo napište přímo vedoucímu projektu \href{mailto:imilet@fit.vutbr.cz}{\tt imilet@fit.\+vutbr.\+cz}). 

@@ -1,0 +1,142 @@
+\hypertarget{camera_8c}{}\section{student/camera.c File Reference}
+\label{camera_8c}\index{student/camera.\+c@{student/camera.\+c}}
+
+
+This file contains implementation of orbit camera manipulator.  
+
+
+{\ttfamily \#include \char`\"{}student/linear\+Algebra.\+h\char`\"{}}\\*
+{\ttfamily \#include $<$assert.\+h$>$}\\*
+{\ttfamily \#include $<$math.\+h$>$}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{camera_8c_a9ae73100cfea5804280d19ffbafb7f07}{frustum\+\_\+\+Mat4} (\hyperlink{structMat4}{Mat4} $\ast$const output, float const left, float const right, float const bottom, float const top, float const near, float const far)
+\begin{DoxyCompactList}\small\item\em This functions initializes matrix to general perspective matrix. \end{DoxyCompactList}\item 
+void \hyperlink{camera_8c_a8da2a3e8adaa5a3515f7eecb5eb50de4}{perspective\+\_\+\+Mat4} (\hyperlink{structMat4}{Mat4} $\ast$const output, float const fovy, float const aspect, float const near, float const far)
+\begin{DoxyCompactList}\small\item\em This functions initializes matrix to perspective matrix. \end{DoxyCompactList}\item 
+void \hyperlink{camera_8c_a9401b0642b138bef78433f5cedc6cea5}{cpu\+\_\+compute\+Orbit\+Camera} (\hyperlink{structMat4}{Mat4} $\ast$const \hyperlink{triangleExample_8c_ae64ebe4c77936fc93d161b97bd8e96df}{view\+Matrix}, float const angleX, float const angleY, float const distance)
+\begin{DoxyCompactList}\small\item\em This function computes view matrix of orbit camera manipulator. \end{DoxyCompactList}\item 
+void \hyperlink{camera_8c_aee672720f53cc1451803c545a9132956}{cpu\+\_\+get\+Camera\+Position\+From\+View\+Matrix} (\hyperlink{structVec3}{Vec3} $\ast$const \hyperlink{student__cpu_8c_a2ae2553412ead34e3a4e23019d4f052e}{camera\+Position}, \hyperlink{structMat4}{Mat4} const $\ast$const \hyperlink{triangleExample_8c_ae64ebe4c77936fc93d161b97bd8e96df}{view\+Matrix})
+\begin{DoxyCompactList}\small\item\em This function gets camere position from view matrix. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This file contains implementation of orbit camera manipulator. 
+
+\begin{DoxyAuthor}{Author}
+Tomáš Milet, \href{mailto:imilet@fit.vutbr.cz}{\tt imilet@fit.\+vutbr.\+cz} 
+\end{DoxyAuthor}
+
+
+\subsection{Function Documentation}
+\index{camera.\+c@{camera.\+c}!cpu\+\_\+compute\+Orbit\+Camera@{cpu\+\_\+compute\+Orbit\+Camera}}
+\index{cpu\+\_\+compute\+Orbit\+Camera@{cpu\+\_\+compute\+Orbit\+Camera}!camera.\+c@{camera.\+c}}
+\subsubsection[{\texorpdfstring{cpu\+\_\+compute\+Orbit\+Camera(\+Mat4 $\ast$const view\+Matrix, float const angle\+X, float const angle\+Y, float const distance)}{cpu_computeOrbitCamera(Mat4 *const viewMatrix, float const angleX, float const angleY, float const distance)}}]{\setlength{\rightskip}{0pt plus 5cm}void cpu\+\_\+compute\+Orbit\+Camera (
+\begin{DoxyParamCaption}
+\item[{{\bf Mat4} $\ast$const}]{view\+Matrix, }
+\item[{float const}]{angleX, }
+\item[{float const}]{angleY, }
+\item[{float const}]{distance}
+\end{DoxyParamCaption}
+)}\hypertarget{camera_8c_a9401b0642b138bef78433f5cedc6cea5}{}\label{camera_8c_a9401b0642b138bef78433f5cedc6cea5}
+
+
+This function computes view matrix of orbit camera manipulator. 
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em view\+Matrix} & output matrix \\
+\hline
+{\em angleX} & x angle \\
+\hline
+{\em angleY} & y angle \\
+\hline
+{\em distance} & distance between camera center and focus point \\
+\hline
+\end{DoxyParams}
+\index{camera.\+c@{camera.\+c}!cpu\+\_\+get\+Camera\+Position\+From\+View\+Matrix@{cpu\+\_\+get\+Camera\+Position\+From\+View\+Matrix}}
+\index{cpu\+\_\+get\+Camera\+Position\+From\+View\+Matrix@{cpu\+\_\+get\+Camera\+Position\+From\+View\+Matrix}!camera.\+c@{camera.\+c}}
+\subsubsection[{\texorpdfstring{cpu\+\_\+get\+Camera\+Position\+From\+View\+Matrix(\+Vec3 $\ast$const camera\+Position, Mat4 const $\ast$const view\+Matrix)}{cpu_getCameraPositionFromViewMatrix(Vec3 *const cameraPosition, Mat4 const *const viewMatrix)}}]{\setlength{\rightskip}{0pt plus 5cm}void cpu\+\_\+get\+Camera\+Position\+From\+View\+Matrix (
+\begin{DoxyParamCaption}
+\item[{{\bf Vec3} $\ast$const}]{camera\+Position, }
+\item[{{\bf Mat4} const $\ast$const}]{view\+Matrix}
+\end{DoxyParamCaption}
+)}\hypertarget{camera_8c_aee672720f53cc1451803c545a9132956}{}\label{camera_8c_aee672720f53cc1451803c545a9132956}
+
+
+This function gets camere position from view matrix. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em camera\+Position} & output camera position \\
+\hline
+{\em view\+Matrix} & view matrix \\
+\hline
+\end{DoxyParams}
+\index{camera.\+c@{camera.\+c}!frustum\+\_\+\+Mat4@{frustum\+\_\+\+Mat4}}
+\index{frustum\+\_\+\+Mat4@{frustum\+\_\+\+Mat4}!camera.\+c@{camera.\+c}}
+\subsubsection[{\texorpdfstring{frustum\+\_\+\+Mat4(\+Mat4 $\ast$const output, float const left, float const right, float const bottom, float const top, float const near, float const far)}{frustum_Mat4(Mat4 *const output, float const left, float const right, float const bottom, float const top, float const near, float const far)}}]{\setlength{\rightskip}{0pt plus 5cm}void frustum\+\_\+\+Mat4 (
+\begin{DoxyParamCaption}
+\item[{{\bf Mat4} $\ast$const}]{output, }
+\item[{float const}]{left, }
+\item[{float const}]{right, }
+\item[{float const}]{bottom, }
+\item[{float const}]{top, }
+\item[{float const}]{near, }
+\item[{float const}]{far}
+\end{DoxyParamCaption}
+)}\hypertarget{camera_8c_a9ae73100cfea5804280d19ffbafb7f07}{}\label{camera_8c_a9ae73100cfea5804280d19ffbafb7f07}
+
+
+This functions initializes matrix to general perspective matrix. 
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em output} & resulting mat4 \\
+\hline
+{\em left} & left coord of frustum \\
+\hline
+{\em right} & right coord of frustum \\
+\hline
+{\em bottom} & bottom coord of frustum \\
+\hline
+{\em top} & top coord of frustum \\
+\hline
+{\em near} & naer coord of frustum \\
+\hline
+{\em far} & far coord of frustum \\
+\hline
+\end{DoxyParams}
+\index{camera.\+c@{camera.\+c}!perspective\+\_\+\+Mat4@{perspective\+\_\+\+Mat4}}
+\index{perspective\+\_\+\+Mat4@{perspective\+\_\+\+Mat4}!camera.\+c@{camera.\+c}}
+\subsubsection[{\texorpdfstring{perspective\+\_\+\+Mat4(\+Mat4 $\ast$const output, float const fovy, float const aspect, float const near, float const far)}{perspective_Mat4(Mat4 *const output, float const fovy, float const aspect, float const near, float const far)}}]{\setlength{\rightskip}{0pt plus 5cm}void perspective\+\_\+\+Mat4 (
+\begin{DoxyParamCaption}
+\item[{{\bf Mat4} $\ast$const}]{output, }
+\item[{float const}]{fovy, }
+\item[{float const}]{aspect, }
+\item[{float const}]{near, }
+\item[{float const}]{far}
+\end{DoxyParamCaption}
+)}\hypertarget{camera_8c_a8da2a3e8adaa5a3515f7eecb5eb50de4}{}\label{camera_8c_a8da2a3e8adaa5a3515f7eecb5eb50de4}
+
+
+This functions initializes matrix to perspective matrix. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em output} & resulting mat4 \\
+\hline
+{\em fovy} & field of view in y direction \\
+\hline
+{\em aspect} & aspect ratio -\/ width/height of screen \\
+\hline
+{\em near} & near plane distance \\
+\hline
+{\em far} & far plane distance \\
+\hline
+\end{DoxyParams}

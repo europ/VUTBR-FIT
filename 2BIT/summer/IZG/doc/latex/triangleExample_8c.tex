@@ -1,0 +1,250 @@
+\hypertarget{triangleExample_8c}{}\section{examples/triangle\+Example.c File Reference}
+\label{triangleExample_8c}\index{examples/triangle\+Example.\+c@{examples/triangle\+Example.\+c}}
+
+
+This file contains implementation of simple triangle example.  
+
+
+{\ttfamily \#include $<$assert.\+h$>$}\\*
+{\ttfamily \#include $<$math.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}examples/triangle\+Example.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}student/student\+\_\+pipeline.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}student/linear\+Algebra.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}student/uniforms.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}student/gpu.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}student/camera.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}student/vertex\+Puller.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}student/buffer.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}student/student\+\_\+shader.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}student/mouse\+Camera.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}student/swap\+Buffers.\+h\char`\"{}}\\*
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structTriangleExampleVariables}{Triangle\+Example\+Variables}
+\begin{DoxyCompactList}\small\item\em \mbox{[}E\+X\+T\+E\+R\+NS\mbox{]} \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{triangleExample_8c_ae87aa91cb96803929e3d70f2ee66794c}{triangle\+Example\+\_\+vertex\+Shader} (\hyperlink{structGPUVertexShaderOutput}{G\+P\+U\+Vertex\+Shader\+Output} $\ast$const output, \hyperlink{structGPUVertexShaderInput}{G\+P\+U\+Vertex\+Shader\+Input} const $\ast$const input, \hyperlink{fwd_8h_a06964ec111fe28721d8618b6d0d993bf}{G\+PU} const gpu)
+\begin{DoxyCompactList}\small\item\em \mbox{[}G\+L\+O\+B\+A\+LS\mbox{]} \end{DoxyCompactList}\item 
+void \hyperlink{triangleExample_8c_a098ba4902bcb365ea8faaa20be1994f4}{triangle\+Example\+\_\+fragment\+Shader} (\hyperlink{structGPUFragmentShaderOutput}{G\+P\+U\+Fragment\+Shader\+Output} $\ast$const output, \hyperlink{structGPUFragmentShaderInput}{G\+P\+U\+Fragment\+Shader\+Input} const $\ast$const input, \hyperlink{fwd_8h_a06964ec111fe28721d8618b6d0d993bf}{G\+PU} const gpu)
+\begin{DoxyCompactList}\small\item\em This function represents fragment shader for triangle example. \end{DoxyCompactList}\item 
+void \hyperlink{triangleExample_8c_a73184b4ab6bb513ad9a9a4c36e92646b}{triangle\+Example\+\_\+on\+Init} (int32\+\_\+t width, int32\+\_\+t height)
+\begin{DoxyCompactList}\small\item\em This function is called at start of application. It contains initialization at C\+PU side. \end{DoxyCompactList}\item 
+void \hyperlink{triangleExample_8c_a35b10f59fe16423447777ba6bbba3b66}{triangle\+Example\+\_\+on\+Exit} ()
+\begin{DoxyCompactList}\small\item\em This function is called at end of application. \end{DoxyCompactList}\item 
+void \hyperlink{triangleExample_8c_adad04513776893b55b58aa0e8a84b8df}{triangle\+Example\+\_\+on\+Draw} (S\+D\+L\+\_\+\+Surface $\ast$surface)
+\begin{DoxyCompactList}\small\item\em This function is called every frame and is responsible for drawing. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structMat4}{Mat4} \hyperlink{triangleExample_8c_a1f344d924f733a22d7659db612a0efe8}{projection\+Matrix}
+\begin{DoxyCompactList}\small\item\em This variable contains projection matrix of orbit camera. \end{DoxyCompactList}\item 
+\hyperlink{structMat4}{Mat4} \hyperlink{triangleExample_8c_ae64ebe4c77936fc93d161b97bd8e96df}{view\+Matrix}
+\begin{DoxyCompactList}\small\item\em This variable contains view matrix. \end{DoxyCompactList}\item 
+struct \hyperlink{structTriangleExampleVariables}{Triangle\+Example\+Variables} \hyperlink{triangleExample_8c_af82b723635ac0c90962571915a1b1163}{triangle\+Example}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This file contains implementation of simple triangle example. 
+
+\begin{DoxyAuthor}{Author}
+Tomáš Milet, \href{mailto:imilet@fit.vutbr.cz}{\tt imilet@fit.\+vutbr.\+cz} 
+\end{DoxyAuthor}
+
+
+\subsection{Function Documentation}
+\index{triangle\+Example.\+c@{triangle\+Example.\+c}!triangle\+Example\+\_\+fragment\+Shader@{triangle\+Example\+\_\+fragment\+Shader}}
+\index{triangle\+Example\+\_\+fragment\+Shader@{triangle\+Example\+\_\+fragment\+Shader}!triangle\+Example.\+c@{triangle\+Example.\+c}}
+\subsubsection[{\texorpdfstring{triangle\+Example\+\_\+fragment\+Shader(\+G\+P\+U\+Fragment\+Shader\+Output $\ast$const output, G\+P\+U\+Fragment\+Shader\+Input const $\ast$const input, G\+P\+U const gpu)}{triangleExample_fragmentShader(GPUFragmentShaderOutput *const output, GPUFragmentShaderInput const *const input, GPU const gpu)}}]{\setlength{\rightskip}{0pt plus 5cm}void triangle\+Example\+\_\+fragment\+Shader (
+\begin{DoxyParamCaption}
+\item[{{\bf G\+P\+U\+Fragment\+Shader\+Output} $\ast$const}]{output, }
+\item[{{\bf G\+P\+U\+Fragment\+Shader\+Input} const $\ast$const}]{input, }
+\item[{{\bf G\+PU} const}]{gpu}
+\end{DoxyParamCaption}
+)}\hypertarget{triangleExample_8c_a098ba4902bcb365ea8faaa20be1994f4}{}\label{triangleExample_8c_a098ba4902bcb365ea8faaa20be1994f4}
+
+
+This function represents fragment shader for triangle example. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em output} & output fragment \\
+\hline
+{\em input} & input fragment \\
+\hline
+{\em gpu} & G\+PU handle \\
+\hline
+\end{DoxyParams}
+\mbox{[}F\+S\+\_\+\+A\+T\+T\+R\+I\+B\+U\+TE\mbox{]}
+
+\mbox{[}F\+S\+\_\+\+A\+T\+T\+R\+I\+B\+U\+TE\mbox{]}
+
+\mbox{[}F\+S\+\_\+\+C\+O\+L\+OR\mbox{]}
+
+\mbox{[}F\+S\+\_\+\+C\+O\+L\+OR\mbox{]} \begin{Desc}
+\item[Examples\+: ]\par
+\hyperlink{TriangleExample-example}{Triangle\+Example}.\end{Desc}
+\index{triangle\+Example.\+c@{triangle\+Example.\+c}!triangle\+Example\+\_\+on\+Draw@{triangle\+Example\+\_\+on\+Draw}}
+\index{triangle\+Example\+\_\+on\+Draw@{triangle\+Example\+\_\+on\+Draw}!triangle\+Example.\+c@{triangle\+Example.\+c}}
+\subsubsection[{\texorpdfstring{triangle\+Example\+\_\+on\+Draw(\+S\+D\+L\+\_\+\+Surface $\ast$surface)}{triangleExample_onDraw(SDL_Surface *surface)}}]{\setlength{\rightskip}{0pt plus 5cm}void triangle\+Example\+\_\+on\+Draw (
+\begin{DoxyParamCaption}
+\item[{S\+D\+L\+\_\+\+Surface $\ast$}]{surface}
+\end{DoxyParamCaption}
+)}\hypertarget{triangleExample_8c_adad04513776893b55b58aa0e8a84b8df}{}\label{triangleExample_8c_adad04513776893b55b58aa0e8a84b8df}
+
+
+This function is called every frame and is responsible for drawing. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em surface} & S\+DL surface \\
+\hline
+\end{DoxyParams}
+\mbox{[}C\+L\+E\+AR\mbox{]}
+
+\mbox{[}C\+L\+E\+AR\mbox{]}
+
+\mbox{[}U\+S\+E\+\_\+\+P\+R\+O\+G\+R\+AM\mbox{]}
+
+\mbox{[}U\+S\+E\+\_\+\+P\+R\+O\+G\+R\+AM\mbox{]} \mbox{[}B\+I\+N\+D\+\_\+\+P\+U\+L\+L\+ER\mbox{]}
+
+\mbox{[}B\+I\+N\+D\+\_\+\+P\+U\+L\+L\+ER\mbox{]} \mbox{[}S\+E\+T\+\_\+\+U\+N\+I\+F\+O\+R\+MS\mbox{]}
+
+\mbox{[}S\+E\+T\+\_\+\+U\+N\+I\+F\+O\+R\+MS\mbox{]}
+
+\mbox{[}D\+R\+AW\mbox{]}
+
+\mbox{[}D\+R\+AW\mbox{]}
+
+\mbox{[}S\+W\+AP\mbox{]}
+
+\mbox{[}S\+W\+AP\mbox{]} \index{triangle\+Example.\+c@{triangle\+Example.\+c}!triangle\+Example\+\_\+on\+Exit@{triangle\+Example\+\_\+on\+Exit}}
+\index{triangle\+Example\+\_\+on\+Exit@{triangle\+Example\+\_\+on\+Exit}!triangle\+Example.\+c@{triangle\+Example.\+c}}
+\subsubsection[{\texorpdfstring{triangle\+Example\+\_\+on\+Exit()}{triangleExample_onExit()}}]{\setlength{\rightskip}{0pt plus 5cm}void triangle\+Example\+\_\+on\+Exit (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{triangleExample_8c_a35b10f59fe16423447777ba6bbba3b66}{}\label{triangleExample_8c_a35b10f59fe16423447777ba6bbba3b66}
+
+
+This function is called at end of application. 
+
+\mbox{[}F\+R\+EE\mbox{]}
+
+\mbox{[}F\+R\+EE\mbox{]} \index{triangle\+Example.\+c@{triangle\+Example.\+c}!triangle\+Example\+\_\+on\+Init@{triangle\+Example\+\_\+on\+Init}}
+\index{triangle\+Example\+\_\+on\+Init@{triangle\+Example\+\_\+on\+Init}!triangle\+Example.\+c@{triangle\+Example.\+c}}
+\subsubsection[{\texorpdfstring{triangle\+Example\+\_\+on\+Init(int32\+\_\+t width, int32\+\_\+t height)}{triangleExample_onInit(int32_t width, int32_t height)}}]{\setlength{\rightskip}{0pt plus 5cm}void triangle\+Example\+\_\+on\+Init (
+\begin{DoxyParamCaption}
+\item[{int32\+\_\+t}]{width, }
+\item[{int32\+\_\+t}]{height}
+\end{DoxyParamCaption}
+)}\hypertarget{triangleExample_8c_a73184b4ab6bb513ad9a9a4c36e92646b}{}\label{triangleExample_8c_a73184b4ab6bb513ad9a9a4c36e92646b}
+
+
+This function is called at start of application. It contains initialization at C\+PU side. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em width} & width of window in pixels \\
+\hline
+{\em height} & height of window in pixels \\
+\hline
+\end{DoxyParams}
+\mbox{[}I\+N\+I\+T\+I\+A\+L\+I\+Z\+A\+T\+I\+ON\mbox{]}
+
+\mbox{[}I\+N\+I\+T\+I\+A\+L\+I\+Z\+A\+T\+I\+ON\mbox{]}
+
+\mbox{[}R\+E\+S\+E\+R\+VE\mbox{]}
+
+\mbox{[}R\+E\+S\+E\+R\+VE\mbox{]}
+
+\mbox{[}C\+R\+E\+A\+T\+E\+\_\+\+P\+R\+O\+G\+R\+AM\mbox{]}
+
+\mbox{[}C\+R\+E\+A\+T\+E\+\_\+\+P\+R\+O\+G\+R\+AM\mbox{]} \mbox{[}A\+T\+T\+A\+CH\mbox{]}
+
+\mbox{[}A\+T\+T\+A\+CH\mbox{]} \mbox{[}I\+N\+T\+E\+R\+P\+O\+L\+A\+T\+I\+ON\mbox{]}
+
+\mbox{[}I\+N\+T\+E\+R\+P\+O\+L\+A\+T\+I\+ON\mbox{]}
+
+\mbox{[}B\+U\+F\+F\+ER\mbox{]}
+
+\mbox{[}B\+U\+F\+F\+ER\mbox{]}
+
+\mbox{[}P\+U\+L\+L\+ER\mbox{]}
+
+\mbox{[}P\+U\+L\+L\+ER\mbox{]}
+
+\mbox{[}H\+E\+AD\mbox{]}
+
+\mbox{[}H\+E\+AD\mbox{]} \index{triangle\+Example.\+c@{triangle\+Example.\+c}!triangle\+Example\+\_\+vertex\+Shader@{triangle\+Example\+\_\+vertex\+Shader}}
+\index{triangle\+Example\+\_\+vertex\+Shader@{triangle\+Example\+\_\+vertex\+Shader}!triangle\+Example.\+c@{triangle\+Example.\+c}}
+\subsubsection[{\texorpdfstring{triangle\+Example\+\_\+vertex\+Shader(\+G\+P\+U\+Vertex\+Shader\+Output $\ast$const output, G\+P\+U\+Vertex\+Shader\+Input const $\ast$const input, G\+P\+U const gpu)}{triangleExample_vertexShader(GPUVertexShaderOutput *const output, GPUVertexShaderInput const *const input, GPU const gpu)}}]{\setlength{\rightskip}{0pt plus 5cm}void triangle\+Example\+\_\+vertex\+Shader (
+\begin{DoxyParamCaption}
+\item[{{\bf G\+P\+U\+Vertex\+Shader\+Output} $\ast$const}]{output, }
+\item[{{\bf G\+P\+U\+Vertex\+Shader\+Input} const $\ast$const}]{input, }
+\item[{{\bf G\+PU} const}]{gpu}
+\end{DoxyParamCaption}
+)}\hypertarget{triangleExample_8c_ae87aa91cb96803929e3d70f2ee66794c}{}\label{triangleExample_8c_ae87aa91cb96803929e3d70f2ee66794c}
+
+
+\mbox{[}G\+L\+O\+B\+A\+LS\mbox{]} 
+
+This function represents vertex shader for triangle example.
+
+
+\begin{DoxyParams}{Parameters}
+{\em output} & output vertex \\
+\hline
+{\em input} & input vertex \\
+\hline
+{\em gpu} & G\+PU handle \\
+\hline
+\end{DoxyParams}
+\mbox{[}I\+N\+T\+E\+R\+P\+R\+E\+T\+\_\+\+U\+N\+I\+F\+O\+R\+MS\mbox{]}
+
+\mbox{[}I\+N\+T\+E\+R\+P\+R\+E\+T\+\_\+\+U\+N\+I\+F\+O\+R\+MS\mbox{]}
+
+\mbox{[}I\+N\+P\+U\+T\+\_\+\+A\+T\+T\+R\+I\+B\+U\+T\+ES\mbox{]}
+
+\mbox{[}I\+N\+P\+U\+T\+\_\+\+A\+T\+T\+R\+I\+B\+U\+T\+ES\mbox{]}
+
+\mbox{[}P\+R\+O\+J\+E\+CT\mbox{]}
+
+\mbox{[}P\+R\+O\+J\+E\+CT\mbox{]}
+
+\mbox{[}V\+S\+\_\+\+A\+T\+T\+R\+I\+B\+U\+TE\mbox{]}
+
+\mbox{[}V\+S\+\_\+\+A\+T\+T\+R\+I\+B\+U\+TE\mbox{]} \mbox{[}V\+S\+\_\+\+C\+O\+L\+OR\mbox{]}
+
+\mbox{[}V\+S\+\_\+\+C\+O\+L\+OR\mbox{]} \begin{Desc}
+\item[Examples\+: ]\par
+\hyperlink{TriangleExample-example}{Triangle\+Example}.\end{Desc}
+
+
+\subsection{Variable Documentation}
+\index{triangle\+Example.\+c@{triangle\+Example.\+c}!projection\+Matrix@{projection\+Matrix}}
+\index{projection\+Matrix@{projection\+Matrix}!triangle\+Example.\+c@{triangle\+Example.\+c}}
+\subsubsection[{\texorpdfstring{projection\+Matrix}{projectionMatrix}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Mat4} projection\+Matrix}\hypertarget{triangleExample_8c_a1f344d924f733a22d7659db612a0efe8}{}\label{triangleExample_8c_a1f344d924f733a22d7659db612a0efe8}
+
+
+This variable contains projection matrix of orbit camera. 
+
+\mbox{[}E\+X\+T\+E\+R\+NS\mbox{]} This variable contains projection matrix.
+
+This variable contains projection matrix. \index{triangle\+Example.\+c@{triangle\+Example.\+c}!triangle\+Example@{triangle\+Example}}
+\index{triangle\+Example@{triangle\+Example}!triangle\+Example.\+c@{triangle\+Example.\+c}}
+\subsubsection[{\texorpdfstring{triangle\+Example}{triangleExample}}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf Triangle\+Example\+Variables} triangle\+Example}\hypertarget{triangleExample_8c_af82b723635ac0c90962571915a1b1163}{}\label{triangleExample_8c_af82b723635ac0c90962571915a1b1163}
+instance of all global variables for triangle example. \begin{Desc}
+\item[Examples\+: ]\par
+\hyperlink{TriangleExample-example}{Triangle\+Example}.\end{Desc}
+\index{triangle\+Example.\+c@{triangle\+Example.\+c}!view\+Matrix@{view\+Matrix}}
+\index{view\+Matrix@{view\+Matrix}!triangle\+Example.\+c@{triangle\+Example.\+c}}
+\subsubsection[{\texorpdfstring{view\+Matrix}{viewMatrix}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Mat4} view\+Matrix}\hypertarget{triangleExample_8c_ae64ebe4c77936fc93d161b97bd8e96df}{}\label{triangleExample_8c_ae64ebe4c77936fc93d161b97bd8e96df}
+
+
+This variable contains view matrix. 
+
+This variable contains view matrix. 

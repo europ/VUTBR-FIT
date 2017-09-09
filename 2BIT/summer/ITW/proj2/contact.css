@@ -1,0 +1,100 @@
+#bodyimage {
+	background-image: url("images/backgroundcontact.jpg");
+	/*height: 92.8vh !important;*/
+}
+h2 {
+	color:#ffbb00 !important;
+	text-shadow: 3px 3px 5px black !important;
+}
+#bodyimage {
+	height: 70em;
+}
+#content_contact {
+	position: relative;
+	display: inline-block;
+	margin-left: 1em;
+}
+#person {
+	position: relative;
+	float:left;
+	display: inline-block;	
+	width:64em;
+	clear:left;
+	margin-bottom: 1em;
+}
+#person img {
+	float:left;
+}
+#person img:hover {
+	transform: scale(1.2);
+}
+#person #line {
+	float: left;
+	width: 35em;
+	padding-bottom: 0.7em;
+	font-size: 35px;
+}
+#person #line #line_left {
+	padding-left: 1em;
+	text-align: left;
+	position: relative;
+	float:left;
+	clear:left;
+	width: 5em;
+	font-weight: bold;
+	color: #ffbb00;
+	text-shadow: 3px 3px 5px black
+}
+#person #line #line_right {
+	text-align: left;
+	position: relative;
+	float:left;
+	color: white;
+	text-shadow: 2px 2px 5px black;
+}
+#email{
+	text-align: left;
+	position: relative;
+	float:left;
+	color: white;
+	text-shadow: 2px 2px 5px black;
+}
+#email:hover{
+	text-align: left;
+	position: relative;
+	float:left;
+	color:#ff7b00;
+	text-shadow: 2px 2px 5px black;
+}
+@media screen and (max-width: 70em) {
+	#person img {
+		padding-bottom: 1em;
+	}
+	#content_contact {
+		padding-left: 0;
+	}
+	#persondescr {
+		float:left;
+		clear:left;
+	}
+	#bodyimage {
+		height: 155em;
+	}
+	#person #line #line_left {
+		padding-left: 0em;
+	}
+	#person #line #line_right {
+		clear:left;
+		width:15em;
+	}
+	#email{
+		clear:left;
+	}
+}
+
+@media only print {
+	h1,h2,h3,p,a {
+		color:black !important;
+		text-shadow: none !important;
+	}
+}

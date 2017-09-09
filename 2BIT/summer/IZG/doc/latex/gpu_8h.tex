@@ -1,0 +1,429 @@
+\hypertarget{gpu_8h}{}\section{student/gpu.h File Reference}
+\label{gpu_8h}\index{student/gpu.\+h@{student/gpu.\+h}}
+
+
+This file contains interface for virtual G\+PU.  
+
+
+{\ttfamily \#include \char`\"{}fwd.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}program.\+h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{fwd_8h_a06964ec111fe28721d8618b6d0d993bf}{G\+PU} \hyperlink{gpu_8h_ace6f4308ad5d67c778e48e434f435e7d}{cpu\+\_\+create\+G\+PU} ()
+\begin{DoxyCompactList}\small\item\em This function creates G\+PU handle. \end{DoxyCompactList}\item 
+void \hyperlink{gpu_8h_aefa64b1f8ea2c83b8c80c68089739dc1}{cpu\+\_\+destroy\+G\+PU} (\hyperlink{fwd_8h_a06964ec111fe28721d8618b6d0d993bf}{G\+PU} gpu)
+\begin{DoxyCompactList}\small\item\em This function destroys G\+PU handle. \end{DoxyCompactList}\item 
+\hyperlink{fwd_8h_a4e6b8a8d832d478e8d761c0a52163a7c}{Uniforms} \hyperlink{gpu_8h_a72dddc46dcba2d4e515fc23b61f0819a}{gpu\+\_\+get\+Uniforms\+Handle} (\hyperlink{fwd_8h_a06964ec111fe28721d8618b6d0d993bf}{G\+PU} gpu)
+\begin{DoxyCompactList}\small\item\em This function returns handle to uniform values. \end{DoxyCompactList}\item 
+void \hyperlink{gpu_8h_a35867aa85ba3dc4c33d03f6a2842f5af}{cpu\+\_\+set\+Viewport\+Size} (\hyperlink{fwd_8h_a06964ec111fe28721d8618b6d0d993bf}{G\+PU} const gpu, size\+\_\+t const width, size\+\_\+t const height)
+\begin{DoxyCompactList}\small\item\em This function sets viewport size. \end{DoxyCompactList}\item 
+size\+\_\+t \hyperlink{gpu_8h_a72789741208c8149fc0be59cd2f86ab3}{gpu\+\_\+get\+Viewport\+Width} (\hyperlink{fwd_8h_a06964ec111fe28721d8618b6d0d993bf}{G\+PU} const gpu)
+\begin{DoxyCompactList}\small\item\em This function returns width of viewport. \end{DoxyCompactList}\item 
+size\+\_\+t \hyperlink{gpu_8h_a6525f5d8423ef4ad9f09751e3299ec4e}{gpu\+\_\+get\+Viewport\+Height} (\hyperlink{fwd_8h_a06964ec111fe28721d8618b6d0d993bf}{G\+PU} const gpu)
+\begin{DoxyCompactList}\small\item\em This function returns height of viewport. \end{DoxyCompactList}\item 
+void \hyperlink{gpu_8h_ac8b73f65bb746147b136819e862785ce}{cpu\+\_\+clear\+Color} (\hyperlink{fwd_8h_a06964ec111fe28721d8618b6d0d993bf}{G\+PU} const gpu, \hyperlink{structVec4}{Vec4} const $\ast$const color)
+\begin{DoxyCompactList}\small\item\em This functions clears color buffer. \end{DoxyCompactList}\item 
+void \hyperlink{gpu_8h_a988bd18047695141224acfbd2abbe246}{cpu\+\_\+clear\+Depth} (\hyperlink{fwd_8h_a06964ec111fe28721d8618b6d0d993bf}{G\+PU} const gpu, float const depth)
+\begin{DoxyCompactList}\small\item\em This function clears depth buffer. \end{DoxyCompactList}\item 
+\hyperlink{structVec4}{Vec4} const $\ast$ \hyperlink{gpu_8h_aa9a12dfb9412526707c77fc92004f1c7}{cpu\+\_\+get\+Color} (\hyperlink{fwd_8h_a06964ec111fe28721d8618b6d0d993bf}{G\+PU} const gpu, size\+\_\+t const x, size\+\_\+t const y)
+\begin{DoxyCompactList}\small\item\em This function returns color of pixel. \end{DoxyCompactList}\item 
+float \hyperlink{gpu_8h_af10e6f05eb9f27886eb250f0af78e17b}{gpu\+\_\+get\+Depth} (\hyperlink{fwd_8h_a06964ec111fe28721d8618b6d0d993bf}{G\+PU} const gpu, size\+\_\+t const x, size\+\_\+t const y)
+\begin{DoxyCompactList}\small\item\em This function returns depth of pixel. \end{DoxyCompactList}\item 
+void \hyperlink{gpu_8h_aa2c910251c9b4858c1df0aaab718baa5}{gpu\+\_\+set\+Depth} (\hyperlink{fwd_8h_a06964ec111fe28721d8618b6d0d993bf}{G\+PU} const gpu, size\+\_\+t const x, size\+\_\+t const y, float const depth)
+\begin{DoxyCompactList}\small\item\em This function writes depth of pixel into depth buffer on G\+PU. \end{DoxyCompactList}\item 
+void \hyperlink{gpu_8h_aba3f0745003901ada746d0565f787667}{gpu\+\_\+set\+Color} (\hyperlink{fwd_8h_a06964ec111fe28721d8618b6d0d993bf}{G\+PU} const gpu, size\+\_\+t const x, size\+\_\+t const y, \hyperlink{structVec4}{Vec4} const $\ast$const color)
+\begin{DoxyCompactList}\small\item\em This function writes color of pixel into color buffer on G\+PU. \end{DoxyCompactList}\item 
+\hyperlink{structGPUVertexPullerConfiguration}{G\+P\+U\+Vertex\+Puller\+Configuration} const $\ast$ \hyperlink{gpu_8h_adffa1ec52fbd5c6bc2853df67556a5a9}{gpu\+\_\+get\+Active\+Vertex\+Puller} (\hyperlink{fwd_8h_a06964ec111fe28721d8618b6d0d993bf}{G\+PU} const gpu)
+\begin{DoxyCompactList}\small\item\em This function returns active vertex puller configuration. \end{DoxyCompactList}\item 
+\hyperlink{fwd_8h_a06caf90c4f22dc1c99aafd8f4b417512}{Vertex\+Shader} \hyperlink{gpu_8h_a9ab8f2f3f94e1dddca2adafffce7044a}{gpu\+\_\+get\+Active\+Vertex\+Shader} (\hyperlink{fwd_8h_a06964ec111fe28721d8618b6d0d993bf}{G\+PU} const gpu)
+\begin{DoxyCompactList}\small\item\em This function returns active vertex shader. \end{DoxyCompactList}\item 
+\hyperlink{fwd_8h_adf991a00851a416ee033b6b335e8f76e}{Fragment\+Shader} \hyperlink{gpu_8h_abc59bb0e18a92e7156c5d4992ddf9ae1}{gpu\+\_\+get\+Active\+Fragment\+Shader} (\hyperlink{fwd_8h_a06964ec111fe28721d8618b6d0d993bf}{G\+PU} const gpu)
+\begin{DoxyCompactList}\small\item\em This function returns active fragment shader. \end{DoxyCompactList}\item 
+\hyperlink{program_8h_a8472f01c511d77bbfb981a46618ea1ea}{Interpolation\+Type} \hyperlink{gpu_8h_abe6e910608bf82bb9c36f774dd98c7e3}{gpu\+\_\+get\+Attribute\+Interpolation} (\hyperlink{fwd_8h_a06964ec111fe28721d8618b6d0d993bf}{G\+PU} const gpu, size\+\_\+t const attrib\+Index)
+\begin{DoxyCompactList}\small\item\em This functions returns interpolation type of vertex attributes of output vertex of active program. \end{DoxyCompactList}\item 
+\hyperlink{program_8h_a349a9cde14be8097df865ba0469c0ab2}{Attribute\+Type} \hyperlink{gpu_8h_a7531847505ea95cad8114f783b2820a6}{gpu\+\_\+get\+Attribute\+Type} (\hyperlink{fwd_8h_a06964ec111fe28721d8618b6d0d993bf}{G\+PU} const gpu, size\+\_\+t const attrib\+Index)
+\begin{DoxyCompactList}\small\item\em This function returns type of vertex attributes of output vertex of active program. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This file contains interface for virtual G\+PU. 
+
+\begin{DoxyAuthor}{Author}
+Tomáš Milet, \href{mailto:imilet@fit.vutbr.cz}{\tt imilet@fit.\+vutbr.\+cz} 
+\end{DoxyAuthor}
+
+
+\subsection{Function Documentation}
+\index{gpu.\+h@{gpu.\+h}!cpu\+\_\+clear\+Color@{cpu\+\_\+clear\+Color}}
+\index{cpu\+\_\+clear\+Color@{cpu\+\_\+clear\+Color}!gpu.\+h@{gpu.\+h}}
+\subsubsection[{\texorpdfstring{cpu\+\_\+clear\+Color(\+G\+P\+U const gpu, Vec4 const $\ast$const color)}{cpu_clearColor(GPU const gpu, Vec4 const *const color)}}]{\setlength{\rightskip}{0pt plus 5cm}void cpu\+\_\+clear\+Color (
+\begin{DoxyParamCaption}
+\item[{{\bf G\+PU} const}]{gpu, }
+\item[{{\bf Vec4} const $\ast$const}]{color}
+\end{DoxyParamCaption}
+)}\hypertarget{gpu_8h_ac8b73f65bb746147b136819e862785ce}{}\label{gpu_8h_ac8b73f65bb746147b136819e862785ce}
+
+
+This functions clears color buffer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em gpu} & G\+PU handle \\
+\hline
+{\em color} & clear color \\
+\hline
+\end{DoxyParams}
+\begin{Desc}
+\item[Examples\+: ]\par
+\hyperlink{TriangleExample-example}{Triangle\+Example}.\end{Desc}
+\index{gpu.\+h@{gpu.\+h}!cpu\+\_\+clear\+Depth@{cpu\+\_\+clear\+Depth}}
+\index{cpu\+\_\+clear\+Depth@{cpu\+\_\+clear\+Depth}!gpu.\+h@{gpu.\+h}}
+\subsubsection[{\texorpdfstring{cpu\+\_\+clear\+Depth(\+G\+P\+U const gpu, float const depth)}{cpu_clearDepth(GPU const gpu, float const depth)}}]{\setlength{\rightskip}{0pt plus 5cm}void cpu\+\_\+clear\+Depth (
+\begin{DoxyParamCaption}
+\item[{{\bf G\+PU} const}]{gpu, }
+\item[{float const}]{depth}
+\end{DoxyParamCaption}
+)}\hypertarget{gpu_8h_a988bd18047695141224acfbd2abbe246}{}\label{gpu_8h_a988bd18047695141224acfbd2abbe246}
+
+
+This function clears depth buffer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em gpu} & G\+PU handle \\
+\hline
+{\em depth} & depth that will be written to every pixel \\
+\hline
+\end{DoxyParams}
+\begin{Desc}
+\item[Examples\+: ]\par
+\hyperlink{TriangleExample-example}{Triangle\+Example}.\end{Desc}
+\index{gpu.\+h@{gpu.\+h}!cpu\+\_\+create\+G\+PU@{cpu\+\_\+create\+G\+PU}}
+\index{cpu\+\_\+create\+G\+PU@{cpu\+\_\+create\+G\+PU}!gpu.\+h@{gpu.\+h}}
+\subsubsection[{\texorpdfstring{cpu\+\_\+create\+G\+P\+U()}{cpu_createGPU()}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf G\+PU} cpu\+\_\+create\+G\+PU (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{gpu_8h_ace6f4308ad5d67c778e48e434f435e7d}{}\label{gpu_8h_ace6f4308ad5d67c778e48e434f435e7d}
+
+
+This function creates G\+PU handle. 
+
+This function creates virtual G\+PU
+
+\begin{DoxyReturn}{Returns}
+G\+PU handler 
+\end{DoxyReturn}
+\begin{Desc}
+\item[Examples\+: ]\par
+\hyperlink{TriangleExample-example}{Triangle\+Example}.\end{Desc}
+\index{gpu.\+h@{gpu.\+h}!cpu\+\_\+destroy\+G\+PU@{cpu\+\_\+destroy\+G\+PU}}
+\index{cpu\+\_\+destroy\+G\+PU@{cpu\+\_\+destroy\+G\+PU}!gpu.\+h@{gpu.\+h}}
+\subsubsection[{\texorpdfstring{cpu\+\_\+destroy\+G\+P\+U(\+G\+P\+U gpu)}{cpu_destroyGPU(GPU gpu)}}]{\setlength{\rightskip}{0pt plus 5cm}void cpu\+\_\+destroy\+G\+PU (
+\begin{DoxyParamCaption}
+\item[{{\bf G\+PU}}]{gpu}
+\end{DoxyParamCaption}
+)}\hypertarget{gpu_8h_aefa64b1f8ea2c83b8c80c68089739dc1}{}\label{gpu_8h_aefa64b1f8ea2c83b8c80c68089739dc1}
+
+
+This function destroys G\+PU handle. 
+
+This function destroys virtual G\+PU and all its allocated data
+
+
+\begin{DoxyParams}{Parameters}
+{\em gpu} & G\+PU handler \\
+\hline
+\end{DoxyParams}
+\begin{Desc}
+\item[Examples\+: ]\par
+\hyperlink{TriangleExample-example}{Triangle\+Example}.\end{Desc}
+\index{gpu.\+h@{gpu.\+h}!cpu\+\_\+get\+Color@{cpu\+\_\+get\+Color}}
+\index{cpu\+\_\+get\+Color@{cpu\+\_\+get\+Color}!gpu.\+h@{gpu.\+h}}
+\subsubsection[{\texorpdfstring{cpu\+\_\+get\+Color(\+G\+P\+U const gpu, size\+\_\+t const x, size\+\_\+t const y)}{cpu_getColor(GPU const gpu, size_t const x, size_t const y)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Vec4} const$\ast$ cpu\+\_\+get\+Color (
+\begin{DoxyParamCaption}
+\item[{{\bf G\+PU} const}]{gpu, }
+\item[{size\+\_\+t const}]{x, }
+\item[{size\+\_\+t const}]{y}
+\end{DoxyParamCaption}
+)}\hypertarget{gpu_8h_aa9a12dfb9412526707c77fc92004f1c7}{}\label{gpu_8h_aa9a12dfb9412526707c77fc92004f1c7}
+
+
+This function returns color of pixel. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em gpu} & G\+PU handle \\
+\hline
+{\em x} & x coord of pixel \\
+\hline
+{\em y} & y coord of pixel\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+color of pixel 
+\end{DoxyReturn}
+\index{gpu.\+h@{gpu.\+h}!cpu\+\_\+set\+Viewport\+Size@{cpu\+\_\+set\+Viewport\+Size}}
+\index{cpu\+\_\+set\+Viewport\+Size@{cpu\+\_\+set\+Viewport\+Size}!gpu.\+h@{gpu.\+h}}
+\subsubsection[{\texorpdfstring{cpu\+\_\+set\+Viewport\+Size(\+G\+P\+U const gpu, size\+\_\+t const width, size\+\_\+t const height)}{cpu_setViewportSize(GPU const gpu, size_t const width, size_t const height)}}]{\setlength{\rightskip}{0pt plus 5cm}void cpu\+\_\+set\+Viewport\+Size (
+\begin{DoxyParamCaption}
+\item[{{\bf G\+PU} const}]{gpu, }
+\item[{size\+\_\+t const}]{width, }
+\item[{size\+\_\+t const}]{height}
+\end{DoxyParamCaption}
+)}\hypertarget{gpu_8h_a35867aa85ba3dc4c33d03f6a2842f5af}{}\label{gpu_8h_a35867aa85ba3dc4c33d03f6a2842f5af}
+
+
+This function sets viewport size. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em gpu} & G\+PU handle \\
+\hline
+{\em width} & width of viewport in pixels \\
+\hline
+{\em height} & height of viewport in pixels \\
+\hline
+\end{DoxyParams}
+\begin{Desc}
+\item[Examples\+: ]\par
+\hyperlink{TriangleExample-example}{Triangle\+Example}.\end{Desc}
+\index{gpu.\+h@{gpu.\+h}!gpu\+\_\+get\+Active\+Fragment\+Shader@{gpu\+\_\+get\+Active\+Fragment\+Shader}}
+\index{gpu\+\_\+get\+Active\+Fragment\+Shader@{gpu\+\_\+get\+Active\+Fragment\+Shader}!gpu.\+h@{gpu.\+h}}
+\subsubsection[{\texorpdfstring{gpu\+\_\+get\+Active\+Fragment\+Shader(\+G\+P\+U const gpu)}{gpu_getActiveFragmentShader(GPU const gpu)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Fragment\+Shader} gpu\+\_\+get\+Active\+Fragment\+Shader (
+\begin{DoxyParamCaption}
+\item[{{\bf G\+PU} const}]{gpu}
+\end{DoxyParamCaption}
+)}\hypertarget{gpu_8h_abc59bb0e18a92e7156c5d4992ddf9ae1}{}\label{gpu_8h_abc59bb0e18a92e7156c5d4992ddf9ae1}
+
+
+This function returns active fragment shader. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em gpu} & G\+PU handle\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+fragment shader 
+\end{DoxyReturn}
+\index{gpu.\+h@{gpu.\+h}!gpu\+\_\+get\+Active\+Vertex\+Puller@{gpu\+\_\+get\+Active\+Vertex\+Puller}}
+\index{gpu\+\_\+get\+Active\+Vertex\+Puller@{gpu\+\_\+get\+Active\+Vertex\+Puller}!gpu.\+h@{gpu.\+h}}
+\subsubsection[{\texorpdfstring{gpu\+\_\+get\+Active\+Vertex\+Puller(\+G\+P\+U const gpu)}{gpu_getActiveVertexPuller(GPU const gpu)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf G\+P\+U\+Vertex\+Puller\+Configuration} const$\ast$ gpu\+\_\+get\+Active\+Vertex\+Puller (
+\begin{DoxyParamCaption}
+\item[{{\bf G\+PU} const}]{gpu}
+\end{DoxyParamCaption}
+)}\hypertarget{gpu_8h_adffa1ec52fbd5c6bc2853df67556a5a9}{}\label{gpu_8h_adffa1ec52fbd5c6bc2853df67556a5a9}
+
+
+This function returns active vertex puller configuration. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em gpu} & G\+PU handle\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+vertex puller configuration 
+\end{DoxyReturn}
+\index{gpu.\+h@{gpu.\+h}!gpu\+\_\+get\+Active\+Vertex\+Shader@{gpu\+\_\+get\+Active\+Vertex\+Shader}}
+\index{gpu\+\_\+get\+Active\+Vertex\+Shader@{gpu\+\_\+get\+Active\+Vertex\+Shader}!gpu.\+h@{gpu.\+h}}
+\subsubsection[{\texorpdfstring{gpu\+\_\+get\+Active\+Vertex\+Shader(\+G\+P\+U const gpu)}{gpu_getActiveVertexShader(GPU const gpu)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Vertex\+Shader} gpu\+\_\+get\+Active\+Vertex\+Shader (
+\begin{DoxyParamCaption}
+\item[{{\bf G\+PU} const}]{gpu}
+\end{DoxyParamCaption}
+)}\hypertarget{gpu_8h_a9ab8f2f3f94e1dddca2adafffce7044a}{}\label{gpu_8h_a9ab8f2f3f94e1dddca2adafffce7044a}
+
+
+This function returns active vertex shader. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em gpu} & G\+PU handle\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+vertex shader 
+\end{DoxyReturn}
+\index{gpu.\+h@{gpu.\+h}!gpu\+\_\+get\+Attribute\+Interpolation@{gpu\+\_\+get\+Attribute\+Interpolation}}
+\index{gpu\+\_\+get\+Attribute\+Interpolation@{gpu\+\_\+get\+Attribute\+Interpolation}!gpu.\+h@{gpu.\+h}}
+\subsubsection[{\texorpdfstring{gpu\+\_\+get\+Attribute\+Interpolation(\+G\+P\+U const gpu, size\+\_\+t const attrib\+Index)}{gpu_getAttributeInterpolation(GPU const gpu, size_t const attribIndex)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Interpolation\+Type} gpu\+\_\+get\+Attribute\+Interpolation (
+\begin{DoxyParamCaption}
+\item[{{\bf G\+PU} const}]{gpu, }
+\item[{size\+\_\+t const}]{attrib\+Index}
+\end{DoxyParamCaption}
+)}\hypertarget{gpu_8h_abe6e910608bf82bb9c36f774dd98c7e3}{}\label{gpu_8h_abe6e910608bf82bb9c36f774dd98c7e3}
+
+
+This functions returns interpolation type of vertex attributes of output vertex of active program. 
+
+Vertex attributes are interpolated into fragment attributes.
+
+
+\begin{DoxyParams}{Parameters}
+{\em gpu} & G\+PU handle \\
+\hline
+{\em attrib\+Index} & attribute index\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+interpolation type F\+L\+AT N\+O\+P\+E\+R\+S\+P\+E\+C\+T\+I\+VE S\+M\+O\+O\+TH 
+\end{DoxyReturn}
+\index{gpu.\+h@{gpu.\+h}!gpu\+\_\+get\+Attribute\+Type@{gpu\+\_\+get\+Attribute\+Type}}
+\index{gpu\+\_\+get\+Attribute\+Type@{gpu\+\_\+get\+Attribute\+Type}!gpu.\+h@{gpu.\+h}}
+\subsubsection[{\texorpdfstring{gpu\+\_\+get\+Attribute\+Type(\+G\+P\+U const gpu, size\+\_\+t const attrib\+Index)}{gpu_getAttributeType(GPU const gpu, size_t const attribIndex)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Attribute\+Type} gpu\+\_\+get\+Attribute\+Type (
+\begin{DoxyParamCaption}
+\item[{{\bf G\+PU} const}]{gpu, }
+\item[{size\+\_\+t const}]{attrib\+Index}
+\end{DoxyParamCaption}
+)}\hypertarget{gpu_8h_a7531847505ea95cad8114f783b2820a6}{}\label{gpu_8h_a7531847505ea95cad8114f783b2820a6}
+
+
+This function returns type of vertex attributes of output vertex of active program. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em gpu} & G\+PU handle \\
+\hline
+{\em attrib\+Index} & attribute index\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+type of attribute 
+\end{DoxyReturn}
+\index{gpu.\+h@{gpu.\+h}!gpu\+\_\+get\+Depth@{gpu\+\_\+get\+Depth}}
+\index{gpu\+\_\+get\+Depth@{gpu\+\_\+get\+Depth}!gpu.\+h@{gpu.\+h}}
+\subsubsection[{\texorpdfstring{gpu\+\_\+get\+Depth(\+G\+P\+U const gpu, size\+\_\+t const x, size\+\_\+t const y)}{gpu_getDepth(GPU const gpu, size_t const x, size_t const y)}}]{\setlength{\rightskip}{0pt plus 5cm}float gpu\+\_\+get\+Depth (
+\begin{DoxyParamCaption}
+\item[{{\bf G\+PU} const}]{gpu, }
+\item[{size\+\_\+t const}]{x, }
+\item[{size\+\_\+t const}]{y}
+\end{DoxyParamCaption}
+)}\hypertarget{gpu_8h_af10e6f05eb9f27886eb250f0af78e17b}{}\label{gpu_8h_af10e6f05eb9f27886eb250f0af78e17b}
+
+
+This function returns depth of pixel. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em gpu} & G\+PU handle \\
+\hline
+{\em x} & x coord of pixel \\
+\hline
+{\em y} & y coord of pixel\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+depth of pixel 
+\end{DoxyReturn}
+\index{gpu.\+h@{gpu.\+h}!gpu\+\_\+get\+Uniforms\+Handle@{gpu\+\_\+get\+Uniforms\+Handle}}
+\index{gpu\+\_\+get\+Uniforms\+Handle@{gpu\+\_\+get\+Uniforms\+Handle}!gpu.\+h@{gpu.\+h}}
+\subsubsection[{\texorpdfstring{gpu\+\_\+get\+Uniforms\+Handle(\+G\+P\+U gpu)}{gpu_getUniformsHandle(GPU gpu)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Uniforms} gpu\+\_\+get\+Uniforms\+Handle (
+\begin{DoxyParamCaption}
+\item[{{\bf G\+PU}}]{gpu}
+\end{DoxyParamCaption}
+)}\hypertarget{gpu_8h_a72dddc46dcba2d4e515fc23b61f0819a}{}\label{gpu_8h_a72dddc46dcba2d4e515fc23b61f0819a}
+
+
+This function returns handle to uniform values. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em gpu} & G\+PU handler\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+handle to all uniform values 
+\end{DoxyReturn}
+\begin{Desc}
+\item[Examples\+: ]\par
+\hyperlink{TriangleExample-example}{Triangle\+Example}.\end{Desc}
+\index{gpu.\+h@{gpu.\+h}!gpu\+\_\+get\+Viewport\+Height@{gpu\+\_\+get\+Viewport\+Height}}
+\index{gpu\+\_\+get\+Viewport\+Height@{gpu\+\_\+get\+Viewport\+Height}!gpu.\+h@{gpu.\+h}}
+\subsubsection[{\texorpdfstring{gpu\+\_\+get\+Viewport\+Height(\+G\+P\+U const gpu)}{gpu_getViewportHeight(GPU const gpu)}}]{\setlength{\rightskip}{0pt plus 5cm}size\+\_\+t gpu\+\_\+get\+Viewport\+Height (
+\begin{DoxyParamCaption}
+\item[{{\bf G\+PU} const}]{gpu}
+\end{DoxyParamCaption}
+)}\hypertarget{gpu_8h_a6525f5d8423ef4ad9f09751e3299ec4e}{}\label{gpu_8h_a6525f5d8423ef4ad9f09751e3299ec4e}
+
+
+This function returns height of viewport. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em gpu} & G\+PU handle\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+viewport height in pixels 
+\end{DoxyReturn}
+\index{gpu.\+h@{gpu.\+h}!gpu\+\_\+get\+Viewport\+Width@{gpu\+\_\+get\+Viewport\+Width}}
+\index{gpu\+\_\+get\+Viewport\+Width@{gpu\+\_\+get\+Viewport\+Width}!gpu.\+h@{gpu.\+h}}
+\subsubsection[{\texorpdfstring{gpu\+\_\+get\+Viewport\+Width(\+G\+P\+U const gpu)}{gpu_getViewportWidth(GPU const gpu)}}]{\setlength{\rightskip}{0pt plus 5cm}size\+\_\+t gpu\+\_\+get\+Viewport\+Width (
+\begin{DoxyParamCaption}
+\item[{{\bf G\+PU} const}]{gpu}
+\end{DoxyParamCaption}
+)}\hypertarget{gpu_8h_a72789741208c8149fc0be59cd2f86ab3}{}\label{gpu_8h_a72789741208c8149fc0be59cd2f86ab3}
+
+
+This function returns width of viewport. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em gpu} & G\+PU handle\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+viewport width in pixels 
+\end{DoxyReturn}
+\index{gpu.\+h@{gpu.\+h}!gpu\+\_\+set\+Color@{gpu\+\_\+set\+Color}}
+\index{gpu\+\_\+set\+Color@{gpu\+\_\+set\+Color}!gpu.\+h@{gpu.\+h}}
+\subsubsection[{\texorpdfstring{gpu\+\_\+set\+Color(\+G\+P\+U const gpu, size\+\_\+t const x, size\+\_\+t const y, Vec4 const $\ast$const color)}{gpu_setColor(GPU const gpu, size_t const x, size_t const y, Vec4 const *const color)}}]{\setlength{\rightskip}{0pt plus 5cm}void gpu\+\_\+set\+Color (
+\begin{DoxyParamCaption}
+\item[{{\bf G\+PU} const}]{gpu, }
+\item[{size\+\_\+t const}]{x, }
+\item[{size\+\_\+t const}]{y, }
+\item[{{\bf Vec4} const $\ast$const}]{color}
+\end{DoxyParamCaption}
+)}\hypertarget{gpu_8h_aba3f0745003901ada746d0565f787667}{}\label{gpu_8h_aba3f0745003901ada746d0565f787667}
+
+
+This function writes color of pixel into color buffer on G\+PU. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em gpu} & G\+PU handle \\
+\hline
+{\em x} & x coord of pixel \\
+\hline
+{\em y} & y coord of pixel \\
+\hline
+{\em color} & new color of pixel \\
+\hline
+\end{DoxyParams}
+\index{gpu.\+h@{gpu.\+h}!gpu\+\_\+set\+Depth@{gpu\+\_\+set\+Depth}}
+\index{gpu\+\_\+set\+Depth@{gpu\+\_\+set\+Depth}!gpu.\+h@{gpu.\+h}}
+\subsubsection[{\texorpdfstring{gpu\+\_\+set\+Depth(\+G\+P\+U const gpu, size\+\_\+t const x, size\+\_\+t const y, float const depth)}{gpu_setDepth(GPU const gpu, size_t const x, size_t const y, float const depth)}}]{\setlength{\rightskip}{0pt plus 5cm}void gpu\+\_\+set\+Depth (
+\begin{DoxyParamCaption}
+\item[{{\bf G\+PU} const}]{gpu, }
+\item[{size\+\_\+t const}]{x, }
+\item[{size\+\_\+t const}]{y, }
+\item[{float const}]{depth}
+\end{DoxyParamCaption}
+)}\hypertarget{gpu_8h_aa2c910251c9b4858c1df0aaab718baa5}{}\label{gpu_8h_aa2c910251c9b4858c1df0aaab718baa5}
+
+
+This function writes depth of pixel into depth buffer on G\+PU. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em gpu} & G\+PU handle \\
+\hline
+{\em x} & x coord of pixel \\
+\hline
+{\em y} & y coord of pixel \\
+\hline
+{\em depth} & new depth of pixel \\
+\hline
+\end{DoxyParams}

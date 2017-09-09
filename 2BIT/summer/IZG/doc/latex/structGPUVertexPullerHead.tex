@@ -1,0 +1,36 @@
+\hypertarget{structGPUVertexPullerHead}{}\section{G\+P\+U\+Vertex\+Puller\+Head Struct Reference}
+\label{structGPUVertexPullerHead}\index{G\+P\+U\+Vertex\+Puller\+Head@{G\+P\+U\+Vertex\+Puller\+Head}}
+
+
+This struct represents configuration for one reading head of vertex puller.  
+
+
+
+
+{\ttfamily \#include $<$vertex\+Puller.\+h$>$}
+
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+size\+\_\+t \hyperlink{structGPUVertexPullerHead_a7131d0e0d5ec5e76c89459da5503fbeb}{offset}\hypertarget{structGPUVertexPullerHead_a7131d0e0d5ec5e76c89459da5503fbeb}{}\label{structGPUVertexPullerHead_a7131d0e0d5ec5e76c89459da5503fbeb}
+
+\begin{DoxyCompactList}\small\item\em offset in bytes where this attribute starts for first vertex \end{DoxyCompactList}\item 
+size\+\_\+t \hyperlink{structGPUVertexPullerHead_a9b48e3de1de5716c6e5e8ffa6fcc2753}{stride}\hypertarget{structGPUVertexPullerHead_a9b48e3de1de5716c6e5e8ffa6fcc2753}{}\label{structGPUVertexPullerHead_a9b48e3de1de5716c6e5e8ffa6fcc2753}
+
+\begin{DoxyCompactList}\small\item\em distance in bytes between attributes for two consecutive vertices \end{DoxyCompactList}\item 
+int \hyperlink{structGPUVertexPullerHead_af0e62aaa41d6d4e134fef1a02624a592}{enabled}\hypertarget{structGPUVertexPullerHead_af0e62aaa41d6d4e134fef1a02624a592}{}\label{structGPUVertexPullerHead_af0e62aaa41d6d4e134fef1a02624a592}
+
+\begin{DoxyCompactList}\small\item\em is this attribute enabled? \end{DoxyCompactList}\item 
+void const $\ast$ \hyperlink{structGPUVertexPullerHead_a7b348342bde17bc367d19e48e3476116}{buffer}\hypertarget{structGPUVertexPullerHead_a7b348342bde17bc367d19e48e3476116}{}\label{structGPUVertexPullerHead_a7b348342bde17bc367d19e48e3476116}
+
+\begin{DoxyCompactList}\small\item\em buffer that contains this attribute \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This struct represents configuration for one reading head of vertex puller. 
+
+A vertex is composed of N vertex attributes (typically position, normal, texture coord, ...). A vertex attribute is composed of N components (1,2,3,4). Type of each component is the same. Each vertex has different data in its attributes (position of each vertex is different). The data for vertex attributes are stored in buffers. 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+student/\hyperlink{vertexPuller_8h}{vertex\+Puller.\+h}\end{DoxyCompactItemize}

@@ -1,0 +1,258 @@
+\hypertarget{vertexPuller_8h}{}\section{student/vertex\+Puller.h File Reference}
+\label{vertexPuller_8h}\index{student/vertex\+Puller.\+h@{student/vertex\+Puller.\+h}}
+
+
+This file contains structures and function declarations important for vertex puller configuration.  
+
+
+{\ttfamily \#include $<$stdlib.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}fwd.\+h\char`\"{}}\\*
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structGPUVertexPullerHead}{G\+P\+U\+Vertex\+Puller\+Head}
+\begin{DoxyCompactList}\small\item\em This struct represents configuration for one reading head of vertex puller. \end{DoxyCompactList}\item 
+struct \hyperlink{structGPUVertexPullerConfiguration}{G\+P\+U\+Vertex\+Puller\+Configuration}
+\begin{DoxyCompactList}\small\item\em represents configuration for vertex puller \end{DoxyCompactList}\item 
+struct \hyperlink{structGPUVertexPullerOutput}{G\+P\+U\+Vertex\+Puller\+Output}
+\begin{DoxyCompactList}\small\item\em This struct represents output of vertex puller -\/ vertex. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{vertexPuller_8h_a3b9678475f48f09c3ddbd4316fce3e08}{cpu\+\_\+create\+Vertex\+Pullers} (\hyperlink{fwd_8h_a06964ec111fe28721d8618b6d0d993bf}{G\+PU} const gpu, size\+\_\+t const n, \hyperlink{fwd_8h_a23828e2281a794e193ebaf0df3e1f17c}{Vertex\+Puller\+ID} $\ast$const arrays)
+\begin{DoxyCompactList}\small\item\em This function reserve vertex puller ids on G\+PU. \end{DoxyCompactList}\item 
+void \hyperlink{vertexPuller_8h_a07be46ae38b8ec80ec85581a33b02786}{cpu\+\_\+set\+Vertex\+Puller\+Head} (\hyperlink{fwd_8h_a06964ec111fe28721d8618b6d0d993bf}{G\+PU} const gpu, \hyperlink{fwd_8h_a23828e2281a794e193ebaf0df3e1f17c}{Vertex\+Puller\+ID} const puller, size\+\_\+t const head\+Index, \hyperlink{fwd_8h_a60a12bf4868ebe47cc571ce96a03f99c}{Buffer\+ID} const buffer, size\+\_\+t const offset, size\+\_\+t const stride)
+\begin{DoxyCompactList}\small\item\em This function sets vertex attribute in vertex puller. \end{DoxyCompactList}\item 
+void \hyperlink{vertexPuller_8h_aa312eaf555d453ead6a430f8f058c9a6}{cpu\+\_\+set\+Indexing} (\hyperlink{fwd_8h_a06964ec111fe28721d8618b6d0d993bf}{G\+PU} const gpu, \hyperlink{fwd_8h_a23828e2281a794e193ebaf0df3e1f17c}{Vertex\+Puller\+ID} const puller, \hyperlink{fwd_8h_a60a12bf4868ebe47cc571ce96a03f99c}{Buffer\+ID} const buffer, size\+\_\+t const index\+Size)
+\begin{DoxyCompactList}\small\item\em This function sets indexing in vertex puller. \end{DoxyCompactList}\item 
+void \hyperlink{vertexPuller_8h_afc4c70416bc0e515e75ec90c8c8d1584}{cpu\+\_\+enable\+Vertex\+Puller\+Head} (\hyperlink{fwd_8h_a06964ec111fe28721d8618b6d0d993bf}{G\+PU} const gpu, \hyperlink{fwd_8h_a23828e2281a794e193ebaf0df3e1f17c}{Vertex\+Puller\+ID} const puller, size\+\_\+t const head)
+\begin{DoxyCompactList}\small\item\em This function enables vertex puller head. \end{DoxyCompactList}\item 
+void \hyperlink{vertexPuller_8h_ab0cfb1f0c3a7a8ba3f79487b449d2ff9}{cpu\+\_\+disable\+Vertex\+Puller\+Head} (\hyperlink{fwd_8h_a06964ec111fe28721d8618b6d0d993bf}{G\+PU} const gpu, \hyperlink{fwd_8h_a23828e2281a794e193ebaf0df3e1f17c}{Vertex\+Puller\+ID} const puller, size\+\_\+t const head)
+\begin{DoxyCompactList}\small\item\em This function disables vertex puller head. \end{DoxyCompactList}\item 
+void \hyperlink{vertexPuller_8h_a27eee6237125ddc21c7d9b996f5af84e}{cpu\+\_\+bind\+Vertex\+Puller} (\hyperlink{fwd_8h_a06964ec111fe28721d8618b6d0d993bf}{G\+PU} const gpu, \hyperlink{fwd_8h_a23828e2281a794e193ebaf0df3e1f17c}{Vertex\+Puller\+ID} const id)
+\begin{DoxyCompactList}\small\item\em This function activates vertex puller. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This file contains structures and function declarations important for vertex puller configuration. 
+
+\begin{DoxyAuthor}{Author}
+Tomáš Milet, \href{mailto:imilet@fit.vutbr.cz}{\tt imilet@fit.\+vutbr.\+cz}
+\end{DoxyAuthor}
+The main purpose of vertex puller is construction of vertices that are sent to vertex shader. The vertex puller is composed of reading heads. Each reading head constructs one vertex attribute. A buffer, offset and stride are assigned to each reading head. A reading head could be enable or disabled.
+
+\begin{DoxyVerb}Example:
+
+A Vertex is composed of two vertex attributes: position and uv texture coordinates.
+The position attribute has 3 components of type float.
+The coord attribute has 2 components of type double.
+Both attributes are stored in same buffer with some padding.
+
+Notation:
+P0x - x component of position of vertex 0      (gl_VertexID == 0)
+P3z - z component of position of vertex 3      (gl_VertexID == 3)
+C0u - u component of texture coord of vertex 0 (gl_VertexID == 0)
+C8v - v component of texture coord of vertex 8 (gl_VertexID == 8)
+000 - empty space (one uint8_t)
+                             
+              offset of coord                stride of coord        
+        │◃─────────────────────────▹│◃─────────────────────────────▹│
+        │                           │                               │
+        ┌───────────────────────────────────────────────────────────────────────
+buffer: │000│000│000│P0x│P0y│P0z│000│C0u│C0v│000│000│P1x│P1y│P1z│000│C1u│C1v│...
+        └────────────────────────────────────────────────────────────────────────
+        │           │                               │
+        │ offset of │                               │
+        │ position  │      stride of position       │
+        │◃─────────▹│◃─────────────────────────────▹│
+
+The vertex puller is composed of two enabled reading heads.
+
+The reading head settings for position:
+offset = sizeof(uint8_t)*3
+stride = sizeof(float)*3 + sizeof(uint8_t) + sizeof(double)*2 + 2*sizeof(uint8_t)
+
+The reading head settings for coord:
+offset = offset of position + sizeof(float)*3 + sizeof(uint8_t)
+stride = stride of position
+\end{DoxyVerb}
+ 
+
+\subsection{Function Documentation}
+\index{vertex\+Puller.\+h@{vertex\+Puller.\+h}!cpu\+\_\+bind\+Vertex\+Puller@{cpu\+\_\+bind\+Vertex\+Puller}}
+\index{cpu\+\_\+bind\+Vertex\+Puller@{cpu\+\_\+bind\+Vertex\+Puller}!vertex\+Puller.\+h@{vertex\+Puller.\+h}}
+\subsubsection[{\texorpdfstring{cpu\+\_\+bind\+Vertex\+Puller(\+G\+P\+U const gpu, Vertex\+Puller\+I\+D const id)}{cpu_bindVertexPuller(GPU const gpu, VertexPullerID const id)}}]{\setlength{\rightskip}{0pt plus 5cm}void cpu\+\_\+bind\+Vertex\+Puller (
+\begin{DoxyParamCaption}
+\item[{{\bf G\+PU} const}]{gpu, }
+\item[{{\bf Vertex\+Puller\+ID} const}]{id}
+\end{DoxyParamCaption}
+)}\hypertarget{vertexPuller_8h_a27eee6237125ddc21c7d9b996f5af84e}{}\label{vertexPuller_8h_a27eee6237125ddc21c7d9b996f5af84e}
+
+
+This function activates vertex puller. 
+
+\begin{DoxyVerb}* Example:
+* //setup puller
+*
+* cpu_bindVertexPuller(gpu,puller);
+* //draw
+* cpu_bindVertexPuller(gpu,0);
+* \end{DoxyVerb}
+ Its alternative function in Open\+GL is \href{https://www.khronos.org/registry/OpenGL-Refpages/gl4/html/glBindVertexArray.xhtml}{\tt gl\+Bind\+Vertex\+Array}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em gpu} & G\+PU handler \\
+\hline
+{\em id} & index to vertex puller description \\
+\hline
+\end{DoxyParams}
+\begin{Desc}
+\item[Examples\+: ]\par
+\hyperlink{TriangleExample-example}{Triangle\+Example}.\end{Desc}
+\index{vertex\+Puller.\+h@{vertex\+Puller.\+h}!cpu\+\_\+create\+Vertex\+Pullers@{cpu\+\_\+create\+Vertex\+Pullers}}
+\index{cpu\+\_\+create\+Vertex\+Pullers@{cpu\+\_\+create\+Vertex\+Pullers}!vertex\+Puller.\+h@{vertex\+Puller.\+h}}
+\subsubsection[{\texorpdfstring{cpu\+\_\+create\+Vertex\+Pullers(\+G\+P\+U const gpu, size\+\_\+t const n, Vertex\+Puller\+I\+D $\ast$const arrays)}{cpu_createVertexPullers(GPU const gpu, size_t const n, VertexPullerID *const arrays)}}]{\setlength{\rightskip}{0pt plus 5cm}void cpu\+\_\+create\+Vertex\+Pullers (
+\begin{DoxyParamCaption}
+\item[{{\bf G\+PU} const}]{gpu, }
+\item[{size\+\_\+t const}]{n, }
+\item[{{\bf Vertex\+Puller\+ID} $\ast$const}]{arrays}
+\end{DoxyParamCaption}
+)}\hypertarget{vertexPuller_8h_a3b9678475f48f09c3ddbd4316fce3e08}{}\label{vertexPuller_8h_a3b9678475f48f09c3ddbd4316fce3e08}
+
+
+This function reserve vertex puller ids on G\+PU. 
+
+Vertex puller id points to vertex puller configuration on G\+PU Alternative function in Open\+GL is \href{https://www.opengl.org/sdk/docs/man4/html/glCreateVertexArrays.xhtml}{\tt gl\+Create\+Vertex\+Arrays}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em gpu} & G\+PU handler \\
+\hline
+{\em n} & number of vertex array ids that will be reserved \\
+\hline
+{\em arrays} & resulting vertex array ids \\
+\hline
+\end{DoxyParams}
+\begin{Desc}
+\item[Examples\+: ]\par
+\hyperlink{TriangleExample-example}{Triangle\+Example}.\end{Desc}
+\index{vertex\+Puller.\+h@{vertex\+Puller.\+h}!cpu\+\_\+disable\+Vertex\+Puller\+Head@{cpu\+\_\+disable\+Vertex\+Puller\+Head}}
+\index{cpu\+\_\+disable\+Vertex\+Puller\+Head@{cpu\+\_\+disable\+Vertex\+Puller\+Head}!vertex\+Puller.\+h@{vertex\+Puller.\+h}}
+\subsubsection[{\texorpdfstring{cpu\+\_\+disable\+Vertex\+Puller\+Head(\+G\+P\+U const gpu, Vertex\+Puller\+I\+D const puller, size\+\_\+t const head)}{cpu_disableVertexPullerHead(GPU const gpu, VertexPullerID const puller, size_t const head)}}]{\setlength{\rightskip}{0pt plus 5cm}void cpu\+\_\+disable\+Vertex\+Puller\+Head (
+\begin{DoxyParamCaption}
+\item[{{\bf G\+PU} const}]{gpu, }
+\item[{{\bf Vertex\+Puller\+ID} const}]{puller, }
+\item[{size\+\_\+t const}]{head}
+\end{DoxyParamCaption}
+)}\hypertarget{vertexPuller_8h_ab0cfb1f0c3a7a8ba3f79487b449d2ff9}{}\label{vertexPuller_8h_ab0cfb1f0c3a7a8ba3f79487b449d2ff9}
+
+
+This function disables vertex puller head. 
+
+Its alternative function in Open\+GL is \href{https://www.khronos.org/registry/OpenGL-Refpages/gl4/html/glEnableVertexAttribArray.xhtml}{\tt gl\+Disable\+Vertex\+Array\+Attrib}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em gpu} & G\+PU handler \\
+\hline
+{\em puller} & id of vertex puller configuration \\
+\hline
+{\em head} & vertex attribute index \\
+\hline
+\end{DoxyParams}
+\index{vertex\+Puller.\+h@{vertex\+Puller.\+h}!cpu\+\_\+enable\+Vertex\+Puller\+Head@{cpu\+\_\+enable\+Vertex\+Puller\+Head}}
+\index{cpu\+\_\+enable\+Vertex\+Puller\+Head@{cpu\+\_\+enable\+Vertex\+Puller\+Head}!vertex\+Puller.\+h@{vertex\+Puller.\+h}}
+\subsubsection[{\texorpdfstring{cpu\+\_\+enable\+Vertex\+Puller\+Head(\+G\+P\+U const gpu, Vertex\+Puller\+I\+D const puller, size\+\_\+t const head)}{cpu_enableVertexPullerHead(GPU const gpu, VertexPullerID const puller, size_t const head)}}]{\setlength{\rightskip}{0pt plus 5cm}void cpu\+\_\+enable\+Vertex\+Puller\+Head (
+\begin{DoxyParamCaption}
+\item[{{\bf G\+PU} const}]{gpu, }
+\item[{{\bf Vertex\+Puller\+ID} const}]{puller, }
+\item[{size\+\_\+t const}]{head}
+\end{DoxyParamCaption}
+)}\hypertarget{vertexPuller_8h_afc4c70416bc0e515e75ec90c8c8d1584}{}\label{vertexPuller_8h_afc4c70416bc0e515e75ec90c8c8d1584}
+
+
+This function enables vertex puller head. 
+
+Its alternative function in Open\+GL is \href{https://www.khronos.org/registry/OpenGL-Refpages/gl4/html/glEnableVertexAttribArray.xhtml}{\tt gl\+Enable\+Vertex\+Array\+Attrib}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em gpu} & G\+PU handler \\
+\hline
+{\em puller} & id of vertex puller configuration \\
+\hline
+{\em head} & index of vertex puller head \\
+\hline
+\end{DoxyParams}
+\begin{Desc}
+\item[Examples\+: ]\par
+\hyperlink{TriangleExample-example}{Triangle\+Example}.\end{Desc}
+\index{vertex\+Puller.\+h@{vertex\+Puller.\+h}!cpu\+\_\+set\+Indexing@{cpu\+\_\+set\+Indexing}}
+\index{cpu\+\_\+set\+Indexing@{cpu\+\_\+set\+Indexing}!vertex\+Puller.\+h@{vertex\+Puller.\+h}}
+\subsubsection[{\texorpdfstring{cpu\+\_\+set\+Indexing(\+G\+P\+U const gpu, Vertex\+Puller\+I\+D const puller, Buffer\+I\+D const buffer, size\+\_\+t const index\+Size)}{cpu_setIndexing(GPU const gpu, VertexPullerID const puller, BufferID const buffer, size_t const indexSize)}}]{\setlength{\rightskip}{0pt plus 5cm}void cpu\+\_\+set\+Indexing (
+\begin{DoxyParamCaption}
+\item[{{\bf G\+PU} const}]{gpu, }
+\item[{{\bf Vertex\+Puller\+ID} const}]{puller, }
+\item[{{\bf Buffer\+ID} const}]{buffer, }
+\item[{size\+\_\+t const}]{index\+Size}
+\end{DoxyParamCaption}
+)}\hypertarget{vertexPuller_8h_aa312eaf555d453ead6a430f8f058c9a6}{}\label{vertexPuller_8h_aa312eaf555d453ead6a430f8f058c9a6}
+
+
+This function sets indexing in vertex puller. 
+
+Its alternative function in Open\+GL is \href{https://www.khronos.org/registry/OpenGL-Refpages/gl4/html/glVertexArrayElementBuffer.xhtml}{\tt gl\+Vertex\+Array\+Element\+Buffer}. Indexing is used in indexed drawing (draw\+Elements).
+
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em gpu} & G\+PU handler \\
+\hline
+{\em puller} & id of vertex puller configuration \\
+\hline
+{\em buffer} & id of buffer that contains indices \\
+\hline
+{\em index\+Size} & size in bytes of one index (1,2,4 are allowed) \\
+\hline
+\end{DoxyParams}
+\index{vertex\+Puller.\+h@{vertex\+Puller.\+h}!cpu\+\_\+set\+Vertex\+Puller\+Head@{cpu\+\_\+set\+Vertex\+Puller\+Head}}
+\index{cpu\+\_\+set\+Vertex\+Puller\+Head@{cpu\+\_\+set\+Vertex\+Puller\+Head}!vertex\+Puller.\+h@{vertex\+Puller.\+h}}
+\subsubsection[{\texorpdfstring{cpu\+\_\+set\+Vertex\+Puller\+Head(\+G\+P\+U const gpu, Vertex\+Puller\+I\+D const puller, size\+\_\+t const head\+Index, Buffer\+I\+D const buffer, size\+\_\+t const offset, size\+\_\+t const stride)}{cpu_setVertexPullerHead(GPU const gpu, VertexPullerID const puller, size_t const headIndex, BufferID const buffer, size_t const offset, size_t const stride)}}]{\setlength{\rightskip}{0pt plus 5cm}void cpu\+\_\+set\+Vertex\+Puller\+Head (
+\begin{DoxyParamCaption}
+\item[{{\bf G\+PU} const}]{gpu, }
+\item[{{\bf Vertex\+Puller\+ID} const}]{puller, }
+\item[{size\+\_\+t const}]{head\+Index, }
+\item[{{\bf Buffer\+ID} const}]{buffer, }
+\item[{size\+\_\+t const}]{offset, }
+\item[{size\+\_\+t const}]{stride}
+\end{DoxyParamCaption}
+)}\hypertarget{vertexPuller_8h_a07be46ae38b8ec80ec85581a33b02786}{}\label{vertexPuller_8h_a07be46ae38b8ec80ec85581a33b02786}
+
+
+This function sets vertex attribute in vertex puller. 
+
+Its alternative functions in Open\+GL is \href{https://www.opengl.org/sdk/docs/man4/html/glBindVertexBuffer.xhtml}{\tt gl\+Vertex\+Array\+Vertex\+Buffer}.
+
+This function sets vertex attribute in vertex puller, \begin{DoxySeeAlso}{See also}
+\hyperlink{structGPUVertexPullerHead}{G\+P\+U\+Vertex\+Puller\+Head} \hyperlink{structGPUVertexPullerConfiguration}{G\+P\+U\+Vertex\+Puller\+Configuration}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em gpu} & G\+PU handler \\
+\hline
+{\em puller} & id of vertex puller \\
+\hline
+{\em head\+Index} & index of reading head in vertex puller configuration \\
+\hline
+{\em buffer} & id of buffer \\
+\hline
+{\em offset} & offset in bytes \\
+\hline
+{\em stride} & stride in bytes \\
+\hline
+\end{DoxyParams}
+\begin{Desc}
+\item[Examples\+: ]\par
+\hyperlink{TriangleExample-example}{Triangle\+Example}.\end{Desc}

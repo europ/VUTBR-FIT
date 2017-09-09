@@ -1,0 +1,165 @@
+\hypertarget{group__gpu__side}{}\section{Úkoly v gpu části}
+\label{group__gpu__side}\index{Úkoly v gpu části@{Úkoly v gpu části}}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{fwd_8h_a83b6b93a31d7fa3fc22f37a3a0798858}{Vertex\+Index} \hyperlink{group__gpu__side_ga3983ddd2c559c1a6d1e1f1f37be3eae0}{gpu\+\_\+compute\+G\+L\+Vertex\+ID} (\hyperlink{fwd_8h_a83b6b93a31d7fa3fc22f37a3a0798858}{Vertex\+Index} const $\ast$const indices, \hyperlink{fwd_8h_a3a23f024b4270ea7139910001f477346}{Vertex\+Shader\+Invocation} const vertex\+Shader\+Invocation)
+\begin{DoxyCompactList}\small\item\em This function computes gl\+\_\+\+Vertex\+ID from vertex shader invocation using indexing. \end{DoxyCompactList}\item 
+void const $\ast$ \hyperlink{group__gpu__side_ga4b894f26ed3c06346da10fc6c41f90eb}{gpu\+\_\+compute\+Vertex\+Attribute\+Data\+Pointer} (\hyperlink{structGPUVertexPullerHead}{G\+P\+U\+Vertex\+Puller\+Head} const $\ast$const head, \hyperlink{fwd_8h_a83b6b93a31d7fa3fc22f37a3a0798858}{Vertex\+Index} const gl\+\_\+\+Vertex\+ID)
+\begin{DoxyCompactList}\small\item\em This function computes data pointer for vertex attribute \char`\"{}attribute\char`\"{} for vertex with index \char`\"{}gl\+\_\+\+Vertex\+I\+D\char`\"{}. \end{DoxyCompactList}\item 
+void \hyperlink{group__gpu__side_ga0e0c36548db12eea1e6d512b9f855a1c}{gpu\+\_\+run\+Vertex\+Puller} (\hyperlink{structGPUVertexPullerOutput}{G\+P\+U\+Vertex\+Puller\+Output} $\ast$const output, \hyperlink{structGPUVertexPullerConfiguration}{G\+P\+U\+Vertex\+Puller\+Configuration} const $\ast$const puller, \hyperlink{fwd_8h_a3a23f024b4270ea7139910001f477346}{Vertex\+Shader\+Invocation} const vertex\+Shader\+Invocation)
+\begin{DoxyCompactList}\small\item\em this function represents vertex puller \end{DoxyCompactList}\item 
+void \hyperlink{group__gpu__side_ga5eb10381738a5e0426b2811820bc9483}{gpu\+\_\+run\+Primitive\+Assembly} (\hyperlink{fwd_8h_a06964ec111fe28721d8618b6d0d993bf}{G\+PU} const gpu, \hyperlink{structGPUPrimitive}{G\+P\+U\+Primitive} $\ast$const primitive, size\+\_\+t const nof\+Primitive\+Vertices, \hyperlink{structGPUVertexPullerConfiguration}{G\+P\+U\+Vertex\+Puller\+Configuration} const $\ast$const puller, \hyperlink{fwd_8h_a3a23f024b4270ea7139910001f477346}{Vertex\+Shader\+Invocation} const base\+Vertex\+Shader\+Invocation, \hyperlink{fwd_8h_a06caf90c4f22dc1c99aafd8f4b417512}{Vertex\+Shader} const vertex\+Shader)
+\begin{DoxyCompactList}\small\item\em This function performs primitive assembly. Primitive assembly unit constructs primitive using vertices. It executes vertex puller for each vertex of primitive. It also executes vertex shader on each vertex. \end{DoxyCompactList}\item 
+void \hyperlink{group__gpu__side_gad1769dca11910a684a6ddaad188f3e3d}{gpu\+\_\+compute\+Screen\+Space\+Barycentrics} (\hyperlink{structVec3}{Vec3} $\ast$const coords, \hyperlink{structVec2}{Vec2} const $\ast$const pixel\+Center, \hyperlink{structVec2}{Vec2} const vertices\mbox{[}\hyperlink{fwd_8h_a67df0e09b776eea53360bcc8f4a82ac9}{V\+E\+R\+T\+I\+C\+E\+S\+\_\+\+P\+E\+R\+\_\+\+T\+R\+I\+A\+N\+G\+LE}\mbox{]}, \hyperlink{structVec3}{Vec3} const lines\mbox{[}\hyperlink{fwd_8h_a9f5bff3a2ab411701ed6262d5eb96c39}{E\+D\+G\+E\+S\+\_\+\+P\+E\+R\+\_\+\+T\+R\+I\+A\+N\+G\+LE}\mbox{]})
+\begin{DoxyCompactList}\small\item\em This function computes screen-\/space barycentric coordinates of pixel. This function expects triangle transformed by viewport transformation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+\subsection{Function Documentation}
+\index{Úkoly v gpu části@{Úkoly v gpu části}!gpu\+\_\+compute\+G\+L\+Vertex\+ID@{gpu\+\_\+compute\+G\+L\+Vertex\+ID}}
+\index{gpu\+\_\+compute\+G\+L\+Vertex\+ID@{gpu\+\_\+compute\+G\+L\+Vertex\+ID}!Úkoly v gpu části@{Úkoly v gpu části}}
+\subsubsection[{\texorpdfstring{gpu\+\_\+compute\+G\+L\+Vertex\+I\+D(\+Vertex\+Index const $\ast$const indices, Vertex\+Shader\+Invocation const vertex\+Shader\+Invocation)}{gpu_computeGLVertexID(VertexIndex const *const indices, VertexShaderInvocation const vertexShaderInvocation)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Vertex\+Index} gpu\+\_\+compute\+G\+L\+Vertex\+ID (
+\begin{DoxyParamCaption}
+\item[{{\bf Vertex\+Index} const $\ast$const}]{indices, }
+\item[{{\bf Vertex\+Shader\+Invocation} const}]{vertex\+Shader\+Invocation}
+\end{DoxyParamCaption}
+)}\hypertarget{group__gpu__side_ga3983ddd2c559c1a6d1e1f1f37be3eae0}{}\label{group__gpu__side_ga3983ddd2c559c1a6d1e1f1f37be3eae0}
+
+
+This function computes gl\+\_\+\+Vertex\+ID from vertex shader invocation using indexing. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em indices} & pointer to \\
+\hline
+{\em vertex\+Shader\+Invocation} & id of vertex shader invocation\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return index of vertex if indexing is used, otherwise it returns vertex\+Shader\+Invocation 
+\end{DoxyReturn}
+\begin{DoxyRefDesc}{Todo}
+\item[\hyperlink{todo__todo000003}{Todo}]Naimplementujte výpočet gl\+\_\+\+Vertex\+ID z vertex\+Shader\+Invocation a případného indexování. vertex\+Shader\+Invocation obsahuje pořadové číslo spuštění (invokace) vertex shaderu v rámci jednoho vykreslovacího příkazu. gl\+\_\+\+Vertex\+ID je index vertexu, který se má poslat do vertex shaderu -\/ návratová hodnota této funkce. Pokud není aktivní indexing, index vertexu odpovída pořadovému číslu invokace vertex shaderu. Pokud je aktivní indexing, je potřeba zaadresovat správný gl\+\_\+\+Vertex\+ID z bufferu indexů (indices) pomocí čísla invokace. Indexing je aktivní, pokud buffer indexů není N\+U\+LL. \end{DoxyRefDesc}
+\index{Úkoly v gpu části@{Úkoly v gpu části}!gpu\+\_\+compute\+Screen\+Space\+Barycentrics@{gpu\+\_\+compute\+Screen\+Space\+Barycentrics}}
+\index{gpu\+\_\+compute\+Screen\+Space\+Barycentrics@{gpu\+\_\+compute\+Screen\+Space\+Barycentrics}!Úkoly v gpu části@{Úkoly v gpu části}}
+\subsubsection[{\texorpdfstring{gpu\+\_\+compute\+Screen\+Space\+Barycentrics(\+Vec3 $\ast$const coords, Vec2 const $\ast$const pixel\+Center, Vec2 const vertices[V\+E\+R\+T\+I\+C\+E\+S\+\_\+\+P\+E\+R\+\_\+\+T\+R\+I\+A\+N\+G\+LE], Vec3 const lines[E\+D\+G\+E\+S\+\_\+\+P\+E\+R\+\_\+\+T\+R\+I\+A\+N\+G\+LE])}{gpu_computeScreenSpaceBarycentrics(Vec3 *const coords, Vec2 const *const pixelCenter, Vec2 const vertices[VERTICES_PER_TRIANGLE], Vec3 const lines[EDGES_PER_TRIANGLE])}}]{\setlength{\rightskip}{0pt plus 5cm}void gpu\+\_\+compute\+Screen\+Space\+Barycentrics (
+\begin{DoxyParamCaption}
+\item[{{\bf Vec3} $\ast$const}]{coords, }
+\item[{{\bf Vec2} const $\ast$const}]{pixel\+Center, }
+\item[{{\bf Vec2} const}]{vertices\mbox{[}\+V\+E\+R\+T\+I\+C\+E\+S\+\_\+\+P\+E\+R\+\_\+\+T\+R\+I\+A\+N\+G\+L\+E\mbox{]}, }
+\item[{{\bf Vec3} const}]{lines\mbox{[}\+E\+D\+G\+E\+S\+\_\+\+P\+E\+R\+\_\+\+T\+R\+I\+A\+N\+G\+L\+E\mbox{]}}
+\end{DoxyParamCaption}
+)}\hypertarget{group__gpu__side_gad1769dca11910a684a6ddaad188f3e3d}{}\label{group__gpu__side_gad1769dca11910a684a6ddaad188f3e3d}
+
+
+This function computes screen-\/space barycentric coordinates of pixel. This function expects triangle transformed by viewport transformation. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em coords} & output barycentric coords \\
+\hline
+{\em pixel\+Center} & coords of pixel \\
+\hline
+{\em vertices} & triangle vertices \\
+\hline
+{\em lines} & triangle lines \\
+\hline
+\end{DoxyParams}
+\begin{DoxyRefDesc}{Todo}
+\item[\hyperlink{todo__todo000007}{Todo}]V této funkci spočtěte barycentrické coordináty trojúhelníku v obrazovce. Coordináty zapište do coords. V proměnné vertices naleznete pozice vrcholů ve 2D v obrazovce. V proměnné lines naleznete rovnice přímek hran trojúhelníka. Rovnice přímek jsou normalizované (velikost normály je 1). Normála směřuje směrem dovnitř trojúhelníka. \end{DoxyRefDesc}
+\index{Úkoly v gpu části@{Úkoly v gpu části}!gpu\+\_\+compute\+Vertex\+Attribute\+Data\+Pointer@{gpu\+\_\+compute\+Vertex\+Attribute\+Data\+Pointer}}
+\index{gpu\+\_\+compute\+Vertex\+Attribute\+Data\+Pointer@{gpu\+\_\+compute\+Vertex\+Attribute\+Data\+Pointer}!Úkoly v gpu části@{Úkoly v gpu části}}
+\subsubsection[{\texorpdfstring{gpu\+\_\+compute\+Vertex\+Attribute\+Data\+Pointer(\+G\+P\+U\+Vertex\+Puller\+Head const $\ast$const head, Vertex\+Index const gl\+\_\+\+Vertex\+I\+D)}{gpu_computeVertexAttributeDataPointer(GPUVertexPullerHead const *const head, VertexIndex const gl_VertexID)}}]{\setlength{\rightskip}{0pt plus 5cm}void const$\ast$ gpu\+\_\+compute\+Vertex\+Attribute\+Data\+Pointer (
+\begin{DoxyParamCaption}
+\item[{{\bf G\+P\+U\+Vertex\+Puller\+Head} const $\ast$const}]{head, }
+\item[{{\bf Vertex\+Index} const}]{gl\+\_\+\+Vertex\+ID}
+\end{DoxyParamCaption}
+)}\hypertarget{group__gpu__side_ga4b894f26ed3c06346da10fc6c41f90eb}{}\label{group__gpu__side_ga4b894f26ed3c06346da10fc6c41f90eb}
+
+
+This function computes data pointer for vertex attribute \char`\"{}attribute\char`\"{} for vertex with index \char`\"{}gl\+\_\+\+Vertex\+I\+D\char`\"{}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em head} & reading head of vertex attribute \\
+\hline
+{\em gl\+\_\+\+Vertex\+ID} & vertex index \\
+\hline
+\end{DoxyParams}
+\begin{DoxyRefDesc}{Todo}
+\item[\hyperlink{todo__todo000004}{Todo}]Naimplementujte výpočet ukazatele pro daný vertex attribut a číslo vrcholu. Tato funkce počíta přesný ukazatel na data vertex atributu. Dejte si pozor na ukazatelovou aritmetiku, ukazatel musí být na byte přesně. Správná adresa se odvíjí od adresy bufferu, offsetu čtěcí hlavy, čísla vrcholu a kroku čtecí hlavy. \end{DoxyRefDesc}
+\index{Úkoly v gpu části@{Úkoly v gpu části}!gpu\+\_\+run\+Primitive\+Assembly@{gpu\+\_\+run\+Primitive\+Assembly}}
+\index{gpu\+\_\+run\+Primitive\+Assembly@{gpu\+\_\+run\+Primitive\+Assembly}!Úkoly v gpu části@{Úkoly v gpu části}}
+\subsubsection[{\texorpdfstring{gpu\+\_\+run\+Primitive\+Assembly(\+G\+P\+U const gpu, G\+P\+U\+Primitive $\ast$const primitive, size\+\_\+t const nof\+Primitive\+Vertices, G\+P\+U\+Vertex\+Puller\+Configuration const $\ast$const puller, Vertex\+Shader\+Invocation const base\+Vertex\+Shader\+Invocation, Vertex\+Shader const vertex\+Shader)}{gpu_runPrimitiveAssembly(GPU const gpu, GPUPrimitive *const primitive, size_t const nofPrimitiveVertices, GPUVertexPullerConfiguration const *const puller, VertexShaderInvocation const baseVertexShaderInvocation, VertexShader const vertexShader)}}]{\setlength{\rightskip}{0pt plus 5cm}void gpu\+\_\+run\+Primitive\+Assembly (
+\begin{DoxyParamCaption}
+\item[{{\bf G\+PU} const}]{gpu, }
+\item[{{\bf G\+P\+U\+Primitive} $\ast$const}]{primitive, }
+\item[{size\+\_\+t const}]{nof\+Primitive\+Vertices, }
+\item[{{\bf G\+P\+U\+Vertex\+Puller\+Configuration} const $\ast$const}]{puller, }
+\item[{{\bf Vertex\+Shader\+Invocation} const}]{base\+Vertex\+Shader\+Invocation, }
+\item[{{\bf Vertex\+Shader} const}]{vertex\+Shader}
+\end{DoxyParamCaption}
+)}\hypertarget{group__gpu__side_ga5eb10381738a5e0426b2811820bc9483}{}\label{group__gpu__side_ga5eb10381738a5e0426b2811820bc9483}
+
+
+This function performs primitive assembly. Primitive assembly unit constructs primitive using vertices. It executes vertex puller for each vertex of primitive. It also executes vertex shader on each vertex. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em gpu} & G\+PU handle \\
+\hline
+{\em primitive} & output primitive \\
+\hline
+{\em nof\+Primitive\+Vertices} & number of primitive vertices (3 for triangle, 2 for line segment, 1 for point) \\
+\hline
+{\em puller} & vertex puller configuration \\
+\hline
+{\em base\+Vertex\+Shader\+Invocation} & vertex shader invocation number of first vertex of primitive \\
+\hline
+{\em vertex\+Shader} & function pointer to selected vertex\+Shader \\
+\hline
+\end{DoxyParams}
+\begin{DoxyRefDesc}{Todo}
+\item[\hyperlink{todo__todo000006}{Todo}]Naimplementujte funkci jednotky sestavující primitiva. Vašim úkolem je spustit vertex puller a dodaný vertex shader nad každým vrcholem primitiva. Funkce by měla spustit vertex puller/vertex shader N krát (podle množství vrcholů primitiva). Výstupy z vertex shaderu vložte do parametru primitive. Počet vrcholů primitiva je udán v nof\+Primitive\+Vertices. Čislo invokace vertex shaderu pro první vrchol primitiva je v base\+Vertex\+Shader\+Invocation proměnné. Nezapomeňte spustit nad každým vrcholem primitiva vertex shader. Nezapomeňte do každého vrcholu správně zapsat číslo vrcholu (gl\+\_\+\+Vertex\+ID)~\newline
+ {\bfseries Seznam funkcí, které jistě využijete\+:}
+\begin{DoxyItemize}
+\item \hyperlink{group__gpu__side_ga0e0c36548db12eea1e6d512b9f855a1c}{gpu\+\_\+run\+Vertex\+Puller()}
+\item \hyperlink{group__gpu__side_ga3983ddd2c559c1a6d1e1f1f37be3eae0}{gpu\+\_\+compute\+G\+L\+Vertex\+I\+D()}~\newline
+ {\bfseries Seznam struktur, které jistě využijete\+:}
+\item \hyperlink{fwd_8h_a791f232eebdb273092201dacd9b3fd60}{G\+P\+U\+Vertex\+Puller\+Output()}
+\item \hyperlink{fwd_8h_ac6b1d5e207ea5e4a8fc1208c7da10ffa}{G\+P\+U\+Vertex\+Shader\+Input()} 
+\end{DoxyItemize}\end{DoxyRefDesc}
+\index{Úkoly v gpu části@{Úkoly v gpu části}!gpu\+\_\+run\+Vertex\+Puller@{gpu\+\_\+run\+Vertex\+Puller}}
+\index{gpu\+\_\+run\+Vertex\+Puller@{gpu\+\_\+run\+Vertex\+Puller}!Úkoly v gpu části@{Úkoly v gpu části}}
+\subsubsection[{\texorpdfstring{gpu\+\_\+run\+Vertex\+Puller(\+G\+P\+U\+Vertex\+Puller\+Output $\ast$const output, G\+P\+U\+Vertex\+Puller\+Configuration const $\ast$const puller, Vertex\+Shader\+Invocation const vertex\+Shader\+Invocation)}{gpu_runVertexPuller(GPUVertexPullerOutput *const output, GPUVertexPullerConfiguration const *const puller, VertexShaderInvocation const vertexShaderInvocation)}}]{\setlength{\rightskip}{0pt plus 5cm}void gpu\+\_\+run\+Vertex\+Puller (
+\begin{DoxyParamCaption}
+\item[{{\bf G\+P\+U\+Vertex\+Puller\+Output} $\ast$const}]{vertex, }
+\item[{{\bf G\+P\+U\+Vertex\+Puller\+Configuration} const $\ast$const}]{puller\+Configuration, }
+\item[{{\bf Vertex\+Shader\+Invocation} const}]{vertex\+Shader\+Invocation}
+\end{DoxyParamCaption}
+)}\hypertarget{group__gpu__side_ga0e0c36548db12eea1e6d512b9f855a1c}{}\label{group__gpu__side_ga0e0c36548db12eea1e6d512b9f855a1c}
+
+
+this function represents vertex puller 
+
+It should do vertex puller job. This job is construction of vertex using buffers.
+
+
+\begin{DoxyParams}{Parameters}
+{\em vertex} & output vertex that is sent to vertex shader stage \\
+\hline
+{\em puller\+Configuration} & configuration of vertex puller \\
+\hline
+{\em vertex\+Shader\+Invocation} & id of vertex shader invocation \\
+\hline
+\end{DoxyParams}
+\begin{DoxyRefDesc}{Todo}
+\item[\hyperlink{todo__todo000005}{Todo}]Naimplementujte funkci vertex pulleru, využijte funkce gpu\+\_\+compute\+G\+L\+Vertex\+ID a gpu\+\_\+compute\+Vertex\+Attrbute\+Data\+Pointer. Funkce vertex pulleru je nastavit správné adresy vertex attributů. Výstupem vertex pulleru je struktura obsahují seznam pointerů. Vašim úkolem je vypočítat správné adresy jednotlivých attributů. Pokud daný atribut/čtecí hlava není povolený/neexistuje nastavte jeho adresu na N\+U\+LL.~\newline
+ {\bfseries Seznam funkcí, které jistě využijete\+:}
+\begin{DoxyItemize}
+\item \hyperlink{group__gpu__side_ga3983ddd2c559c1a6d1e1f1f37be3eae0}{gpu\+\_\+compute\+G\+L\+Vertex\+I\+D()}
+\item \hyperlink{group__gpu__side_ga4b894f26ed3c06346da10fc6c41f90eb}{gpu\+\_\+compute\+Vertex\+Attribute\+Data\+Pointer()} 
+\end{DoxyItemize}\end{DoxyRefDesc}

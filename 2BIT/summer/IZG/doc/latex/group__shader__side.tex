@@ -1,0 +1,92 @@
+\hypertarget{group__shader__side}{}\section{Úkoly v shaderech}
+\label{group__shader__side}\index{Úkoly v shaderech@{Úkoly v shaderech}}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{group__shader__side_gabf238d989258c2c2e8e807e42e1c1404}{phong\+\_\+vertex\+Shader} (\hyperlink{structGPUVertexShaderOutput}{G\+P\+U\+Vertex\+Shader\+Output} $\ast$const output, \hyperlink{structGPUVertexShaderInput}{G\+P\+U\+Vertex\+Shader\+Input} const $\ast$const input, \hyperlink{fwd_8h_a06964ec111fe28721d8618b6d0d993bf}{G\+PU} const gpu)
+\begin{DoxyCompactList}\small\item\em This function represents vertex shader for phong lighting/shading. \end{DoxyCompactList}\item 
+void \hyperlink{group__shader__side_ga9cb61ad448e54a23ba4d01a6ebdb48eb}{phong\+\_\+fragment\+Shader} (\hyperlink{structGPUFragmentShaderOutput}{G\+P\+U\+Fragment\+Shader\+Output} $\ast$const output, \hyperlink{structGPUFragmentShaderInput}{G\+P\+U\+Fragment\+Shader\+Input} const $\ast$const input, \hyperlink{fwd_8h_a06964ec111fe28721d8618b6d0d993bf}{G\+PU} const gpu)
+\begin{DoxyCompactList}\small\item\em This function represents fragment shader for phong lighting/shading. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+\subsection{Function Documentation}
+\index{Úkoly v shaderech@{Úkoly v shaderech}!phong\+\_\+fragment\+Shader@{phong\+\_\+fragment\+Shader}}
+\index{phong\+\_\+fragment\+Shader@{phong\+\_\+fragment\+Shader}!Úkoly v shaderech@{Úkoly v shaderech}}
+\subsubsection[{\texorpdfstring{phong\+\_\+fragment\+Shader(\+G\+P\+U\+Fragment\+Shader\+Output $\ast$const output, G\+P\+U\+Fragment\+Shader\+Input const $\ast$const input, G\+P\+U const gpu)}{phong_fragmentShader(GPUFragmentShaderOutput *const output, GPUFragmentShaderInput const *const input, GPU const gpu)}}]{\setlength{\rightskip}{0pt plus 5cm}void phong\+\_\+fragment\+Shader (
+\begin{DoxyParamCaption}
+\item[{{\bf G\+P\+U\+Fragment\+Shader\+Output} $\ast$const}]{output, }
+\item[{{\bf G\+P\+U\+Fragment\+Shader\+Input} const $\ast$const}]{input, }
+\item[{{\bf G\+PU} const}]{gpu}
+\end{DoxyParamCaption}
+)}\hypertarget{group__shader__side_ga9cb61ad448e54a23ba4d01a6ebdb48eb}{}\label{group__shader__side_ga9cb61ad448e54a23ba4d01a6ebdb48eb}
+
+
+This function represents fragment shader for phong lighting/shading. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em output} & output fragment \\
+\hline
+{\em input} & input fragment \\
+\hline
+{\em gpu} & G\+PU handle \\
+\hline
+\end{DoxyParams}
+\begin{DoxyRefDesc}{Todo}
+\item[\hyperlink{todo__todo000009}{Todo}]Naimplementujte fragment shader, který počítá phongův osvětlovací model s phongovým stínováním.~\newline
+ {\bfseries Vstup\+:}~\newline
+ Vstupní fragment by měl v nultém fragment atributu obsahovat interpolovanou pozici ve world-\/space a v prvním fragment atributu obsahovat interpolovanou normálu ve world-\/space.~\newline
+ {\bfseries Výstup\+:}~\newline
+ Barvu zapište do proměnné color ve výstupní struktuře.~\newline
+ {\bfseries Uniformy\+:}~\newline
+ Pozici kamery přečtěte z uniformní proměnné \char`\"{}camera\+Position\char`\"{} a pozici světla přečtěte z uniformní proměnné \char`\"{}light\+Position\char`\"{}. Zachovejte jména uniformních proměnný. Pokud tak neučiníte, akceptační testy selžou.~\newline
+ ~\newline
+ Dejte si pozor na velikost normálového vektoru, při lineární interpolaci v rasterizaci může dojít ke zkrácení. Zapište barvu do proměnné color ve výstupní struktuře. Shininess faktor nastavte na 40.\+f Difuzní barvu materiálu nastavte na čistou zelenou. Spekulární barvu materiálu nastavte na čistou bílou. Barvu světla nastavte na bílou. Nepoužívejte ambientní světlo.~\newline
+ {\bfseries Seznam funkcí, které jistě využijete}\+:
+\begin{DoxyItemize}
+\item \hyperlink{uniforms_8h_a0466fe65842b5a08561b87670f366f55}{shader\+\_\+interpret\+Uniform\+As\+Vec3()}
+\item \hyperlink{program_8h_a132afaeef0a64d93305bb2df3f35a524}{fs\+\_\+interpret\+Input\+Attribute\+As\+Vec3()} 
+\end{DoxyItemize}\end{DoxyRefDesc}
+\index{Úkoly v shaderech@{Úkoly v shaderech}!phong\+\_\+vertex\+Shader@{phong\+\_\+vertex\+Shader}}
+\index{phong\+\_\+vertex\+Shader@{phong\+\_\+vertex\+Shader}!Úkoly v shaderech@{Úkoly v shaderech}}
+\subsubsection[{\texorpdfstring{phong\+\_\+vertex\+Shader(\+G\+P\+U\+Vertex\+Shader\+Output $\ast$const output, G\+P\+U\+Vertex\+Shader\+Input const $\ast$const input, G\+P\+U const gpu)}{phong_vertexShader(GPUVertexShaderOutput *const output, GPUVertexShaderInput const *const input, GPU const gpu)}}]{\setlength{\rightskip}{0pt plus 5cm}void phong\+\_\+vertex\+Shader (
+\begin{DoxyParamCaption}
+\item[{{\bf G\+P\+U\+Vertex\+Shader\+Output} $\ast$const}]{output, }
+\item[{{\bf G\+P\+U\+Vertex\+Shader\+Input} const $\ast$const}]{input, }
+\item[{{\bf G\+PU} const}]{gpu}
+\end{DoxyParamCaption}
+)}\hypertarget{group__shader__side_gabf238d989258c2c2e8e807e42e1c1404}{}\label{group__shader__side_gabf238d989258c2c2e8e807e42e1c1404}
+
+
+This function represents vertex shader for phong lighting/shading. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em output} & output vertex \\
+\hline
+{\em input} & input vertex \\
+\hline
+{\em gpu} & G\+PU handle \\
+\hline
+\end{DoxyParams}
+\begin{DoxyRefDesc}{Todo}
+\item[\hyperlink{todo__todo000008}{Todo}]Naimplementujte vertex shader, který transformuje vstupní vrcholy do clip-\/space.~\newline
+ {\bfseries Vstupy\+:}~\newline
+ Vstupní vrchol by měl v nultém atributu obsahovat pozici vrcholu ve world-\/space (vec3) a v prvním atributu obsahovat normálu vrcholu ve world-\/space (vec3).~\newline
+ {\bfseries Výstupy\+:}~\newline
+ Výstupní vrchol by měl v nultém atributu obsahovat pozici vrcholu (vec3) ve world-\/space a v prvním atributu obsahovat normálu vrcholu ve world-\/space (vec3). Výstupní vrchol obsahuje pozici a normálu vrcholu proto, že chceme počítat osvětlení ve world-\/space ve fragment shaderu.~\newline
+ {\bfseries Uniformy\+:}~\newline
+ Vertex shader by měl pro transformaci využít uniformní proměnné obsahující view a projekční matici. View matici čtěte z uniformní proměnné \char`\"{}view\+Matrix\char`\"{} a projekční matici čtěte z uniformní proměnné \char`\"{}projection\+Matrix\char`\"{}. Zachovejte jména uniformních proměnných a pozice vstupních a výstupních atributů. Pokud tak neučiníte, akceptační testy selžou.~\newline
+ ~\newline
+ Využijte vektorové a maticové funkce. Nepředávajte si data do shaderu pomocí globálních proměnných. Pro získání dat atributů použijte příslušné funkce vs\+\_\+interpret$\ast$ definované v souboru \hyperlink{program_8h}{program.\+h}. Pro získání dat uniformních proměnných použijte příslušné funkce shader\+\_\+interpret\+Uniform$\ast$ definované v souboru \hyperlink{program_8h}{program.\+h}. Vrchol v clip-\/space by měl být zapsán do proměnné gl\+\_\+\+Position ve výstupní struktuře.~\newline
+ {\bfseries Seznam funkcí, které jistě použijete}\+:
+\begin{DoxyItemize}
+\item \hyperlink{gpu_8h_a72dddc46dcba2d4e515fc23b61f0819a}{gpu\+\_\+get\+Uniforms\+Handle()}
+\item \hyperlink{uniforms_8h_a6ea94982618b1c339a97a528b0670a53}{get\+Uniform\+Location()}
+\item \hyperlink{uniforms_8h_a83cb2c94ffb0623e9bb8d9508885376a}{shader\+\_\+interpret\+Uniform\+As\+Mat4()}
+\item \hyperlink{program_8h_a4bec56307c0d080bf314d20ff89773b2}{vs\+\_\+interpret\+Input\+Vertex\+Attribute\+As\+Vec3()}
+\item \hyperlink{program_8h_a60d0546dc8c052ee90f699ddca3b540b}{vs\+\_\+interpret\+Output\+Vertex\+Attribute\+As\+Vec3()} 
+\end{DoxyItemize}\end{DoxyRefDesc}

@@ -1,0 +1,475 @@
+/*
+ITW - Web Design
+Project 1
+xtotha01 - Adrian Toth
+*/
+
+
+
+/* vsetky globalne nastavenia */
+* {
+	margin: 0;
+	padding: 0;
+}
+/* nadpis blokov */
+h2 {
+	color: #585858;
+	font-family: "Times New Roman";
+	font-style: italic;
+	font-size: 2.5em;
+	text-align: center;
+	font-weight: 400;
+	transform:skew(-10deg, 0deg);
+}
+/* nadpis odsekov */
+h3 {
+	color: #585858;
+	font-weight: bold;
+	padding-bottom: 1em;
+}
+/* pod myskou zobrazi ciaru pod linkom */
+a:hover {
+	text-decoration: underline;
+}
+/* link nebude podciarknuty */
+a {
+	text-decoration: none;
+	color: inherit;
+}
+/* <BODY> id */
+#itw_p1_2017 {
+	text-align: center;
+}
+/* <DIV> all BODY content */
+#page {
+	display: inline-block;
+	max-width: 1920px;
+}
+
+
+
+/*=====================
+	UPPER PART
+======================*/
+/* top image mountains */
+#head {
+	background-image: url("images/topfoto.jpg");
+	background-position: center top;
+	background-repeat: no-repeat;
+	display: inline-block;
+	position: center;
+	width: 100%;
+	height: 768px;
+	z-index: -1;
+}
+/* grey bar */
+.bg {
+	position: relative;
+	background-color: gray;
+	opacity: 0.5;
+	margin-top: 3%;
+	margin-right: 1%;
+	margin-left: 1%;
+	height: 5em;
+	z-index: 0;
+}
+/* logo */
+#hh1 {
+	margin-top: -2.5em;
+	position:relative;
+	margin-left: 0.5em;
+	width: 151px;
+	height: 60px;
+}
+#head h1 a{
+	margin-top: -0.35em;
+	margin-left: -2.5em;
+	position: absolute;
+	background-image: url(images/logo.png);
+	background-repeat: no-repeat;
+	width: 151px;
+	height: 60px;
+}
+
+#hh1 span {
+	visibility: hidden;
+}
+/* something to be hidden */
+.hidden {
+	visibility: hidden;
+}
+#menu {
+	float:right;
+	font-family: "Arial";
+	font-weight: bold;
+	position: relative;
+	color: white;
+	margin-top:-5.5em;
+	font-size: 1.2em;
+}
+/* grey bar options */
+.main {
+	float:left;
+}
+.main li {
+	float: left;
+	margin-right: 2em;
+	list-style-type: none;
+}
+/*CZ in grey bar*/
+#lang {
+	float:right;
+}
+#curlang {
+	float:left;
+}
+.curlang {
+	color: #585858;
+}
+#lang {
+	margin-right:0.5em;
+	text-align: left;
+}
+#lang span {
+	background: url(images/select.png) 36px 6px;
+	background-repeat: no-repeat;
+	width: 50px;
+}
+.lang li {
+	margin-left: -1em;
+	list-style-type: none;
+	background-color: lightgrey;
+	color:#585858;
+}
+ul.lang  {
+	opacity: 0;
+	padding-left: 20px;
+	text-align: center;
+	padding-top: 25px;
+	width: 50px;
+	margin-left: -0.5em;
+}
+ul.lang:hover {
+	opacity: 1;
+}
+
+
+
+/*=====================
+	   TITLE NAME
+======================*/
+/*Title - all*/
+.descript {
+	position: relative;
+	font-family: "Times New Roman";
+	font-style: italic;
+	font-weight: 400;
+	font-size: 2.5em;
+	color: white;
+	margin-top: -5em;
+	font-size: 5em;
+	z-index: 2;
+	width:90%;
+	padding-left: 5%;
+	transform:skew(-10deg, 0deg);
+}
+/*Title - bold (last line)*/
+.descript strong{
+	font: inherit;;
+	color:orange;
+}
+
+
+
+/*==================
+       GLOBALS
+==================*/
+.content {
+	padding-left: 1%;
+	padding-right: 1%;
+	width:98%;
+	position: relative;
+	display: inline-block;
+	color: #585858;
+}
+.cols {
+	display: inline-block;
+	text-align: center;
+}
+.col {
+	margin-bottom: 2em;
+	text-align: justify;
+	width:420px;
+}
+.cols li {
+	margin-left: 20px;
+}
+
+.cols p {
+	margin-bottom: 15px;
+}
+
+.c1 {
+	float:left;
+	padding: 0;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+.c2 {
+	float:left;
+	padding: 0;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+.c3 {
+	float:left;
+	padding: 0;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+.full {
+	clear:left;
+	float:left;
+	width: 100%;
+	border-collapse: collapse;
+	border-top: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+	padding-top: 1em;
+	margin-bottom: -1px;
+}
+.full p {
+}
+
+
+
+/*===========================
+   GEOLOGIE A GEOMORFOLOGIE
+===========================*/
+#intro .full p {
+	float:left;
+	width:66%;
+	margin-left: 17%;
+}
+#intro .more {
+	float: right;
+	padding-top: 1.2em;
+	text-align: right;
+}
+#intro .more span {
+	margin-left: -5em;
+	padding-right: 2.5em;
+}
+
+#intro .more a {
+	background-image: url(images/plus.png);
+	background-repeat: no-repeat;
+}
+#intro {
+	display: inline-block;
+	text-align: center;
+	padding-top: 18em;
+	margin-bottom: 4em;
+}
+#intro .full {
+	padding-bottom: 1em;
+}
+#intro h2 {
+	padding-bottom: 1em;
+}
+
+
+
+/*===========================
+          FOTOGRAFIE
+===========================*/
+#gallery {
+	padding-top: 1em;
+	padding-bottom: 10em;
+}
+#gallery h2 {
+	padding-bottom: 1em;
+}
+#topgal img {
+	z-index: 5;
+}
+#topgal img:hover {
+	z-index: -5;
+	opacity: 0;
+}
+#topgal a:hover {
+	z-index: 3;
+	opacity: 1;
+}
+#topgal .descr em {
+	font-size: 2em;
+	width: 100%;
+	display: block;
+	padding-bottom: 0.3em;
+}
+#topgal .descr {
+	padding-top: 7em;
+	padding-bottom: 7em;
+	margin-left:-428px;
+	width:423px;
+	height: 72px;
+	background-color: lightgrey;
+	display: inline-block;
+	position: absolute;
+	z-index: -1;
+}
+#topgal .descr {
+	text-align: center;
+}
+#topgal a:hover {
+	text-decoration: none;
+}
+
+
+
+/*===========================
+           PRIRODA
+===========================*/
+#nature {
+	padding-top: 5em;
+	padding-bottom: 10em;
+	background-color: #cccccc;
+	text-align: center;
+}
+#nature h2 {
+	padding-bottom: 1em;
+}
+
+
+
+/*===========================
+       KONTAKTUJTE NAS
+===========================*/
+#contact {
+	padding-top: 5em;
+	padding-bottom: 10em;
+	background-color: #666666;
+	text-align: center;
+	color:white;
+}
+#contact h2 {
+	padding-bottom: 1em;
+	color:white;
+}
+#contact h3 {
+	float:left;
+	width: 40%;
+	height: 10em;
+	text-align: left;
+	color:white;
+	clear:left;
+}
+#contact .full:last-child h3 {
+	height: 1em;
+}
+#contact .full p {
+	padding-bottom: 1em;
+	float:left;
+	width: 30%;
+	height: 4em;
+	text-align: left;
+	color: white;
+}
+#contact strong {
+	color:orange;
+}
+
+
+
+/*===========================
+       SPODOK
+===========================*/
+.inside {
+	padding-top: 2em;
+}
+.copy {
+	float:left;
+	text-align: center;
+	width: 10em;
+}
+.contact {
+	float:right;
+	text-align: center;
+	width:10em;
+}
+.up {
+	position: relative;
+	padding-top: 2em;
+	background-image: url(images/up.png);
+	background-repeat: no-repeat;
+}
+.up span {
+	 visibility: hidden;
+}
+
+
+
+/*===========================
+        HACKS
+===========================*/
+/*page is bigger than 1920*/
+@media screen and (min-width: 1921px) {
+	.bg {
+		margin-right: 15%;
+		margin-left: 15%;
+	}
+	#hh1 {
+		margin-left: 0.1em;
+	}
+	.content {
+		width:70%;
+		margin-left: 15%;
+		margin-right: 15%;
+	}
+	ul.lang  {
+		padding-left: 40px;
+	}
+	.lang li {
+		margin-right: 1em;
+	}
+}
+
+
+
+/*resize top grey bar text space between elements*/
+@media screen and (max-width: 700px) {
+	.main li {
+		margin-right: 1em;
+	}
+}
+@media screen and (max-width: 1300px) {
+	#hh1 {
+		margin-left: 0.1em;
+	}
+	#lang {
+		margin-right:0;
+	}
+	.bg {
+		margin-right: 0;
+		margin-left: 0;
+	}
+}
+
+/*cist vice +*/
+@media screen and (max-width: 1200px) {
+	#intro .full p {
+		width: 60%;
+		margin-left: 20%;
+	}
+	#intro .more {
+	padding-top: 2em;
+	}
+}
+@media screen and (max-width: 1000px) {
+	#intro .full p {
+		width: 46%;
+		margin-left: 24%;
+	}
+	#intro .more {
+	padding-top: 3.5em;
+	}
+}
