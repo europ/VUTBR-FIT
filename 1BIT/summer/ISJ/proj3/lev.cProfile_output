@@ -1,0 +1,12 @@
+         35910 function calls (17958 primitive calls) in 0.014 seconds
+
+   Ordered by: standard name
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        1    0.000    0.000    0.014    0.014 lev.py:3(<module>)
+  17953/1    0.012    0.000    0.014    0.014 lev.py:3(lev)
+        1    0.000    0.000    0.014    0.014 {built-in method exec}
+    11969    0.001    0.000    0.001    0.000 {built-in method len}
+     5984    0.001    0.000    0.001    0.000 {built-in method min}
+        1    0.000    0.000    0.000    0.000 {built-in method print}
+        1    0.000    0.000    0.000    0.000 {method 'disable' of '_lsprof.Profiler' objects}
