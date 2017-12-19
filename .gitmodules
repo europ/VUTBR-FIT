@@ -4,3 +4,6 @@
 [submodule "2BIT/winter/IFJ/ifj16"]
 	path = 2BIT/winter/IFJ/ifj16
 	url = https://github.com/asuba512/ifj16
+[submodule "3BIT/winter/ILI/ili"]
+	path = 3BIT/winter/ILI/ili
+	url = https://github.com/europ/VUTBR-FIT-ILI

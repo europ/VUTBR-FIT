@@ -64,7 +64,7 @@
 * **[3BIT](https://github.com/europ/VUTBR-FIT/tree/master/3BIT)**
 	* **[winter](https://github.com/europ/VUTBR-FIT/tree/master/3BIT/winter)**
 		* IIS
-		* ILI
+		* [ILI](https://github.com/europ/VUTBR-FIT/tree/master/3BIT/winter/ILI)
 		* IMP
 		* IMS
 		* ISA
