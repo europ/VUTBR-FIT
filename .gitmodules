@@ -7,3 +7,6 @@
 [submodule "3BIT/winter/ILI/ili"]
 	path = 3BIT/winter/ILI/ili
 	url = https://github.com/europ/VUTBR-FIT-ILI
+[submodule "3BIT/winter/IIS/iis"]
+	path = 3BIT/winter/IIS/iis
+	url = https://github.com/europ/VUTBR-FIT-IIS
