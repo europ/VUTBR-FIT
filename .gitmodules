@@ -13,3 +13,6 @@
 [submodule "3BIT/winter/ISA/isa"]
 	path = 3BIT/winter/ISA/isa
 	url = https://github.com/europ/VUTBR-FIT-ISA
+[submodule "3BIT/winter/IMP/imp"]
+	path = 3BIT/winter/IMP/imp
+	url = https://github.com/europ/VUTBR-FIT-IMP
