@@ -69,7 +69,7 @@
 		* IMS
 		* [ISA](https://github.com/europ/VUTBR-FIT/tree/master/3BIT/winter/ISA)
 		* ITT
-		* ITU
+		* [ITU](https://github.com/europ/VUTBR-FIT/tree/master/3BIT/winter/ITU)
 		* PRM
 	* **[summer](https://github.com/europ/VUTBR-FIT/tree/master/3BIT/summer)**
 		* IBT

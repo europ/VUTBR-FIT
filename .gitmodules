@@ -16,3 +16,6 @@
 [submodule "3BIT/winter/IMP/imp"]
 	path = 3BIT/winter/IMP/imp
 	url = https://github.com/europ/VUTBR-FIT-IMP
+[submodule "3BIT/winter/ITU/itu"]
+	path = 3BIT/winter/ITU/itu
+	url = https://github.com/europ/VUTBR-FIT-ITU
