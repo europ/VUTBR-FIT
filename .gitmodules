@@ -19,3 +19,6 @@
 [submodule "3BIT/winter/ITU/itu"]
 	path = 3BIT/winter/ITU/itu
 	url = https://github.com/europ/VUTBR-FIT-ITU
+[submodule "3BIT/winter/IMS/ims"]
+	path = 3BIT/winter/IMS/ims
+	url = https://github.com/europ/VUTBR-FIT-IMS
