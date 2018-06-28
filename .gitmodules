@@ -22,3 +22,9 @@
 [submodule "3BIT/winter/IMS/ims"]
 	path = 3BIT/winter/IMS/ims
 	url = https://github.com/europ/VUTBR-FIT-IMS
+[submodule "3BIT/summer/IBT/text"]
+	path = 3BIT/summer/IBT/text
+	url = https://github.com/europ/VUTBR-FIT-BT
+[submodule "3BIT/summer/IBT/impl"]
+	path = 3BIT/summer/IBT/impl
+	url = https://github.com/europ/VUTBR-FIT-BT-IMPL
