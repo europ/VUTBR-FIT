@@ -1,0 +1,137 @@
+Hodnocení projektu IPP 2016/2017 - Úkol 2 / XQR / py / xtotha01
+===============================================================
+
+Dobrý den,
+jelikož jste provedl/a odevzdání úlohy 2 projektu do IPP 2016/2017, zasíláme Vám následující zpětnou vazbu doplňující bodové hodnocení v IS FIT.
+
+Číselné hodnocení zde uvedené je v minibodech, jejichž převod na finální body se řídí několika pravidly:
+  1) minibody za dokumentaci přepočteme kurzem 100 minibodů = 1 bod
+  2) minibody za automatické hodnocení skriptu se vyhodnotí dle kurzu specifickém pro Vaši úlohu:
+        XQR        105 mb = 1 bod
+Nakonec následuje korelace a zaokrouhlení dle informací o hodnocení v obecném zadání.
+
+Hodnocené úlohy zatím nebyly testovány na plagiátorství (bude provedeno do prvního termínu zkoušky).
+
+Úloha byla nejdříve automaticky rozbalena z odevzdaného archivu a pak byly spuštěny testy na serveru Merlin. Hodnotící testy nebudou zveřejněny. Hodnocení v rámci dokumentace dále zahrnuje také hodnocení kvality zdrojových kódů, komentářů atd.
+
+V případě nesouhlasu s hodnocením je možné využít osobní reklamace ve vypsaných termínech (viz IS FIT, Termíny IPP, Reklamace hodnocení 2. úlohy). Projděte si i komentář termínu s pokyny. Na individuální elektronické dotazy bude reagováno s nižší prioritou.
+
+
+Hodnocení dokumentace:
+----------------------
+  Získané minibody: 200
+  Komentář k hodnocení: WHICH;;
+
+Vysvětlivky zkratek v dokumentaci:
+  CH = pravopisné chyby, překlepy
+  FORMAT = špatný formát vzhledu dokumentu (nedodrženy požadavky)
+  SHORT = nesplňuje minimální požadavky na délku či obsah
+  STRUCT = nevhodně strukturováno (např. bez nadpisů)
+  MISSING = dokumentace nebyla odevzdána
+  COPY = text obsahuje úryvky ze zadání nebo cizí necitované materiály
+  STYLE = stylizace vět, nečitelnost, nesrozumitelnost
+  WHICH        (jen pro informaci) = v angličtině se pro zájmeno který většinou používá that místo which, také psaní interpunkce se liší dle důležitosti vedlejší věty
+  ARTICLES        = chybějící nebo špatné členy v anglicky psané dokumentaci
+  COMMENT = chybějící nebo nedostatečné komentáře ve zdrojovém textu
+  FILO = chybí či nedostatečná filosofie návrhu (abstraktní popis struktury programu, co následuje za čím)
+  SRCFORMAT = opravdu velmi špatná štábní kultura zdrojového kódu
+  SRCLANG        =        kombinování jazyků v názvech vlastních identifikátorů ve zdrojovém textu
+  LANG = míchání jazyků (většinou anglické termíny v českém textu)
+  HOV (jen pro informaci) = hovorové nebo nevhodné slangové výrazy
+  PRED (jen pro informaci) = pozor na neslabičné předložky na konci řádků
+  FORM (jen pro informaci) = nepěkná úprava, nekonzistentní velikost a typ písma apod.
+  BLOK (jen pro informaci) = chybí zarovnaní do bloku místo méně pěkného zarovnání na prapor (doleva)
+  KAPTXT (jen pro informaci) = mezi nadpisem a jeho podnadpisem by měl být vždy nějaký text
+  MEZ (jen pro informaci) = za otevírající nebo před zavírající závorku mezera nepatří
+  ICH (jen pro informaci) = ich-forma (psaní v první osobě jednotného čísla) není většinou vhodná pro programovou dokumentaci
+  TERM = problematická terminologie (neobvyklá, nepřesná či přímo špatná)
+  SAZBA (jen pro informaci) = alespoň identifikátory proměnných a funkcí se patří sázet písmem s jednotnou šířkou písmen (např. font Courier)
+  OK = k dokumentaci byly maximálně minoritní připomínky
+
+
+Informace o rozbalení odevzdaného archívu:
+------------------------------------------
+Extracting xtotha01/xtotha01-XQR.zip archive..
+Archive:  xtotha01-XQR.zip
+  inflating: xqr.py
+  inflating: XQR-doc.pdf
+Setting read-right to *.py, *.py3, and rozsireni...
+Checking file xqr.py as script filename...
+Script filename (xqr.py) is OK.
+
+
+Hodnocení skriptu (základní i rozšířené testy):
+-----------------------------------------------
+Následuje dvojtečkou oddělený seznam testů.
+  Jméno testu:Vaše hodnocení [mb]:[rozšíření]:Metadata testu:Komentář do konce řádku.
+Na konci naleznete celkový součet v nenormalizovaných minibodech.
+
+tests/basic/test01:10:[]:tests/basic/test01.cmd:test01: zkouska parametru --help (nekontroluje vystup na stdout)
+tests/basic/test02:20:[]:tests/basic/test02.cmd:test02: test parametru --help s jinym
+tests/basic/test03:10:[]:tests/basic/test03.cmd:test03: Zkouska --help vypisovaneho na stdout
+tests/xqr/test04:9:[]:tests/xqr/test04.cmd:test4: Jednoduchy SELECT element FROM ROOT - dotaz ze souboru
+tests/xqr/test05:9:[]:tests/xqr/test05.cmd:test5: Jednoduchy SELECT element FROM ROOT - dotaz z prikazove radky
+tests/xqr/test06:9:[]:tests/xqr/test06.cmd:test6: Jednoduchy SELECT element FROM rootovsky element - ze souboru
+tests/xqr/test07:9:[]:tests/xqr/test07.cmd:test7: Jednoduchy SELECT element FROM rootovsky element - ze souboru
+tests/xqr/test08:9:[]:tests/xqr/test08.cmd:test8: Jednoduchy SELECT element FROM rootovsky element s parametrem -n
+tests/xqr/test09:9:[]:tests/xqr/test09.cmd:test9: Jednoduchy SELECT element FROM rootovsky element s paramatrem -n - ze souboru
+tests/xqr/test10:18:[]:tests/xqr/test10.cmd:test10: Jednoduchy SELECT element FROM rootovsky element - bez korene
+tests/xqr/test11:18:[]:tests/xqr/test11.cmd:test11: Jednoduchy SELECT element FROM rootovsky element - bez korene, dotaz ze souboru
+tests/xqr/test12:18:[]:tests/xqr/test12.cmd:test12: Jednoduchy SELECT element FROM rootovsky element - bez korene a s parametrem -n
+tests/xqr/test13:18:[]:tests/xqr/test13.cmd:test13: Jednoduchy SELECT element FROM rootovsky element - bez korene a s parametrem -n, dotaz ze souboru
+tests/xqr/test14:18:[]:tests/xqr/test14.cmd:test14: Vyber neexistujiciho elementu
+tests/xqr/test15:18:[]:tests/xqr/test15.cmd:test15: Vyber neexistujiciho elementu - dotaz ze souboru
+tests/xqr/test16:18:[]:tests/xqr/test16.cmd:test16: Vyber z neexistujiciho elementu
+tests/xqr/test17:18:[]:tests/xqr/test17.cmd:test17: Vyber z neexistujiciho elementu - dotaz ze souboru
+tests/xqr/test18:18:[]:tests/xqr/test18.cmd:test18: Vyber skrz vice nevyhledavanych elementu
+tests/xqr/test19:18:[]:tests/xqr/test19.cmd:test19: Vyber skrz vice nevyhledavanych elementu - dotaz ze souboru
+tests/xqr/test20:18:[]:tests/xqr/test20.cmd:test20: Vyber z vice prohledavanych elementu. Prohledava se jen prvni.
+tests/xqr/test21:18:[]:tests/xqr/test21.cmd:test21: Vyber z vice prohledavanych elementu. Prohledava se jen prvni. Dotaz ze souboru.
+tests/xqr/test22:18:[]:tests/xqr/test22.cmd:test22: Vyber z vice prohledavanych elementu. Prohledava se podle vyskytu atributu - vybere se az druhy vyskyt.
+tests/xqr/test23:18:[]:tests/xqr/test23.cmd:test23: Vyber z vice prohledavanych elementu. Prohledava se podle vyskytu atributu bez zavislosti na elementu -1.
+tests/xqr/test24:18:[]:tests/xqr/test24.cmd:test24: Vyber z vice prohledavanych elementu. Prohledava se podle vyskytu atributu bez zavislosti na elementu - vybere se root.
+tests/xqr/test25:18:[]:tests/xqr/test25.cmd:test25: Testovani parametru WHERE - jednoducha podminka na rel. operator '=' nad string
+tests/xqr/test26:0:[]:tests/xqr/test26.cmd:test26: Testovani parametru WHERE - jednoducha podminka na operatory NOT a '='
+tests/xqr/test27:18:[]:tests/xqr/test27.cmd:test27: Testovani parametru WHERE - jednoducha podminka na operator '>' nad int
+tests/xqr/test28:18:[]:tests/xqr/test28.cmd:test28: Testovani parametru WHERE - jednoducha podminka na operator '>' nad float
+tests/xqr/test29:18:[]:tests/xqr/test29.cmd:test29: Testovani parametru WHERE - jednoducha podminka na operator '>' nad string
+tests/xqr/test30:18:[]:tests/xqr/test30.cmd:test30: Testovani parametru WHERE - jednoducha podminka na operator '<' nad int
+tests/xqr/test31:18:[]:tests/xqr/test31.cmd:test31: Testovani parametru WHERE - jednoducha podminka na operator '<' nad float
+tests/xqr/test32:18:[]:tests/xqr/test32.cmd:test32: Testovani parametru WHERE - jednoducha podminka na operator '<' nad string
+tests/xqr/test33:0:[]:tests/xqr/test33.cmd:test33: Testovani parametru WHERE - jednoducha podminka na operator '<' a vnoreny podelement (float)
+tests/xqr/test34:18:[]:tests/xqr/test34.cmd:test34: Testovani parametru WHERE - jednoducha podminka na operatory NOT a '<' nad float
+tests/xqr/test35:18:[]:tests/xqr/test35.cmd:test35: Testovani parametru WHERE - jednoducha podminka na operator 'CONTAINS' nad string
+tests/xqr/test36:18:[]:tests/xqr/test36.cmd:test36: Testovani parametru WHERE - jednoducha podminka na operator 'CONTAINS' nad ciselnym elementem - vystupem by mel byt pouze koren s hlavickou
+tests/xqr/test37:18:[]:tests/xqr/test37.cmd:test37: Testovani parametru WHERE - jednoducha podminka na operator 'CONTAINS' nad atributem def. elementu
+tests/xqr/test38:0:[]:tests/xqr/test38.cmd:test38: Testovani parametru WHERE - jednoducha podminka na operator 'CONTAINS' nad atributem bez def. elementu
+tests/xqr/test39:18:[]:tests/xqr/test39.cmd:test39: Testovani parametru WHERE - Syntakticka chyba s 'CONTAINS' v kombinaci s cislem
+tests/xqr/test40:0:[]:tests/xqr/test40.cmd:test40: Testovani parametru WHERE - jednoducha podminka na operatory NOT a CONTAINS
+tests/xqr/test41:0:[]:tests/xqr/test41.cmd:test41: Testovani FROM nad virtualnim korenovym elementem ROOT
+tests/xqr/test42:0:[]:tests/xqr/test42.cmd:test42: WHERE nad netextovym elementem - chyba
+tests/xqr/test43:18:[]:tests/xqr/test43.cmd:test43: LIMIT 1 (vybere se prvni)
+tests/xqr/test44:18:[]:tests/xqr/test44.cmd:test44: LIMIT 3 (vice nez je elementu, vyberou se vsechny)
+tests/xqr/test45:18:[]:tests/xqr/test45.cmd:test45: LIMIT 0 (nic se nevybere)
+tests/xqr/test46:18:[]:tests/xqr/test46.cmd:test46: Test spravnosti zadanych parametru gf a query soucasne
+tests/xqr/test47:0:[SKIPPED]:tests/xqr/test47.cmd:test47: ORD: by element ascending
+tests/xqr/test48:0:[SKIPPED]:tests/xqr/test48.cmd:test48: ORD: by element descending
+tests/xqr/test49:0:[SKIPPED]:tests/xqr/test49.cmd:test49: ORD: by attribute descending
+tests/xqr/test50:0:[SKIPPED]:tests/xqr/test50.cmd:test50: ORD: by attribute descending
+tests/xqr/test51:0:[SKIPPED]:tests/xqr/test51.cmd:test51: LOG: mnoho NOT
+tests/xqr/test52:0:[SKIPPED]:tests/xqr/test52.cmd:test52: LOG: jednoduche AND
+tests/xqr/test53:0:[SKIPPED]:tests/xqr/test53.cmd:test53: LOG: jednoduche AND mk.2
+tests/xqr/test54:0:[SKIPPED]:tests/xqr/test54.cmd:test54: LOG: jednoduche OR
+tests/xqr/test55:0:[SKIPPED]:tests/xqr/test55.cmd:test55: LOG: AND a OR
+tests/xqr/test56:0:[SKIPPED]:tests/xqr/test56.cmd:test56: LOG: zavorky
+tests/xqr/test57:0:[SKIPPED]:tests/xqr/test57.cmd:test57: LOG: zavorky mk.2
+tests/xqr/test58:0:[SKIPPED]:tests/xqr/test58.cmd:test58: LOG: vse
+tests/xqr/test59:18:[]:tests/xqr/test59.cmd:test59: Testovani spravneho pouziti typu pri porovnani
+tests/xqr/test60:18:[]:tests/xqr/test60.cmd:test60: Testovani LIMIT 2 a WHERE - jednoducha podminka na operator '<' nad int
+tests/xqr/test61:18:[]:tests/xqr/test61.cmd:test61: Testovani jednoducheho vyberu - ruzne urovne zanoreni
+tests/xqr/test62:18:[]:tests/xqr/test62.cmd:test62: Test na jednoduchou chybu syntaxe v dotazu
+tests/xqr/test63:8:[]:tests/xqr/test63.cmd:test63: Test na prazdny FROM
+ZAKLAD MINIBODU:732
+BONUS  MINIBODU:0
+CELKEM MINIBODU:732
+
+
+KONEC VÝPISU HODNOCENÍ
