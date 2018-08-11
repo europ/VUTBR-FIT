@@ -1,8 +1,8 @@
 [submodule "2BIT/summer/IJA/Solitaire"]
-	path = 2BIT/summer/IJA/Solitaire
+	path = 2BIT/summer/IJA/proj1/Solitaire
 	url = https://github.com/peter2141/Solitaire-IJA
 [submodule "2BIT/winter/IFJ/ifj16"]
-	path = 2BIT/winter/IFJ/ifj16
+	path = 2BIT/winter/IFJ/proj1/ifj16
 	url = https://github.com/asuba512/ifj16
 [submodule "3BIT/winter/ILI/ili"]
 	path = 3BIT/winter/ILI/ili

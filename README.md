@@ -3,8 +3,8 @@
 [![programme](https://img.shields.io/badge/programme-%20IT--BC--3-brightgreen.svg)](http://www.fit.vutbr.cz/study/bc/stplan-l.php.en?id=194)
 
 <h2 align="center">
-  Brno University of Technology<br>
-  Faculty of Information Technology
+	Brno University of Technology<br>
+	Faculty of Information Technology
 </h2>
 
 ### BIT
@@ -52,6 +52,7 @@
 			* [proj1](https://github.com/europ/VUTBR-FIT/tree/master/2BIT/winter/IAL/proj1) 10/10
 			* [proj2](https://github.com/europ/VUTBR-FIT/tree/master/2BIT/winter/IAL/proj2) 10/10
 		* [IFJ](https://github.com/europ/VUTBR-FIT/tree/master/2BIT/winter/IFJ)
+			* [proj1](https://github.com/europ/VUTBR-FIT/tree/master/2BIT/winter/IFJ/proj1) 20/20
 		* INM
 		* [INP](https://github.com/europ/VUTBR-FIT/tree/master/2BIT/winter/INP)
 			* [proj1](https://github.com/europ/VUTBR-FIT/tree/master/2BIT/winter/INP/proj1) 10/10
@@ -63,6 +64,7 @@
 		* [IDS](https://github.com/europ/VUTBR-FIT/tree/master/2BIT/summer/IDS)
 			* [proj1](https://github.com/europ/VUTBR-FIT/tree/master/2BIT/summer/IDS/proj1) 34/34
 		* [IJA](https://github.com/europ/VUTBR-FIT/tree/master/2BIT/summer/IJA)
+			* [proj1](https://github.com/europ/VUTBR-FIT/tree/master/2BIT/summer/IJA/proj1) 90/90
 		* [IPK](https://github.com/europ/VUTBR-FIT/tree/master/2BIT/summer/IPK)
 			* [proj1](https://github.com/europ/VUTBR-FIT/tree/master/2BIT/summer/IPK/proj1) 9/10
 			* [proj2](https://github.com/europ/VUTBR-FIT/tree/master/2BIT/summer/IPK/proj2) 19/20
