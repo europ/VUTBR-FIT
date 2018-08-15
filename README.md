@@ -1,14 +1,13 @@
 [![university](https://img.shields.io/badge/university-Brno%20University%20of%20Technology-red.svg)](https://www.vutbr.cz/en/)
 [![faculty](https://img.shields.io/badge/faculty-Faculty%20of%20Information%20Technology-blue.svg)](http://www.fit.vutbr.cz/.en)
-[![programme](https://img.shields.io/badge/programme-%20IT--BC--3-brightgreen.svg)](http://www.fit.vutbr.cz/study/bc/stplan-l.php.en?id=194)
 
 <h2 align="center">
 	Brno University of Technology<br>
 	Faculty of Information Technology
 </h2>
 
-### BIT
-* **[1BIT](https://github.com/europ/VUTBR-FIT/tree/master/1BIT)**
+### BIT 2015-2018
+* **[1BIT](https://github.com/europ/VUTBR-FIT/tree/master/1BIT)** 2015/2016
 	* **[winter](https://github.com/europ/VUTBR-FIT/tree/master/1BIT/winter)**
 		* IDA
 		* [IEL](https://github.com/europ/VUTBR-FIT/tree/master/1BIT/winter/IEL)
@@ -45,7 +44,7 @@
 		* [IVS](https://github.com/europ/VUTBR-FIT/tree/master/1BIT/summer/IVS)
 			* [proj1](https://github.com/europ/VUTBR-FIT/tree/master/1BIT/summer/IVS/proj1) 18/20
 			* proj2 46/50
-* **[2BIT](https://github.com/europ/VUTBR-FIT/tree/master/2BIT)**
+* **[2BIT](https://github.com/europ/VUTBR-FIT/tree/master/2BIT)** 2016/2017
 	* **[winter](https://github.com/europ/VUTBR-FIT/tree/master/2BIT/winter)**
 		* BAN4
 		* [IAL](https://github.com/europ/VUTBR-FIT/tree/master/2BIT/winter/IAL)
@@ -77,7 +76,7 @@
 		* [IZG](https://github.com/europ/VUTBR-FIT/tree/master/2BIT/summer/IZG)
 			* [proj1](https://github.com/europ/VUTBR-FIT/tree/master/2BIT/summer/IZG/proj1) 18/18
 		* IZU
-* **[3BIT](https://github.com/europ/VUTBR-FIT/tree/master/3BIT)**
+* **[3BIT](https://github.com/europ/VUTBR-FIT/tree/master/3BIT)** 2017/2018
 	* **[winter](https://github.com/europ/VUTBR-FIT/tree/master/3BIT/winter)**
 		* [IIS](https://github.com/europ/VUTBR-FIT/tree/master/3BIT/winter/IIS)
 		* [ILI](https://github.com/europ/VUTBR-FIT/tree/master/3BIT/winter/ILI)
@@ -89,3 +88,7 @@
 		* PRM
 	* **[summer](https://github.com/europ/VUTBR-FIT/tree/master/3BIT/summer)**
 		* [IBT](https://github.com/europ/VUTBR-FIT/tree/master/3BIT/summer/IBT)
+
+### Other
+* [BIT](#bit-2015-2018)
+    * [study programme](http://www.fit.vutbr.cz/study/bc/stplan-l.php.cs?id=194)
