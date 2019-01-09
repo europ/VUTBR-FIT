@@ -1,32 +1,32 @@
-[submodule "2BIT/summer/IJA/Solitaire"]
-	path = 2BIT/summer/IJA/proj1/Solitaire
+[submodule "BIT/2BIT/summer/IJA/Solitaire"]
+	path = BIT/2BIT/summer/IJA/proj1/Solitaire
 	url = https://github.com/peter2141/Solitaire-IJA
-[submodule "2BIT/winter/IFJ/ifj16"]
-	path = 2BIT/winter/IFJ/proj1/ifj16
+[submodule "BIT/2BIT/winter/IFJ/ifj16"]
+	path = BIT/2BIT/winter/IFJ/proj1/ifj16
 	url = https://github.com/asuba512/ifj16
-[submodule "3BIT/winter/ILI/ili"]
-	path = 3BIT/winter/ILI/ili
+[submodule "BIT/3BIT/winter/ILI/ili"]
+	path = BIT/3BIT/winter/ILI/ili
 	url = https://github.com/europ/VUTBR-FIT-ILI
-[submodule "3BIT/winter/IIS/iis"]
-	path = 3BIT/winter/IIS/iis
+[submodule "BIT/3BIT/winter/IIS/iis"]
+	path = BIT/3BIT/winter/IIS/iis
 	url = https://github.com/europ/VUTBR-FIT-IIS
-[submodule "3BIT/winter/ISA/isa"]
-	path = 3BIT/winter/ISA/isa
+[submodule "BIT/3BIT/winter/ISA/isa"]
+	path = BIT/3BIT/winter/ISA/isa
 	url = https://github.com/europ/VUTBR-FIT-ISA
-[submodule "3BIT/winter/IMP/imp"]
-	path = 3BIT/winter/IMP/imp
+[submodule "BIT/3BIT/winter/IMP/imp"]
+	path = BIT/3BIT/winter/IMP/imp
 	url = https://github.com/europ/VUTBR-FIT-IMP
-[submodule "3BIT/winter/ITU/itu"]
-	path = 3BIT/winter/ITU/itu
+[submodule "BIT/3BIT/winter/ITU/itu"]
+	path = BIT/3BIT/winter/ITU/itu
 	url = https://github.com/europ/VUTBR-FIT-ITU
-[submodule "3BIT/winter/IMS/ims"]
-	path = 3BIT/winter/IMS/ims
+[submodule "BIT/3BIT/winter/IMS/ims"]
+	path = BIT/3BIT/winter/IMS/ims
 	url = https://github.com/europ/VUTBR-FIT-IMS
-[submodule "3BIT/summer/IBT/text"]
-	path = 3BIT/summer/IBT/text
+[submodule "BIT/3BIT/summer/IBT/text"]
+	path = BIT/3BIT/summer/IBT/text
 	url = https://github.com/europ/VUTBR-FIT-BT
-[submodule "3BIT/summer/IBT/impl"]
-	path = 3BIT/summer/IBT/impl
+[submodule "BIT/3BIT/summer/IBT/impl"]
+	path = BIT/3BIT/summer/IBT/impl
 	url = https://github.com/europ/VUTBR-FIT-BT-IMPL
 [submodule "MIT/1MIT/winter/BIS/bis"]
 	path = MIT/1MIT/winter/BIS/bis
