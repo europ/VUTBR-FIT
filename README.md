@@ -79,12 +79,17 @@
 * **[3BIT](https://github.com/europ/VUTBR-FIT/tree/master/BIT/3BIT)** 2017/2018
 	* **[winter](https://github.com/europ/VUTBR-FIT/tree/master/BIT/3BIT/winter)**
 		* [IIS](https://github.com/europ/VUTBR-FIT/tree/master/BIT/3BIT/winter/IIS)
+		  * proj1 24/30
 		* [ILI](https://github.com/europ/VUTBR-FIT/tree/master/BIT/3BIT/winter/ILI)
 		* [IMP](https://github.com/europ/VUTBR-FIT/tree/master/BIT/3BIT/winter/IMP)
+		  * proj1 12,7/14
 		* [IMS](https://github.com/europ/VUTBR-FIT/tree/master/BIT/3BIT/winter/IMS)
+		  * proj1 17/20
 		* [ISA](https://github.com/europ/VUTBR-FIT/tree/master/BIT/3BIT/winter/ISA)
+		  * proj1 18.4/20
 		* ITT
 		* [ITU](https://github.com/europ/VUTBR-FIT/tree/master/BIT/3BIT/winter/ITU)
+		  * proj1 40/55
 		* PRM
 	* **[summer](https://github.com/europ/VUTBR-FIT/tree/master/BIT/3BIT/summer)**
 		* [IBT](https://github.com/europ/VUTBR-FIT/tree/master/BIT/3BIT/summer/IBT)
@@ -93,9 +98,12 @@
 * **[1MIT](https://github.com/europ/VUTBR-FIT/tree/master/MIT/1MIT)** 2018/2019
   * **[winter](https://github.com/europ/VUTBR-FIT/tree/master/MIT/1MIT/winter)**
     * [BIS](https://github.com/europ/VUTBR-FIT/tree/master/MIT/1MIT/winter/BIS)
+      * proj1 15/15
     * [HSC](https://github.com/europ/VUTBR-FIT/tree/master/MIT/1MIT/winter/HSC)
-    * MAT
+      * proj1 25/25
+    * [MAT](https://github.com/europ/VUTBR-FIT/tree/master/MIT/1MIT/winter/MAT)
     * [SEN](https://github.com/europ/VUTBR-FIT/tree/master/MIT/1MIT/winter/SEN)
+      * proj1 19/18
     * SMT
     * STI
     * TIN
