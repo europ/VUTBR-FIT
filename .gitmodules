@@ -1,7 +1,7 @@
-[submodule "BIT/2BIT/summer/IJA/Solitaire"]
+[submodule "BIT/2BIT/summer/IJA/proj1/Solitaire"]
 	path = BIT/2BIT/summer/IJA/proj1/Solitaire
 	url = https://github.com/peter2141/Solitaire-IJA
-[submodule "BIT/2BIT/winter/IFJ/ifj16"]
+[submodule "BIT/2BIT/winter/IFJ/proj1/ifj16"]
 	path = BIT/2BIT/winter/IFJ/proj1/ifj16
 	url = https://github.com/asuba512/ifj16
 [submodule "BIT/3BIT/winter/ILI/ili"]
