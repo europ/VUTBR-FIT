@@ -110,4 +110,6 @@
 
 ### Other
 * [BIT](#bit-2015-2018)
-    * [study programme](http://www.fit.vutbr.cz/study/bc/stplan-l.php.cs?id=194)
+    * [study programme](http://www.fit.vutbr.cz/study/bc/stplan-l.php?id=194)
+* [MIT](#mit-2018-)
+    * [study programme](http://www.fit.vutbr.cz/study/msc/stplan-l.php?id=216)
