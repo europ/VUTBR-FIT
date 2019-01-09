@@ -28,3 +28,12 @@
 [submodule "3BIT/summer/IBT/impl"]
 	path = 3BIT/summer/IBT/impl
 	url = https://github.com/europ/VUTBR-FIT-BT-IMPL
+[submodule "MIT/1MIT/winter/BIS/bis"]
+	path = MIT/1MIT/winter/BIS/bis
+	url = https://github.com/europ/VUTBR-FIT-BIS
+[submodule "MIT/1MIT/winter/HSC/hsc"]
+	path = MIT/1MIT/winter/HSC/hsc
+	url = https://github.com/europ/VUTBR-FIT-HSC
+[submodule "MIT/1MIT/winter/SEN/sen"]
+	path = MIT/1MIT/winter/SEN/sen
+	url = https://github.com/europ/VUTBR-FIT-SEN
