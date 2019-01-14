@@ -40,3 +40,6 @@
 [submodule "MIT/1MIT/winter/MAT/mat"]
 	path = MIT/1MIT/winter/MAT/mat
 	url = https://github.com/europ/VUTBR-FIT-MAT/
+[submodule "MIT/1MIT/winter/TIN/tin"]
+	path = MIT/1MIT/winter/TIN/tin
+	url = https://github.com/europ/VUTBR-FIT-TIN

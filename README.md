@@ -106,10 +106,13 @@
       * proj1 19/18
     * SMT
     * STI
-    * TIN
+    * [TIN](https://github.com/europ/VUTBR-FIT/tree/master/MIT/1MIT/winter/TIN)
+      * proj1 5/5
+      * proj2 4.9/5
+      * proj3 2.3/5
 
 ### Other
 * [BIT](#bit-2015-2018)
-    * [study programme](http://www.fit.vutbr.cz/study/bc/stplan-l.php?id=194)
+    * [bachelor study programme](http://www.fit.vutbr.cz/study/bc/stplan-l.php?id=194)
 * [MIT](#mit-2018-)
-    * [study programme](http://www.fit.vutbr.cz/study/msc/stplan-l.php?id=216)
+    * [master study programme - MBS](http://www.fit.vutbr.cz/study/msc/stplan-l.php?id=216)
