@@ -116,8 +116,10 @@
       * [proj2](https://github.com/europ/VUTBR-FIT-TIN) 4.9/5
       * [proj3](https://github.com/europ/VUTBR-FIT-TIN) 2.3/5
 
-### Other
+### Degree Programmes
 * [BIT](#bit-2015-2018)
     * [Bachelor Degree Programme - Information Technology (BIT)](http://www.fit.vutbr.cz/study/bc/stplan-l.php?id=194)
+    * credits earned: 185
 * [MIT](#mit-2018-)
     * [Master Degree Programme - Information Technology Security (MBS)](http://www.fit.vutbr.cz/study/msc/stplan-l.php?id=216)
+    * credits earned: 29
