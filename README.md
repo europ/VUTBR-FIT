@@ -1,10 +1,10 @@
 <div align="center">
-  <a href="https://www.vutbr.cz/en/">
-    <img src="https://img.shields.io/badge/university-Brno%20University%20of%20Technology-red.svg" alt="university">
-  </a>
-  <a href="http://www.fit.vutbr.cz/.en">
-    <img src="https://img.shields.io/badge/faculty-Faculty%20of%20Information%20Technology-blue.svg" alt="faculty">
-  </a>
+	<a href="https://www.vutbr.cz/en/">
+		<img src="https://img.shields.io/badge/university-Brno%20University%20of%20Technology-red.svg" alt="university">
+	</a>
+	<a href="http://www.fit.vutbr.cz/.en">
+		<img src="https://img.shields.io/badge/faculty-Faculty%20of%20Information%20Technology-blue.svg" alt="faculty">
+	</a>
 </div>
 
 <h2 align="center">
@@ -84,42 +84,45 @@
 * **[3BIT](https://github.com/europ/VUTBR-FIT/tree/master/BIT/3BIT)** 2017/2018
 	* **[winter](https://github.com/europ/VUTBR-FIT/tree/master/BIT/3BIT/winter)**
 		* [IIS](https://github.com/europ/VUTBR-FIT/tree/master/BIT/3BIT/winter/IIS)
-		  * [proj1](https://github.com/europ/VUTBR-FIT-IIS) 24/30
+			* [proj1](https://github.com/europ/VUTBR-FIT-IIS) 24/30
 		* [ILI](https://github.com/europ/VUTBR-FIT/tree/master/BIT/3BIT/winter/ILI)
 		* [IMP](https://github.com/europ/VUTBR-FIT/tree/master/BIT/3BIT/winter/IMP)
-		  * [proj1](https://github.com/europ/VUTBR-FIT-IMP) 12,7/14
+			* [proj1](https://github.com/europ/VUTBR-FIT-IMP) 12,7/14
 		* [IMS](https://github.com/europ/VUTBR-FIT/tree/master/BIT/3BIT/winter/IMS)
-		  * [proj1](https://github.com/europ/VUTBR-FIT-IMS) 17/20
+			* [proj1](https://github.com/europ/VUTBR-FIT-IMS) 17/20
 		* [ISA](https://github.com/europ/VUTBR-FIT/tree/master/BIT/3BIT/winter/ISA)
-		  * [proj1](https://github.com/europ/VUTBR-FIT-ISA) 18.4/20
+			* [proj1](https://github.com/europ/VUTBR-FIT-ISA) 18.4/20
 		* ITT
 		* [ITU](https://github.com/europ/VUTBR-FIT/tree/master/BIT/3BIT/winter/ITU)
-		  * [proj1](https://github.com/europ/VUTBR-FIT-ITU) 40/55
+			* [proj1](https://github.com/europ/VUTBR-FIT-ITU) 40/55
 		* PRM
 	* **[summer](https://github.com/europ/VUTBR-FIT/tree/master/BIT/3BIT/summer)**
 		* [IBT](https://github.com/europ/VUTBR-FIT/tree/master/BIT/3BIT/summer/IBT)
+			* [thesis](https://github.com/europ/VUTBR-FIT-BT)
+			* [setup](https://github.com/europ/VUTBR-FIT-BT-IMPL)
 
 ### [MIT](https://github.com/europ/VUTBR-FIT/tree/master/MIT) 2018-*
 * **[1MIT](https://github.com/europ/VUTBR-FIT/tree/master/MIT/1MIT)** 2018/2019
-  * **[winter](https://github.com/europ/VUTBR-FIT/tree/master/MIT/1MIT/winter)**
-    * [BIS](https://github.com/europ/VUTBR-FIT/tree/master/MIT/1MIT/winter/BIS)
-      * [proj1](https://github.com/europ/VUTBR-FIT-BIS) 15/15
-    * [HSC](https://github.com/europ/VUTBR-FIT/tree/master/MIT/1MIT/winter/HSC)
-      * [proj1](https://github.com/europ/VUTBR-FIT-HSC) 25/25
-    * [MAT](https://github.com/europ/VUTBR-FIT/tree/master/MIT/1MIT/winter/MAT)
-    * [SEN](https://github.com/europ/VUTBR-FIT/tree/master/MIT/1MIT/winter/SEN)
-      * [proj1](https://github.com/europ/VUTBR-FIT-SEN) 19/18
-    * SMT
-    * STI
-    * [TIN](https://github.com/europ/VUTBR-FIT/tree/master/MIT/1MIT/winter/TIN)
-      * [proj1](https://github.com/europ/VUTBR-FIT-TIN) 5/5
-      * [proj2](https://github.com/europ/VUTBR-FIT-TIN) 4.9/5
-      * [proj3](https://github.com/europ/VUTBR-FIT-TIN) 2.3/5
+	* **[winter](https://github.com/europ/VUTBR-FIT/tree/master/MIT/1MIT/winter)**
+		* [BIS](https://github.com/europ/VUTBR-FIT/tree/master/MIT/1MIT/winter/BIS)
+			* [proj1](https://github.com/europ/VUTBR-FIT-BIS) 15/15
+		* [HSC](https://github.com/europ/VUTBR-FIT/tree/master/MIT/1MIT/winter/HSC)
+			* [proj1](https://github.com/europ/VUTBR-FIT-HSC) 25/25
+		* [MAT](https://github.com/europ/VUTBR-FIT/tree/master/MIT/1MIT/winter/MAT)
+			* [materials](https://github.com/europ/VUTBR-FIT-MAT/)
+		* [SEN](https://github.com/europ/VUTBR-FIT/tree/master/MIT/1MIT/winter/SEN)
+			* [proj1](https://github.com/europ/VUTBR-FIT-SEN) 19/18
+		* SMT
+		* STI
+		* [TIN](https://github.com/europ/VUTBR-FIT/tree/master/MIT/1MIT/winter/TIN)
+			* [proj1](https://github.com/europ/VUTBR-FIT-TIN) 5/5
+			* [proj2](https://github.com/europ/VUTBR-FIT-TIN) 4.9/5
+			* [proj3](https://github.com/europ/VUTBR-FIT-TIN) 2.3/5
 
 ### Degree Programmes
 * [BIT](#bit-2015-2018)
-    * [Bachelor Degree Programme - Information Technology (BIT)](http://www.fit.vutbr.cz/study/bc/stplan-l.php?id=194)
-    * credits earned: 185
+	* [Bachelor Degree Programme - Information Technology (BIT)](http://www.fit.vutbr.cz/study/bc/stplan-l.php?id=194)
+	* credits earned: 185
 * [MIT](#mit-2018-)
-    * [Master Degree Programme - Information Technology Security (MBS)](http://www.fit.vutbr.cz/study/msc/stplan-l.php?id=216)
-    * credits earned: 29
+	* [Master Degree Programme - Information Technology Security (MBS)](http://www.fit.vutbr.cz/study/msc/stplan-l.php?id=216)
+	* credits earned: 29
