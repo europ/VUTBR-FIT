@@ -119,6 +119,12 @@
 			* [proj2](https://github.com/europ/VUTBR-FIT-TIN) 4.9/5
 			* [proj3](https://github.com/europ/VUTBR-FIT-TIN) 2.3/5
 
+<div align="center">
+	<strong>
+		I do NOT recommend you to study master's programme at <a href="http://www.fit.vutbr.cz/">FIT BUT</a>.
+	</strong>
+</div>
+
 ### Degree Programmes
 * [BIT](#bit-2015-2018)
 	* [Bachelor Degree Programme - Information Technology (BIT)](http://www.fit.vutbr.cz/study/bc/stplan-l.php?id=194)
@@ -126,3 +132,24 @@
 * [MIT](#mit-2018-)
 	* [Master Degree Programme - Information Technology Security (MBS)](http://www.fit.vutbr.cz/study/msc/stplan-l.php?id=216)
 	* credits earned: 29
+
+### Related repositories
+Some of the projects were developed in separate repositories that can be found below.
+
+| Subject | Repository URL                                                                   |
+| :-----: | -------------------------------------------------------------------------------- |
+| IFJ     | [github.com/asuba512/ifj16](https://github.com/asuba512/ifj16)                   |
+| IJA     | [github.com/peter2141/Solitaire-IJA](https://github.com/peter2141/Solitaire-IJA) |
+| ILI     | [github.com/europ/VUTBR-FIT-ILI](https://github.com/europ/VUTBR-FIT-ILI)         |
+| IIS     | [github.com/europ/VUTBR-FIT-IIS](https://github.com/europ/VUTBR-FIT-IIS)         |
+| ISA     | [github.com/europ/VUTBR-FIT-ISA](https://github.com/europ/VUTBR-FIT-ISA)         |
+| IMP     | [github.com/europ/VUTBR-FIT-IMP](https://github.com/europ/VUTBR-FIT-IMP)         |
+| ITU     | [github.com/europ/VUTBR-FIT-ITU](https://github.com/europ/VUTBR-FIT-ITU)         |
+| IMS     | [github.com/europ/VUTBR-FIT-IMS](https://github.com/europ/VUTBR-FIT-IMS)         |
+| IBT     | [github.com/europ/VUTBR-FIT-BT](https://github.com/europ/VUTBR-FIT-BT)           |
+| IBT     | [github.com/europ/VUTBR-FIT-BT-IMPL](https://github.com/europ/VUTBR-FIT-BT-IMPL) |
+| BIS     | [github.com/europ/VUTBR-FIT-BIS](https://github.com/europ/VUTBR-FIT-BIS)         |
+| HSC     | [github.com/europ/VUTBR-FIT-HSC](https://github.com/europ/VUTBR-FIT-HSC)         |
+| SEN     | [github.com/europ/VUTBR-FIT-SEN](https://github.com/europ/VUTBR-FIT-SEN)         |
+| MAT     | [github.com/europ/VUTBR-FIT-MAT](https://github.com/europ/VUTBR-FIT-MAT)         |
+| TIN     | [github.com/europ/VUTBR-FIT-TIN](https://github.com/europ/VUTBR-FIT-TIN)         |
