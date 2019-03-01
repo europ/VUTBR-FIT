@@ -101,7 +101,7 @@
 			* [thesis](https://github.com/europ/VUTBR-FIT-BT)
 			* [setup](https://github.com/europ/VUTBR-FIT-BT-IMPL)
 
-### [MIT](https://github.com/europ/VUTBR-FIT/tree/master/MIT) 2018-*
+### [MIT](https://github.com/europ/VUTBR-FIT/tree/master/MIT) 2018-X
 * **[1MIT](https://github.com/europ/VUTBR-FIT/tree/master/MIT/1MIT)** 2018/2019
 	* **[winter](https://github.com/europ/VUTBR-FIT/tree/master/MIT/1MIT/winter)**
 		* [BIS](https://github.com/europ/VUTBR-FIT/tree/master/MIT/1MIT/winter/BIS)
@@ -129,9 +129,12 @@
 * [BIT](#bit-2015-2018)
 	* [Bachelor Degree Programme - Information Technology (BIT)](http://www.fit.vutbr.cz/study/bc/stplan-l.php?id=194)
 	* credits earned: 185
-* [MIT](#mit-2018-)
+  * successfully passed
+* [MIT](#mit-2018-X)
 	* [Master Degree Programme - Information Technology Security (MBS)](http://www.fit.vutbr.cz/study/msc/stplan-l.php?id=216)
 	* credits earned: 29
+  * successfully passed 1st semester, left
+    * I successfully passed the 1st semester, after which I left the school by written notice of leaving.
 
 ### Related repositories
 Some of the projects were developed in separate repositories that can be found below.
