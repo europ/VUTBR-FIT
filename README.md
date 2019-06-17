@@ -1,9 +1,9 @@
 <div align="center">
 	<a href="https://www.vutbr.cz/en/">
-		<img src="https://img.shields.io/badge/university-Brno%20University%20of%20Technology-red.svg" alt="university">
+		<img src="https://img.shields.io/badge/university-Brno%20University%20of%20Technology-e4002b.svg" alt="university">
 	</a>
 	<a href="http://www.fit.vutbr.cz/.en">
-		<img src="https://img.shields.io/badge/faculty-Faculty%20of%20Information%20Technology-blue.svg" alt="faculty">
+		<img src="https://img.shields.io/badge/faculty-Faculty%20of%20Information%20Technology-00a9e0.svg" alt="faculty">
 	</a>
 </div>
 
@@ -136,6 +136,13 @@
   * successfully passed 1st semester, left
     * I successfully passed the 1st semester, after which I left the school by written notice of leaving.
 
+### Study materials
+Some of study materials were created for exams in separate repositories that can be found below.
+
+| Subject | Repository URL                                                           |
+| :-----: | ------------------------------------------------------------------------ |
+| MAT     | [github.com/europ/VUTBR-FIT-MAT](https://github.com/europ/VUTBR-FIT-MAT) |
+
 ### Related repositories
 Some of the projects were developed in separate repositories that can be found below.
 
@@ -154,5 +161,4 @@ Some of the projects were developed in separate repositories that can be found b
 | BIS     | [github.com/europ/VUTBR-FIT-BIS](https://github.com/europ/VUTBR-FIT-BIS)         |
 | HSC     | [github.com/europ/VUTBR-FIT-HSC](https://github.com/europ/VUTBR-FIT-HSC)         |
 | SEN     | [github.com/europ/VUTBR-FIT-SEN](https://github.com/europ/VUTBR-FIT-SEN)         |
-| MAT     | [github.com/europ/VUTBR-FIT-MAT](https://github.com/europ/VUTBR-FIT-MAT)         |
 | TIN     | [github.com/europ/VUTBR-FIT-TIN](https://github.com/europ/VUTBR-FIT-TIN)         |
